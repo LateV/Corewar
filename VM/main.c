@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		arg = ft_strtrim(argv[i]);
 		if(arg[0] == '-')
 			i = manage_flags(arg, argv, i);
-		elseit
+		else
 			i = manage_files(arg, argv, i);
 		free(arg);
 		i++;
