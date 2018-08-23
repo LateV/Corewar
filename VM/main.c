@@ -1,66 +1,138 @@
 #include "vm.h"
 
-int		manage_flags(t_cor cor, char **argv, int i)
+void	ft_reverse_bits(void *a, size_t size) // to.do : 
 {
+	size_t	i;
+	char	tmp;
+	char	*bits;
+
+	i = 0;
+	bits = (char*)a;
+	while (i != size - i)
+	{
+		tmp = bits[i];
+		bits[i] = bits[size - 1 - i];
+		bits[size - 1 - i] = tmp;
+		i++;
+	}
+}
+
+void	ft_error(t_cor *cor, char *error)
+{
+	cor->p_num = cor->p_num;
+	ft_putstr(error);
+	exit(0);
+}
+
+int		manage_flags(t_cor *cor, char **argv, int i)
+{
+	cor->p_num = cor->p_num;
+	printf("argv[i] = %s\n", argv[i]);
 	return(i);
 }
 
-void cor_format(t_cor cor, char *path)
+void cor_format(t_cor *cor, char *path)
 {
 	int i;
 
-	printf("path = %s\n", path);
 	i = ft_strlen(path);
-	printf("len = %d\n", i);
+	if(i - 5 > 0)
+	{
+		if(ft_strcmp(path + i - 4, ".cor") != 0)
+			ft_error(cor, "Bad file name (must by file_name.cor)\n");
+	}
+	else
+		ft_error(cor , "Bad input file\n");
+}
+
+void	calculate_p_num(t_cor *cor)
+{
+	int i;
+
+	i = 0;
+	if(cor->p_num > 3)
+		ft_error(cor, "Error: max 4 players\n");
+	if(cor->flag_p_num == -1)
+	{
+		cor->player[cor->p_num].num = cor->p_num + 1;
+		cor->curr_pl = cor->player[cor->p_num].num;
+		cor->p_num++;
+	}
+	else
+	{
+		cor->player[cor->p_num].num = cor->flag_p_num;
+		cor->flag_p_num = -1;
+		cor->curr_pl = cor->player[cor->p_num].num;
+		cor->p_num++;
+	}
+}
+
+void magic_header(char *argv)
+{
+	unsigned int i;
+	// char		null[4];
+	int fd;
+
+	fd = open(argv, O_RDONLY);
+	read(fd, &i, 4);
+	printf("magic = %#x", i);
+	// check_magic(i)
+	// read(fd, &name, PROG_NAME_LENGTH);
+	// read(fd, &null, 4);
+	// check_null()
+	// read(fd, &prog_size, 4);
+	// read(fd, &comment, COMMENT_LENGTH);
+	// read(fd, &null, 4);
+	// check_null()
+	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
+	// read(fd, exec, prog_size);
 
 }
 
-// void magic_header(char *line)
-// {
-// 	unsigned int i;
-// 	char		null[4]
-
-// 	read(fd, &i, 4);
-// 	check_magic(i)
-// 	read(fd, &name, PROG_NAME_LENGTH);
-// 	read(fd, &null, 4);
-// 	check_null()
-// 	read(fd, &prog_size, 4);
-// 	read(fd, &comment, COMMENT_LENGTH);
-// 	read(fd, &null, 4);
-// 	check_null()
-// 	unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
-// 	read(fd, exec, prog_size);
-
-// }
-
-void	manage_files(t_cor cor, char arg, char **argv)
+void	manage_files(t_cor *cor, char *argv)
 {
-	// int fd;
+	cor_format(cor, argv);
+	printf("argv[i] = %s\n", argv);
+	calculate_p_num(cor);
+	magic_header(argv);
+}
 
-	// fd = open(arg, O_RDONLY);
-	cor_format(arg);
-	// magic_header(arg, fd);
+void init_players(t_cor *cor)
+{
+	int  i;
 
-	return(i);
+	i = 0;
+	while(i < 4)
+	{
+		cor->player[i].num = -1;
+		i++;
+	}
 }
 
 int main(int argc, char **argv)
 {
 	t_cor cor;
-	char *arg;
 	int i;
 	int j;
 
 	i = 1;
-	t_cor.p_num = 0;
-	while(i < argc)
+	cor.p_num = 0;
+	cor.flag_p_num = -1;
+	ft_bzero(cor.player, sizeof(t_player) * 4);
+	init_players(&cor);
+	while (i < argc)
 	{
-		arg = ft_strtrim(argv[i]);
-		if(arg[0] == '-')
-			j = manage_flags(cor, arg, argv, i);
-		manage_files(cor, arg);
-		free(arg);
+		if (argv[i][0] == '-')
+		{
+			j = manage_flags(&cor, argv, i);
+			if (j > i)
+				i++;
+			else if (j == -1)
+				manage_files(&cor, argv[i]);
+			i++;
+			continue;
+		}
+		manage_files(&cor, argv[i]);
 		i++;
 	}
 	system("leaks -quiet corewar");
