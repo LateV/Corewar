@@ -105,6 +105,7 @@ void			ft_pputproc(t_printf **format);
 void			ft_put_wcharstr(const wchar_t *s);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
+void			ft_reverse_bits(void *a, size_t size);
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_pputcharik(t_printf **format, char c);

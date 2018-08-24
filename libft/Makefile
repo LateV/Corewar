@@ -82,6 +82,7 @@ SRC =	ft_bzero.c      			\
 		ft_count_words.c 			\
 		ft_lstadd_back.c 			\
 		ft_strtoupper.c 			\
+		ft_reverse_bits.c 			\
 		printf/ft_wchar_len.c 		\
 		printf/ft_putxnolen.c 		\
 		printf/ft_specif.c 			\
