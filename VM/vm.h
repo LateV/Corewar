@@ -51,9 +51,9 @@ typedef char	t_arg_type;
 typedef struct			s_player
 {
 	char 				*file_path;
-	char				comment[COMMENT_LENGTH + 1];
 	char				prog_name[PROG_NAME_LENGTH + 1];
-	
+	char				comment[COMMENT_LENGTH + 1];
+
 	int					num;
 	unsigned int		magic;
 	unsigned int		prog_size;

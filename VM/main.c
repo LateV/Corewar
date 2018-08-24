@@ -103,19 +103,29 @@ void init_players(t_cor *cor)
 	}
 }
 
-// void check_name(t_cor *cor, int fd, int i)
-// {
-// 	// check_magic(i)
-// 	// read(fd, &name, PROG_NAME_LENGTH);
-// 	// read(fd, &null, 4);
-// 	// check_null()
-// 	// read(fd, &prog_size, 4);
-// 	// read(fd, &comment, COMMENT_LENGTH);
-// 	// read(fd, &null, 4);
-// 	// check_null()
-// 	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
-// 	// read(fd, exec, prog_size);
-// }
+void check_name(t_cor *cor, int fd, int i)
+{
+	int ret;
+
+	ret = read(fd, &cor->player[i].prog_name, PROG_NAME_LENGTH);
+	if(ret < PROG_NAME_LENGTH)
+	{
+		ft_putstr("Bad programm name length in file: ");
+		ft_error(cor, cor->player[i].file_path);
+	}
+	// ft_reverse_bits((void*)&cor->player[i].prog_name, PROG_NAME_LENGTH);
+	// write(1, cor->player[i].prog_name, PROG_NAME_LENGTH);
+	// printf("\n");
+	
+	// read(fd, &null, 4);
+	// check_null()
+	// read(fd, &prog_size, 4);
+	// read(fd, &comment, COMMENT_LENGTH);
+	// read(fd, &null, 4);
+	// check_null()
+	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
+	// read(fd, exec, prog_size);
+}
 
 void magic_header(t_cor *cor, int fd, int i)
 {
@@ -152,7 +162,7 @@ void	validate_players(t_cor *cor)
 			ft_error(cor, cor->player[i].file_path);
 		}
 		magic_header(cor, fd, i);
-		// check_name();
+		check_name(cor, fd, i);
 		// check_null();
 		// bot_size();
 		// bot_comment();
