@@ -113,9 +113,6 @@ void check_name(t_cor *cor, int fd, int i)
 		ft_putstr("Bad programm name length in file: ");
 		ft_error(cor, cor->player[i].file_path);
 	}
-	// ft_reverse_bits((void*)&cor->player[i].prog_name, PROG_NAME_LENGTH);
-	// write(1, cor->player[i].prog_name, PROG_NAME_LENGTH);
-	// printf("\n");
 }
 
 void check_null(t_cor *cor, int fd, int i)
@@ -173,33 +170,35 @@ void bot_size(t_cor *cor, int fd, int i)
 	}
 }
 
-// void bot_comment(t_cor *cor, int fd, int i)
-// {
-// 	int ret;
+void bot_comment(t_cor *cor, int fd, int i)
+{
+	int ret;
 
-// 	ret = read(fd, &cor->player[i].prog_size, 4);
-// 	if(ret < 4)
-// 	{
-// 		ft_putstr("Error in Bot size information in file: ");
-// 		ft_error(cor, cor->player[i].file_path);
-// 	}
-// 	ft_reverse_bits((void*)&cor->player[i].prog_size,
-// 		sizeof(cor->player[i].prog_size));
-// 	if(cor->player[i].prog_size > 682)
-// 	{
-// 		ft_putstr("Error: File ");
-// 		ft_putstr(cor->player[i].file_path);
-// 		ft_putstr(" has too large a code (");
-// 		ft_putnbr(cor->player[i].prog_size);
-// 		ft_putstr(" bytes > 682 bytes)");
-// 		ft_error(cor, "");
-// 	}
-// 	// read(fd, &comment, COMMENT_LENGTH);
-// 	// read(fd, &null, 4);
-// 	// check_null()
-// 	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
-// 	// read(fd, exec, prog_size);
-// }
+	ret = read(fd, &cor->player[i].comment, COMMENT_LENGTH);
+	if(ret < COMMENT_LENGTH)
+	{
+		ft_putstr("Error in comment in file: ");
+		ft_error(cor, cor->player[i].file_path);
+	}
+}
+
+void bot_code(t_cor *cor, int fd, int i)
+{
+	unsigned int ret = 0;
+	unsigned int ret_p;
+	unsigned char buff[cor->player[i].prog_size + 1];
+
+	ret = read(fd, &buff, cor->player[i].prog_size);
+	ret_p = read(fd, &buff, 2);
+
+	if(ret < cor->player[i].prog_size || ret_p > 0)
+	{
+		ft_putstr("Error in lenth executable code in file: ");
+		ft_error(cor, cor->player[i].file_path);
+	}
+	cor->player[i].code = buff;
+}
+
 
 void	validate_players(t_cor *cor)
 {
@@ -207,7 +206,7 @@ void	validate_players(t_cor *cor)
 	int i;
 
 	i = 0;
-	while(i < cor->p_num)
+	while(i < cor->p_num && cor->player[i].file_path != NULL)
 	{
 		fd = open(cor->player[i].file_path, O_RDONLY);
 		if(fd < 0)
@@ -220,10 +219,9 @@ void	validate_players(t_cor *cor)
 		check_name(cor, fd, i);
 		check_null(cor, fd, i);
 		bot_size(cor, fd, i);
-		// bot_comment(cor, fd, i);
-		// check_null();
-		// bot_code();
-		// check_size();
+		bot_comment(cor, fd, i);
+		check_null(cor, fd, i);
+		bot_code(cor, fd, i);
 		i++;
 	}
 }
