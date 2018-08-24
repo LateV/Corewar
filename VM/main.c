@@ -116,15 +116,19 @@ void check_name(t_cor *cor, int fd, int i)
 	// ft_reverse_bits((void*)&cor->player[i].prog_name, PROG_NAME_LENGTH);
 	// write(1, cor->player[i].prog_name, PROG_NAME_LENGTH);
 	// printf("\n");
-	
-	// read(fd, &null, 4);
-	// check_null()
-	// read(fd, &prog_size, 4);
-	// read(fd, &comment, COMMENT_LENGTH);
-	// read(fd, &null, 4);
-	// check_null()
-	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
-	// read(fd, exec, prog_size);
+}
+
+void check_null(t_cor *cor, int fd, int i)
+{
+	int ret;
+	unsigned int ch;
+
+	ret = read(fd, &ch, 4);
+	if(ret < 4 || ch != 0)
+	{
+		ft_putstr("NULL error in file: ");
+		ft_error(cor, cor->player[i].file_path);
+	}
 }
 
 void magic_header(t_cor *cor, int fd, int i)
@@ -146,6 +150,57 @@ void magic_header(t_cor *cor, int fd, int i)
 	}
 }
 
+void bot_size(t_cor *cor, int fd, int i)
+{
+	int ret;
+
+	ret = read(fd, &cor->player[i].prog_size, 4);
+	if(ret < 4)
+	{
+		ft_putstr("Error in Bot size information in file: ");
+		ft_error(cor, cor->player[i].file_path);
+	}
+	ft_reverse_bits((void*)&cor->player[i].prog_size,
+		sizeof(cor->player[i].prog_size));
+	if(cor->player[i].prog_size > 682)
+	{
+		ft_putstr("Error: File ");
+		ft_putstr(cor->player[i].file_path);
+		ft_putstr(" has too large a code (");
+		ft_putnbr(cor->player[i].prog_size);
+		ft_putstr(" bytes > 682 bytes)");
+		ft_error(cor, "");
+	}
+}
+
+// void bot_comment(t_cor *cor, int fd, int i)
+// {
+// 	int ret;
+
+// 	ret = read(fd, &cor->player[i].prog_size, 4);
+// 	if(ret < 4)
+// 	{
+// 		ft_putstr("Error in Bot size information in file: ");
+// 		ft_error(cor, cor->player[i].file_path);
+// 	}
+// 	ft_reverse_bits((void*)&cor->player[i].prog_size,
+// 		sizeof(cor->player[i].prog_size));
+// 	if(cor->player[i].prog_size > 682)
+// 	{
+// 		ft_putstr("Error: File ");
+// 		ft_putstr(cor->player[i].file_path);
+// 		ft_putstr(" has too large a code (");
+// 		ft_putnbr(cor->player[i].prog_size);
+// 		ft_putstr(" bytes > 682 bytes)");
+// 		ft_error(cor, "");
+// 	}
+// 	// read(fd, &comment, COMMENT_LENGTH);
+// 	// read(fd, &null, 4);
+// 	// check_null()
+// 	// unsigned char *exec = malloc(sizeof(unsigned char) * prog_size);
+// 	// read(fd, exec, prog_size);
+// }
+
 void	validate_players(t_cor *cor)
 {
 	int fd;
@@ -163,9 +218,9 @@ void	validate_players(t_cor *cor)
 		}
 		magic_header(cor, fd, i);
 		check_name(cor, fd, i);
-		// check_null();
-		// bot_size();
-		// bot_comment();
+		check_null(cor, fd, i);
+		bot_size(cor, fd, i);
+		// bot_comment(cor, fd, i);
 		// check_null();
 		// bot_code();
 		// check_size();
