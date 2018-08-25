@@ -54,7 +54,6 @@ typedef struct			s_player
 	unsigned char		prog_name[PROG_NAME_LENGTH + 1];
 	unsigned char		comment[COMMENT_LENGTH + 1];
 	unsigned char		*code;
-
 	int					num;
 	unsigned int		magic;
 	unsigned int		prog_size;
@@ -63,21 +62,31 @@ typedef struct			s_player
 typedef struct			s_process
 {
 	
-	int 		live; // сколько жизней (хз)
-	int 		registr; // хз
-	int 		pc; // позиция (хз)
-	int 		cary; //  флаг (хз)
-	// ??unknown 	instruct; // хз 
-	// ??unknown 	arg; // хз
+	int 				live; // сколько жизней (хз)
+	int 				registr; // хз
+	int 				pc; // позиция 
+	int 				cary; //  флаг (хз)
+	// ??unknown 		instruct; // хз 
+	// ??unknown 		arg; // хз
+	t_player 			*player;
+	struct s_process  	*next;
 }						t_process;
 
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE];
+	int 				code_summ;
+	int 				start;
+	int 				visu;
+	int 				dump;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
+	int 				def_num;
+	t_process			*process;
 	t_player			player[4];
 }						t_cor;
+
+void 					to_map(t_cor *cor);
 
 #endif

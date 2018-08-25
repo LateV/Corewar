@@ -3,6 +3,7 @@ NAME = corewar
 LIBFTDIR = libft/
 
 SRC =	VM/main.c 					\
+		VM/to_map.c					\
 		
 OBJ = $(SRC:.c=.o)
 

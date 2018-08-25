@@ -77,7 +77,13 @@ void	calculate_p_num(t_cor *cor)
 	}
 	else
 	{
-		cor->player[cor->p_num].num = cor->p_num + 1;
+		while(i < 4)
+		{
+			if(cor->player[i].num == cor->def_num)
+				cor->def_num++;
+				i++;
+		}
+		cor->player[cor->p_num].num = cor->def_num;
 		cor->curr_pl = cor->player[cor->p_num].num;
 		cor->p_num++;
 	}
@@ -96,6 +102,7 @@ void init_players(t_cor *cor)
 	int  i;
 
 	i = 0;
+	cor->def_num = 1;
 	while(i < 4)
 	{
 		cor->player[i].num = -1;
@@ -168,6 +175,7 @@ void bot_size(t_cor *cor, int fd, int i)
 		ft_putstr(" bytes > 682 bytes)");
 		ft_error(cor, "");
 	}
+	cor->code_summ += cor->player[i].prog_size;
 }
 
 void bot_comment(t_cor *cor, int fd, int i)
@@ -235,6 +243,8 @@ int main(int argc, char **argv)
 	i = 1;
 	cor.p_num = 0;
 	cor.flag_p_num = -1;
+	cor.code_summ = 0;
+	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);
 	while (i < argc)
@@ -253,6 +263,9 @@ int main(int argc, char **argv)
 		i++;
 	}
 	validate_players(&cor);
+	cor.def_num = 1;
+	cor.process = NULL;
+	to_map(&cor);
 	system("leaks -quiet corewar");
 	return(0);
 }
