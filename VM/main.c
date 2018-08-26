@@ -194,17 +194,17 @@ void bot_code(t_cor *cor, int fd, int i)
 {
 	unsigned int ret = 0;
 	unsigned int ret_p;
-	unsigned char buff[cor->player[i].prog_size + 1];
+	unsigned char buff[42];
+	
 
-	ret = read(fd, &buff, cor->player[i].prog_size);
+	cor->player[i].code = ft_memalloc(sizeof(unsigned char) * cor->player[i].prog_size);
+	ret = read(fd, cor->player[i].code, cor->player[i].prog_size);
 	ret_p = read(fd, &buff, 2);
-
 	if(ret < cor->player[i].prog_size || ret_p > 0)
 	{
 		ft_putstr("Error in lenth executable code in file: ");
 		ft_error(cor, cor->player[i].file_path);
 	}
-	cor->player[i].code = buff;
 }
 
 

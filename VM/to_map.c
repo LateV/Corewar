@@ -49,15 +49,37 @@ void add_players(t_cor *cor)
 	}
 }
 
-// void print_map(t_cor *cor)
-// {
+void print_map(t_cor *cor)
+{
+	int row;
+	int i;
 
-// }
+	row = 0;
+	i = 0;
+	while(i < MEM_SIZE)
+	{
+		while(row < 64)
+		{
+			printf("%02x ", cor->arena[i]);
+			row++;
+			i++;
+		}
+		printf("\n");
+		row = 0;
+	}
+}
 
-// void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
-// {
-// 	int i;
-// }
+void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
+{
+	unsigned int i;
+
+	i = 0;
+	while(i < size)
+	{
+		cor->arena[pos + i] = proc->player->code[i];
+		i++;
+	}
+}
 
 void game_init(t_cor *cor)
 {
@@ -68,16 +90,26 @@ void game_init(t_cor *cor)
 	tmp = cor->process;
 	while(tmp)
 	{
-		// data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-		pos += cor->code_summ / cor->p_num;
+		data_to_arena(cor, pos, tmp, tmp->player->prog_size);
+		tmp->pc = pos;
+		pos += MEM_SIZE / cor->p_num;
 		tmp = tmp->next;
 	}
-	printf("summ = %d\n", cor->code_summ);
-
 }
+
+// void game(t_cor cor)
+// {
+// 	t_process tmp;
+
+// 	while(42)
+// 	{
+		
+// 	}
+// }
 
 void to_map(t_cor *cor)
 {
 	add_players(cor);
 	game_init(cor);
+	// game(cor);
 }

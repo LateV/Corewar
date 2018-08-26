@@ -62,19 +62,19 @@ typedef struct			s_player
 typedef struct			s_process
 {
 	
-	int 				live; // сколько жизней (хз)
-	int 				registr; // хз
-	int 				pc; // позиция 
-	int 				cary; //  флаг (хз)
-	// ??unknown 		instruct; // хз 
-	// ??unknown 		arg; // хз
-	t_player 			*player;
+	int 				live; 			// Жив или нет (bool)
+	unsigned int 		registr[16]; 	// регистры (16 штук)
+	int 				pc;				// позиция на карте (0 - 4096)
+	int 				cary; 			// (хз)
+	// ??unknown 		instruct; 		// команда, Которую исполняет процесс ( потом придумаю тип в котором хранить) 
+	int 		 		delay; 			// сколько циклов до выполнения команды
+	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;
 }						t_process;
 
 typedef struct			s_cor
 {
-	unsigned char 		arena[MEM_SIZE];
+	unsigned char 		arena[MEM_SIZE + 1];
 	int 				code_summ;
 	int 				start;
 	int 				visu;
