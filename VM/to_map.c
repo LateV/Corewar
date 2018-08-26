@@ -10,6 +10,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process = ft_memalloc(sizeof(t_process));
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
+		cor->process->live = 1;
 		return ;
 	}
 	while(69)
@@ -97,19 +98,30 @@ void game_init(t_cor *cor)
 	}
 }
 
-// void game(t_cor cor)
-// {
-// 	t_process tmp;
+void game(t_cor *cor)
+{
+	t_process *tmp;
+	int i;
 
-// 	while(42)
-// 	{
-		
-// 	}
-// }
+	i = 1;
+	while(42)
+	{
+		tmp = cor->process;
+		while(tmp)
+		{
+
+			tmp = tmp->next;
+		}
+		printf("It is now cycle %d\n", i);
+		i++;
+		if(i > 5000)
+			return ;
+	}
+}
 
 void to_map(t_cor *cor)
 {
 	add_players(cor);
 	game_init(cor);
-	// game(cor);
+	game(cor);
 }
