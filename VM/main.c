@@ -14,7 +14,6 @@ int flag_n(t_cor *cor, char **argv, int i)
 	int j;
 
 	j = 0;
-	
 	if(argv[i + 1] == NULL)
 		return(-1);
 	num = ft_atoi(argv[i + 1]);
@@ -35,15 +34,14 @@ int		manage_flags(t_cor *cor, char **argv, int i)
 
 	if(ft_strcmp(argv[i], "-n") == 0)
 		return(flag_n(cor, argv, i));
-	return(i);
+	return(-1);
 }
 
 void cor_format(t_cor *cor, char *path)
 {
 	int i;
 
-	if(cor->p_num > 3)
-		ft_error(cor, "Error: max 4 players");
+
 	i = ft_strlen(path);
 	if(i - 5 > 0)
 	{
@@ -58,14 +56,13 @@ void cor_format(t_cor *cor, char *path)
 	{
 		ft_putstr("Can't read source file ");
 		ft_error(cor, path);
-	}
+	}	
+	if(cor->p_num > 3)
+		ft_error(cor, "Error: max 4 players");
 }
 
 void	calculate_p_num(t_cor *cor)
 {
-	int i;
-
-	i = 0;
 	if(cor->p_num > 3)
 		ft_error(cor, "Error: max 4 players");
 	if(cor->flag_p_num != -1)
@@ -77,14 +74,7 @@ void	calculate_p_num(t_cor *cor)
 	}
 	else
 	{
-		while(i < 4)
-		{
-			if(cor->player[i].num == cor->def_num)
-				cor->def_num++;
-				i++;
-		}
-		cor->player[cor->p_num].num = cor->def_num;
-		cor->curr_pl = cor->player[cor->p_num].num;
+		cor->player[cor->p_num].num = -2;
 		cor->p_num++;
 	}
 }
@@ -234,6 +224,55 @@ void	validate_players(t_cor *cor)
 	}
 }
 
+void def_num(t_cor *cor)
+{
+	int k;
+	int i;
+
+	k = 0;
+	i = 0;
+	cor->def_num = 1;
+	while(i < cor->p_num)
+	{
+		if(cor->player[i].num == -2)
+		{
+			cor->def_num = 1;
+			while(cor->def_num < 5)
+			{
+				while(k < 4)
+				{
+					if(cor->def_num == cor->player[k].num)
+						break;
+					k++; 
+				}
+				if(k == 4)
+				{
+					cor->player[i].num = cor->def_num;
+					break;
+				}
+				k = 0;
+				cor->def_num++;
+			}
+		}
+		i++;
+	}
+}
+
+// void visual_init(t_cor *cor)
+// {
+// 	initscr();
+// 	noecho();
+// 	keypad(stdscr, true);
+// 	curs_set(false);
+
+// 	write(1, "\e[8;60;200;t", 14);
+// 	cor->win1 = newwin(60, 150, 0, 0);
+// 	cor->win2 = newwin(60, 50, 0, 150);
+// 	refresh();
+// 	box(cor->win1, 0, 0);
+// 	box(cor->win2, 0, 0); 
+// }
+
 int main(int argc, char **argv)
 {
 	t_cor cor;
@@ -244,6 +283,7 @@ int main(int argc, char **argv)
 	cor.p_num = 0;
 	cor.flag_p_num = -1;
 	cor.code_summ = 0;
+
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);
@@ -263,8 +303,10 @@ int main(int argc, char **argv)
 		i++;
 	}
 	validate_players(&cor);
-	cor.def_num = 1;
+	// visual_init(&cor);
 	cor.process = NULL;
+	def_num(&cor);
+	cor.def_num = 1;
 	to_map(&cor);
 	system("leaks -quiet corewar");
 	return(0);

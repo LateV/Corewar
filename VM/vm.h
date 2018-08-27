@@ -42,6 +42,8 @@ typedef char	t_arg_type;
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
+#include <curses.h>
+#include <unistd.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -61,12 +63,11 @@ typedef struct			s_player
 
 typedef struct			s_process
 {
-	
 	int 				live; 			// Жив или нет (bool)
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
 	int 				cary; 			// флаг для некоторых команд
-	// ??unknown 		instruct; 		// команда, Которую исполняет процесс ( потом придумаю тип в котором хранить) 
+	void (*instruct) (void);			// команда, Которую исполняет процесс ( потом придумаю тип в котором хранить) 
 	int 		 		delay; 			// сколько циклов до выполнения команды
 	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;
@@ -83,6 +84,8 @@ typedef struct			s_cor
 	int					p_num;
 	int 				flag_p_num;
 	int 				def_num;
+	WINDOW 				*win1;
+	WINDOW 				*win2;			
 	t_process			*process;
 	t_player			player[4];
 }						t_cor;

@@ -1,5 +1,30 @@
 #include "vm.h"
 
+
+void live(void)
+{
+	printf("111lolkek1111\n");
+}
+
+
+void ld(void)
+{
+	printf("2222lolkek2222\n");
+}
+
+
+void st(void)
+{
+	printf("3333lolkek3333\n");
+}
+
+
+void add(void)
+{
+	printf("4444lolkek4444\n");
+}
+
+
 void add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process *tmp;
@@ -10,7 +35,6 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process = ft_memalloc(sizeof(t_process));
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
-		cor->process->live = 1;
 		return ;
 	}
 	while(69)
@@ -40,6 +64,7 @@ void add_players(t_cor *cor)
 		{
 			if(cor->def_num == cor->player[k].num)
 			{
+
 				add_player(cor, cor->player , k);
 				break;
 			}
@@ -104,17 +129,17 @@ void game(t_cor *cor)
 	int i;
 
 	i = 1;
-	while(42)
+	while(69)
 	{
 		tmp = cor->process;
 		while(tmp)
 		{
-
+			// tmp->instruct();
 			tmp = tmp->next;
 		}
-		printf("It is now cycle %d\n", i);
+		// printf("It is now cycle %d\n", i);
 		i++;
-		if(i > 5000)
+		if(i >= 1)
 			return ;
 	}
 }
@@ -123,5 +148,10 @@ void to_map(t_cor *cor)
 {
 	add_players(cor);
 	game_init(cor);
+	print_map(cor);
+
 	game(cor);
+	endwin();
+	// while(1)
+	// 	;
 }

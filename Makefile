@@ -14,7 +14,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME) 
 
 $(NAME): $(OBJ) $(LIBFTDIR)libft.a
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFTDIR) -lft
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -lncurses -L./$(LIBFTDIR) -lft
 
 $(LIBFTDIR)libft.a: libft/Makefile
 	make -C $(LIBFTDIR)
