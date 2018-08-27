@@ -308,6 +308,7 @@ int main(int argc, char **argv)
 	def_num(&cor);
 	cor.def_num = 1;
 	to_map(&cor);
+	printf("%s\n", "i am VIBONDAr123!");
 	system("leaks -quiet corewar");
 	return(0);
 }
