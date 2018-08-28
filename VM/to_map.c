@@ -1,30 +1,6 @@
 #include "vm.h"
 
 
-void live(void)
-{
-	printf("111lolkek1111\n");
-}
-
-
-void ld(void)
-{
-	printf("2222lolkek2222\n");
-}
-
-
-void st(void)
-{
-	printf("3333lolkek3333\n");
-}
-
-
-void add(void)
-{
-	printf("4444lolkek4444\n");
-}
-
-
 void add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process *tmp;
