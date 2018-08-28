@@ -308,7 +308,6 @@ int main(int argc, char **argv)
 	def_num(&cor);
 	cor.def_num = 1;
 	to_map(&cor);
-sadsaf
 	system("leaks -quiet corewar");
 	return(0);
 }

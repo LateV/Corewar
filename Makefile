@@ -4,6 +4,11 @@ LIBFTDIR = libft/
 
 SRC =	VM/main.c 					\
 		VM/to_map.c					\
+		VM/init_comm_f.c			\
+		VM/init_comm_f1.c			\
+		VM/init_comm_f2.c			\
+		VM/init_comm_f3.c			\
+		VM/init_comm_f4.c			\
 		
 OBJ = $(SRC:.c=.o)
 
