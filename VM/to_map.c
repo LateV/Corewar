@@ -154,7 +154,6 @@ void to_map(t_cor *cor)
 	printf("b (x)= %hx\n",  b);
 	printf("b (d)= %hd\n",  b);
 	printf("a + b = %d\n",  88 + ( (a + b) % IDX_MOD ));
-	// to_map(&cor);
 	// unsigned int val1 = 0xffb6;
 	// unsigned int val2 = 0x0001;
 	// ft_reverse_bits((void*)&val1, 2);
