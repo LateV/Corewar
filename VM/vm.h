@@ -73,7 +73,10 @@ typedef struct			s_process
 	int 				cary; 			// флаг для некоторых команд
 	int 				comm_i;			// команда, Которую исполняет процесс 
 	int 		 		delay;			// сколько циклов до выполнения команды
-	// int 				ind_arg;
+	int 				arg1;
+	int 				arg2;
+	int 				arg3;
+	int 				label;
 	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
@@ -99,6 +102,9 @@ typedef struct			s_cor
 
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
+void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
+void 					arg_identify(t_process *process, unsigned char args);
+void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
 void 					comm_or(t_cor *cor, t_process *process);

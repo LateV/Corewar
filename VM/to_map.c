@@ -11,7 +11,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
 		cor->process->delay = -1;
-		cor->process->registr[0] = -cor->process->player->num;
+		cor->process->registr[0] = cor->process->player->num * (-1);
 		return ;
 	}
 	while(69)
@@ -23,6 +23,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 			{
 				tmp->next->player = &player[k];
 				tmp->next->delay = -1;
+				tmp->next->registr[0] = tmp->next->player->num * (-1);
 				tmp->next->next = NULL;
 			}
 			break ;
@@ -38,6 +39,7 @@ void add_players(t_cor *cor)
 	k = 0;
 	while(cor->def_num < 5)
 	{
+
 		while(k < cor->p_num)
 		{
 			if(cor->def_num == cor->player[k].num)
@@ -100,12 +102,6 @@ void game_init(t_cor *cor)
 		tmp = tmp->next;
 	}
 }
-// void add_process(t_cor *cor,t_process *tmp)
-// {
-// 	if(tmp->delay >= 0)
-// 		return;
-// 	tmp->delay = 
-// }
 
 void game(t_cor *cor)
 {
@@ -121,12 +117,11 @@ void game(t_cor *cor)
 				cor->instruct[(int)cor->arena[tmp->pc] - 1](cor, tmp);
 			else
 				cor->instruct[16](cor, tmp);
-			// add_process(cor, tmp);
 			tmp = tmp->next;
 		}
-		// printf("It is now cycle %d\n", i);
+		printf("It is now cycle %d\n", cor->cycles);
 		cor->cycles++;
-		if(cor->cycles >= 20)
+		if(cor->cycles >= 30)
 			return ;
 	}
 }
@@ -137,38 +132,28 @@ void to_map(t_cor *cor)
 	game_init(cor);
 	print_map(cor);
 
-	char *tmp;
-	short b;
-	short a;
-	tmp = (char*)&a;
-	tmp[0] = cor->arena[90];
-	tmp[1] = cor->arena[91];
-	printf("a (x)= %hx\n",  a);
-	ft_reverse_bits((void*)&a, 2);
-	printf("a (x)= %hx\n",  a);
-	printf("a (d)= %hd\n",  a);
-	tmp = (char*)&b;
-	tmp[0] = cor->arena[92];
-	tmp[1] = cor->arena[93];
-	printf("b (x)= %hx\n",  b);
-	ft_reverse_bits((void*)&b, 2);
-	printf("b (x)= %hx\n",  b);
-	printf("b (d)= %hd\n",  b);
-	printf("a + b = %d\n",  88 + ( (a + b) % IDX_MOD ));
-	// unsigned int val1 = 0xffb6;
-	// unsigned int val2 = 0x0001;
-	// ft_reverse_bits((void*)&val1, 2);
-	// printf("%x\n", val1);
-	// ft_reverse_bits((void*)&val2, 2);
-	// printf("%x\n", val2);
-    // int a = ABS(-1224802304 + 16777216);
- //    printf("rev1 =  %hd\n", (short) 0xb6ff);
- //    printf("rev2 =  %hd\n", (short) 0x1000);
- //    printf("rev1 + rev2 = %d\n",   0x6bff + 0x1000);
-	// printf("ost %d\n",   88 + (0x6bff + 0x1000) % IDX_MOD);
-	// printf("%d\n", 88 + ((-1224802304 + 16777216) % IDX_MOD));
+	// char *tmp;
+	// short b;
+	// short a;
+	// tmp = (char*)&a;
+	// tmp[0] = cor->arena[90];
+	// tmp[1] = cor->arena[91];
+	// printf("a (x)= %hx\n",  a);
+	// ft_reverse_bits((void*)&a, 2);
+	// printf("a (x)= %hx\n",  a);
+	// printf("a (d)= %hd\n",  a);
+	// tmp = (char*)&b;
+	// tmp[0] = cor->arena[92];
+	// tmp[1] = cor->arena[93];
+	// printf("b (x)= %hx\n",  b);
+	// ft_reverse_bits((void*)&b, 2);
+	// printf("b (x)= %hx\n",  b);
+	// printf("b (d)= %hd\n",  b);
+	// printf("a + b = %d\n",  88 + ( (a + b) % IDX_MOD ));
+
 	init_comand_function(cor);
 	game(cor);
+	print_map(cor);
 	endwin();
 	// while(1)
 	// 	;

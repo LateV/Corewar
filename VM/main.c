@@ -248,6 +248,7 @@ void def_num(t_cor *cor)
 				if(k == 4)
 				{
 					cor->player[i].num = cor->def_num;
+					k = 0;
 					break;
 				}
 				k = 0;
