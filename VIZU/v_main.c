@@ -52,6 +52,8 @@ int main(int argc, char const *argv[])
 
     // getch();
 	// getch();	
+		// getch();	
+		// getch();	
 	endwin();
 	return 0;
 }
