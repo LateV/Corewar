@@ -11,6 +11,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
 		cor->process->delay = -1;
+		cor->process->registr[0] = -cor->process->player->num;
 		return ;
 	}
 	while(69)
