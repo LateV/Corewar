@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
-    <generated>
-      <config projectName="corewar" targetName="corewar" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -11,7 +9,316 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10509df3-e84f-4753-83a7-8d9366eabc99" name="Default" comment="" />
+    <list default="true" id="10509df3-e84f-4753-83a7-8d9366eabc99" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ASM/champs/bee_gees.cor" afterPath="$PROJECT_DIR$/ASM/champs/bee_gees.cor" />
+      <change beforePath="$PROJECT_DIR$/ASM/champs/bee_gees.s" afterPath="$PROJECT_DIR$/ASM/champs/bee_gees.s" />
+      <change beforePath="$PROJECT_DIR$/ASM/main.c" afterPath="$PROJECT_DIR$/ASM/main.c" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/COREWAR.xlsx - COREWAR.pdf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Gagnant.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Intra Projects Corewar Edit.webarchive" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Makefile" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Octobre_Rouge_V4.2.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VIZU/a.out" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VIZU/init" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VIZU/v_main.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VM/main.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VM/to_map.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/VM/vm.h" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/author" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CMakeCCompiler.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CMakeCXXCompiler.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CMakeDetermineCompilerABI_C.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CMakeSystem.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CompilerIdC/a.out" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.4/CompilerIdCXX/a.out" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/DependInfo.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/build.make" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/cmake_clean.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/depend.make" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/flags.make" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/link.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/corewar.dir/progress.make" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/corewar.cbp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/corewar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/Intra Projects Corewar Edit.pdf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/op.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/op.h" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/Gagnant.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/asm" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/42.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/42.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Car.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Car.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Gagnant.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Gagnant.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Octobre_Rouge_V4.2.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/Octobre_Rouge_V4.2.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/barriere.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/barriere.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/bee_gees.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/bee_gees.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/bigzork.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/bigzork.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/ex.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/ex.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/fluttershy.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/fluttershy.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/helltrain.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/helltrain.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/jumper.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/jumper.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/maxidef.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/maxidef.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/mortel.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/mortel.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/slider2.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/slider2.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/toto.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/toto.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/turtle.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/turtle.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/zork.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/champs/zork.s" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/corewar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/default_res/vm_champs_std/test" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/Makefile" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_arr_len.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_arr_len.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_atoi.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_atoi.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_bzero.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_bzero.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_count_words.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_count_words.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_dig_count.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_dig_count.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_genchar.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_genchar.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isalnum.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isalnum.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isalpha.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isalpha.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isascii.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isascii.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isdigit.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isdigit.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isprint.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_isprint.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_itoa.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_itoa.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_itoa_base.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_itoa_base.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_llutoa_base.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_llutoa_base.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd_back.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd_back.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstdel.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstdel.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstdelone.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstdelone.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstiter.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstiter.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstmap.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstmap.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstnew.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_lstnew.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memalloc.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memalloc.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memccpy.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memccpy.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memchr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memchr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memcmp.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memcmp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memcpy.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memcpy.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memdel.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memdel.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memmove.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memmove.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memset.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_memset.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putchar.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putchar.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putchar_fd.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putchar_fd.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putendl.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putendl.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putendl_fd.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putendl_fd.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putnbr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putnbr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putnbr_fd.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putnbr_fd.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putstr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putstr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putstr_fd.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_putstr_fd.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_reverse_bits.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcat.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcat.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strchr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strchr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strclr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strclr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcpy.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strcpy.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strdel.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strdel.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strdup.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strdup.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strequ.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strequ.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_striter.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_striter.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_striteri.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_striteri.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin_free_12.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin_free_12.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strlcat.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strlcat.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strlen.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strlen.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strmap.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strmap.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strmapi.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strmapi.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncat.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncat.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncmp.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncmp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncpy.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strncpy.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnequ.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnequ.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnew.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnew.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnstr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strnstr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strrchr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strrchr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strsplit.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strsplit.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strstr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strstr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strsub.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strsub.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strtoupper.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strtoupper.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strtrim.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strtrim.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_tolower.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_tolower.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_toupper.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_toupper.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/get_next_line.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/get_next_line.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.h" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_format.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_format.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_format_length_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_format_length_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_freesh.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_freesh.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdnegmin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdnegmin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdnegnomin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdnegnomin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdposmin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdposmin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdposnomin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intdposnomin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intoposmin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intoposmin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intoposnomin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intoposnomin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intxposmin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intxposmin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intxposnomin_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_intxposnomin_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_o.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_o.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_o_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_o_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_u.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_u.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_u_1.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_length_u_1.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_outp.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_outp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pitoa.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pitoa.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_ppupad.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_ppupad.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_ppupadnomin_11.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_ppupadnomin_11.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pput_wchar.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pput_wchar.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pput_wchar_str.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pput_wchar_str.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputchar.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputchar.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputcharik.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputcharik.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputdnbr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputdnbr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputproc.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputproc.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputstr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputstr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputstrik.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_pputstrik.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_printf.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_printf.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_put_wcharstr.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_put_wcharstr.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putchar.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putdnolen.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putdnolen.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putonolen.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putonolen.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putxnolen.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_putxnolen.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_specif.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_specif.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_wchar_len.c" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/libft/printf/ft_wchar_len.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/operations_corewar.pdf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/toto.cor" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/zork.cor" afterPath="" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,14 +327,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="asm.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ASM/asm.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="660">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ASM/main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -38,15 +354,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/ASM/main.c" />
+        <option value="$PROJECT_DIR$/ASM/asm.h" />
+      </list>
+    </option>
+  </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="height" value="1337" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -71,11 +397,6 @@
               <item name="corewar" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="corewar" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="corewar" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="corewar" type="462c0819:PsiDirectoryNode" />
-              <item name="ASM" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -97,17 +418,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.corewar">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+  <component name="RunManager">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="corewar" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="corewar" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="corewar" TARGET_NAME="corewar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="corewar" RUN_TARGET_NAME="corewar">
-      <envs />
-    </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="1" class="java.lang.String" itemvalue="Application.corewar" />
-    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -122,32 +436,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535449420072</updated>
-      <workItem from="1535449425524" duration="69000" />
+      <workItem from="1535449425524" duration="2826000" />
+      <workItem from="1535469090876" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69000" />
+    <option name="totallyTimeSpent" value="2847000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13671875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13784955" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36231884" sideWeight="0.49704608" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36231884" sideWeight="0.50295395" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991952" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991952" sideWeight="0.4986215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -162,10 +478,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/ASM/asm.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ASM/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default_res/op.h" />
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt" />
+    <entry file="file://$PROJECT_DIR$/ASM/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ASM/asm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>

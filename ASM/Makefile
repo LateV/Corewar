@@ -1,31 +1,38 @@
-NAME = asm
+NAME = my_asm
 
-LIBFTDIR = ../libft/
+SRCS = main.c
 
-SRC =	main.c 					\
-		
-OBJ = $(SRC:.c=.o)
+LIBFT = libft/
+
+OBJECTS = $(SRCS:.c=.o)
+
+
+FLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+all: $(NAME)
 
-all: $(NAME) 
-
-$(NAME): $(OBJ) $(LIBFTDIR)libft.a
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFTDIR) -lft
-
-$(LIBFTDIR)libft.a: $(LIBFTDIR)Makefile
-	make -C $(LIBFTDIR)
-
+$(NAME): $(OBJECTS)
+	@echo "Creating .o files. Please wait..."
+	@make -C $(LIBFT)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) -L $(LIBFT) -lftprintf
+	@echo "All .o files successfully created."
+	@echo "Executable successfully created."
 %.o: %.c
-		$(CC) $(CFLAGS) -o $@ -c $<
+	gcc $(FLAGS) -c $<
 clean:
-		rm -f $(OBJ)
-		make clean -C $(LIBFTDIR)
+	@echo "Deleting all .o files. Please wait..."
+	@rm -f $(OBJECTS)
+	@make clean -C $(LIBFT)
+	@echo "All .o files deleted."
 
 fclean: clean
-		rm -f $(NAME)
-		rm -f $(LIBFTDIR)libft.a
+	@echo "Deleting all .o files and executable. Please wait..."
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
+	@echo "All .o files and executable deleted."
 
 re: fclean all
+
+.PHONY: re all clean fclean
