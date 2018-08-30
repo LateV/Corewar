@@ -113,15 +113,26 @@ void game(t_cor *cor)
 		tmp = cor->process;
 		while(tmp)
 		{
-			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 16)
+			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
+			{
+				ft_printf("num intst%d\n", cor->arena[tmp->pc] - 1);
 				cor->instruct[(int)cor->arena[tmp->pc] - 1](cor, tmp);
+			}
 			else
+			{
+				ft_printf("num intst%d\n", cor->arena[tmp->pc] - 1);
 				cor->instruct[16](cor, tmp);
+			}
+			ft_putstr("pos = ");
+			ft_putnbr(tmp->pc);
+			ft_putstr("\n");
 			tmp = tmp->next;
 		}
-		printf("It is now cycle %d\n", cor->cycles);
+		ft_putstr("It is now cycle ");
+		ft_putnbr(cor->cycles);
+		ft_putstr("\n");
 		cor->cycles++;
-		if(cor->cycles >= 30)
+		if(cor->cycles >= 5000)
 			return ;
 	}
 }
@@ -130,30 +141,10 @@ void to_map(t_cor *cor)
 {
 	add_players(cor);
 	game_init(cor);
-	print_map(cor);
-
-	// char *tmp;
-	// short b;
-	// short a;
-	// tmp = (char*)&a;
-	// tmp[0] = cor->arena[90];
-	// tmp[1] = cor->arena[91];
-	// printf("a (x)= %hx\n",  a);
-	// ft_reverse_bits((void*)&a, 2);
-	// printf("a (x)= %hx\n",  a);
-	// printf("a (d)= %hd\n",  a);
-	// tmp = (char*)&b;
-	// tmp[0] = cor->arena[92];
-	// tmp[1] = cor->arena[93];
-	// printf("b (x)= %hx\n",  b);
-	// ft_reverse_bits((void*)&b, 2);
-	// printf("b (x)= %hx\n",  b);
-	// printf("b (d)= %hd\n",  b);
-	// printf("a + b = %d\n",  88 + ( (a + b) % IDX_MOD ));
-
+	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
-	print_map(cor);
+	// print_map(cor);
 	endwin();
 	// while(1)
 	// 	;

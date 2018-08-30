@@ -16,6 +16,7 @@ void comm_ld(t_cor *cor, t_process *process)
 		}
 		printf("x = %02x\n", cor->arena[process->pc]);
 	}
+	set_proc_pos(process, 1);
 	// printf("pos = %d\n", process->pc);
 	// printf("%02x\n", cor->arena[process->pc]);
 	// printf("%s\n", "ld");	

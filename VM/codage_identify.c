@@ -1,6 +1,6 @@
 #include "vm.h"
 
-void arg_identify(t_process *process, unsigned char args)
+void codage_identify(t_process *process, unsigned char args)
 {
 		if((args & 192) == 64)
 			process->arg1 = 1;

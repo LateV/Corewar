@@ -6,7 +6,7 @@ SRC =	VM/main.c 					\
 		VM/to_map.c					\
 		VM/init_comm_f.c			\
 		VM/load_data_to_reg.c		\
-		VM/arg_identify.c			\
+		VM/codage_identify.c		\
 		VM/load_from_reg.c			\
 		VM/comm_live.c				\
 		VM/comm_ld.c				\
@@ -25,6 +25,9 @@ SRC =	VM/main.c 					\
 		VM/comm_sub.c				\
 		VM/comm_and.c				\
 		VM/comm_next.c				\
+		VM/get_data.c 				\
+		VM/set_proc_pos.c 			\
+		VM/arg_handler.c			\
 
 OBJ = $(SRC:.c=.o)
 

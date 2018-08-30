@@ -100,10 +100,16 @@ typedef struct			s_cor
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 }						t_cor;
 
+char 					get_char(t_cor *cor, int loc);
+short 					get_short(t_cor *cor, int loc);
+int 					get_int(t_cor *cor, int loc);
+int 					get_reg(t_process *process, unsigned char reg);
+void 					set_proc_pos(t_process *process, int shift);
+int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
 void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
-void 					arg_identify(t_process *process, unsigned char args);
+void 					codage_identify(t_process *process, unsigned char args);
 void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
