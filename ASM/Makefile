@@ -1,6 +1,6 @@
 NAME = my_asm
 
-SRCS = main.c
+SRCS = main.c read.c live.c g.c
 
 LIBFT = libft/
 

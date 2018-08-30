@@ -123,6 +123,33 @@ ASM/fast:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/build
 .PHONY : ASM/fast
 
+g.o: g.c.o
+
+.PHONY : g.o
+
+# target to build an object file
+g.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/g.c.o
+.PHONY : g.c.o
+
+g.i: g.c.i
+
+.PHONY : g.i
+
+# target to preprocess a source file
+g.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/g.c.i
+.PHONY : g.c.i
+
+g.s: g.c.s
+
+.PHONY : g.s
+
+# target to generate assembly for a file
+g.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/g.c.s
+.PHONY : g.c.s
+
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -2121,6 +2148,33 @@ libft/pf_handleformat.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/libft/pf_handleformat.c.s
 .PHONY : libft/pf_handleformat.c.s
 
+live.o: live.c.o
+
+.PHONY : live.o
+
+# target to build an object file
+live.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.o
+.PHONY : live.c.o
+
+live.i: live.c.i
+
+.PHONY : live.i
+
+# target to preprocess a source file
+live.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.i
+.PHONY : live.c.i
+
+live.s: live.c.s
+
+.PHONY : live.s
+
+# target to generate assembly for a file
+live.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.s
+.PHONY : live.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -2148,6 +2202,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/main.c.s
 .PHONY : main.c.s
 
+read.o: read.c.o
+
+.PHONY : read.o
+
+# target to build an object file
+read.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.o
+.PHONY : read.c.o
+
+read.i: read.c.i
+
+.PHONY : read.i
+
+# target to preprocess a source file
+read.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.i
+.PHONY : read.c.i
+
+read.s: read.c.s
+
+.PHONY : read.s
+
+# target to generate assembly for a file
+read.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.s
+.PHONY : read.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2157,6 +2238,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ASM"
+	@echo "... g.o"
+	@echo "... g.i"
+	@echo "... g.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2379,9 +2463,15 @@ help:
 	@echo "... libft/pf_handleformat.o"
 	@echo "... libft/pf_handleformat.i"
 	@echo "... libft/pf_handleformat.s"
+	@echo "... live.o"
+	@echo "... live.i"
+	@echo "... live.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... read.o"
+	@echo "... read.i"
+	@echo "... read.s"
 .PHONY : help
 
 

@@ -81,4 +81,7 @@ add_executable(ASM
         libft/pf_function_second.c
         libft/pf_handleformat.c
         asm.h
-        main.c)
+        main.c
+        read.c
+        live.c
+        g.c)

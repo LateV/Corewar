@@ -74,6 +74,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/ASM.dir/libft/pf_function_second.c.o"
   "CMakeFiles/ASM.dir/libft/pf_handleformat.c.o"
   "CMakeFiles/ASM.dir/main.c.o"
+  "CMakeFiles/ASM.dir/read.c.o"
+  "CMakeFiles/ASM.dir/live.c.o"
+  "CMakeFiles/ASM.dir/g.c.o"
   "ASM.pdb"
   "ASM"
 )

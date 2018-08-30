@@ -83,6 +83,9 @@
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/asm.h">
 			<Option target="ASM"/>
 		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/g.c">
+			<Option target="ASM"/>
+		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/libft/ft_atoi.c">
 			<Option target="ASM"/>
 		</Unit>
@@ -311,7 +314,13 @@
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/libft/pf_handleformat.c">
 			<Option target="ASM"/>
 		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/live.c">
+			<Option target="ASM"/>
+		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/main.c">
+			<Option target="ASM"/>
+		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/read.c">
 			<Option target="ASM"/>
 		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/CMakeLists.txt">

@@ -18,6 +18,16 @@ void		ft_clear(char **arr)
 }
 
 
+size_t	ft_arr_len(char **arr)
+{
+    size_t	count;
+
+    count = 0;
+    while (arr[count])
+        count++;
+    return (count);
+}
+
 void error_exit( const char *str)
 {
     ft_printf("Can't read source file %s\n",str);
@@ -57,10 +67,10 @@ int ft_check_name(char *str, t_header **header)
 {
     char **arr;
 
-    if(ft_strstr(str,NAME_CMD_STRING))
+    if(ft_strstr(str, NAME_CMD_STRING))
     {
-        arr = ft_strsplit(str,' ');
-        if(ft_strequ(arr[0],NAME_CMD_STRING))
+        arr = ft_strsplit(str,'"');
+        if(ft_strequ(ft_strtrim(arr[0]),NAME_CMD_STRING))
         {
             (*header)->name__len = ft_strlen(arr[1]);
             (*header)->prog_name= ft_strdup(arr[1]);
@@ -78,11 +88,11 @@ int ft_check_comment(char *str, t_header **header)
 
     if(ft_strstr(str,COMMENT_CMD_STRING))
     {
-        arr = ft_strsplit(str,' ');
-        if(ft_strequ(arr[0],COMMENT_CMD_STRING))
+        arr = ft_strsplit(str,'"');
+        if(ft_strequ(ft_strtrim(arr[0]),COMMENT_CMD_STRING))
         {
             (*header)->comment_len = ft_strlen(arr[1]);
-            (*header)->comment= ft_strdup(arr[1]);
+            (*header)->comment = ft_strdup(arr[1]);
         }
         ft_clear(arr);
         return (1);
@@ -91,42 +101,88 @@ int ft_check_comment(char *str, t_header **header)
 }
 
 
-
-
-int read_file(const char *str)
+char  *ft_find_label(char *str, t_command **node, t_header **header)
 {
-    t_header *header;
-    int fd;
+    int i;
     char *line;
 
-    fd = open(str, O_RDONLY);
-    if(fd < 0)
-        error_exit(str);
-    header = malloc(sizeof(t_header));
-    while (get_next_line(fd, &line) > 0)
+    i = 0;
+    str = ft_strtrim(str);
+    while(str[i])
     {
-        if(ft_check_name(line,&header))
+        if (str[i] == ':' && str[i - 1] && str[i - 1] != '%')
         {
-            printf("%s\n",line);
-            ft_printf("name\n");
+            //check if no syb before :
+            //check for valid symb in LABEL
+            (*node)->label = ft_strsub(str,0,i);
+            line = ft_strsub(str,i+1,ft_strlen(str)-i);
+            (*header)->curr_label = (*node)->label;
+            return line;
+           // printf("LABEL\n start: %d  len: %d -----%s\n",0,i,label);
         }
-        else if(ft_check_comment(line,&header))
-        {
-            printf("%s\n",line);
-            ft_printf("cmd\n");
-        }
-        else
-        {
-            printf("%s\n",line);
-            ft_printf("command\n");
-        }
+        i++;
     }
-    printf("%s\n", header->comment);
-    printf("%s\n", header->prog_name);
-    return (1);
+    if((*node)->label == NULL)
+        (*node)->label = (*header)->curr_label;
+    return str;
 }
 
 
+t_command *new_node()
+{
+    t_command *new_node;
+
+    new_node = malloc(sizeof(t_command));
+    new_node->num = 0;
+    new_node->label = NULL;
+    new_node->label_size = 2;
+    new_node->command_name = NULL;
+    new_node->type_arg[0] = 0;
+    new_node->type_arg[1] = 0;
+    new_node->type_arg[2] = 0;
+    new_node->opcode = 0;
+    new_node->pointer_arg[0] = NULL;
+    new_node->pointer_arg[1] = NULL;
+    new_node->pointer_arg[2] = NULL;
+    new_node->num_arg[0] = 0;
+    new_node->num_arg[1] = 0;
+    new_node->num_arg[2] = 0;
+    new_node->byte_sum[0] = 0;
+    new_node->byte_sum[1] = 0;
+    new_node->byte_sum[2] = 0;
+    new_node->byte_sum[3] = 0;
+    new_node->next = NULL;
+    return (new_node);
+}
+
+void push_back(t_header **header, t_command *new_node)
+{
+    t_command *tmp;
+
+    tmp = (*header)->com_list;
+    if((*header)->com_list == NULL)
+    {
+        (*header)->com_list = new_node;
+        return ;
+    }
+    while (tmp->next != NULL)
+    {
+        tmp = tmp->next;
+    }
+    tmp->next = new_node;
+//    (*header)->com_list = tmp;
+}
+
+
+
+
+
+
+
+void fill_command_params()
+{
+
+}
 
 int main(int argc, char const *argv[])
 {
@@ -149,52 +205,5 @@ int main(int argc, char const *argv[])
     else
         ft_putstr("Usage: ./asm [-a] <sourcefile.s>\n"
                           "    -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output");
-	return 0;
+    return 0;
 }
-//
-//
-//#include "libft/libft.h"
-//#include <stdio.h>
-//#include <fcntl.h>
-//
-//void  ft_rewrite(char *inp, char *wr)
-//{
-//    int  fd;
-//
-//    if (inp == NULL || wr == NULL)
-//        return ;
-//    if (!(fd = open(inp, O_TRUNC | O_WRONLY)))
-//        ft_putstr("Open error");
-//    if (write(fd, wr, ft_strlen(wr)))
-//        ft_putstr("Write success!");
-//}
-//
-//union						u_byterange
-//{
-//    int						num;
-//    char					ch2[2];
-//    char					ch[4];
-//}							t_byterange;
-//
-//
-//void main(void){
-////    int i = 10003;
-////    char wr[1];
-////    wr[0] = (char)i;
-////    wr[1] = 0;
-//
-//    int a[4];
-//    a[0]=0;
-//    a[1]=234;
-//    a[2]=131;
-//    a[3]=243;
-//    t_byterange.num = 0;
-//    t_byterange.num = 0xea83f3;
-//
-//    int fd = open("test.cor", O_TRUNC | O_WRONLY);
-//    // char *a = "zork";
-//    for(int i = 3; i > -1; i--)
-//    {
-//        ft_putchar_fd(t_byterange.ch[i],fd);
-//    }
-//}

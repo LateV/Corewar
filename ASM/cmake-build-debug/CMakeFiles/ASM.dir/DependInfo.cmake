@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/oskulska/Desktop/corewar/ASM/g.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/g.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/libft/ft_atoi.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_atoi.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/libft/ft_bzero.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_bzero.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/libft/ft_get_console_input.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_get_console_input.c.o"
@@ -78,7 +79,9 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/oskulska/Desktop/corewar/ASM/libft/pf_function.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/pf_function.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/libft/pf_function_second.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/pf_function_second.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/libft/pf_handleformat.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/pf_handleformat.c.o"
+  "/Users/oskulska/Desktop/corewar/ASM/live.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/live.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/main.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/main.c.o"
+  "/Users/oskulska/Desktop/corewar/ASM/read.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/read.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

@@ -51,6 +51,20 @@ typedef char	t_arg_type;
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
 
+
+typedef struct		s_def_com
+{
+    int opcode;
+    char *name;
+    int  first_arg[3];
+    int  second_arg[3];
+    int third_arg[2];
+    int label_size;
+    int codage_octal;
+
+
+}					t_def_com;
+
 typedef struct		s_command
 {
     int num;
@@ -58,11 +72,13 @@ typedef struct		s_command
     char *command_name;
     int  type_arg[3];
     int  opcode;
-    char label_arg[3];
+    int  label_size;
+    char *pointer_arg[3];
     int  num_arg[3];
     int  byte_sum[4];
-    struct command_s	*next;
+    struct s_command	*next;
 }					t_command;
+
 
 typedef struct		s_header
 {
@@ -71,7 +87,20 @@ typedef struct		s_header
     unsigned int		prog_size;
     char				*comment;
     int                 comment_len;
-    t_command           *command;
+    char                *curr_label;
+    t_command           *com_list;
 }					t_header;
 
+t_def_com g_def[17];
 
+int read_file(const char *str);
+void		ft_clear(char **arr);
+int ft_check_extension(const char **str, int y);
+void error_exit( const char *str);
+int ft_check_flag(const char **argv, int argc);
+int ft_check_name(char *str, t_header **header);
+int ft_check_comment(char *str, t_header **header);
+char *ft_find_label(char *str, t_command **node, t_header **header);
+t_command *new_node();
+void push_back(t_header **header, t_command *new_node);
+void ft_find_command(char *str, t_command **node);
