@@ -19,7 +19,7 @@ void comm_and(t_cor *cor, t_process *process)
 {
 	int res;
 	int sk;
-
+	
 	if (process->delay < 0)
 		process->delay = 5;
 	else if (process->delay > 0)
@@ -49,5 +49,6 @@ void comm_and(t_cor *cor, t_process *process)
 		set_proc_pos(process, sk);
 		process->delay = -1;
 		process->codage = 1;
+		process->command = -1;
 	}
 }
