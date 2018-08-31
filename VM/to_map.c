@@ -110,27 +110,27 @@ void game(t_cor *cor)
 	cor->cycles = 1;
 	while(69)
 	{
+		ft_putstr("It is now cycle ");
+		ft_putnbr(cor->cycles);
+		ft_putstr("\n");
 		tmp = cor->process;
+		// ft_putstr("pos = ");
+		// ft_putnbr(tmp->pc);
+		// ft_putstr("\n");
 		while(tmp)
 		{
 			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
 			{
-				ft_printf("num intst%d\n", cor->arena[tmp->pc] - 1);
+				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
 				cor->instruct[(int)cor->arena[tmp->pc] - 1](cor, tmp);
 			}
 			else
 			{
-				ft_printf("num intst%d\n", cor->arena[tmp->pc] - 1);
+				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
 				cor->instruct[16](cor, tmp);
 			}
-			ft_putstr("pos = ");
-			ft_putnbr(tmp->pc);
-			ft_putstr("\n");
 			tmp = tmp->next;
 		}
-		ft_putstr("It is now cycle ");
-		ft_putnbr(cor->cycles);
-		ft_putstr("\n");
 		cor->cycles++;
 		if(cor->cycles >= 5000)
 			return ;

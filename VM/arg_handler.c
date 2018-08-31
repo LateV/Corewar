@@ -6,7 +6,7 @@ int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 	
 	if(*arg == 1)
 	{
-		*arg = get_reg(process, get_char(cor, process->pc + s) - 1);
+		*arg = get_char(cor, process->pc + s);
 		s++;
 	}
 	else if(*arg == 2)
@@ -24,9 +24,12 @@ int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 	}
 	else if(*arg == 3)
 	{
+
 		ind = get_short(cor , process->pc + s);
 		*arg = get_int(cor, ind);
 		s += 2;
 	}
+	else
+		*arg = 0;
 	return(s);
 }

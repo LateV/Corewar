@@ -70,13 +70,14 @@ typedef struct			s_process
 	int 				live; 			// Жив или нет (bool)
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
-	int 				cary; 			// флаг для некоторых команд
+	int 				carry; 			// флаг для некоторых команд
 	int 				comm_i;			// команда, Которую исполняет процесс 
 	int 		 		delay;			// сколько циклов до выполнения команды
 	int 				arg1;
 	int 				arg2;
 	int 				arg3;
 	int 				label;
+	int 				codage;
 	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
