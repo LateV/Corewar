@@ -134,7 +134,7 @@ void live_cheker(t_cor *cor)
 		// }
 		while(i < 4)
 		{
-			if(cor->player[i].live_summ > 21)
+			if(cor->player[i].live_summ >= 21)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
 				cor->curr_chechs = -1;
@@ -155,15 +155,15 @@ void live_cheker(t_cor *cor)
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 0;
+			i = 0;
+		while(i < 4)
+		{
+			cor->player[i].live_summ = 0;
+			i++;
+		}
 	}
 	else
 		cor->live_check++;
-	i = 0;
-	while(i < 4)
-	{
-		cor->player[i].live_summ = 0;
-		i++;
-	}
 	if(cor->curr_cycle_t_d < 0)
 	{
 		ft_putstr("Cycle to die is now ");
