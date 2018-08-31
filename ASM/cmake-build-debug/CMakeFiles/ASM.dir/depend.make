@@ -3,6 +3,8 @@
 
 CMakeFiles/ASM.dir/g.c.o: ../asm.h
 CMakeFiles/ASM.dir/g.c.o: ../g.c
+CMakeFiles/ASM.dir/g.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/g.c.o: ../libft/libft.h
 
 CMakeFiles/ASM.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 

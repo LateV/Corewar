@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /Users/oskulska/Desktop/corewar/ASM/asm.h
+libft/libft.h
+/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
 stddef.h
 -
 
@@ -319,10 +321,6 @@ asm.h
 /Users/oskulska/Desktop/corewar/ASM/asm.h
 
 /Users/oskulska/Desktop/corewar/ASM/main.c
-libft/libft.h
-/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
-fcntl.h
--
 asm.h
 /Users/oskulska/Desktop/corewar/ASM/asm.h
 

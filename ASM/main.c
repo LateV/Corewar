@@ -1,5 +1,3 @@
-#include "libft/libft.h"
-#include <fcntl.h>
 #include "asm.h"
 
 void		ft_clear(char **arr)
@@ -16,7 +14,6 @@ void		ft_clear(char **arr)
     free(arr);
     arr = NULL;
 }
-
 
 size_t	ft_arr_len(char **arr)
 {
@@ -66,16 +63,19 @@ int ft_check_flag(const char **argv, int argc)
 int ft_check_name(char *str, t_header **header)
 {
     char **arr;
+    char *s;
 
     if(ft_strstr(str, NAME_CMD_STRING))
     {
         arr = ft_strsplit(str,'"');
-        if(ft_strequ(ft_strtrim(arr[0]),NAME_CMD_STRING))
+        s = ft_strtrim(arr[0]);
+        if(ft_strequ(s,NAME_CMD_STRING))
         {
             (*header)->name__len = ft_strlen(arr[1]);
             (*header)->prog_name= ft_strdup(arr[1]);
         }
         ft_clear(arr);
+        free(s);
         return (1);
     }
     return 0;
@@ -85,37 +85,43 @@ int ft_check_name(char *str, t_header **header)
 int ft_check_comment(char *str, t_header **header)
 {
     char **arr;
+    char *s;
 
     if(ft_strstr(str,COMMENT_CMD_STRING))
     {
         arr = ft_strsplit(str,'"');
-        if(ft_strequ(ft_strtrim(arr[0]),COMMENT_CMD_STRING))
+        s = ft_strtrim(arr[0]);
+        if(ft_strequ(s,COMMENT_CMD_STRING))
         {
             (*header)->comment_len = ft_strlen(arr[1]);
             (*header)->comment = ft_strdup(arr[1]);
         }
         ft_clear(arr);
+        free(s);
         return (1);
     }
     return 0;
 }
 
 
-char  *ft_find_label(char *str, t_command **node, t_header **header)
+char  *ft_find_label(char *s, t_command **node, t_header **header)
 {
     int i;
     char *line;
+    char *str;
 
     i = 0;
-    str = ft_strtrim(str);
-    while(str[i])
+
+    while(s[i])
     {
-        if (str[i] == ':' && str[i - 1] && str[i - 1] != '%')
+        if (s[i] == ':' && s[i - 1] && s[i - 1] != '%')
         {
             //check if no syb before :
             //check for valid symb in LABEL
+            str = ft_strtrim(s);
             (*node)->label = ft_strsub(str,0,i);
             line = ft_strsub(str,i+1,ft_strlen(str)-i);
+            free(str);
             (*header)->curr_label = (*node)->label;
             return line;
            // printf("LABEL\n start: %d  len: %d -----%s\n",0,i,label);
@@ -124,7 +130,7 @@ char  *ft_find_label(char *str, t_command **node, t_header **header)
     }
     if((*node)->label == NULL)
         (*node)->label = (*header)->curr_label;
-    return str;
+    return ft_strdup(s);
 }
 
 
@@ -170,41 +176,35 @@ void push_back(t_header **header, t_command *new_node)
         tmp = tmp->next;
     }
     tmp->next = new_node;
-//    (*header)->com_list = tmp;
 }
 
 
 
-
-
-
-
-void fill_command_params()
-{
-
-}
 
 int main(int argc, char const *argv[])
 {
+    t_header *header;
     int y;
 
-
+    y = 1;
+    init_struct(&header);
     if (argc > 1)
     {
-        if(ft_check_flag(argv,argc) && ft_check_extension(argv,argc-1))
-        {
-            //-a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output% ;
-            ft_printf("flag + format");
-        }
-        else if((y = ft_check_extension(argv,argc-1)) > 0)
-        {
-            read_file(argv[y]);
-        }
-        else
-            error_exit(argv[argc-1]);
+       // if(ft_check_flag(argv,argc) && ft_check_extension(argv,argc-1))
+        //{
+           // -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output% ;
+         //   ft_printf("flag + format");
+       // }
+        //else if((y = ft_check_extension(argv,argc-1)) > 0)
+       // {
+            read_file(argv[y],&header);
+        //}
+       // else
+       //     error_exit(argv[argc-1]);
     }
     else
         ft_putstr("Usage: ./asm [-a] <sourcefile.s>\n"
                           "    -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output");
+    system("leaks my_asm > test.txt");
     return 0;
 }

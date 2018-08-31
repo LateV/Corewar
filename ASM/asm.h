@@ -2,7 +2,7 @@
 #define REG_SIZE				4
 #define DIR_SIZE				REG_SIZE
 
-
+#include "libft/libft.h"
 # define REG_CODE				1
 # define DIR_CODE				2
 # define IND_CODE				3
@@ -72,7 +72,7 @@ typedef struct		s_command
     char *label;
     char *command_name;
     int  type_arg[3];
-    int  num_arg[3];
+    ssize_t  num_arg[3];
     char *pointer_arg[3];
     int  opcode;
     int  label_size;
@@ -94,7 +94,7 @@ typedef struct		s_header
 
 t_def_com g_def[17];
 
-int read_file(const char *str);
+int read_file(const char *str, t_header **header);
 void		ft_clear(char **arr);
 int ft_check_extension(const char **str, int y);
 void error_exit( const char *str);
@@ -106,3 +106,4 @@ t_command *new_node();
 void push_back(t_header **header, t_command *new_node);
 void ft_find_command(char *str, t_command **node);
 size_t	ft_arr_len(char **arr);
+void init_struct(t_header **header);

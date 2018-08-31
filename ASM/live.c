@@ -1,68 +1,93 @@
 #include "libft/libft.h"
 #include "asm.h"
 
+ssize_t	ft_atoi_long(const char *str)
+{
+    int			i;
+    ssize_t		n;
+    ssize_t	    nb;
 
-//ft_valid_live()
-//{
-//
-//}
+    i = 0;
+    n = 1;
+    nb = 0;
+    while ((str[i] < 14 && str[i] >= 9) || str[i] == ' ')
+        i++;
+    if (str[i] == '-' && str[i + 1] <= '9' && str[i + 1] >= '0')
+    {
+        n = -1;
+        i++;
+    }
+    if (str[i] == '+' && str[i + 1] <= '9' && str[i + 1] >= '0')
+        i++;
+    while (str[i] <= '9' && str[i] >= '0')
+    {
+        if (nb * 10 + str[i] - '0' < nb)
+            return (n == 1 ? -1 : 0);
+        nb = nb * 10 + str[i] - '0';
+        i++;
+    }
+    return (nb * n);
+}
 
 
 
+void ft_fill_arg_param(char *str, int i, int k, t_command **node)
+{
+    char *s;
+    int len;
+
+    len = ft_strlen(str) - i;
+
+    ft_printf("%s,%c",str,str[i]);
+    if(str[i] == 'r')
+    {
+        (*node)->type_arg[k] = 1;
+        s = ft_strsub(str,i+1,len);
+        (*node)->num_arg[k] = ft_atoi(s);
+        free(s);
+    }
+    else if(str[i] == '%')
+    {
+        (*node)->type_arg[k] = 2;
+        s = ft_strsub(str,i+1,len);
+        (*node)->num_arg[k] = ft_atoi_long(s);
+        free(s);
+    }
+    else
+    {
+        (*node)->type_arg[k] = 3;
+        (*node)->num_arg[k] = ft_atoi_long(str);
+    }
+
+}
 void ft_find_arg_type(char *str, t_command **node)
 {
     char *line;
     char **arr;
-    int i;
     size_t k;
-    size_t len;
     int l;
+    size_t len;
 
-
-    l = 0;
-    i = 0;
-
+    k = 0;
+    len = ft_strlen((*node)->command_name);
     if(ft_strlen(str) == 0)
+    {
+        free(str);
         return ;
-    str = ft_strtrim(str);
-    line = ft_strsub(str,ft_strlen((*node)->command_name),ft_strlen(str)-ft_strlen((*node)->command_name));
+    }
+    line = ft_strsub(str, (int)len ,ft_strlen(str) - len);
+    free(str);
     arr = ft_strsplit(line,',');
-    len = ft_arr_len(arr);
-    while (arr[l])
+    while(k < ft_arr_len(arr))
     {
-        arr[l] = ft_strtrim(arr[l]);
-        l++;
+        l = 0;
+        while (arr[k][l] == ' ' || arr[k][l] == '\t')
+            l++;
+        ft_fill_arg_param(arr[k],l,k,node);
+        k++;
     }
-    while(i < 17)
-    {
-        if(g_def[i].name == (*node)->command_name)
-        {
-            k = 0;
-            while(k < len)
-            {
-                //ft_printf("arr[%d] =%s\n",k,arr[k]);
-                if(arr[k][0] == 'r')
-                {
-                    (*node)->type_arg[k] = 1;
-                    arr[k] = ft_strsub(arr[k],1,ft_strlen(arr[k])-1);
-                    (*node)->num_arg[k] = ft_atoi(arr[k]);
-                }
-                else if(arr[k][0] == '%')
-                {
-                    (*node)->type_arg[k] = 2;
-                    arr[k] = ft_strsub(arr[k],1,ft_strlen(arr[k])-1);
-                    (*node)->num_arg[k] = ft_atoi(arr[k]);
-                }
-                else
-                {
-                    (*node)->type_arg[k] = 3;
-                }
-                k++;
-            }
-        }
-        i++;
-    }
-
+    ft_clear(arr);
+    free(line);
 }
 
 
@@ -74,9 +99,8 @@ void ft_find_command(char *str, t_command **node)
 
     i = 0;
     char *s;
-  //  char *line;
     s = ft_strtrim(str);
-
+    free(str);
     while(i < 17)
     {
         if(ft_strnstr(s,g_def[i].name,ft_strlen(g_def[i].name)))
@@ -84,11 +108,8 @@ void ft_find_command(char *str, t_command **node)
             (*node)->command_name = g_def[i].name;
             (*node)->label_size = ft_strlen(g_def[i].name);
             break;
-            //ft_printf("line wit command %s\n",s);
-           // line = ft_strsub(s,4,ft_strlen(s) - 4);
-           // ft_printf("line without command %s\n",line);
         }
         i++;
     }
-    ft_find_arg_type(str, node);
+    ft_find_arg_type(s, node);
 }
