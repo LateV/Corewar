@@ -20,7 +20,7 @@
 # include <stddef.h>
 # include <locale.h>
 
-# define BUFF_SIZE 40
+# define BUFF_SIZE 200
 
 typedef struct		s_fd
 {

@@ -1,30 +1,5 @@
 #include "vm.h"
 
-
-void live(void)
-{
-	printf("111lolkek1111\n");
-}
-
-
-void ld(void)
-{
-	printf("2222lolkek2222\n");
-}
-
-
-void st(void)
-{
-	printf("3333lolkek3333\n");
-}
-
-
-void add(void)
-{
-	printf("4444lolkek4444\n");
-}
-
-
 void add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process *tmp;
@@ -35,6 +10,8 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process = ft_memalloc(sizeof(t_process));
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
+		cor->process->delay = -1;
+		cor->process->registr[0] = cor->process->player->num * (-1);
 		return ;
 	}
 	while(69)
@@ -45,6 +22,8 @@ void add_player(t_cor *cor, t_player *player, int k)
 			if(tmp->next)
 			{
 				tmp->next->player = &player[k];
+				tmp->next->delay = -1;
+				tmp->next->registr[0] = tmp->next->player->num * (-1);
 				tmp->next->next = NULL;
 			}
 			break ;
@@ -60,6 +39,7 @@ void add_players(t_cor *cor)
 	k = 0;
 	while(cor->def_num < 5)
 	{
+
 		while(k < cor->p_num)
 		{
 			if(cor->def_num == cor->player[k].num)
@@ -126,20 +106,33 @@ void game_init(t_cor *cor)
 void game(t_cor *cor)
 {
 	t_process *tmp;
-	int i;
 
-	i = 1;
+	cor->cycles = 1;
 	while(69)
 	{
+		ft_putstr("It is now cycle ");
+		ft_putnbr(cor->cycles);
+		ft_putstr("\n");
 		tmp = cor->process;
+		// ft_putstr("pos = ");
+		// ft_putnbr(tmp->pc);
+		// ft_putstr("\n");
 		while(tmp)
 		{
-			// tmp->instruct();
+			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
+			{
+				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
+				cor->instruct[(int)cor->arena[tmp->pc] - 1](cor, tmp);
+			}
+			else
+			{
+				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
+				cor->instruct[16](cor, tmp);
+			}
 			tmp = tmp->next;
 		}
-		// printf("It is now cycle %d\n", i);
-		i++;
-		if(i >= 1)
+		cor->cycles++;
+		if(cor->cycles >= 5000)
 			return ;
 	}
 }
@@ -148,9 +141,10 @@ void to_map(t_cor *cor)
 {
 	add_players(cor);
 	game_init(cor);
-	print_map(cor);
-
+	// print_map(cor);
+	init_comand_function(cor);
 	game(cor);
+	// print_map(cor);
 	endwin();
 	// while(1)
 	// 	;

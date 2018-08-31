@@ -41,6 +41,7 @@ typedef char	t_arg_type;
 # define PROG_NAME_LENGTH		(128)
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
+#define ABS(x) (((x)<0) ? -(x) : (x))
 
 #include <curses.h>
 #include <unistd.h>
@@ -49,6 +50,9 @@ typedef char	t_arg_type;
 # include <sys/types.h>
 # include <sys/stat.h>
 # include "../libft/libft.h"
+
+struct s_process;
+struct s_cor;
 
 typedef struct			s_player
 {
@@ -66,16 +70,22 @@ typedef struct			s_process
 	int 				live; 			// Жив или нет (bool)
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
-	int 				cary; 			// флаг для некоторых команд
-	void (*instruct) (void);			// команда, Которую исполняет процесс ( потом придумаю тип в котором хранить) 
-	int 		 		delay; 			// сколько циклов до выполнения команды
+	int 				carry; 			// флаг для некоторых команд
+	int 				comm_i;			// команда, Которую исполняет процесс 
+	int 		 		delay;			// сколько циклов до выполнения команды
+	int 				arg1;
+	int 				arg2;
+	int 				arg3;
+	int 				label;
+	int 				codage;
 	t_player 			*player;		// указатель на игрока который создал процесс
-	struct s_process  	*next;
+	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
 
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
+	int 				cycles;
 	int 				code_summ;
 	int 				start;
 	int 				visu;
@@ -85,11 +95,38 @@ typedef struct			s_cor
 	int 				flag_p_num;
 	int 				def_num;
 	WINDOW 				*win1;
-	WINDOW 				*win2;			
+	WINDOW 				*win2;				
 	t_process			*process;
 	t_player			player[4];
+	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 }						t_cor;
 
+char 					get_char(t_cor *cor, int loc);
+short 					get_short(t_cor *cor, int loc);
+int 					get_int(t_cor *cor, int loc);
+int 					get_reg(t_process *process, unsigned char reg);
+void 					set_proc_pos(t_process *process, int shift);
+int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
-
+void 					init_comand_function(t_cor *cor);
+void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
+void 					codage_identify(t_process *process, unsigned char args);
+void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
+void 					comm_live(t_cor *cor, t_process *process);
+void 					comm_ld(t_cor *cor, t_process *process);
+void 					comm_or(t_cor *cor, t_process *process);
+void 					comm_xor(t_cor *cor, t_process *process);
+void 					comm_zjmp(t_cor *cor, t_process *process);
+void 					comm_ldi(t_cor *cor, t_process *process);
+void 					comm_sti(t_cor *cor, t_process *process);
+void 					comm_fork(t_cor *cor, t_process *process);
+void 					comm_lld(t_cor *cor, t_process *process);
+void 					comm_lldi(t_cor *cor, t_process *process);
+void 					comm_lfork(t_cor *cor, t_process *process);
+void 					comm_aff(t_cor *cor, t_process *process);
+void 					comm_st(t_cor *cor, t_process *process);
+void 					comm_add(t_cor *cor, t_process *process);
+void 					comm_sub(t_cor *cor, t_process *process);
+void 					comm_and(t_cor *cor, t_process *process);
+void 					comm_next(t_cor *cor, t_process *process);
 #endif
