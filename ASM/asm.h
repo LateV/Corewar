@@ -51,11 +51,12 @@ typedef char	t_arg_type;
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
 
-
+#include <stddef.h>
 typedef struct		s_def_com
 {
     int opcode;
     char *name;
+    int  num_of_arg;
     int  first_arg[3];
     int  second_arg[3];
     int third_arg[2];
@@ -71,10 +72,10 @@ typedef struct		s_command
     char *label;
     char *command_name;
     int  type_arg[3];
+    int  num_arg[3];
+    char *pointer_arg[3];
     int  opcode;
     int  label_size;
-    char *pointer_arg[3];
-    int  num_arg[3];
     int  byte_sum[4];
     struct s_command	*next;
 }					t_command;
@@ -104,3 +105,4 @@ char *ft_find_label(char *str, t_command **node, t_header **header);
 t_command *new_node();
 void push_back(t_header **header, t_command *new_node);
 void ft_find_command(char *str, t_command **node);
+size_t	ft_arr_len(char **arr);

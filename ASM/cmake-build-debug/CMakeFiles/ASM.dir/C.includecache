@@ -7,6 +7,12 @@
 #IncludeRegexTransform: 
 
 /Users/oskulska/Desktop/corewar/ASM/asm.h
+stddef.h
+-
+
+/Users/oskulska/Desktop/corewar/ASM/g.c
+asm.h
+/Users/oskulska/Desktop/corewar/ASM/asm.h
 
 /Users/oskulska/Desktop/corewar/ASM/libft/ft_atoi.c
 
@@ -306,7 +312,21 @@ ft_printf.h
 ft_printf.h
 /Users/oskulska/Desktop/corewar/ASM/libft/ft_printf.h
 
+/Users/oskulska/Desktop/corewar/ASM/live.c
+libft/libft.h
+/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
+asm.h
+/Users/oskulska/Desktop/corewar/ASM/asm.h
+
 /Users/oskulska/Desktop/corewar/ASM/main.c
+libft/libft.h
+/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
+fcntl.h
+-
+asm.h
+/Users/oskulska/Desktop/corewar/ASM/asm.h
+
+/Users/oskulska/Desktop/corewar/ASM/read.c
 libft/libft.h
 /Users/oskulska/Desktop/corewar/ASM/libft/libft.h
 fcntl.h

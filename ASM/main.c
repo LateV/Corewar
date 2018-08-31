@@ -188,6 +188,7 @@ int main(int argc, char const *argv[])
 {
     int y;
 
+
     if (argc > 1)
     {
         if(ft_check_flag(argv,argc) && ft_check_extension(argv,argc-1))
