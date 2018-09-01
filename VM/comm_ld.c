@@ -33,19 +33,17 @@ void comm_ld(t_cor *cor, t_process *process)
 		process->delay--;
 	if (process->delay == 0)
 	{
-		ft_putstr("here\n");
 		process->label = 4;
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process, &name);
 		if(process->codage == 1)
 		{
-			ft_putstr("lala\n");
 			if (name == 2)
 			{
-				load_data_to_reg(cor, process, 4, process->arg3 - 1);
+				process->registr[process->arg2 - 1] = process->arg1;
 				ft_putstr("-> ld ");
-				ft_putnbr(get_reg(process, process->arg1 - 1));
+				ft_putnbr(get_reg(process, process->arg2 - 1));
 				ft_putstr(" r");
 				ft_putnbr(process->arg2);
 				ft_putstr("\n");
