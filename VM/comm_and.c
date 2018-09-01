@@ -32,7 +32,7 @@ void comm_and(t_cor *cor, t_process *process)
 		sk = arg_read(cor, process);
 		if(process->codage == 1)
 		{
-			res = process->arg1 & process->arg1;
+			res = process->arg1 & process->arg2;
 			if(res == 0)
 				process->carry = 0;
 			else
