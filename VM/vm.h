@@ -72,7 +72,6 @@ typedef struct			s_process
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
 	int 				carry; 			// флаг для некоторых команд
-	int 				comm_i;			// команда, Которую исполняет процесс 
 	int 		 		delay;			// сколько циклов до выполнения команды
 	int 				arg1;
 	int 				arg2;

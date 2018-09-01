@@ -23,8 +23,8 @@ void comm_ldi(t_cor *cor, t_process *process)
 {
 	int sk;
 	int name;
-	int sum;
-	int first;
+	// int sum;
+	// int first;
 
 	name = 0;
 	if (process->delay < 0)
