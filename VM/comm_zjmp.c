@@ -3,9 +3,7 @@
 void comm_zjmp(t_cor *cor, t_process *process)
 {
 	int sk;
-	int i;
 
-	i = 0;
 	if (process->delay < 0)
 		process->delay = 19;
 	else if (process->delay > 0)
