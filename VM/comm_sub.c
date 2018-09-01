@@ -32,6 +32,7 @@ void comm_sub(t_cor *cor, t_process *process)
 		{
 			tmp = get_reg(process, process->arg1 - 1) - get_reg(process, process->arg2 - 1);
 			process->registr[process->arg3 - 1] = tmp;
+			ft_putstr("->sub r");
 			ft_putnbr(process->arg1);
 			ft_putstr(" + r");
 			ft_putnbr(process->arg2);

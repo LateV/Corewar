@@ -17,7 +17,7 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 		new->next = cor->process;
 		new->live = 0;
 		new->pc = loc;
-		new->carry = process->carry;
+		new->carry = 1;
 		new->delay = -1;
 		new->arg1 = 0;
 		new->arg2 = 0;

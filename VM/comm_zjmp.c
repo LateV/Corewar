@@ -13,6 +13,9 @@ void comm_zjmp(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
+		ft_putstr("pc = ");
+		ft_putnbr(process->pc + process->arg1);
+		ft_putstr("\n");
 		ft_putstr("->zjmp: ");
 		ft_putnbr(process->arg1);
 		if(process->carry == 1)
