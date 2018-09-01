@@ -3,6 +3,7 @@
 void add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process *tmp;
+	t_process *new;
 
 	tmp = cor->process;
 	if (!tmp)
@@ -19,27 +20,17 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->live = 0;
 		return ;
 	}
-	while(69)
-	{
-		if(tmp->next == NULL)
-		{
-			tmp->next = ft_memalloc(sizeof(t_process));
-			if(tmp->next)
-			{
-				tmp->next->player = &player[k];
-				tmp->next->delay = -1;
-				tmp->next->player->num = tmp->next->player->num * (-1);
-				tmp->next->registr[0] = tmp->next->player->num;
-				tmp->next->player->live_summ = 0;
-				tmp->next->live = 0;
-				tmp->next->command = -1;
-				tmp->next->carry = 1;
-				tmp->next->next = NULL;
-			}
-			break ;
-		}
-		tmp = tmp->next;
-	}
+	new = ft_memalloc(sizeof(t_process));
+	new->next = cor->process;
+	new->player = &player[k];
+	new->delay = -1;
+	new->player->num = new->player->num * (-1);
+	new->registr[0] = new->player->num;
+	new->player->live_summ = 0;
+	new->live = 0;
+	new->command = -1;
+	new->carry = 1;
+	cor->process = new;
 }
 
 void add_players(t_cor *cor)
@@ -138,7 +129,6 @@ void live_cheker(t_cor *cor)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
 				cor->curr_chechs = -1;
-				break ;
 			}
 			i++;
 		}

@@ -80,6 +80,7 @@ typedef struct			s_process
 	int 				label;
 	int 				codage;
 	int 				command;
+	int 				ind_loc;
 	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
