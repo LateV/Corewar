@@ -15,7 +15,7 @@ void codage_identify(t_process *process, unsigned char args)
 		else if((args & 48) == 48)
 			process->arg2 = 3;
 		else if((args & 48) == 16)
-			process->arg2 = 2;
+			process->arg2 = 1;
 		else
 			process->arg2 = 0;
 		if((args & 12) == 8)

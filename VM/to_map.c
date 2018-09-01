@@ -203,7 +203,11 @@ void game(t_cor *cor)
 					set_proc_pos(tmp, 1);
 			}
 			else
+			{
+				ft_putnbr(tmp->command);
+				ft_putstr("\n");
 				cor->instruct[tmp->command](cor, tmp);
+			}
 			tmp = tmp->next;
 		}
 		cor->cycles++;

@@ -1,23 +1,63 @@
 #include "vm.h"
 
+static int arg_read(t_cor *cor, t_process *process, int *name)
+{
+	int s;
+
+	s = 2;
+	if(process->arg1 == 1)
+		process->codage = 0;
+	if (process->arg2 != 1)
+		process->codage = 0;
+	if (process->arg3 != 0)
+		process->codage = 0;
+	if (process->arg1 == 2)
+		*name = 2;
+	else if (process->arg1 == 3)
+		*name = 3;
+	s = arg_handler(cor, process, &process->arg1, s);
+	s = arg_handler(cor, process, &process->arg2, s);
+	s = arg_handler(cor, process, &process->arg3, s);
+	return(s);
+}		
+
 void comm_ld(t_cor *cor, t_process *process)
 {
-	if (process->delay == -1)
-		process->delay = 5;
+	int sk;
+	int name;
+
+	name = 0;
+	if (process->delay < 0)
+		process->delay = 4;
 	else if (process->delay > 0)
 		process->delay--;
-	else if (process->delay == 0)
+	if (process->delay == 0)
 	{
-		if(cor->arena[process->pc + 1] == 144)
+		ft_putstr("here\n");
+		process->label = 4;
+		codage_identify(process, get_char(cor, process->pc + 1));
+		process->codage = 1;
+		sk = arg_read(cor, process, &name);
+		if(process->codage == 1)
 		{
-			load_data_to_reg(cor, process, 4, process->pc + 6);
-			printf("aaaaaa = %d\n", process->registr[process->pc + 6]);
-			process->pc =  process->pc + 7;
+			ft_putstr("lala\n");
+			if (name == 2)
+			{
+				load_data_to_reg(cor, process, 4, process->arg3 - 1);
+				ft_putstr("-> ld ");
+				ft_putnbr(get_reg(process, process->arg1 - 1));
+				ft_putstr(" r");
+				ft_putnbr(process->arg2);
+				ft_putstr("\n");
+			}
+			else if (name == 3)
+			{
+
+			}
 		}
-		printf("x = %02x\n", cor->arena[process->pc]);
+		set_proc_pos(process, sk);
+		process->delay = -1;
+		process->codage = 1;
+		process->command = -1;
 	}
-	set_proc_pos(process, 1);
-	// printf("pos = %d\n", process->pc);
-	// printf("%02x\n", cor->arena[process->pc]);
-	// printf("%s\n", "ld");	
 }
