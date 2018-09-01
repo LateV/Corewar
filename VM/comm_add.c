@@ -16,6 +16,7 @@ static int arg_read(t_cor *cor, t_process *process)
 void comm_add(t_cor *cor, t_process *process)
 {
 	int sk;
+	int tmp;
 
 	if (process->delay < 0)
 		process->delay = 9;
@@ -36,7 +37,12 @@ void comm_add(t_cor *cor, t_process *process)
 			ft_putstr(" to ");
 			ft_putnbr(process->arg3);
 			ft_putstr("\n");
-			process->registr[process->arg3 - 1] = get_reg(process, process->arg1 - 1) + get_reg(process, process->arg2 - 1);
+			tmp = get_reg(process, process->arg1 - 1) + get_reg(process, process->arg2 - 1);
+			process->registr[process->arg3 - 1] = tmp;
+			if (tmp == 0)
+				process->carry = 1;
+			else
+				process->carry = 0;
 		}
 		set_proc_pos(process, sk);
 		process->delay = -1;
