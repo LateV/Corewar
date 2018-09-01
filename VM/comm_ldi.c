@@ -37,28 +37,21 @@ void comm_ldi(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process, &name);
-		// if(process->codage == 1)
-		// {
-		// 	first = get_reg(process, process->arg1);
-		// 	if (name == 3)
-		// 	{
-		// 		first = load_from_reg(cor, process, 4, get_reg(process, process->arg1) % IDX_MOD + process->pc);
-		// 		ft_putstr("-> ldi ");
-		// 		ft_putnbr(get_reg(process, process->arg2 - 1));
-		// 		ft_putstr(" r");
-		// 		ft_putnbr(process->arg2);
-		// 		ft_putstr("\n");
-		// 	}
-		// 	sum = first + get_reg(process, process->arg2) % IDX_MOD + process->pc; 
-		// 	process->regist[process->arg3 - 1] = load_from_reg(cor, process, 4, sum);
-		// 	ft_putstr("->ldi: load from ");
-		// 	ft_putnbr(first);
-		// 	ft_putstr(" + ");
-		// 	ft_putnbr(p);
-		// 	ft_putstr(" = ");
-		// 	ft_putnbr(process->arg2 + process->arg3);
-		// 	ft_putstr("\n");
-		// }
+		if(process->codage == 1)
+		{
+			first = process->arg1;
+			if (name == 3)
+				first = process->arg1 % IDX_MOD + process->pc;
+			sum = t_ind(cor, &process->arg1, (((first + process->arg2) % IDX_MOD) + process->pc)); 
+			load_to_reg(cor, process, sum, process->arg3 - 1);
+			ft_putstr("->ldi: load from ");
+			ft_putnbr(process->arg1);
+			ft_putstr(" + ");
+			ft_putnbr(process->arg2);
+			ft_putstr(" = ");
+			ft_putnbr(process->arg3);
+			ft_putstr("\n");
+		}
 		set_proc_pos(process, sk);
 		process->delay = -1;
 		process->codage = 1;
