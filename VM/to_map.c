@@ -103,7 +103,6 @@ void game_init(t_cor *cor)
 	}
 }
 
-
 void live_cheker(t_cor *cor)
 {
 	t_process *prev;
@@ -115,14 +114,29 @@ void live_cheker(t_cor *cor)
 	{
 		tmp = cor->process;
 		prev = NULL;
-		// while(tmp)
-		// {
-		// 	if(tmp->live == 0)
-		// 		del_proc(cor, tmp);
-		// 	else
-		// 		tmp->live = 0;
-		// 	tmp = tmp->next;
-		// }
+		while(tmp)
+		{
+			if(tmp->live == 0)
+			{
+				if(prev == NULL)
+				{
+					tmp = cor->process->next;
+					free(cor->process);
+					cor->process = tmp;
+				}
+				else
+				{
+					prev->next = tmp->next;
+					free(tmp);
+					tmp = prev->next;
+					continue;
+				}
+			}
+			else
+				tmp->live = 0;
+			prev = tmp;
+			tmp = tmp->next;
+		}
 		while(i < 4)
 		{
 			if(cor->player[i].live_summ >= 21)

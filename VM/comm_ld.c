@@ -50,9 +50,13 @@ void comm_ld(t_cor *cor, t_process *process)
 			}
 			else if (name == 3)
 			{
-				process->arg1 = get_reg(process, process->arg1 % IDX_MOD);
-				process->registr[process->arg2 - 1] = load_from_reg(cor, process, 
-					process->pc + process->arg1, process->arg1 - 1);
+				process->arg1 = process->arg1 % IDX_MOD;
+				ft_putstr("-> ld");
+				ft_putnbr(process->pc + process->arg1);
+				ft_putstr("r");
+				ft_putnbr(process->arg2);
+				ft_putstr("\n");
+				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
 				if (process->registr[process->arg2 - 1] == 0)
 					process->carry = 1;
 				else

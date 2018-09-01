@@ -52,6 +52,7 @@ void comm_fork(t_cor *cor, t_process *process)
 		ft_putstr(")");
 		ft_putstr("\n");
 		add_proc(cor, process, process->pc + (process->arg1 % IDX_MOD));
+		set_proc_pos(process, sk + 1);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;
