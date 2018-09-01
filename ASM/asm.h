@@ -39,7 +39,7 @@ typedef char	t_arg_type;
 
 #define T_REG					1
 #define T_DIR					2
-#define T_IND					4
+#define T_IND					3
 #define T_LAB					8
 
 /*
@@ -76,8 +76,11 @@ typedef struct		s_command
     char *pointer_arg[3];
     int  opcode;
     int  label_size;
-    int  byte_sum[4];
+    int  size;
+    int  byte_sum[3];
+    int codage_octal;
     struct s_command	*next;
+    struct s_command	*prev;
 }					t_command;
 
 
@@ -107,3 +110,7 @@ void push_back(t_header **header, t_command *new_node);
 void ft_find_command(char *str, t_command **node);
 size_t	ft_arr_len(char **arr);
 void init_struct(t_header **header);
+ssize_t	ft_atoi_long(const char *str);
+void ft_count_opcode(t_command *node);
+void ft_count_pointer(t_header *node);
+void ft_count_pointer_2(t_header *node);

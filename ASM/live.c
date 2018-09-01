@@ -106,10 +106,13 @@ void ft_find_command(char *str, t_command **node)
         if(ft_strnstr(s,g_def[i].name,ft_strlen(g_def[i].name)))
         {
             (*node)->command_name = g_def[i].name;
-            (*node)->label_size = ft_strlen(g_def[i].name);
+            (*node)->size = 1;
+            (*node)->label_size = g_def[i].label_size;
+            (*node)->opcode = g_def[i].codage_octal;
             break;
         }
         i++;
     }
     ft_find_arg_type(s, node);
+    ft_count_opcode(*node);
 }

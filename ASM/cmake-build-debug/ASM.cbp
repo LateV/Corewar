@@ -83,6 +83,9 @@
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/asm.h">
 			<Option target="ASM"/>
 		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/count_params.c">
+			<Option target="ASM"/>
+		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/g.c">
 			<Option target="ASM"/>
 		</Unit>

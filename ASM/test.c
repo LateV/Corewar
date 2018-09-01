@@ -21,18 +21,34 @@ void main(void){
 //    wr[0] = (char)i;
 //    wr[1] = 0;
 
-    int  a[4];
-    a[0]=0;
-    a[1]=234;
-    a[2]=131;
-    a[3]=243;
+//    int  a[4];
+//    a[0]=0;
+//    a[1]=234;
+//    a[2]=131;
+//    a[3]=243;
 
-    if (!(fd = open("test.cor", O_TRUNC | O_WRONLY)))
-        ft_putstr("Open error");
-    for(int i = 0; i < 4; i++)
-    {
-        ft_putchar_fd(0,fd);
-    }
+//    if (!(fd = open("test.cor", O_TRUNC | O_WRONLY)))
+//        ft_putstr("Open error");
+//    for(int i = 0; i < 4; i++)
+//    {
+//        ft_putchar_fd(0,fd);
+//    }
+
+    int a = 1;
+    int b = 2;
+    int c = 2;
+
+    int a_1;
+    int b_1;
+    int c_1;
+
+    a_1 = a << 6;
+    //ft_printf("%d",a_1);
+    b_1 = b << 4;
+    c_1 = c << 2;
+
+    int sum = a_1 | b_1 | c_1;
+    ft_printf("%d",sum);
 }
 //
 //

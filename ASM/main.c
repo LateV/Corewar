@@ -111,7 +111,6 @@ char  *ft_find_label(char *s, t_command **node, t_header **header)
     char *str;
 
     i = 0;
-
     while(s[i])
     {
         if (s[i] == ':' && s[i - 1] && s[i - 1] != '%')
@@ -124,7 +123,6 @@ char  *ft_find_label(char *s, t_command **node, t_header **header)
             free(str);
             (*header)->curr_label = (*node)->label;
             return line;
-           // printf("LABEL\n start: %d  len: %d -----%s\n",0,i,label);
         }
         i++;
     }
@@ -156,8 +154,8 @@ t_command *new_node()
     new_node->byte_sum[0] = 0;
     new_node->byte_sum[1] = 0;
     new_node->byte_sum[2] = 0;
-    new_node->byte_sum[3] = 0;
     new_node->next = NULL;
+    new_node->prev = NULL;
     return (new_node);
 }
 
@@ -176,6 +174,7 @@ void push_back(t_header **header, t_command *new_node)
         tmp = tmp->next;
     }
     tmp->next = new_node;
+    tmp->next->prev = tmp;
 }
 
 
@@ -186,25 +185,24 @@ int main(int argc, char const *argv[])
     t_header *header;
     int y;
 
-    y = 1;
     init_struct(&header);
     if (argc > 1)
     {
-       // if(ft_check_flag(argv,argc) && ft_check_extension(argv,argc-1))
-        //{
+        if(ft_check_flag(argv,argc) && ft_check_extension(argv,argc-1))
+        {
            // -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output% ;
-         //   ft_printf("flag + format");
-       // }
-        //else if((y = ft_check_extension(argv,argc-1)) > 0)
-       // {
+            ft_printf("flag + format");
+        }
+        else if((y = ft_check_extension(argv,argc-1)) > 0)
+        {
             read_file(argv[y],&header);
-        //}
-       // else
-       //     error_exit(argv[argc-1]);
+        }
+        else
+            error_exit(argv[argc-1]);
     }
     else
         ft_putstr("Usage: ./asm [-a] <sourcefile.s>\n"
                           "    -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output");
-    system("leaks my_asm > test.txt");
+    //system("leaks my_asm > test.txt");
     return 0;
 }

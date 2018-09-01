@@ -123,6 +123,33 @@ ASM/fast:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/build
 .PHONY : ASM/fast
 
+count_params.o: count_params.c.o
+
+.PHONY : count_params.o
+
+# target to build an object file
+count_params.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.o
+.PHONY : count_params.c.o
+
+count_params.i: count_params.c.i
+
+.PHONY : count_params.i
+
+# target to preprocess a source file
+count_params.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.i
+.PHONY : count_params.c.i
+
+count_params.s: count_params.c.s
+
+.PHONY : count_params.s
+
+# target to generate assembly for a file
+count_params.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.s
+.PHONY : count_params.c.s
+
 g.o: g.c.o
 
 .PHONY : g.o
@@ -2238,6 +2265,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ASM"
+	@echo "... count_params.o"
+	@echo "... count_params.i"
+	@echo "... count_params.s"
 	@echo "... g.o"
 	@echo "... g.i"
 	@echo "... g.s"
