@@ -248,6 +248,7 @@ void def_num(t_cor *cor)
 				if(k == 4)
 				{
 					cor->player[i].num = cor->def_num;
+					k = 0;
 					break;
 				}
 				k = 0;
@@ -307,6 +308,9 @@ int main(int argc, char **argv)
 	cor.process = NULL;
 	def_num(&cor);
 	cor.def_num = 1;
+	cor.live_check = 0;
+	cor.curr_cycle_t_d = CYCLE_TO_DIE;
+	cor.curr_chechs = 0;
 	to_map(&cor);
 	system("leaks -quiet corewar");
 	return(0);
