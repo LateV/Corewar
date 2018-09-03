@@ -138,4 +138,5 @@ void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
 void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
+void 					add_proc(t_cor *cor, t_process *process, int loc);
 #endif
