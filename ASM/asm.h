@@ -115,3 +115,4 @@ ssize_t	ft_atoi_long(const char *str);
 void ft_count_opcode(t_command *node);
 void ft_count_pointer(t_header *node);
 void ft_label(t_header *node);
+void ft_write_to_file(t_header *header);

@@ -78,6 +78,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ASM.dir/live.c.o"
   "CMakeFiles/ASM.dir/g.c.o"
   "CMakeFiles/ASM.dir/count_params.c.o"
+  "CMakeFiles/ASM.dir/writing.c.o"
   "ASM.pdb"
   "ASM"
 )

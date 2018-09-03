@@ -83,6 +83,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/oskulska/Desktop/corewar/ASM/live.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/live.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/main.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/main.c.o"
   "/Users/oskulska/Desktop/corewar/ASM/read.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/read.c.o"
+  "/Users/oskulska/Desktop/corewar/ASM/writing.c" "/Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/writing.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

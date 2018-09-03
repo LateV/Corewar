@@ -1,4 +1,4 @@
-.name     "f"
+.name     "ya pidor"
 .comment "j"
 
 sti:sti r1,%:live,%0

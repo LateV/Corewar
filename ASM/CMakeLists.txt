@@ -85,4 +85,5 @@ add_executable(ASM
         read.c
         live.c
         g.c
-        count_params.c)
+        count_params.c
+        writing.c)

@@ -2256,6 +2256,33 @@ read.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.s
 .PHONY : read.c.s
 
+writing.o: writing.c.o
+
+.PHONY : writing.o
+
+# target to build an object file
+writing.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.o
+.PHONY : writing.c.o
+
+writing.i: writing.c.i
+
+.PHONY : writing.i
+
+# target to preprocess a source file
+writing.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.i
+.PHONY : writing.c.i
+
+writing.s: writing.c.s
+
+.PHONY : writing.s
+
+# target to generate assembly for a file
+writing.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.s
+.PHONY : writing.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2502,6 +2529,9 @@ help:
 	@echo "... read.o"
 	@echo "... read.i"
 	@echo "... read.s"
+	@echo "... writing.o"
+	@echo "... writing.i"
+	@echo "... writing.s"
 .PHONY : help
 
 

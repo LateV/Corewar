@@ -1,3 +1,242 @@
+ str before command 
+ str before command 
+ str before command live	%42		# entree
+ str before command ld	%0,r5
+ str before command ld	%0,r5
+ str before command zjmp	%:bite
+ str before command 
+ str before command sti	r1,%:live,%1
+ str before command ld	%2304,r10
+ str before command ld	%1,r5
+ str before command ld	%0,r11
+ str before command ld	%4,r3
+ str before command live	%42
+ str before command fork	%:tirop
+ str before command live	%742
+ str before command sub	r3,r5,r3
+ str before command zjmp	%:top
+ str before command ld	%0,r11
+ str before command fork	%:tirvd
+ str before command live	%42
+ str before command sti r10,%-510,%0
+ str before command sti	r10,%-404,%0
+ str before command sti	r10,%-303,%0
+ str before command sti	r10,%-202,%0
+ str before command ld %0,r11
+ str before command zjmp	%:tirf
+ str before command 
+ str before command ld	%368,r2
+ str before command ld	%0,r3
+ str before command ld	%4,r4
+ str before command 
+ str before command live	%1
+ str before command sti	r10,%-510,r2
+ str before command sti	r10,%-510,r3
+ str before command add	r4,r5,r4
+ str before command add	r3,r4,r3
+ str before command sub	r2,r4,r2
+ str before command zjmp	%:tirop
+ str before command ld	%0,r11
+ str before command zjmp	%:tirb
+ str before command zjmp	%:infi
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command sub	r6,r4,r6
+ str before command add	r6,r6,r11
+ str before command ldi	%:p32deb,r6,r7
+ str before command sti	r7,%-510,r11
+ str before command live	%1
+ str before command ld	%0,r10
+ str before command sti	r7,%-250,r6
+ str before command zjmp	%-192
+ str before command 
+ str before command zjmp	%:tirvd2
+ str before command 
+ str before command sti     r1,%:copie,%2
+ str before command ldi     %:copie,%3,r2   # met le ld a l'entree
+ str before command sti     r2,%:entree,%-4
+ str before command ldi     %:copie,%-1,r2
+ str before command sti     r2,%:entree,%-8
+ str before command 
+ str before command sti	r1,%:p32li,%1
+ str before command sti	r1,%:b0,%1
+ str before command 
+ str before command ld	%0,r2
+ str before command ld	%8,r3		# prepare les fork
+ str before command ld	%1,r4
+ str before command ld	%0,r6
+ str before command 
+ str before command live	%1		# boucle fork
+ str before command sub	r3,r4,r3
+ str before command zjmp	%:tart
+ str before command fork	%:b1
+ str before command st	r5,r2
+ str before command xor	r10,r10,r10	# pour rien
+ str before command add	r10,r10,r10	# pour rien
+ str before command add	r6,r6,r6
+ str before command ld	%0,r10
+ str before command zjmp	%:b0
+ str before command add	r2,r4,r2
+ str before command add	r6,r6,r6
+ str before command add	r6,r4,r6
+ str before command ld	%0,r10
+ str before command zjmp	%:b0
+ str before command 
+ str before command 
+ str before command live	%42
+ str before command ld	%9,r3
+ str before command sti	r3,%:p32deb,%-6
+ str before command ld	%2,r3
+ str before command sti	r3,%:p32deb,%-16
+ str before command ld	%0,r3
+ str before command zjmp	%:topd
+ str before command 
+ str before command 
+ str before command sti	r1,%:l0,%1
+ str before command sti	r1,%:l1,%1
+ str before command sti	r1,%:l2,%1
+ str before command sti	r1,%:l3,%1
+ str before command sti	r1,%:l4,%1
+ str before command sti	r1,%:l5,%1
+ str before command sti	r1,%:l6,%1
+ str before command sti	r1,%:l7,%1
+ str before command sti	r1,%:l8,%1
+ str before command sti	r1,%:l9,%1
+ str before command sti	r1,%:l10,%1
+ str before command 
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command live	%1
+ str before command zjmp	%:l0
+ str before command 
+ str before command 
+ str before command zjmp	%:infi
+ str before command 
+ str before command live    %0              # pour boucher l'entree
+ str before command ld      %1,r1
+ str before command 
+ str before command 
+ str before command sti	r1,%:p64li,%1
+ str before command or	r2,r2,r2	# selection vers les modules
+ str before command zjmp	%:p64
+ str before command sub	r2,r4,r2
+ str before command zjmp	%:p32
+ str before command ld	%0,r2
+ str before command zjmp	%:infi
+ str before command 
+ str before command 
+ str before command zjmp	%:tirdow
+ str before command 
+ str before command ld	%9,r3
+ str before command sti	r3,%:fin,%-6
+ str before command ld	%2,r3
+ str before command sti	r3,%:fin,%-16
+ str before command ld	%0,r3
+ str before command zjmp	%:infi
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command zjmp	%0
+ str before command 
+ str before command ld	%10,r8
+ str before command sub	r6,r8,r6
+ str before command and	%:cont,%2147483648,r8
+ str before command zjmp	%:cont
+ str before command ld	%118,r8
+ str before command add	r6,r8,r6
+ str before command add	r6,r6,r6
+ str before command ld	%272,r8
+ str before command ld	%29,r9
+ str before command ldi	%:p64deb,r6,r7
+ str before command sti	r7,r8,r6
+ str before command sti	r7,r9,r6
+ str before command live	%1
+ str before command ld	%0,r10
+ str before command zjmp	%186
+ str before command 
+ str before command ld	%425,r2
+ str before command ld	%0,r3
+ str before command ld	%4,r4
+ str before command 
+ str before command live	%42
+ str before command sti	r10,%:fin,r2
+ str before command sti	r10,%:fin,r3
+ str before command add	r4,r5,r4
+ str before command add	r3,r4,r3
+ str before command sub	r2,r4,r2
+ str before command zjmp	%:tirdow
+ str before command ld	%0,r11
+ str before command zjmp	%:tird
+ str before command zjmp	%:p1
+ str before command 
+ str before command live	%633
 № 1
 label (null) command (null)
 size 0
@@ -8,52 +247,53 @@ byte_num 0
 byte_num 0
 byte_num 0
 № 2
-label (null) command sti
-size 7
-arg_type 1-> num 1
-arg_type 2-> num 69
-arg_type 2-> num 1
-byte_num 1
-byte_num 2
-byte_num 2
+label entree command (null)
+size 4
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
 № 3
-label (null) command sti
-size 7
-arg_type 1-> num 1
-arg_type 2-> num 34
-arg_type 2-> num 1
-byte_num 1
-byte_num 2
-byte_num 2
+label entree command live
+size 5
+arg_type 2-> num 42
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
 № 4
-label (null) command ld
+label entree command ld
 size 7
-arg_type 2-> num 1
-arg_type 1-> num 3
+arg_type 2-> num 0
+arg_type 1-> num 5
 arg_type 0-> num 0
 byte_num 4
 byte_num 1
 byte_num 0
 № 5
-label (null) command ld
+label entree command ld
 size 7
-arg_type 2-> num 33
-arg_type 1-> num 6
+arg_type 2-> num 0
+arg_type 1-> num 5
 arg_type 0-> num 0
 byte_num 4
 byte_num 1
 byte_num 0
 № 6
-label (null) command (null)
-size 0
+label entree command zjmp
+size 3
+pointer bite
+arg_type 2-> num 281
 arg_type 0-> num 0
 arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
+byte_num 2
 byte_num 0
 byte_num 0
 № 7
-label forks command (null)
+label entree command (null)
 size 0
 arg_type 0-> num 0
 arg_type 0-> num 0
@@ -62,142 +302,2120 @@ byte_num 0
 byte_num 0
 byte_num 0
 № 8
-label forks command add
-size 5
-arg_type 1-> num 2
-arg_type 1-> num 3
-arg_type 1-> num 2
+label tir command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 65536
+arg_type 2-> num 1
 byte_num 1
-byte_num 1
-byte_num 1
+byte_num 2
+byte_num 2
 № 9
-label forks command xor
-size 8
-arg_type 1-> num 2
-arg_type 2-> num 15
-arg_type 1-> num 4
-byte_num 1
+label tir command ld
+size 7
+arg_type 2-> num 2304
+arg_type 1-> num 10
+arg_type 0-> num 0
 byte_num 4
 byte_num 1
+byte_num 0
 № 10
-label live2 command (null)
-size 0
+label tir command ld
+size 7
+arg_type 2-> num 1
+arg_type 1-> num 5
 arg_type 0-> num 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
-byte_num 0
+byte_num 4
+byte_num 1
 byte_num 0
 № 11
-label live2 command live
-size 5
+label tir command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 11
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 12
+label tir command ld
+size 7
 arg_type 2-> num 4
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 13
+label tirf command live
+size 5
+arg_type 2-> num 42
 arg_type 0-> num 0
 arg_type 0-> num 0
 byte_num 4
-byte_num 0
-byte_num 0
-№ 12
-label live2 command zjmp
-size 3
-pointer endwhile
-arg_type 2-> num 16
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 2
-byte_num 0
-byte_num 0
-№ 13
-label live2 command fork
-size 3
-pointer forks
-arg_type 2-> num 65515
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 2
 byte_num 0
 byte_num 0
 № 14
-label live2 command ld
-size 7
-arg_type 2-> num 0
-arg_type 1-> num 4
-arg_type 0-> num 0
-byte_num 4
-byte_num 1
-byte_num 0
-№ 15
-label live2 command zjmp
+label tirf command fork
 size 3
-pointer forks
-arg_type 2-> num 65505
+pointer tirop
+arg_type 2-> num 69
 arg_type 0-> num 0
 arg_type 0-> num 0
 byte_num 2
 byte_num 0
 byte_num 0
+№ 15
+label tirf command live
+size 5
+arg_type 2-> num 742
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
 № 16
-label live2 command (null)
-size 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
-byte_num 0
-byte_num 0
+label tirf command sub
+size 5
+arg_type 1-> num 3
+arg_type 1-> num 5
+arg_type 1-> num 3
+byte_num 1
+byte_num 1
+byte_num 1
 № 17
-label endwhile command (null)
-size 0
+label tirf command zjmp
+size 3
+pointer top
+arg_type 2-> num 376
 arg_type 0-> num 0
 arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
+byte_num 2
 byte_num 0
 byte_num 0
 № 18
-label endwhile command ld
+label tirf command ld
 size 7
 arg_type 2-> num 0
-arg_type 1-> num 4
+arg_type 1-> num 11
 arg_type 0-> num 0
 byte_num 4
 byte_num 1
 byte_num 0
 № 19
-label endwhile command (null)
-size 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
-byte_num 0
-byte_num 0
-№ 20
-label live command (null)
-size 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 0
-byte_num 0
-byte_num 0
-№ 21
-label live command live
-size 5
-arg_type 2-> num 4
-arg_type 0-> num 0
-arg_type 0-> num 0
-byte_num 4
-byte_num 0
-byte_num 0
-№ 22
-label live command zjmp
+label tirf command fork
 size 3
-pointer live
-arg_type 2-> num 65531
+pointer tirvd
+arg_type 2-> num 212
 arg_type 0-> num 0
 arg_type 0-> num 0
 byte_num 2
 byte_num 0
 byte_num 0
-total prog size 77
+№ 20
+label tirf command live
+size 5
+arg_type 2-> num 42
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 21
+label tirf command sti
+size 7
+arg_type 1-> num 10
+arg_type 2-> num -510
+arg_type 2-> num 0
+byte_num 1
+byte_num 2
+byte_num 2
+№ 22
+label tirf command sti
+size 7
+arg_type 1-> num 10
+arg_type 2-> num -404
+arg_type 2-> num 0
+byte_num 1
+byte_num 2
+byte_num 2
+№ 23
+label tirf command sti
+size 7
+arg_type 1-> num 10
+arg_type 2-> num -303
+arg_type 2-> num 0
+byte_num 1
+byte_num 2
+byte_num 2
+№ 24
+label tirf command sti
+size 7
+arg_type 1-> num 10
+arg_type 2-> num -202
+arg_type 2-> num 0
+byte_num 1
+byte_num 2
+byte_num 2
+№ 25
+label tirf command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 11
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 26
+label tirf command zjmp
+size 3
+pointer tirf
+arg_type 2-> num 65465
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 27
+label tirf command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 28
+label tirop command ld
+size 7
+arg_type 2-> num 368
+arg_type 1-> num 2
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 29
+label tirop command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 30
+label tirop command ld
+size 7
+arg_type 2-> num 4
+arg_type 1-> num 4
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 31
+label tirop command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 32
+label tirb command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 33
+label tirb command sti
+size 6
+arg_type 1-> num 10
+arg_type 2-> num -510
+arg_type 1-> num 2
+byte_num 1
+byte_num 2
+byte_num 1
+№ 34
+label tirb command sti
+size 6
+arg_type 1-> num 10
+arg_type 2-> num -510
+arg_type 1-> num 3
+byte_num 1
+byte_num 2
+byte_num 1
+№ 35
+label tirb command add
+size 5
+arg_type 1-> num 4
+arg_type 1-> num 5
+arg_type 1-> num 4
+byte_num 1
+byte_num 1
+byte_num 1
+№ 36
+label tirb command add
+size 5
+arg_type 1-> num 3
+arg_type 1-> num 4
+arg_type 1-> num 3
+byte_num 1
+byte_num 1
+byte_num 1
+№ 37
+label tirb command sub
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 4
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 38
+label tirb command zjmp
+size 3
+pointer tirop
+arg_type 2-> num 65483
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 39
+label tirb command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 11
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 40
+label tirb command zjmp
+size 3
+pointer tirb
+arg_type 2-> num 65494
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 41
+label tirb command zjmp
+size 3
+pointer infi
+arg_type 2-> num 297
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 42
+label tirb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 43
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 44
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 45
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 46
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 47
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 48
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 49
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 50
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 51
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 52
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 53
+label p32deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 54
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 55
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 56
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 57
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 58
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 59
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 60
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 61
+label p32deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 62
+label p32deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 63
+label p32 command sub
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 4
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 64
+label p32 command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 6
+arg_type 1-> num 11
+byte_num 1
+byte_num 1
+byte_num 1
+№ 65
+label p32 command ld
+size 6
+pointer p32deb
+arg_type 3-> num 65472
+arg_type 1-> num 6
+arg_type 1-> num 7
+byte_num 2
+byte_num 1
+byte_num 1
+№ 66
+label p32 command sti
+size 6
+arg_type 1-> num 7
+arg_type 2-> num -510
+arg_type 1-> num 11
+byte_num 1
+byte_num 2
+byte_num 1
+№ 67
+label p32li command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 68
+label p32li command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 10
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 69
+label p32li command sti
+size 6
+arg_type 1-> num 7
+arg_type 2-> num -250
+arg_type 1-> num 6
+byte_num 1
+byte_num 2
+byte_num 1
+№ 70
+label p32li command zjmp
+size 3
+arg_type 2-> num -192
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 71
+label p32li command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 72
+label tirvd command zjmp
+size 3
+pointer tirvd2
+arg_type 2-> num 380
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 73
+label tirvd command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 74
+label bite command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 337
+arg_type 2-> num 2
+byte_num 1
+byte_num 2
+byte_num 2
+№ 75
+label bite command ld
+size 9
+pointer copie
+arg_type 3-> num 330
+arg_type 2-> num 3
+arg_type 1-> num 2
+byte_num 2
+byte_num 4
+byte_num 1
+№ 76
+label bite command sti
+size 7
+arg_type 1-> num 2
+arg_type 2-> num 65216
+arg_type 2-> num -4
+byte_num 1
+byte_num 2
+byte_num 2
+№ 77
+label bite command ld
+size 9
+pointer copie
+arg_type 3-> num 314
+arg_type 2-> num -1
+arg_type 1-> num 2
+byte_num 2
+byte_num 4
+byte_num 1
+№ 78
+label bite command sti
+size 7
+arg_type 1-> num 2
+arg_type 2-> num 65200
+arg_type 2-> num -8
+byte_num 1
+byte_num 2
+byte_num 2
+№ 79
+label bite command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 80
+label bite command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 65473
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 81
+label bite command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 35
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 82
+label bite command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 83
+label bite command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 2
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 84
+label bite command ld
+size 7
+arg_type 2-> num 8
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 85
+label bite command ld
+size 7
+arg_type 2-> num 1
+arg_type 1-> num 4
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 86
+label bite command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 6
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 87
+label bite command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 88
+label b0 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 89
+label b0 command sub
+size 5
+arg_type 1-> num 3
+arg_type 1-> num 4
+arg_type 1-> num 3
+byte_num 1
+byte_num 1
+byte_num 1
+№ 90
+label b0 command zjmp
+size 3
+pointer tart
+arg_type 2-> num 253
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 91
+label b0 command fork
+size 3
+pointer b1
+arg_type 2-> num 32
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 92
+label b0 command st
+size 4
+arg_type 1-> num 5
+arg_type 1-> num 2
+arg_type 0-> num 0
+byte_num 1
+byte_num 1
+byte_num 0
+№ 93
+label b0 command xor
+size 5
+arg_type 1-> num 10
+arg_type 1-> num 10
+arg_type 1-> num 10
+byte_num 1
+byte_num 1
+byte_num 1
+№ 94
+label b0 command add
+size 5
+arg_type 1-> num 10
+arg_type 1-> num 10
+arg_type 1-> num 10
+byte_num 1
+byte_num 1
+byte_num 1
+№ 95
+label b0 command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 6
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 96
+label b0 command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 10
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 97
+label b0 command zjmp
+size 3
+pointer b0
+arg_type 2-> num 65494
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 98
+label b1 command add
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 4
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 99
+label b1 command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 6
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 100
+label b1 command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 4
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 101
+label b1 command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 10
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 102
+label b1 command zjmp
+size 3
+pointer b0
+arg_type 2-> num 65469
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 103
+label b1 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 104
+label b1 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 105
+label top command live
+size 5
+arg_type 2-> num 42
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 106
+label top command ld
+size 7
+arg_type 2-> num 9
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 107
+label top command sti
+size 7
+arg_type 1-> num 3
+arg_type 2-> num 65273
+arg_type 2-> num -6
+byte_num 1
+byte_num 2
+byte_num 2
+№ 108
+label top command ld
+size 7
+arg_type 2-> num 2
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 109
+label top command sti
+size 7
+arg_type 1-> num 3
+arg_type 2-> num 65259
+arg_type 2-> num -16
+byte_num 1
+byte_num 2
+byte_num 2
+№ 110
+label top command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 111
+label top command zjmp
+size 3
+pointer topd
+arg_type 2-> num 189
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 112
+label top command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 113
+label top command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 114
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 77
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 115
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 75
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 116
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 73
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 117
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 71
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 118
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 69
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 119
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 67
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 120
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 65
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 121
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 63
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 122
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 61
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 123
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 59
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 124
+label infi command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 57
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 125
+label infi command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 126
+label l0 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 127
+label l1 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 128
+label l2 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 129
+label l3 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 130
+label l4 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 131
+label l5 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 132
+label l6 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 133
+label l7 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 134
+label l8 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 135
+label l9 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 136
+label l10 command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 137
+label l10 command zjmp
+size 3
+pointer l0
+arg_type 2-> num 65481
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 138
+label l10 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 139
+label l10 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 140
+label p1 command zjmp
+size 3
+pointer infi
+arg_type 2-> num 65401
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 141
+label p1 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 142
+label p1 command live
+size 5
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 143
+label copie command ld
+size 7
+arg_type 2-> num 1
+arg_type 1-> num 1
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 144
+label copie command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 145
+label copie command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 146
+label tart command sti
+size 7
+arg_type 1-> num 1
+arg_type 2-> num 267
+arg_type 2-> num 1
+byte_num 1
+byte_num 2
+byte_num 2
+№ 147
+label tart command or
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 2
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 148
+label tart command zjmp
+size 3
+pointer p64
+arg_type 2-> num 182
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 149
+label tart command sub
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 4
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 150
+label tart command zjmp
+size 3
+pointer p32
+arg_type 2-> num 65126
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 151
+label tart command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 2
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 152
+label tart command zjmp
+size 3
+pointer infi
+arg_type 2-> num 65356
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 153
+label tart command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 154
+label tart command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 155
+label tirvd2 command zjmp
+size 3
+pointer tirdow
+arg_type 2-> num 249
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 156
+label tirvd2 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 157
+label topd command ld
+size 7
+arg_type 2-> num 9
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 158
+label topd command sti
+size 7
+arg_type 1-> num 3
+arg_type 2-> num 308
+arg_type 2-> num -6
+byte_num 1
+byte_num 2
+byte_num 2
+№ 159
+label topd command ld
+size 7
+arg_type 2-> num 2
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 160
+label topd command sti
+size 7
+arg_type 1-> num 3
+arg_type 2-> num 294
+arg_type 2-> num -16
+byte_num 1
+byte_num 2
+byte_num 2
+№ 161
+label topd command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 162
+label topd command zjmp
+size 3
+pointer infi
+arg_type 2-> num 65315
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 163
+label topd command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 164
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 165
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 166
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 167
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 168
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 169
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 170
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 171
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 172
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 173
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 174
+label p64deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 175
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 176
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 177
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 178
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 179
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 180
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 181
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 182
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 183
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 184
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 185
+label p64deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 186
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 187
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 188
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 189
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 190
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 191
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 192
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 193
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 194
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 195
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 196
+label p64deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 197
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 198
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 199
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 200
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 201
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 202
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 203
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 204
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 205
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 206
+label p64deb command zjmp
+size 3
+arg_type 2-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 207
+label p64deb command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 208
+label p64 command ld
+size 7
+arg_type 2-> num 10
+arg_type 1-> num 8
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 209
+label p64 command sub
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 8
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 210
+label p64 command and
+size 11
+pointer cont
+arg_type 2-> num 26
+arg_type 2-> num 2147483648
+arg_type 1-> num 8
+byte_num 4
+byte_num 4
+byte_num 1
+№ 211
+label p64 command zjmp
+size 3
+pointer cont
+arg_type 2-> num 15
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 212
+label p64 command ld
+size 7
+arg_type 2-> num 118
+arg_type 1-> num 8
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 213
+label p64 command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 8
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 214
+label cont command add
+size 5
+arg_type 1-> num 6
+arg_type 1-> num 6
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 215
+label cont command ld
+size 7
+arg_type 2-> num 272
+arg_type 1-> num 8
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 216
+label cont command ld
+size 7
+arg_type 2-> num 29
+arg_type 1-> num 9
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 217
+label cont command ld
+size 6
+pointer p64deb
+arg_type 3-> num 65359
+arg_type 1-> num 6
+arg_type 1-> num 7
+byte_num 2
+byte_num 1
+byte_num 1
+№ 218
+label cont command sti
+size 5
+arg_type 1-> num 7
+arg_type 1-> num 8
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 219
+label cont command sti
+size 5
+arg_type 1-> num 7
+arg_type 1-> num 9
+arg_type 1-> num 6
+byte_num 1
+byte_num 1
+byte_num 1
+№ 220
+label p64li command live
+size 5
+arg_type 2-> num 1
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 221
+label p64li command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 10
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 222
+label p64li command zjmp
+size 3
+arg_type 2-> num 186
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 223
+label p64li command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 224
+label tirdow command ld
+size 7
+arg_type 2-> num 425
+arg_type 1-> num 2
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 225
+label tirdow command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 3
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 226
+label tirdow command ld
+size 7
+arg_type 2-> num 4
+arg_type 1-> num 4
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 227
+label tirdow command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 228
+label tird command live
+size 5
+arg_type 2-> num 42
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 229
+label tird command sti
+size 6
+arg_type 1-> num 10
+arg_type 2-> num 43
+arg_type 1-> num 2
+byte_num 1
+byte_num 2
+byte_num 1
+№ 230
+label tird command sti
+size 6
+arg_type 1-> num 10
+arg_type 2-> num 37
+arg_type 1-> num 3
+byte_num 1
+byte_num 2
+byte_num 1
+№ 231
+label tird command add
+size 5
+arg_type 1-> num 4
+arg_type 1-> num 5
+arg_type 1-> num 4
+byte_num 1
+byte_num 1
+byte_num 1
+№ 232
+label tird command add
+size 5
+arg_type 1-> num 3
+arg_type 1-> num 4
+arg_type 1-> num 3
+byte_num 1
+byte_num 1
+byte_num 1
+№ 233
+label tird command sub
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 4
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 234
+label tird command zjmp
+size 3
+pointer tirdow
+arg_type 2-> num 65483
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 235
+label tird command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 11
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 236
+label tird command zjmp
+size 3
+pointer tird
+arg_type 2-> num 65494
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 237
+label tird command zjmp
+size 3
+pointer p1
+arg_type 2-> num 65173
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 238
+label tird command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 239
+label fin command live
+size 5
+arg_type 2-> num 633
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+total prog size 1004

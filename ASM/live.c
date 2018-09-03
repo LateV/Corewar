@@ -101,6 +101,7 @@ void ft_find_command(char *str, t_command **node)
     char *s;
     s = ft_strtrim(str);
     free(str);
+
     while(i < 17)
     {
         if(ft_strnstr(s,g_def[i].name,ft_strlen(g_def[i].name)))
@@ -108,7 +109,7 @@ void ft_find_command(char *str, t_command **node)
             (*node)->command_name = g_def[i].name;
             (*node)->size = 1;
             (*node)->label_size = g_def[i].label_size;
-            (*node)->opcode = g_def[i].codage_octal;
+            (*node)->opcode = g_def[i].codageoctal;
             break;
         }
         i++;
