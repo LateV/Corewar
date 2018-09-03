@@ -138,6 +138,7 @@ t_command *new_node()
 
     new_node = malloc(sizeof(t_command));
     new_node->num = 0;
+    new_node->is_counted = 0;
     new_node->label = NULL;
     new_node->label_size = 2;
     new_node->command_name = NULL;
@@ -184,6 +185,7 @@ int main(int argc, char const *argv[])
 {
     t_header *header;
     int y;
+
 
     init_struct(&header);
     if (argc > 1)

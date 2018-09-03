@@ -38,7 +38,7 @@ void ft_fill_arg_param(char *str, int i, int k, t_command **node)
 
     len = ft_strlen(str) - i;
 
-    ft_printf("%s,%c",str,str[i]);
+    //ft_printf("%s,%c",str,str[i]);
     if(str[i] == 'r')
     {
         (*node)->type_arg[k] = 1;

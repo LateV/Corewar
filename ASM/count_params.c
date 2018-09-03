@@ -34,43 +34,7 @@ void ft_count_opcode(t_command *node)
 }
 
 
-//void ft_count_pointer(t_header *node)
-//{
-//    int i;
-//
-//    t_command *tmp;
-//    t_command *copy;
-//
-//    tmp = node->com_list;
-//    while(tmp)
-//    {
-//        i = 0;
-//        while(i < 3)
-//        {
-//            copy = tmp;
-//            if(tmp->pointer_arg[i])
-//            {
-//                while(copy)
-//                {
-//                    if (ft_strequ(copy->label,tmp->pointer_arg[i]))
-//                        break;
-//                    else
-//                        tmp->num_arg[i] +=  copy->size;
-//                    copy = copy->next;
-//                    tmp->pointer_arg[i] = NULL;
-//                }
-//            }
-//            i++;
-//        }
-//        tmp = tmp->next;
-//    }
-//
-//}
-//
-//
-
-
-void ft_find_label(t_header *node, int i)
+void ft_count_pointer(t_header *node)
 {
     int i;
 
@@ -78,28 +42,59 @@ void ft_find_label(t_header *node, int i)
     t_command *copy;
 
     tmp = node->com_list;
-    while (tmp->next)
-        tmp = tmp->next;
     while(tmp)
     {
         i = 0;
         while(i < 3)
         {
-            copy = tmp;
             if(tmp->pointer_arg[i])
             {
+                copy = node->com_list;
                 while(copy)
                 {
                     if (ft_strequ(copy->label,tmp->pointer_arg[i]))
                         break;
-                    else
-                        tmp->num_arg[i] = 255;
-                    copy = copy->prev;
+                    copy = copy->next;
+                }
+                if(copy && tmp->num < copy->num)
+                {
+                    copy = tmp;
+                    while(copy)
+                    {
+                        if (ft_strequ(copy->label,tmp->pointer_arg[i]))
+                            break;
+                        else
+                            tmp->num_arg[i] +=  copy->size;
+                        copy = copy->next;
+                    }
+                }
+                else
+                {
+                    copy = node->com_list;
+                    while(copy)
+                    {
+                        if (ft_strequ(copy->label,tmp->pointer_arg[i]))
+                            break;
+                        copy = copy->next;
+                    }
+                    while(copy)
+                    {
+                        if (copy->num == tmp->num)
+                            break;
+                        else
+                        {
+                            tmp->num_arg[i] += copy->size;
+                        }
+                        copy = copy->next;
+                    }
+                    tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
                 }
             }
             i++;
         }
-        tmp = tmp->prev;
+        tmp = tmp->next;
     }
 
 }
+
+

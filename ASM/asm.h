@@ -79,6 +79,7 @@ typedef struct		s_command
     int  size;
     int  byte_sum[3];
     int codage_octal;
+    int is_counted;
     struct s_command	*next;
     struct s_command	*prev;
 }					t_command;
@@ -113,4 +114,4 @@ void init_struct(t_header **header);
 ssize_t	ft_atoi_long(const char *str);
 void ft_count_opcode(t_command *node);
 void ft_count_pointer(t_header *node);
-void ft_count_pointer_2(t_header *node);
+void ft_label(t_header *node);

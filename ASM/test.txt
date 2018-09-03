@@ -1,6 +1,5 @@
- r1,r%:live,%%0,%	r1,r%0,%r1,r%1,%%:live,%№ 1
-command (null)
-opcode byte -1
+№ 1
+label (null) command (null)
 size 0
 arg_type 0-> num 0
 arg_type 0-> num 0
@@ -9,44 +8,196 @@ byte_num 0
 byte_num 0
 byte_num 0
 № 2
-command sti
-opcode byte 104
+label (null) command sti
 size 7
 arg_type 1-> num 1
-arg_type 2-> num 255
-arg_type 2-> num 0
+arg_type 2-> num 69
+arg_type 2-> num 1
 byte_num 1
 byte_num 2
 byte_num 2
 № 3
-command and
-opcode byte 100
-size 8
+label (null) command sti
+size 7
 arg_type 1-> num 1
-arg_type 2-> num 0
-arg_type 1-> num 1
-byte_num 1
-byte_num 4
-byte_num 1
-№ 4
-command live
-opcode byte -1
-size 5
+arg_type 2-> num 34
 arg_type 2-> num 1
-arg_type 0-> num 0
+byte_num 1
+byte_num 2
+byte_num 2
+№ 4
+label (null) command ld
+size 7
+arg_type 2-> num 1
+arg_type 1-> num 3
 arg_type 0-> num 0
 byte_num 4
-byte_num 0
+byte_num 1
 byte_num 0
 № 5
-command zjmp
-opcode byte -1
+label (null) command ld
+size 7
+arg_type 2-> num 33
+arg_type 1-> num 6
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 6
+label (null) command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 7
+label forks command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 8
+label forks command add
+size 5
+arg_type 1-> num 2
+arg_type 1-> num 3
+arg_type 1-> num 2
+byte_num 1
+byte_num 1
+byte_num 1
+№ 9
+label forks command xor
+size 8
+arg_type 1-> num 2
+arg_type 2-> num 15
+arg_type 1-> num 4
+byte_num 1
+byte_num 4
+byte_num 1
+№ 10
+label live2 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 11
+label live2 command live
+size 5
+arg_type 2-> num 4
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 12
+label live2 command zjmp
 size 3
-pointer live
-arg_type 2-> num 0
+pointer endwhile
+arg_type 2-> num 16
 arg_type 0-> num 0
 arg_type 0-> num 0
 byte_num 2
 byte_num 0
 byte_num 0
-total prog size 23
+№ 13
+label live2 command fork
+size 3
+pointer forks
+arg_type 2-> num 65515
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 14
+label live2 command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 4
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 15
+label live2 command zjmp
+size 3
+pointer forks
+arg_type 2-> num 65505
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+№ 16
+label live2 command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 17
+label endwhile command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 18
+label endwhile command ld
+size 7
+arg_type 2-> num 0
+arg_type 1-> num 4
+arg_type 0-> num 0
+byte_num 4
+byte_num 1
+byte_num 0
+№ 19
+label endwhile command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 20
+label live command (null)
+size 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 0
+byte_num 0
+byte_num 0
+№ 21
+label live command live
+size 5
+arg_type 2-> num 4
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 4
+byte_num 0
+byte_num 0
+№ 22
+label live command zjmp
+size 3
+pointer live
+arg_type 2-> num 65531
+arg_type 0-> num 0
+arg_type 0-> num 0
+byte_num 2
+byte_num 0
+byte_num 0
+total prog size 77
