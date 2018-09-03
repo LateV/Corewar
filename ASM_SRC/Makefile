@@ -48,7 +48,7 @@ $(LIBPRINTF):
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) -o $(NAME) $(LIBS_FLAGS)
-	@echo ${BG}"corewar is ready"${EOC}
+	@echo ${BG}"asm is ready"${EOC}
 
 $(OBJ): | $(OBJ_DIR)
 
