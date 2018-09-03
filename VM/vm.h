@@ -118,6 +118,7 @@ int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
 void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
+void 					load_to_reg(t_cor *cor, t_process *process, int loc, int r_num);
 void 					codage_identify(t_process *process, unsigned char args);
 void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
@@ -137,4 +138,5 @@ void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
 void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
+void 					add_proc(t_cor *cor, t_process *process, int loc);
 #endif

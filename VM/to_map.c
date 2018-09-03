@@ -135,7 +135,7 @@ void live_cheker(t_cor *cor)
 			else
 				tmp->live = 0;
 			prev = tmp;
-			tmp = tmp->next;
+			tmp = tmp->next; // SEGFAULT!
 		}
 		while(i < 4)
 		{

@@ -57,11 +57,11 @@ void comm_ld(t_cor *cor, t_process *process)
 				ft_putnbr(process->arg2);
 				ft_putstr("\n");
 				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
-				if (process->registr[process->arg2 - 1] == 0)
+			}
+			if (process->registr[process->arg2 - 1] == 0)
 					process->carry = 1;
 				else
 					process->carry = 0;
-			}
 		}
 		set_proc_pos(process, sk);
 		process->delay = -1;

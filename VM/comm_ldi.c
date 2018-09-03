@@ -23,8 +23,7 @@ void comm_ldi(t_cor *cor, t_process *process)
 {
 	int sk;
 	int name;
-	// int sum;
-	// int first;
+	int first;
 
 	name = 0;
 	if (process->delay < 0)
@@ -33,7 +32,7 @@ void comm_ldi(t_cor *cor, t_process *process)
 		process->delay--;
 	if (process->delay == 0)
 	{
-		process->label = 4;
+		process->label = 2;
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process, &name);
@@ -41,14 +40,13 @@ void comm_ldi(t_cor *cor, t_process *process)
 		{
 			first = process->arg1;
 			if (name == 3)
-				first = process->arg1 % IDX_MOD + process->pc;
-			sum = t_ind(cor, &process->arg1, (((first + process->arg2) % IDX_MOD) + process->pc)); 
-			load_to_reg(cor, process, sum, process->arg3 - 1);
+				first = get_int(cor, (process->arg1 % IDX_MOD) + process->pc);
+			load_to_reg(cor, process, (((first + process->arg2) % IDX_MOD) + process->pc), process->arg3 - 1);
 			ft_putstr("->ldi: load from ");
 			ft_putnbr(process->arg1);
 			ft_putstr(" + ");
 			ft_putnbr(process->arg2);
-			ft_putstr(" = ");
+			ft_putstr(" r");
 			ft_putnbr(process->arg3);
 			ft_putstr("\n");
 		}

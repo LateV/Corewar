@@ -28,17 +28,17 @@ void load_to_reg(t_cor *cor, t_process *process, int loc, int r_num)
 	int i;
 	char *tmp;
 
-	i = 4;
-	j = 0;
+	i = 0;
+	j = 3;
 	if (r_num < 0 || r_num > 15)
 		return ;
 	tmp = (char*)&process->registr[r_num];
-	while(i > 0)
+	while(j > 0)
 	{	
 		if( (loc + i) >= MEM_SIZE)
 			loc = loc - MEM_SIZE;
-		tmp[i] = loc[j];
-		i--;
-		j++;
+		tmp[j] = cor->arena[loc + i];
+		i++;
+		j--;
 	}
 }
