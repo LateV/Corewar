@@ -20,3 +20,25 @@ void load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num)
 		i++;
 	}
 } 
+
+
+void load_to_reg(t_cor *cor, t_process *process, int loc, int r_num)
+{
+	int j;
+	int i;
+	char *tmp;
+
+	i = 0;
+	j = 3;
+	if (r_num < 0 || r_num > 15)
+		return ;
+	tmp = (char*)&process->registr[r_num];
+	while(j > 0)
+	{	
+		if( (loc + i) >= MEM_SIZE)
+			loc = loc - MEM_SIZE;
+		tmp[j] = cor->arena[loc + i];
+		i++;
+		j--;
+	}
+}

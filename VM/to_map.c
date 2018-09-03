@@ -3,6 +3,7 @@
 void add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process *tmp;
+	t_process *new;
 
 	tmp = cor->process;
 	if (!tmp)
@@ -11,25 +12,25 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->next = NULL;
 		cor->process->player = (player + k);
 		cor->process->delay = -1;
-		cor->process->registr[0] = cor->process->player->num * (-1);
+		cor->process->player->num = cor->process->player->num * (-1);
+		cor->process->registr[0] = cor->process->player->num;
+		cor->process->player->live_summ = 0;
+		cor->process->command = -1;
+		cor->process->carry = 1;
+		cor->process->live = 0;
 		return ;
 	}
-	while(69)
-	{
-		if(tmp->next == NULL)
-		{
-			tmp->next = ft_memalloc(sizeof(t_process));
-			if(tmp->next)
-			{
-				tmp->next->player = &player[k];
-				tmp->next->delay = -1;
-				tmp->next->registr[0] = tmp->next->player->num * (-1);
-				tmp->next->next = NULL;
-			}
-			break ;
-		}
-		tmp = tmp->next;
-	}
+	new = ft_memalloc(sizeof(t_process));
+	new->next = cor->process;
+	new->player = &player[k];
+	new->delay = -1;
+	new->player->num = new->player->num * (-1);
+	new->registr[0] = new->player->num;
+	new->player->live_summ = 0;
+	new->live = 0;
+	new->command = -1;
+	new->carry = 1;
+	cor->process = new;
 }
 
 void add_players(t_cor *cor)
@@ -44,7 +45,6 @@ void add_players(t_cor *cor)
 		{
 			if(cor->def_num == cor->player[k].num)
 			{
-
 				add_player(cor, cor->player , k);
 				break;
 			}
@@ -103,6 +103,80 @@ void game_init(t_cor *cor)
 	}
 }
 
+void live_cheker(t_cor *cor)
+{
+	t_process *prev;
+	t_process *tmp;
+	int i;
+
+	i = 0;
+	if(cor->live_check == cor->curr_cycle_t_d)
+	{
+		tmp = cor->process;
+		prev = NULL;
+		while(tmp)
+		{
+			if(tmp->live == 0)
+			{
+				if(prev == NULL)
+				{
+					tmp = cor->process->next;
+					free(cor->process);
+					cor->process = tmp;
+				}
+				else
+				{
+					prev->next = tmp->next;
+					free(tmp);
+					tmp = prev->next;
+					continue;
+				}
+			}
+			else
+				tmp->live = 0;
+			prev = tmp;
+			tmp = tmp->next; // SEGFAULT!
+		}
+		while(i < 4)
+		{
+			if(cor->player[i].live_summ >= 21)
+			{
+				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
+				cor->curr_chechs = -1;
+			}
+			i++;
+		}
+		cor->curr_chechs++;
+		// ft_putstr("cor->curr_chechs is now ");
+		// ft_putnbr(cor->curr_chechs);
+		// ft_putstr("\n");
+		// ft_putstr("Cycle to die is now ");
+		// ft_putnbr(cor->curr_cycle_t_d);
+		// ft_putstr("\n");
+		if(cor->curr_chechs == MAX_CHECKS)
+		{
+			cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
+			cor->curr_chechs = 0;
+		}
+		cor->live_check = 0;
+			i = 0;
+		while(i < 4)
+		{
+			cor->player[i].live_summ = 0;
+			i++;
+		}
+	}
+	else
+		cor->live_check++;
+	if(cor->curr_cycle_t_d < 0)
+	{
+		ft_putstr("Cycle to die is now ");
+		ft_putnbr(cor->curr_cycle_t_d);
+		ft_putstr("\n");
+		exit(0);
+	}
+}
+
 void game(t_cor *cor)
 {
 	t_process *tmp;
@@ -119,20 +193,26 @@ void game(t_cor *cor)
 		// ft_putstr("\n");
 		while(tmp)
 		{
-			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
+			if(tmp->command == -1)
 			{
-				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
-				cor->instruct[(int)cor->arena[tmp->pc] - 1](cor, tmp);
+				// ft_putstr("pos = ");
+		 	// 	ft_putnbr(tmp->pc);
+				// ft_putstr("\n");
+				if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
+				{
+					tmp->command = cor->arena[tmp->pc] - 1;
+					cor->instruct[tmp->command](cor, tmp);
+				}
+				else
+					set_proc_pos(tmp, 1);
 			}
 			else
-			{
-				// ft_printf("num intst %d\n", cor->arena[tmp->pc] - 1);
-				cor->instruct[16](cor, tmp);
-			}
+				cor->instruct[tmp->command](cor, tmp);
 			tmp = tmp->next;
 		}
 		cor->cycles++;
-		if(cor->cycles >= 5000)
+		live_cheker(cor);
+		if(cor->cycles >= 60000)
 			return ;
 	}
 }
@@ -144,6 +224,9 @@ void to_map(t_cor *cor)
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
+	ft_putstr("Cycle to die is now ");
+		ft_putnbr(cor->curr_cycle_t_d);
+		ft_putstr("\n");
 	// print_map(cor);
 	endwin();
 	// while(1)

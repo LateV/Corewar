@@ -56,6 +56,7 @@ struct s_cor;
 
 typedef struct			s_player
 {
+	int 				live_summ; 							// Количество жизней за период (0 - curr_cycle_t_d) циклов
 	char 				*file_path;
 	unsigned char		prog_name[PROG_NAME_LENGTH + 1];
 	unsigned char		comment[COMMENT_LENGTH + 1];
@@ -71,13 +72,14 @@ typedef struct			s_process
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
 	int 				carry; 			// флаг для некоторых команд
-	int 				comm_i;			// команда, Которую исполняет процесс 
 	int 		 		delay;			// сколько циклов до выполнения команды
 	int 				arg1;
 	int 				arg2;
 	int 				arg3;
 	int 				label;
 	int 				codage;
+	int 				command;
+	int 				ind_loc;
 	t_player 			*player;		// указатель на игрока который создал процесс
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
@@ -94,6 +96,9 @@ typedef struct			s_cor
 	int					p_num;
 	int 				flag_p_num;
 	int 				def_num;
+	int 				live_check;
+	int 				curr_cycle_t_d;
+	int 				curr_chechs;
 	WINDOW 				*win1;
 	WINDOW 				*win2;				
 	t_process			*process;
@@ -104,12 +109,16 @@ typedef struct			s_cor
 char 					get_char(t_cor *cor, int loc);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
+int 					t_dir(t_cor *cor, t_process *process, int *arg, int loc);
+int 					t_reg(t_cor *cor, int *arg, int loc);
+int 					t_ind(t_cor *cor, int *arg, int loc);
 int 					get_reg(t_process *process, unsigned char reg);
 void 					set_proc_pos(t_process *process, int shift);
 int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
 void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
+void 					load_to_reg(t_cor *cor, t_process *process, int loc, int r_num);
 void 					codage_identify(t_process *process, unsigned char args);
 void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
@@ -129,4 +138,5 @@ void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
 void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
+void 					add_proc(t_cor *cor, t_process *process, int loc);
 #endif

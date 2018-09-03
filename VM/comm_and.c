@@ -19,7 +19,7 @@ void comm_and(t_cor *cor, t_process *process)
 {
 	int res;
 	int sk;
-
+	
 	if (process->delay < 0)
 		process->delay = 5;
 	else if (process->delay > 0)
@@ -32,7 +32,7 @@ void comm_and(t_cor *cor, t_process *process)
 		sk = arg_read(cor, process);
 		if(process->codage == 1)
 		{
-			res = process->arg1 & process->arg1;
+			res = process->arg1 & process->arg2;
 			if(res == 0)
 				process->carry = 0;
 			else
@@ -49,5 +49,6 @@ void comm_and(t_cor *cor, t_process *process)
 		set_proc_pos(process, sk);
 		process->delay = -1;
 		process->codage = 1;
+		process->command = -1;
 	}
 }

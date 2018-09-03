@@ -47,7 +47,7 @@ void cor_format(t_cor *cor, char *path)
 	{
 		if(ft_strcmp(path + i - 4, ".cor") != 0)
 		{
-			ft_putstr("Can't read source file ");
+			ft_putstr("Can't read source file (missing .cor) ");
 			ft_error(cor, path);
 		}
 		cor->player[cor->p_num].file_path = path;
@@ -93,7 +93,7 @@ void init_players(t_cor *cor)
 
 	i = 0;
 	cor->def_num = 1;
-	while(i < 4)
+	while (i < 4)
 	{
 		cor->player[i].num = -1;
 		i++;
@@ -308,6 +308,9 @@ int main(int argc, char **argv)
 	cor.process = NULL;
 	def_num(&cor);
 	cor.def_num = 1;
+	cor.live_check = 0;
+	cor.curr_cycle_t_d = CYCLE_TO_DIE;
+	cor.curr_chechs = 0;
 	to_map(&cor);
 	system("leaks -quiet corewar");
 	return(0);

@@ -40,6 +40,6 @@ void comm_sti(t_cor *cor, t_process *process)
 		}
 		set_proc_pos(process, sk);
 		process->delay = -1;
-		process->codage = 1;
+		process->command = -1;
 	}	
 }
