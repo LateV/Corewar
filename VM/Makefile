@@ -26,6 +26,7 @@ SRC	=	main.c 					\
 		get_data.c 				\
 		set_proc_pos.c 			\
 		arg_handler.c			\
+		v_main.c 				\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
@@ -48,7 +49,8 @@ LIBPRINTF	=	$(PRINTF_DIR)libftprintf.a
 HEAD_PRINTF	=	$(PRINTF_DIR)$(INC_DIR)ft_printf.h
 HEAD_LIBFT	=	$(LIBFT_DIR)$(INC_DIR)libft.h
 
-HEAD_VM =	$(INC_DIR)vm.h
+HEAD_VM 	=	$(INC_DIR)vm.h
+HEAD_VIZU	=	$(INC_DIR)vizu.h
 
 HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
 
@@ -79,7 +81,7 @@ $(OBJ): | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: %.c $(HEAD_VM)
+$(OBJ_DIR)%.o: %.c $(HEAD_VM) $(HEAD_VIZU)
 	@$(CC) -c $< -o $@ $(CC_FLAGS) $(HEAD_FLAGS) 
 	@echo ${BG}"[✓] $<"
 

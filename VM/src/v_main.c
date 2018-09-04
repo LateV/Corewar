@@ -90,9 +90,10 @@ void put_car(t_cor *cor, int pos, unsigned char comm, int color)
 
 void init_window(t_cor *cor)
 {
-	t_vizu *vizu;
+	t_vizu	*vizu;
 
 	vizu = malloc(sizeof(t_vizu));
+	cor->vizu = vizu;
 	cor->vizu->end_of_prs = 0;
 	initscr();
 	start_color();
@@ -101,7 +102,6 @@ void init_window(t_cor *cor)
 	curs_set(false);
 	timeout(0);
 	write(1, "\e[8;66;252;t", 14);
-	cor->vizu = vizu;
 	cor->vizu->win1 = newwin(66, 195, 0, 0);
 	cor->vizu->win2 = newwin(66, 56, 0, 196);
 	itit_color_pairs();

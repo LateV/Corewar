@@ -51,6 +51,7 @@ typedef char	t_arg_type;
 # include <sys/stat.h>
 # include "libft.h"
 # include "ft_printf.h"
+# include "vizu.h"
 
 struct s_process;
 struct s_cor;
@@ -106,6 +107,7 @@ typedef struct			s_cor
 	t_process			*process;
 	t_player			player[4];
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
+	t_vizu 				*vizu;
 }						t_cor;
 
 char 					get_char(t_cor *cor, int loc);
@@ -141,4 +143,10 @@ void 					comm_sub(t_cor *cor, t_process *process);
 void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
 void 					add_proc(t_cor *cor, t_process *process, int loc);
+// vizu
+void					init_window(t_cor *cor);
+void					draw_palyer_info(t_cor *cor, t_process *proc, int k);
+void					draw_info(t_cor *cor);
+void					put_com(t_cor *cor, int pos, unsigned char comm, int color);
+void					put_car(t_cor *cor, int pos, unsigned char comm, int color);
 #endif
