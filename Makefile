@@ -1,56 +1,28 @@
-NAME = corewar
+VM_DIR		=	./VM/
+ASM_DIR		=	./ASM_SRC/
 
-LIBFTDIR = libft/
+BG			=	"\033[32;1m"
+BR			=	"\033[31;1m"
+EOC			=	"\033[0m"
 
-SRC =	VM/main.c 					\
-		VM/to_map.c					\
-		VM/init_comm_f.c			\
-		VM/load_data_to_reg.c		\
-		VM/codage_identify.c		\
-		VM/load_from_reg.c			\
-		VM/comm_live.c				\
-		VM/comm_ld.c				\
-		VM/comm_or.c				\
-		VM/comm_xor.c				\
-		VM/comm_zjmp.c				\
-		VM/comm_ldi.c				\
-		VM/comm_sti.c				\
-		VM/comm_fork.c				\
-		VM/comm_lld.c				\
-		VM/comm_lldi.c				\
-		VM/comm_lfork.c				\
-		VM/comm_aff.c				\
-		VM/comm_st.c				\
-		VM/comm_add.c				\
-		VM/comm_sub.c				\
-		VM/comm_and.c				\
-		VM/comm_next.c				\
-		VM/get_data.c 				\
-		VM/set_proc_pos.c 			\
-		VM/arg_handler.c			\
+all:  $(VM_DIR) $(ASM_DIR)
 
-OBJ = $(SRC:.c=.o)
+$(VM_DIR): 
+	@make -C $(VM_DIR)
 
-CC = gcc
+$(ASM_DIR): 
+	@make -C $(ASM_DIR)
 
-CFLAGS = -Wall -Wextra -Werror
-
-all: $(NAME) 
-
-$(NAME): $(OBJ) $(LIBFTDIR)libft.a
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -lncurses -L./$(LIBFTDIR) -lft
-
-$(LIBFTDIR)libft.a: libft/Makefile
-	make -C $(LIBFTDIR)
-
-%.o: %.c
-		$(CC) $(CFLAGS) -o $@ -c $<
 clean:
-		rm -f $(OBJ)
-		make clean -C $(LIBFTDIR)
+	@make clean -C $(VM_DIR)
+	@make clean -C $(ASM_DIR)
 
 fclean: clean
-		rm -f $(NAME)
-		rm -f $(LIBFTDIR)libft.a
+	@make fclean -C $(VM_DIR)
+	@make fclean -C $(ASM_DIR)
 
 re: fclean all
+
+vpath %.c $(SRC_DIR)
+
+.PHONY: all fclean clean re $(VM_DIR) $(ASM_DIR)
