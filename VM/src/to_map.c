@@ -18,6 +18,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->command = -1;
 		cor->process->carry = 1;
 		cor->process->live = 0;
+		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
 		draw_palyer_info(cor, cor->process , k);
 		return ;
@@ -33,6 +34,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->command = -1;
 	new->carry = 1;
 	cor->process = new;
+	new->count_num = cor->proc_num;
 	cor->proc_num++;
 	draw_palyer_info(cor, new , k);
 }

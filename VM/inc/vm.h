@@ -43,8 +43,8 @@ typedef char	t_arg_type;
 # define COREWAR_EXEC_MAGIC		0xea83f3
 #define ABS(x) (((x)<0) ? -(x) : (x))
 
-#include <curses.h>
-#include <unistd.h>
+# include <curses.h>
+# include <unistd.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -70,6 +70,7 @@ typedef struct			s_player
 
 typedef struct			s_process
 {
+	int 				count_num; 		// номер процесса
 	int 				live; 			// Жив или нет (bool)
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
