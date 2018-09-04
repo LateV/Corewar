@@ -18,6 +18,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->command = -1;
 		cor->process->carry = 1;
 		cor->process->live = 0;
+		cor->proc_num++;
 		draw_palyer_info(cor, cor->process , k);
 		return ;
 	}
@@ -32,6 +33,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->command = -1;
 	new->carry = 1;
 	cor->process = new;
+	cor->proc_num++;
 	draw_palyer_info(cor, new , k);
 }
 
@@ -224,16 +226,17 @@ void game(t_cor *cor)
 
 void to_map(t_cor *cor)
 {
-	init_window(cor); 
+	init_window(cor);
 	add_players(cor);
 	draw_info(cor);
 	game_init(cor);
-
-	wrefresh(cor->vizu->win1);
-	wrefresh(cor->vizu->win2);
-	while (1)
-		;
-	
+	if(cor->visu == 1)
+	{
+		wrefresh(cor->vizu->win1);
+		wrefresh(cor->vizu->win2);
+		while (1)
+			;
+	}
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);

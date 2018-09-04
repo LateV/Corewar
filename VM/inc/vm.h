@@ -90,11 +90,13 @@ typedef struct			s_process
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
+	int 				proc_num;
 	int 				cycles;
 	int 				code_summ;
 	int 				start;
 	int 				visu;
 	int 				dump;
+	int 				pause;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
