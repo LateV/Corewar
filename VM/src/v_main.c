@@ -43,12 +43,12 @@ static void initital_draw(t_cor *cor)
 
 void draw_palyer_info(t_cor *cor, t_process *proc, int k)
 {
-	mvwprintw(cor->vizu->win2, 9 + (k * 4), 2, "Player %d : ", proc->player->num);
+	mvwprintw(cor->vizu->win2, 11 + (k * 4), 2, "Player %d : ", proc->player->num);
 	wattron(cor->vizu->win2, COLOR_PAIR(k+1));
-	mvwprintw(cor->vizu->win2, 9 + (k * 4), 14, "Player %s : ", proc->player->prog_name);
+	mvwprintw(cor->vizu->win2, 11 + (k * 4), 14, "%.40s", proc->player->prog_name);
 	wattroff(cor->vizu->win2, COLOR_PAIR(k+1));
-	mvwprintw(cor->vizu->win2, 10 + (k * 4), 4, "Last live : %20d", 0);
-	mvwprintw(cor->vizu->win2, 11 + (k * 4), 4, "Lives in current period : %6d", 0);
+	mvwprintw(cor->vizu->win2, 12 + (k * 4), 4, "Last live : %20d", 0);
+	mvwprintw(cor->vizu->win2, 13 + (k * 4), 4, "Lives in current period : %6d", 0);
 	if (cor->vizu->end_of_prs == 0)
 		cor->vizu->end_of_prs = k;
 }
@@ -58,14 +58,14 @@ void draw_info(t_cor *cor)
 	int k;
 
 	k = cor->vizu->end_of_prs;
-	mvwprintw(cor->vizu->win2, 13 + (k * 4), 2, "Live breakdown for current period :");
-	mvwprintw(cor->vizu->win2, 14 + (k * 4), 2, "[--------------------------------------------------]");
-	mvwprintw(cor->vizu->win2, 16 + (k * 4), 2, "Live breakdown for last period :");
-	mvwprintw(cor->vizu->win2, 17 + (k * 4), 2, "[--------------------------------------------------]");
-	mvwprintw(cor->vizu->win2, 19 + (k * 4), 2, "CYCLE_TO_DIE : %d", CYCLE_TO_DIE);
-	mvwprintw(cor->vizu->win2, 21 + (k * 4), 2, "CYCLE_DELTA : %d", CYCLE_DELTA);
-	mvwprintw(cor->vizu->win2, 23 + (k * 4), 2, "NBR_LIVE : %d", NBR_LIVE);
-	mvwprintw(cor->vizu->win2, 25 + (k * 4), 2, "MAX_CHECKS : %d", MAX_CHECKS);
+	mvwprintw(cor->vizu->win2, 15 + (k * 4), 2, "Live breakdown for current period :");
+	mvwprintw(cor->vizu->win2, 16 + (k * 4), 2, "[--------------------------------------------------]");
+	mvwprintw(cor->vizu->win2, 18 + (k * 4), 2, "Live breakdown for last period :");
+	mvwprintw(cor->vizu->win2, 19 + (k * 4), 2, "[--------------------------------------------------]");
+	mvwprintw(cor->vizu->win2, 21 + (k * 4), 2, "CYCLE_TO_DIE : %d", CYCLE_TO_DIE);
+	mvwprintw(cor->vizu->win2, 23 + (k * 4), 2, "CYCLE_DELTA : %d", CYCLE_DELTA);
+	mvwprintw(cor->vizu->win2, 25 + (k * 4), 2, "NBR_LIVE : %d", NBR_LIVE);
+	mvwprintw(cor->vizu->win2, 27 + (k * 4), 2, "MAX_CHECKS : %d", MAX_CHECKS);
 }
 
 void put_com(t_cor *cor, int pos, unsigned char comm, int color)
