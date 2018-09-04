@@ -145,7 +145,7 @@ t_command *new_node()
     new_node->type_arg[0] = 0;
     new_node->type_arg[1] = 0;
     new_node->type_arg[2] = 0;
-    new_node->opcode = 0;
+    new_node->is_codage_octal = 0;
     new_node->pointer_arg[0] = NULL;
     new_node->pointer_arg[1] = NULL;
     new_node->pointer_arg[2] = NULL;

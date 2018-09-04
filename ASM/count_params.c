@@ -21,7 +21,7 @@ void ft_count_opcode(t_command *node)
         node->size += node->byte_sum[i];
         i++;
     }
-    if(node->opcode == 1)
+    if(node->is_codage_octal == 1)
     {
         a = node->type_arg[0] << 6;
         b = node->type_arg[1] << 4;

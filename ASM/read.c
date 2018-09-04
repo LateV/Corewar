@@ -81,33 +81,31 @@ int read_file(const char *str, t_header **header)
     }
     ft_count_pointer(*header);
     new = (*header)->com_list;
-//    int i = 0;
     while(new != NULL)
     {
         (*header)->prog_size += new->size;
-//        int k = 0;
-//        i++;
-//        ft_printf("№ %d\n",i);
-//        ft_printf("label %s command %s\n",new->label, new->command_name);
-//        //ft_printf("opcode byte %d\n",new->codage_octal);
-//        ft_printf("size %d\n",new->size);
-//        while(new->pointer_arg[k])
-//        {
-//            ft_printf("pointer %s\n",new->pointer_arg[k]);
-//            k++;
-//        }
-//        k = 0;
-//        while(k < 3)
-//        {
-//            ft_printf("arg_type %d-> num %ld\n",new->type_arg[k],new->num_arg[k]);
-//            k++;
-//        }
-//        k = 0;
-//        while(k < 3)
-//        {
-//            ft_printf("byte_num %d\n",new->byte_sum[k]);
-//            k++;
-//        }
+        int k = 0;
+        ft_printf("label %s command %s\n",new->label, new->command_name);
+        ft_printf("codage_octal %d\n",new->codage_octal);
+        ft_printf("opcode %d\n", new->is_codage_octal);
+        ft_printf("size %d\n",new->size);
+        while(new->pointer_arg[k])
+        {
+            ft_printf("pointer %s\n",new->pointer_arg[k]);
+            k++;
+        }
+        k = 0;
+        while(k < 3)
+        {
+            ft_printf("arg_type %d-> num %ld\n",new->type_arg[k],new->num_arg[k]);
+            k++;
+        }
+        k = 0;
+        while(k < 3)
+        {
+            ft_printf("byte_num %d\n",new->byte_sum[k]);
+            k++;
+        }
         new = new->next;
     }
     ft_write_to_file(*header);

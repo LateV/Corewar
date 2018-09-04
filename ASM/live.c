@@ -109,7 +109,8 @@ void ft_find_command(char *str, t_command **node)
             (*node)->command_name = g_def[i].name;
             (*node)->size = 1;
             (*node)->label_size = g_def[i].label_size;
-            (*node)->opcode = g_def[i].codageoctal;
+            (*node)->is_codage_octal = g_def[i].codage_octal;
+            (*node)->opcode = g_def[i].opcode;
             break;
         }
         i++;
