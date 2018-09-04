@@ -18,16 +18,9 @@ static int arg_read(t_cor *cor, t_process *process)
 
 void sti_reg_dir_dir(t_cor *cor, t_process *process)
 {
-	ft_printf("P    %d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)",
+	ft_printf("P    %d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
 		process->count_num, process->arg1, process->arg2, process->arg3, process->arg2,
 		process->arg3, process->arg2 + process->arg3, process->arg2 + process->arg3);
-	ft_putstr("->sti: store to ");
-	ft_putnbr(process->arg2);
-	ft_putstr(" + ");
-	ft_putnbr(process->arg3);
-	ft_putstr(" = ");
-	ft_putnbr(process->arg2 + process->arg3);
-	ft_putstr("\n");
 	load_from_reg(cor, process, process->pc + ((process->arg2 + process->arg3) % IDX_MOD), process->arg1 - 1);
 }
 
