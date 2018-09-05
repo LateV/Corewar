@@ -1,5 +1,46 @@
 #include "asm.h"
 
+void error_cases(int i)
+{
+    //char *arr[10];
+
+ //   arr[0]  = "Syntax error at token ENDLINE";
+    if(i == 1)
+    {
+        ft_printf("Syntax error at token ENDLINE\n");
+        exit(0);
+    }
+    if(i == 2)
+    {
+        ft_printf("Syntax error at token INSTRUCTION\n");
+        exit(0);
+    }
+    if(i == 3)
+    {
+        ft_printf("Champion name too long (Max length 128)\n");
+        exit(0);
+    }
+    if(i == 4)
+    {
+        ft_printf("Syntax error at token ENDLINE\n");
+        exit(0);
+    }
+    if(i == 5)
+    {
+        ft_printf("Syntax error at token ENDLINE\n");
+        exit(0);
+    }
+    if(i == 6)
+    {
+        ft_printf("Syntax error at token ENDLINE\n");
+        exit(0);
+    }
+
+}
+
+
+
+
 void		ft_clear(char **arr)
 {
     size_t	count;
@@ -59,27 +100,57 @@ int ft_check_flag(const char **argv, int argc)
     return (0);
 }
 
+int ft_check_quotes(char *str)
+{
+    int i;
+
+    i = 0;
+    while(str[i])
+    {
+        if(str[i] == '"')
+        {
+            while (str[++i])
+                if(str[i] == '"')
+                    break;
+            if(str[++i] == '\0')
+                return 0;
+            while (str[i] == ' ' || str[i] == '#')
+                i++;
+            if(str[++i] && (str[i] == ' ' || str[i] == '#' ))
+                return 0;
+            else
+                return 1;
+        }
+        i++;
+    }
+    return 1;
+}
+
 
 int ft_check_name(char *str, t_header **header)
 {
     char **arr;
     char *s;
 
-    if(ft_strstr(str, NAME_CMD_STRING))
-    {
-        arr = ft_strsplit(str,'"');
-        s = ft_strtrim(arr[0]);
+    arr = ft_strsplit(str,'"');
+    s = ft_strtrim(arr[0]);
         if(ft_strequ(s,NAME_CMD_STRING))
         {
+            if(arr[1] == NULL)
+                return 1;
+            if(ft_strlen(arr[1]) > 128)
+                return 3;
+            ft_check_quotes(str);
             (*header)->name__len = ft_strlen(arr[1]);
             (*header)->prog_name= ft_strdup(arr[1]);
         }
+        else
+            return 2;
         ft_clear(arr);
         free(s);
-        return (1);
-    }
-    return 0;
+        return (0);
 }
+
 
 
 int ft_check_comment(char *str, t_header **header)
@@ -87,20 +158,21 @@ int ft_check_comment(char *str, t_header **header)
     char **arr;
     char *s;
 
-    if(ft_strstr(str,COMMENT_CMD_STRING))
-    {
         arr = ft_strsplit(str,'"');
         s = ft_strtrim(arr[0]);
         if(ft_strequ(s,COMMENT_CMD_STRING))
         {
+            if(arr[1] == NULL)
+                return 1;
+            if(ft_strlen(arr[1]) > 2048)
+                return 3;
+            ft_check_quotes(str);
             (*header)->comment_len = ft_strlen(arr[1]);
             (*header)->comment = ft_strdup(arr[1]);
         }
         ft_clear(arr);
         free(s);
-        return (1);
-    }
-    return 0;
+        return (0);
 }
 
 
@@ -111,12 +183,21 @@ char  *ft_find_label(char *s, t_command **node, t_header **header)
     char *str;
 
     i = 0;
+
+    s = ft_strtrim(s);
     while(s[i])
     {
         if (s[i] == ':' && s[i - 1] && s[i - 1] != '%')
         {
-            //check if no syb before :
-            //check for valid symb in LABEL
+            int k = i;
+            while(--k > 0)
+            {
+                if(!ft_strchr(LABEL_CHARS,s[k]))
+                {
+                    ft_printf("error letters in label\n");
+                    exit(0);
+                }
+            }
             str = ft_strtrim(s);
             (*node)->label = ft_strsub(str,0,i);
             line = ft_strsub(str,i+1,ft_strlen(str)-i);
@@ -201,10 +282,10 @@ int main(int argc, char const *argv[])
         }
         else
             error_exit(argv[argc-1]);
-    }
+   }
     else
         ft_putstr("Usage: ./asm [-a] <sourcefile.s>\n"
                           "    -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output");
-    //system("leaks my_asm > test.txt");
+//    //system("leaks my_asm > test.txt");
     return 0;
 }

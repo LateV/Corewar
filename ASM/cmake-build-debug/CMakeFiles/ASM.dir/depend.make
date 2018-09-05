@@ -306,3 +306,8 @@ CMakeFiles/ASM.dir/read.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/read.c.o: ../libft/libft.h
 CMakeFiles/ASM.dir/read.c.o: ../read.c
 
+CMakeFiles/ASM.dir/writing.c.o: ../asm.h
+CMakeFiles/ASM.dir/writing.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/writing.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/writing.c.o: ../writing.c
+

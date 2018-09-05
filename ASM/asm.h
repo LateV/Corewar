@@ -118,3 +118,6 @@ void ft_count_pointer(t_header *node);
 void ft_label(t_header *node);
 void ft_write_to_file(t_header *header);
 void print_to_file(int fd, int byte, int param);
+void error_cases(int i);
+
+int ft_check_params(t_header *header);

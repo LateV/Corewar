@@ -1,19 +1,19 @@
-.name           "42"
+.name         "Lkjectetur adipiscing elit. Vivamus hendrerit at lorem eu gravida. Vestibulum varius semper nullam."
 .comment        "Just a basic Winner Program"
 
 entree:
-live	%42		# entree
+    live  %42		# entree
 	ld	%0,r5
 	ld	%0,r5
 	zjmp	%:bite
-
-tir:sti	r1,%:live,%1
-	ld	%2304,r10
+#fdgfgfg
+    tir: sti	r1,%:tirf,%1
+	ld	%2304,r10 #gfgfhghg
 	ld	%1,r5
 	ld	%0,r11
 	ld	%4,r3
 tirf:	live	%42
-	fork	%:tirop
+	fork	%:tir
 	live	%742
 	sub	r3,r5,r3
 	zjmp	%:top
