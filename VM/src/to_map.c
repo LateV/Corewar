@@ -44,8 +44,8 @@ void add_players(t_cor *cor)
 	int k;
 
 	k = 0;
-	cor->def_num = 4;
-	while(cor->def_num > 0)
+	cor->def_num = 1;
+	while(cor->def_num < 5)
 	{
 
 		while(k < cor->p_num)
@@ -58,7 +58,7 @@ void add_players(t_cor *cor)
 			k++; 
 		}
 		k = 0;
-		cor->def_num--;
+		cor->def_num++;
 	}
 }
 
@@ -99,16 +99,30 @@ void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 void game_init(t_cor *cor)
 {
 	int pos;
+	int num_pl;
 	t_process *tmp;
 
 	pos = 0;
+	num_pl = -1;
 	tmp = cor->process;
-	while(tmp)
+	ft_putstr("Introducing contestants...\n");
+	while(num_pl > -5)
 	{
-		data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-		tmp->pc = pos;
-		pos += MEM_SIZE / cor->p_num;
-		tmp = tmp->next;
+		tmp = cor->process;
+		while(tmp)
+		{
+			if(num_pl == tmp->player->num)
+			{
+				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
+				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n",
+					tmp->player->num * (-1), tmp->player->prog_size,
+					tmp->player->prog_name, tmp->player->comment);
+				tmp->pc = pos;
+				pos += MEM_SIZE / cor->p_num;
+			}
+			tmp = tmp->next;
+		}
+		num_pl--;
 	}
 }
 
