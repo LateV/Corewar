@@ -20,7 +20,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->live = 0;
 		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
-		draw_palyer_info(cor, cor->process , k);
+//		draw_palyer_info(cor, cor->process , k);
 		return ;
 	}
 	new = ft_memalloc(sizeof(t_process));
@@ -36,7 +36,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 	cor->process = new;
 	new->count_num = cor->proc_num;
 	cor->proc_num++;
-	draw_palyer_info(cor, new , k);
+//	draw_palyer_info(cor, new , k);
 }
 
 void add_players(t_cor *cor)
@@ -73,11 +73,11 @@ void print_map(t_cor *cor)
 	{
 		while(row < 64)
 		{
-			printf("%02x ", cor->arena[i]);
+			ft_printf("%02x ", cor->arena[i]);
 			row++;
 			i++;
 		}
-		printf("\n");
+		ft_printf("\n");
 		row = 0;
 	}
 }
@@ -90,10 +90,10 @@ void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 	while(i < size)
 	{
 		cor->arena[pos + i] = proc->player->code[i];
-		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
+//		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
 		i++;
 	}
-	put_car(cor, pos, proc->player->code[0], proc->player->num);
+//	put_car(cor, pos, proc->player->code[0], proc->player->num);
 }
 
 void game_init(t_cor *cor)
@@ -114,9 +114,7 @@ void game_init(t_cor *cor)
 			if(num_pl == tmp->player->num)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n",
-					tmp->player->num * (-1), tmp->player->prog_size,
-					tmp->player->prog_name, tmp->player->comment);
+//				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
@@ -137,6 +135,11 @@ void live_cheker(t_cor *cor)
 	{
 		tmp = cor->process;
 		prev = NULL;
+		if(tmp == NULL)
+		{
+			ft_printf("list of proc is null ??? \n");
+			exit(0);
+		}
 		while(tmp)
 		{
 			if(tmp->live == 0)
@@ -146,6 +149,11 @@ void live_cheker(t_cor *cor)
 					tmp = cor->process->next;
 					free(cor->process);
 					cor->process = tmp;
+					if(!tmp)
+					{
+						ft_printf("last proc is dead \n");
+						exit(0);
+					}
 				}
 				else
 				{
@@ -158,7 +166,13 @@ void live_cheker(t_cor *cor)
 			else
 				tmp->live = 0;
 			prev = tmp;
-			tmp = tmp->next; // SEGFAULT!
+			if(tmp)
+				tmp = tmp->next;
+		}
+		if(!cor->process)
+		{
+			ft_printf("last proc is dead (2) \n");
+			exit(0);
 		}
 		while(i < 4)
 		{
@@ -182,15 +196,18 @@ void live_cheker(t_cor *cor)
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 0;
-			i = 0;
+		i = 0;
 		while(i < 4)
 		{
 			cor->player[i].live_summ = 0;
 			i++;
 		}
+		ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
 	}
 	else
 		cor->live_check++;
+	ft_printf("cor->live_check = %d\n", cor->live_check);
+	ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
 	if(cor->curr_cycle_t_d < 0)
 	{
 		ft_putstr("Cycle to die is now ");
@@ -218,9 +235,6 @@ void game(t_cor *cor)
 		{
 			if(tmp->command == -1)
 			{
-				// ft_putstr("pos = ");
-		 	// 	ft_putnbr(tmp->pc);
-				// ft_putstr("\n");
 				if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
 				{
 					tmp->command = cor->arena[tmp->pc] - 1;
@@ -235,24 +249,24 @@ void game(t_cor *cor)
 		}
 		cor->cycles++;
 		live_cheker(cor);
-		if(cor->cycles >= 60000)
+		if(cor->cycles >= 63000)
 			return ;
 	}
 }
 
 void to_map(t_cor *cor)
 {
-	init_window(cor);
+//	init_window(cor);
 	add_players(cor);
-	draw_info(cor);
+//	draw_info(cor);
 	game_init(cor);
-	if(cor->visu == 1)
-	{
-		wrefresh(cor->vizu->win1);
-		wrefresh(cor->vizu->win2);
-		while (1)
-			;
-	}
+//	if(cor->visu == 1)
+//	{
+//		wrefresh(cor->vizu->win1);
+//		wrefresh(cor->vizu->win2);
+//		while (1)
+//			;
+//	}
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
@@ -260,7 +274,7 @@ void to_map(t_cor *cor)
 		ft_putnbr(cor->curr_cycle_t_d);
 		ft_putstr("\n");
 	// print_map(cor);
-	endwin();
+//	endwin();
 	// while(1)
 	// 	;
 }
