@@ -14,7 +14,7 @@ void comm_live(t_cor *cor, t_process *process)
 	{
 		process->label = 4;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		ft_putstr("->live: ");
+		ft_printf("P    %d | live ", process->player->num * (-1));
 		ft_putnbr(process->arg1);
 		ft_putstr("\n");
 		process->live = 1;
