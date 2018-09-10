@@ -1,7 +1,7 @@
 .name    "test_live1"
 .comment "test_live1"
 
-live:	live	%1
+live:	live	%-2
 live:	live	%1
 live:	live	%1
 live:	live	%1

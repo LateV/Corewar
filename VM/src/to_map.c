@@ -120,7 +120,7 @@ void game_init(t_cor *cor)
 			if(num_pl == tmp->player->num)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
+				ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
@@ -181,7 +181,6 @@ void live_cheker(t_cor *cor)
 					cor->process = tmp;
 					if(!tmp) // Если это был единственный процесс 
 					{
-						ft_printf("last proc is dead \n");
 						ft_printf("winner is %s\n", cor->winner->prog_name);
 						exit(0);
 					}
@@ -203,7 +202,6 @@ void live_cheker(t_cor *cor)
 		if(!cor->process)
 		{
 			ft_printf("winner is %s\n", cor->winner->prog_name);
-			ft_printf("last proc is dead (2) \n");
 			exit(0);
 		}
 		// }}
@@ -216,13 +214,9 @@ void live_cheker(t_cor *cor)
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 1;
-		// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
-		// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 	}
 	else
 		cor->live_check++;
-	// ft_printf("cor->live_check = %d\n", cor->live_check);
-	// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
 	if(cor->curr_cycle_t_d < 0)
 	{
 		ft_putstr("Cycle to die is now ");
