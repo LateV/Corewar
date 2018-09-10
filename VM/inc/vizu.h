@@ -10,9 +10,4 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct			s_vizu
-{
-	WINDOW 				*win1;
-	WINDOW				*win2;
-	int 				end_of_prs;
-}						t_vizu;
+

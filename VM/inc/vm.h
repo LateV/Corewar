@@ -51,7 +51,7 @@ typedef char	t_arg_type;
 # include <sys/stat.h>
 # include "libft.h"
 # include "ft_printf.h"
-# include "vizu.h"
+
 
 struct s_process;
 struct s_cor;
@@ -90,6 +90,22 @@ typedef struct			s_process
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
 
+typedef struct			s_map
+{
+	unsigned char		comm;
+	int 				type;
+	int	 				player;
+	int 				life_time;
+}						t_map;
+
+typedef struct			s_vizu
+{
+	WINDOW 				*win1;
+	WINDOW				*win2;
+	int 				end_of_prs;
+	t_map 				*map;
+}						t_vizu;
+
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
@@ -115,6 +131,7 @@ typedef struct			s_cor
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
 }						t_cor;
+
 
 char 					get_char(t_cor *cor, int loc);
 short 					get_short(t_cor *cor, int loc);
@@ -155,4 +172,6 @@ void					draw_palyer_info(t_cor *cor, t_process *proc, int k);
 void					draw_info(t_cor *cor);
 void					put_com(t_cor *cor, int pos, unsigned char comm, int color);
 void					put_car(t_cor *cor, int pos, unsigned char comm, int color);
+void					init_map(t_cor *cor);
+void						refresh_map(t_cor *cor);
 #endif

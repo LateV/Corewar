@@ -27,6 +27,7 @@ SRC	=	main.c 					\
 		set_proc_pos.c 			\
 		arg_handler.c			\
 		v_main.c 				\
+		v_map_handler.c 		\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

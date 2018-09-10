@@ -23,7 +23,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->winner = (player + k);
-		// draw_palyer_info(cor, cor->process , k);
+		draw_palyer_info(cor, cor->process , k);
 		return ;
 	}
 	new = ft_memalloc(sizeof(t_process));
@@ -42,7 +42,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->count_num = cor->proc_num;
 	cor->proc_num++;
 	cor->winner = &player[k];
-//	draw_palyer_info(cor, new , k);
+	draw_palyer_info(cor, new , k);
 }
 
 void add_players(t_cor *cor)
@@ -96,10 +96,11 @@ void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 	while(i < size)
 	{
 		cor->arena[pos + i] = proc->player->code[i];
-//		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
+		cor->vizu->map[pos + i].comm = proc->player->code[i];
+		cor->vizu->map[pos + i].player = proc->player->num * (-1);
 		i++;
 	}
-//	put_car(cor, pos, proc->player->code[0], proc->player->num);
+	cor->vizu->map[pos].type = 1;
 }
 
 void game_init(t_cor *cor)
@@ -111,7 +112,7 @@ void game_init(t_cor *cor)
 	pos = 0;
 	num_pl = -1;
 	tmp = cor->process;
-	ft_putstr("Introducing contestants...\n");
+	// ft_putstr("Introducing contestants...\n");
 	while(num_pl > -5)
 	{
 		tmp = cor->process;
@@ -120,7 +121,7 @@ void game_init(t_cor *cor)
 			if(num_pl == tmp->player->num)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
+				// ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
@@ -273,24 +274,24 @@ void game(t_cor *cor)
 
 void to_map(t_cor *cor)
 {
-//	init_window(cor);
+	init_window(cor);
 	add_players(cor);
-//	draw_info(cor);
+	draw_info(cor);
 	game_init(cor);
-//	if(cor->visu == 1)
-//	{
-//		wrefresh(cor->vizu->win1);
-//		wrefresh(cor->vizu->win2);
-//		while (1)
-//			;
-//	}
+	if(cor->visu == 1)
+	{
+		// mvwprintw(cor->vizu->win2, 50, 2, "%d", cor->vizu->end_of_prs);
+		refresh_map(cor);
+		while (1)
+			;
+	}
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
 	ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 		ft_putstr("\n");
 	// print_map(cor);
-//	endwin();
+	endwin();
 	// while(1)
 	// 	;
 }
