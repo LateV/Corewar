@@ -29,11 +29,19 @@ int flag_n(t_cor *cor, char **argv, int i)
 	return(i + 1);
 }
 
+int flag_v(t_cor *cor, int i)
+{
+	cor->visu = 1;
+	return(i);
+}
+
 int		manage_flags(t_cor *cor, char **argv, int i)
 {
 
 	if(ft_strcmp(argv[i], "-n") == 0)
 		return(flag_n(cor, argv, i));
+	if(ft_strcmp(argv[i], "-v") == 0)
+		return(flag_v(cor, i));
 	return(-1);
 }
 
@@ -258,21 +266,11 @@ void def_num(t_cor *cor)
 		i++;
 	}
 }
-
-// void visual_init(t_cor *cor)
-// {
-// 	initscr();
-// 	noecho();
-// 	keypad(stdscr, true);
-// 	curs_set(false);
-
-// 	write(1, "\e[8;60;200;t", 14);
-// 	cor->win1 = newwin(60, 150, 0, 0);
-// 	cor->win2 = newwin(60, 50, 0, 150);
-// 	refresh();
-// 	box(cor->win1, 0, 0);
-// 	box(cor->win2, 0, 0); 
-// }
+void usadge(void)
+{
+	ft_printf("here was supposed to be {[~~usadge~~~]}\n");
+	exit(0);
+}
 
 int main(int argc, char **argv)
 {
@@ -280,11 +278,15 @@ int main(int argc, char **argv)
 	int i;
 	int j;
 
+	if(argc == 1)
+		usadge();
 	i = 1;
 	cor.p_num = 0;
 	cor.flag_p_num = -1;
 	cor.code_summ = 0;
-
+	cor.visu = 0;
+	cor.pause = 1;
+	cor.proc_num = 1;
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);
@@ -304,11 +306,10 @@ int main(int argc, char **argv)
 		i++;
 	}
 	validate_players(&cor);
-	// visual_init(&cor);
 	cor.process = NULL;
 	def_num(&cor);
 	cor.def_num = 1;
-	cor.live_check = 0;
+	cor.live_check = 1;
 	cor.curr_cycle_t_d = CYCLE_TO_DIE;
 	cor.curr_chechs = 0;
 	to_map(&cor);

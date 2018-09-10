@@ -43,8 +43,8 @@ typedef char	t_arg_type;
 # define COREWAR_EXEC_MAGIC		0xea83f3
 #define ABS(x) (((x)<0) ? -(x) : (x))
 
-#include <curses.h>
-#include <unistd.h>
+# include <curses.h>
+# include <unistd.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -58,7 +58,9 @@ struct s_cor;
 
 typedef struct			s_player
 {
-	int 				live_summ; 							// Количество жизней за период (0 - curr_cycle_t_d) циклов
+	int 				live_curr;	// сумма криков "жизнь" процессами, породженными данным играком
+	int 				last_live;	// цикл последнего крика "жизнь"					
+	int 				live_summ; 	// Количество криков "жизнь" для даннаого играока за период (0 - curr_cycle_t_d) циклов
 	char 				*file_path;
 	unsigned char		prog_name[PROG_NAME_LENGTH + 1];
 	unsigned char		comment[COMMENT_LENGTH + 1];
@@ -70,15 +72,16 @@ typedef struct			s_player
 
 typedef struct			s_process
 {
+	int 				count_num; 		// номер процесса
 	int 				live; 			// Жив или нет (bool)
 	unsigned int 		registr[16]; 	// регистры (16 штук)
 	int 				pc;				// позиция на карте (0 - 4096)
 	int 				carry; 			// флаг для некоторых команд
 	int 		 		delay;			// сколько циклов до выполнения команды
-	int 				arg1;
+	int 				arg1;			//  аргументы {{
 	int 				arg2;
 	int 				arg3;
-	int 				arg_type[3];
+	int 				arg_type[3];	// }}
 	int 				label;
 	int 				codage;
 	int 				command;
@@ -90,11 +93,13 @@ typedef struct			s_process
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
+	int 				proc_num;
 	int 				cycles;
 	int 				code_summ;
 	int 				start;
 	int 				visu;
 	int 				dump;
+	int 				pause;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
@@ -106,6 +111,7 @@ typedef struct			s_cor
 	WINDOW 				*win2;				
 	t_process			*process;
 	t_player			player[4];
+	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
 }						t_cor;
