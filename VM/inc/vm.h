@@ -58,7 +58,9 @@ struct s_cor;
 
 typedef struct			s_player
 {
-	int 				live_summ; 							// Количество жизней за период (0 - curr_cycle_t_d) циклов
+	int 				live_curr;	// сумма криков "жизнь" процессами, породженными данным играком
+	int 				last_live;	// цикл последнего крика "жизнь"					
+	int 				live_summ; 	// Количество криков "жизнь" для даннаого играока за период (0 - curr_cycle_t_d) циклов
 	char 				*file_path;
 	unsigned char		prog_name[PROG_NAME_LENGTH + 1];
 	unsigned char		comment[COMMENT_LENGTH + 1];
@@ -76,10 +78,10 @@ typedef struct			s_process
 	int 				pc;				// позиция на карте (0 - 4096)
 	int 				carry; 			// флаг для некоторых команд
 	int 		 		delay;			// сколько циклов до выполнения команды
-	int 				arg1;
+	int 				arg1;			//  аргументы {{
 	int 				arg2;
 	int 				arg3;
-	int 				arg_type[3];
+	int 				arg_type[3];	// }}
 	int 				label;
 	int 				codage;
 	int 				command;
@@ -109,6 +111,7 @@ typedef struct			s_cor
 	WINDOW 				*win2;				
 	t_process			*process;
 	t_player			player[4];
+	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
 }						t_cor;

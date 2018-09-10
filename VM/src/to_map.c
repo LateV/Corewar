@@ -15,12 +15,15 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->player->num = cor->process->player->num * (-1);
 		cor->process->registr[0] = cor->process->player->num;
 		cor->process->player->live_summ = 0;
+		cor->process->player->live_curr = 0;
+		cor->process->player->last_live = 0;
 		cor->process->command = -1;
 		cor->process->carry = 1;
 		cor->process->live = 0;
 		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
-//		draw_palyer_info(cor, cor->process , k);
+		cor->winner = (player + k);
+		// draw_palyer_info(cor, cor->process , k);
 		return ;
 	}
 	new = ft_memalloc(sizeof(t_process));
@@ -30,12 +33,15 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->player->num = new->player->num * (-1);
 	new->registr[0] = new->player->num;
 	new->player->live_summ = 0;
+	new->player->live_curr = 0;
+	new->player->last_live = 0;
 	new->live = 0;
 	new->command = -1;
 	new->carry = 1;
 	cor->process = new;
 	new->count_num = cor->proc_num;
 	cor->proc_num++;
+	cor->winner = &player[k];
 //	draw_palyer_info(cor, new , k);
 }
 
@@ -114,7 +120,7 @@ void game_init(t_cor *cor)
 			if(num_pl == tmp->player->num)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-//				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
+				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
@@ -131,6 +137,7 @@ void live_cheker(t_cor *cor)
 	int i;
 
 	i = 0;
+
 	if(cor->live_check == cor->curr_cycle_t_d)
 	{
 		tmp = cor->process;
@@ -140,18 +147,42 @@ void live_cheker(t_cor *cor)
 			ft_printf("list of proc is null ??? \n");
 			exit(0);
 		}
+		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
+		{
+			if(cor->player[i].live_curr >= 21)
+			{
+				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
+				ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+				cor->curr_chechs = -1;
+				cor->player[i].live_curr = 0;
+				i = 0;
+				while(i < 4)// обнуление всех крииков жизнь
+				{
+					cor->player[i].live_curr = 0;
+					cor->player[i].live_summ = 0;
+					i++;
+				}
+				break;
+			}
+			i++;
+		}
+
+
+		// Проверка всех процессов на "жизнь"
+		// {{
 		while(tmp)
 		{
-			if(tmp->live == 0)
+			if(tmp->live == 0) // Если процесс не жив удаляем его из списка
 			{
-				if(prev == NULL)
+				if(prev == NULL) // Для случая , когда это первый елемент списка
 				{
 					tmp = cor->process->next;
 					free(cor->process);
 					cor->process = tmp;
-					if(!tmp)
+					if(!tmp) // Если это был единственный процесс 
 					{
 						ft_printf("last proc is dead \n");
+						ft_printf("winner is %s\n", cor->winner->prog_name);
 						exit(0);
 					}
 				}
@@ -164,54 +195,39 @@ void live_cheker(t_cor *cor)
 				}
 			}
 			else
-				tmp->live = 0;
+				tmp->live = 0;// Если процесс жив то жизнь тратится
 			prev = tmp;
 			if(tmp)
 				tmp = tmp->next;
 		}
 		if(!cor->process)
 		{
+			ft_printf("winner is %s\n", cor->winner->prog_name);
 			ft_printf("last proc is dead (2) \n");
 			exit(0);
 		}
-		while(i < 4)
-		{
-			if(cor->player[i].live_summ >= 21)
-			{
-				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-				cor->curr_chechs = -1;
-			}
-			i++;
-		}
+		// }}
+
 		cor->curr_chechs++;
-		// ft_putstr("cor->curr_chechs is now ");
-		// ft_putnbr(cor->curr_chechs);
-		// ft_putstr("\n");
-		// ft_putstr("Cycle to die is now ");
-		// ft_putnbr(cor->curr_cycle_t_d);
-		// ft_putstr("\n");
 		if(cor->curr_chechs == MAX_CHECKS)
 		{
 			cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
+			ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 			cor->curr_chechs = 0;
 		}
-		cor->live_check = 0;
-		i = 0;
-		while(i < 4)
-		{
-			cor->player[i].live_summ = 0;
-			i++;
-		}
-		ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
+		cor->live_check = 1;
+		// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
+		// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 	}
 	else
 		cor->live_check++;
-	ft_printf("cor->live_check = %d\n", cor->live_check);
-	ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
+	// ft_printf("cor->live_check = %d\n", cor->live_check);
+	// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
 	if(cor->curr_cycle_t_d < 0)
 	{
 		ft_putstr("Cycle to die is now ");
 		ft_putnbr(cor->curr_cycle_t_d);
+		ft_printf("\nwinner is %s\n", cor->winner->prog_name);
 		ft_putstr("\n");
 		exit(0);
 	}
@@ -248,6 +264,7 @@ void game(t_cor *cor)
 			tmp = tmp->next;
 		}
 		cor->cycles++;
+
 		live_cheker(cor);
 		if(cor->cycles >= 63000)
 			return ;
@@ -270,8 +287,7 @@ void to_map(t_cor *cor)
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
-	ft_putstr("Cycle to die is now ");
-		ft_putnbr(cor->curr_cycle_t_d);
+	ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 		ft_putstr("\n");
 	// print_map(cor);
 //	endwin();

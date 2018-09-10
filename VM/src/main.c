@@ -309,7 +309,7 @@ int main(int argc, char **argv)
 	cor.process = NULL;
 	def_num(&cor);
 	cor.def_num = 1;
-	cor.live_check = 0;
+	cor.live_check = 1;
 	cor.curr_cycle_t_d = CYCLE_TO_DIE;
 	cor.curr_chechs = 0;
 	to_map(&cor);
