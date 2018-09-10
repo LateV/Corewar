@@ -120,7 +120,7 @@ void game_init(t_cor *cor)
 			if(num_pl == tmp->player->num)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-				ft_printf("* player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
+				ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
