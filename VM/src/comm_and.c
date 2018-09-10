@@ -43,8 +43,6 @@ void comm_and(t_cor *cor, t_process *process)
 			ft_putnbr(process->arg2);
 			ft_putstr(" r");
 			ft_putnbr(process->arg3);
-			ft_putstr("res= ");
-			ft_putnbr(res);
 			ft_putstr("\n");
 			load_data_to_reg(cor, process, 4, process->arg3 - 1);
 		}
