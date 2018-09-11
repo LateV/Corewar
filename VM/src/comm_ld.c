@@ -21,19 +21,6 @@ static int arg_read(t_cor *cor, t_process *process)
 }		
 
 
-void sti_dir_reg(t_cor *cor, t_process *process)
-{
-	load_data_to_reg(cor, process, process->arg1, process->arg2 - 1);
-	ft_printf("P    %d | ld %d r%d\n", process->count_num, process->arg1, process->arg2);
-}
-
-void sti_ind_reg(t_cor *cor, t_process *process)
-{
-	process->arg1 = process->arg1 % IDX_MOD;
-	load_data_to_reg(cor, process, process->arg1 + process->pc, process->arg2 - 1);
-	ft_printf("P    %d | ld %d r%d\n", process->count_num, process->arg1, process->arg2);
-}
-
 void comm_ld(t_cor *cor, t_process *process)
 {
 	int sk;
@@ -49,12 +36,23 @@ void comm_ld(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if (process->codage == 1)
+		if(process->codage == 1)
 		{
-			if (process->arg_type[0] == 2)
-				sti_dir_reg(cor, process);
-			else if (process->arg_type[0] == 3)
-				sti_ind_reg(cor, process);
+			if(process->arg_type[0] == 2)
+			{
+				process->registr[process->arg2 - 1] = process->arg1;
+				ft_printf("P    %d | ld %d r%d\n",
+					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
+			}
+			else
+			{
+				process->arg1 = process->arg1 % IDX_MOD;
+				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
+			}
+			if (process->registr[process->arg2 - 1] == 0)
+				process->carry = 1;
+			else
+				process->carry = 0;
 		}
 		if (process->registr[process->arg2 - 1] == 0)
 			process->carry = 1;

@@ -1,6 +1,6 @@
 #include "vm.h"
 
-static int arg_read(t_cor *cor, t_process *process, int *name)
+static int arg_read(t_cor *cor, t_process *process)
 {
 	int s;
 
@@ -11,21 +11,21 @@ static int arg_read(t_cor *cor, t_process *process, int *name)
 		process->codage = 0;
 	if (process->arg3 != 1)
 		process->codage = 0;
-	if (process->arg1 == 3)
-		*name = 3;
+	process->arg_type[0] = process->arg1;
+	process->arg_type[1] = process->arg2;
+	process->arg_type[2] = process->arg3;
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
 }		
 
+
 void comm_ldi(t_cor *cor, t_process *process)
 {
 	int sk;
-	int name;
 	int first;
 
-	name = 0;
 	if (process->delay < 0)
 		process->delay = 24;
 	else if (process->delay > 0)
@@ -35,13 +35,15 @@ void comm_ldi(t_cor *cor, t_process *process)
 		process->label = 2;
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
-		sk = arg_read(cor, process, &name);
+		sk = arg_read(cor, process);
 		if(process->codage == 1)
 		{
 			first = process->arg1;
-			if (name == 3)
+			if (process->arg1 == 3)
 				first = get_int(cor, (process->arg1 % IDX_MOD) + process->pc);
 			load_to_reg(cor, process, (((first + process->arg2) % IDX_MOD) + process->pc), process->arg3 - 1);
+			ft_printf("P    %d | ldi %d r%d\n", process->count_num, process->arg1, process->arg2);
+			//  закончить :)
 			ft_putstr("->ldi: load from ");
 			ft_putnbr(process->arg1);
 			ft_putstr(" + ");
