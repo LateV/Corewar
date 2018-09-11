@@ -153,6 +153,7 @@ void live_cheker(t_cor *cor)
 		{
 			// ft_printf("list of proc is null ??? \n");
 			endwin();
+			system("leaks -quiet corewar");
 			exit(0);
 		}
 		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
@@ -160,7 +161,8 @@ void live_cheker(t_cor *cor)
 			if(cor->player[i].live_curr >= 21)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-				// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+				if(cor->visu == 0)
+					ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 				cor->curr_chechs = -1;
 				cor->player[i].live_curr = 0;
 				i = 0;
@@ -189,8 +191,10 @@ void live_cheker(t_cor *cor)
 					cor->process = tmp;
 					if(!tmp) // Если это был единственный процесс 
 					{
-						ft_printf("winner is %s\n", cor->winner->prog_name);
+						if(cor->visu == 0)
+							ft_printf("winner is %s\n", cor->winner->prog_name);
 						endwin();
+						system("leaks -quiet corewar");
 						exit(0);
 					}
 				}
@@ -210,8 +214,10 @@ void live_cheker(t_cor *cor)
 		}
 		if(!cor->process)
 		{
-			ft_printf("winner is %s\n", cor->winner->prog_name);
+			if(cor->visu == 0)
+				ft_printf("winner is %s\n", cor->winner->prog_name);
 			endwin();
+			system("leaks -quiet corewar");
 			exit(0);
 		}
 		// }}
@@ -220,7 +226,8 @@ void live_cheker(t_cor *cor)
 		if(cor->curr_chechs == MAX_CHECKS)
 		{
 			cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-			// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			if(cor->visu == 0)
+				ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 1;
@@ -229,11 +236,13 @@ void live_cheker(t_cor *cor)
 		cor->live_check++;
 	if(cor->curr_cycle_t_d < 0)
 	{
-		// ft_putstr("Cycle to die is now ");
-		// ft_putnbr(cor->curr_cycle_t_d);
-		// ft_printf("\nwinner is %s\n", cor->winner->prog_name);
-		// ft_putstr("\n");
+		if(cor->visu == 0)
+		{
+			ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			ft_printf("winner is %s\n", cor->winner->prog_name);
+		}
 		endwin();
+		system("leaks -quiet corewar");
 		exit(0);
 	}
 }
@@ -260,7 +269,7 @@ void game(t_cor *cor)
 		}
 		else
 		{
-			if(cor->visu == 1)
+			if(cor->visu == 0)
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		tmp = cor->process;
@@ -282,8 +291,6 @@ void game(t_cor *cor)
 		}
 		cor->cycles++;
 		live_cheker(cor);
-		// if(cor->cycles >= 63000)
-		// 	return ;
 	}
 }
 
@@ -299,8 +306,8 @@ void to_map(t_cor *cor)
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
-	ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
-		ft_putstr("\n");
+	if(cor->visu == 0)
+		ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 	// print_map(cor);
 	endwin();
 	// while(1)

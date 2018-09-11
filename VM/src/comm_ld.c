@@ -41,8 +41,11 @@ void comm_ld(t_cor *cor, t_process *process)
 			if(process->arg_type[0] == 2)
 			{
 				process->registr[process->arg2 - 1] = process->arg1;
-				ft_printf("P    %d | ld %d r%d\n",
-					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
+				if(cor->visu == 0)
+				{
+					ft_printf("P    %d | ld %d r%d\n",
+						process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
+				}
 				if (process->registr[process->arg2 - 1] == 0)
 					process->carry = 1;
 				else

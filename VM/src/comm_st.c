@@ -13,7 +13,6 @@ static int arg_read(t_cor *cor, t_process *process, int *ind)
 		*ind = 0;
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
-	// s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
 }	
 
@@ -37,20 +36,17 @@ void comm_st(t_cor *cor, t_process *process)
 		{
 			if(ind == 1)
 			{
-				ft_putstr("->st: r");
-				ft_putnbr(process->arg1);
-				ft_putstr(" ");
-				ft_putnbr(process->ind_loc);
-				ft_putstr("\n");
+				if(cor->visu == 0)
+					ft_printf("P    %d | st r%d %d\n", process->count_num, process->arg1, process->ind_loc);
 				load_from_reg(cor, process, process->pc + (process->arg2 % IDX_MOD), process->arg1 - 1);
 			}
 			else
 			{
-				ft_putstr("->st: r");
-				ft_putnbr(process->arg1);
-				ft_putstr(" to r");
-				ft_putnbr(process->arg2);
-				ft_putstr("\n");
+				if(cor->visu == 0)
+				{
+					ft_printf("P    %d | st r%d to r%d\n",
+						process->count_num, process->arg1, process->arg2);
+				}
 				process->registr[process->arg2 - 1] = process->registr[process->arg1 - 1];
 			}
 		}

@@ -42,13 +42,16 @@ void comm_lldi(t_cor *cor, t_process *process)
 			if (name == 3)
 				first = get_int(cor, (process->arg1 % IDX_MOD) + process->pc);
 			load_to_reg(cor, process, ((first + process->arg2) + process->pc), process->arg3 - 1);
-			ft_putstr("->ldi: load from ");
-			ft_putnbr(process->arg1);
-			ft_putstr(" + ");
-			ft_putnbr(process->arg2);
-			ft_putstr(" r");
-			ft_putnbr(process->arg3);
-			ft_putstr("\n");
+			if(cor->visu == 0)
+			{
+				ft_putstr("->ldi: load from ");
+				ft_putnbr(process->arg1);
+				ft_putstr(" + ");
+				ft_putnbr(process->arg2);
+				ft_putstr(" r");
+				ft_putnbr(process->arg3);
+				ft_putstr("\n");
+			}
 			if (process->registr[process->arg3 - 1] == 0)
 					process->carry = 1;
 				else
