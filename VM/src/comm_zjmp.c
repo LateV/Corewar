@@ -15,12 +15,12 @@ void comm_zjmp(t_cor *cor, t_process *process)
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
 		if (process->carry == 1)
 		{
-			set_proc_pos(process, process->arg1);
+			set_proc_pos(cor, process, process->arg1);
 			ft_printf("P    %d | zjmp %d OK\n", process->count_num, process->arg1);
 		}
 		else
 		{
-			set_proc_pos(process, sk + 1);
+			set_proc_pos(cor, process, sk + 1);
 			ft_printf("P    %d | zjmp %d FAILED\n", process->count_num, process->arg1) ;
 		}
 		process->delay = -1;

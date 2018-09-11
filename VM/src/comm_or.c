@@ -46,7 +46,7 @@ void comm_or(t_cor *cor, t_process *process)
 			ft_putstr("\n");
 			load_data_to_reg(cor, process, 4, process->arg3 - 1);
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;

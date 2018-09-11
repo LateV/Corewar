@@ -54,7 +54,11 @@ void comm_ld(t_cor *cor, t_process *process)
 			else
 				process->carry = 0;
 		}
-		set_proc_pos(process, sk);
+		if (process->registr[process->arg2 - 1] == 0)
+			process->carry = 1;
+		else
+			process->carry = 0;
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;

@@ -46,7 +46,7 @@ void comm_sub(t_cor *cor, t_process *process)
 			else
 				process->carry = 0;
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;

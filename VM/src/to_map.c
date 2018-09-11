@@ -96,10 +96,11 @@ void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 	while(i < size)
 	{
 		cor->arena[pos + i] = proc->player->code[i];
-		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
+		cor->vizu->map[pos + i].comm = proc->player->code[i];
+		cor->vizu->map[pos + i].player = proc->player->num * (-1);
 		i++;
 	}
-	put_car(cor, pos, proc->player->code[0], proc->player->num);
+	cor->vizu->map[pos].type = 1;
 }
 
 void game_init(t_cor *cor)
@@ -111,7 +112,7 @@ void game_init(t_cor *cor)
 	pos = 0;
 	num_pl = -1;
 	tmp = cor->process;
-	ft_putstr("Introducing contestants...\n");
+	// ft_putstr("Introducing contestants...\n");
 	while(num_pl > -5)
 	{
 		tmp = cor->process;
@@ -144,7 +145,7 @@ void live_cheker(t_cor *cor)
 		prev = NULL;
 		if(tmp == NULL)
 		{
-			ft_printf("list of proc is null ??? \n");
+			// ft_printf("list of proc is null ??? \n");
 			exit(0);
 		}
 		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
@@ -152,7 +153,7 @@ void live_cheker(t_cor *cor)
 			if(cor->player[i].live_curr >= 21)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-				ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+				// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 				cor->curr_chechs = -1;
 				cor->player[i].live_curr = 0;
 				i = 0;
@@ -210,7 +211,7 @@ void live_cheker(t_cor *cor)
 		if(cor->curr_chechs == MAX_CHECKS)
 		{
 			cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-			ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 1;
@@ -219,10 +220,10 @@ void live_cheker(t_cor *cor)
 		cor->live_check++;
 	if(cor->curr_cycle_t_d < 0)
 	{
-		ft_putstr("Cycle to die is now ");
-		ft_putnbr(cor->curr_cycle_t_d);
-		ft_printf("\nwinner is %s\n", cor->winner->prog_name);
-		ft_putstr("\n");
+		// ft_putstr("Cycle to die is now ");
+		// ft_putnbr(cor->curr_cycle_t_d);
+		// ft_printf("\nwinner is %s\n", cor->winner->prog_name);
+		// ft_putstr("\n");
 		exit(0);
 	}
 }
@@ -230,13 +231,24 @@ void live_cheker(t_cor *cor)
 void game(t_cor *cor)
 {
 	t_process *tmp;
+	char t;
 
 	cor->cycles = 1;
 	while(69)
 	{
-		ft_putstr("It is now cycle ");
-		ft_putnbr(cor->cycles);
-		ft_putstr("\n");
+		t = getch();
+		if (t == 32 && cor->pause == 1)
+			cor->pause = 0;
+		else if (t == 32 && cor->pause == 0)
+			cor->pause = 1;
+		mvwprintw(cor->vizu->win2, 50, 4, "%02d", cor->pause);
+		refresh_vizu(cor);
+
+		if (cor->pause)
+			continue;
+		// ft_putstr("It is now cycle ");
+		// ft_putnbr(cor->cycles);
+		// ft_putstr("\n");
 		tmp = cor->process;
 		// ft_putstr("pos = ");
 		// ft_putnbr(tmp->pc);
@@ -251,7 +263,7 @@ void game(t_cor *cor)
 					cor->instruct[tmp->command](cor, tmp);
 				}
 				else
-					set_proc_pos(tmp, 1);
+					set_proc_pos(cor, tmp, 1);
 			}
 			else
 				cor->instruct[tmp->command](cor, tmp);
@@ -272,19 +284,14 @@ void to_map(t_cor *cor)
 	draw_info(cor);
 	game_init(cor);
 	if(cor->visu == 1)
-	{
-		wrefresh(cor->vizu->win1);
-		wrefresh(cor->vizu->win2);
-		while (1)
-			;
-	}
+		refresh_vizu(cor);
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);
 	ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 		ft_putstr("\n");
 	// print_map(cor);
-//	endwin();
+	endwin();
 	// while(1)
 	// 	;
 }

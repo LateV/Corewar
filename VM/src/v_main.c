@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   v_main.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkhilenk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/10 15:50:50 by rkhilenk          #+#    #+#             */
+/*   Updated: 2018/09/10 15:50:55 by rkhilenk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "vm.h"
 
@@ -15,14 +26,11 @@ static void itit_color_pairs(void)
 		init_pair(8, COLOR_BLACK, COLOR_CYAN);
 
 		init_pair(22, 243, COLOR_BLACK);
+		init_pair(23, COLOR_BLACK, 243);
 }
 
-static void initital_draw(t_cor *cor)
+void initital_draw(t_cor *cor)
 {
-	int i;
-	int j;
-
-	i = 0;
 	if(cor->visu == 1)
 	{
 		box(cor->vizu->win1, 0, 0);
@@ -31,16 +39,7 @@ static void initital_draw(t_cor *cor)
 		mvwprintw(cor->vizu->win2, 4, 2, "Cycles/second limit : %d", 50);
 		mvwprintw(cor->vizu->win2, 7, 2, "Cycle : %d", 0);
 		mvwprintw(cor->vizu->win2, 9, 2, "Processes : %d", 1);
-		wattron(cor->vizu->win1, COLOR_PAIR(22));
-		while (++i <= 64)
-		{
-			j = -1;
-			while (++j <= 63)
-			{
-				mvwprintw(cor->vizu->win1, i, (j*3) + 2, "00");
-			}
-		}
-		wattroff(cor->vizu->win1, COLOR_PAIR(22));
+		
 	}
 }
 
@@ -54,8 +53,8 @@ void draw_palyer_info(t_cor *cor, t_process *proc, int k)
 		wattroff(cor->vizu->win2, COLOR_PAIR(k+1));
 		mvwprintw(cor->vizu->win2, 12 + (k * 4), 4, "Last live : %20d", 0);
 		mvwprintw(cor->vizu->win2, 13 + (k * 4), 4, "Lives in current period : %6d", 0);
-		if (cor->vizu->end_of_prs == 0)
-			cor->vizu->end_of_prs = k;
+
+		cor->vizu->end_of_prs++;
 	}
 }
 
@@ -66,14 +65,14 @@ void draw_info(t_cor *cor)
 		int k;
 
 		k = cor->vizu->end_of_prs;
-		mvwprintw(cor->vizu->win2, 15 + (k * 4), 2, "Live breakdown for current period :");
-		mvwprintw(cor->vizu->win2, 16 + (k * 4), 2, "[--------------------------------------------------]");
-		mvwprintw(cor->vizu->win2, 18 + (k * 4), 2, "Live breakdown for last period :");
-		mvwprintw(cor->vizu->win2, 19 + (k * 4), 2, "[--------------------------------------------------]");
-		mvwprintw(cor->vizu->win2, 21 + (k * 4), 2, "CYCLE_TO_DIE : %d", CYCLE_TO_DIE);
-		mvwprintw(cor->vizu->win2, 23 + (k * 4), 2, "CYCLE_DELTA : %d", CYCLE_DELTA);
-		mvwprintw(cor->vizu->win2, 25 + (k * 4), 2, "NBR_LIVE : %d", NBR_LIVE);
-		mvwprintw(cor->vizu->win2, 27 + (k * 4), 2, "MAX_CHECKS : %d", MAX_CHECKS);
+		mvwprintw(cor->vizu->win2, 15 + ((k-1) * 4), 2, "Live breakdown for current period :");
+		mvwprintw(cor->vizu->win2, 16 + ((k-1) * 4), 2, "[--------------------------------------------------]");
+		mvwprintw(cor->vizu->win2, 18 + ((k-1) * 4), 2, "Live breakdown for last period :");
+		mvwprintw(cor->vizu->win2, 19 + ((k-1) * 4), 2, "[--------------------------------------------------]");
+		mvwprintw(cor->vizu->win2, 21 + ((k-1) * 4), 2, "CYCLE_TO_DIE : %d", CYCLE_TO_DIE);
+		mvwprintw(cor->vizu->win2, 23 + ((k-1) * 4), 2, "CYCLE_DELTA : %d", CYCLE_DELTA);
+		mvwprintw(cor->vizu->win2, 25 + ((k-1) * 4), 2, "NBR_LIVE : %d", NBR_LIVE);
+		mvwprintw(cor->vizu->win2, 27 + ((k-1) * 4), 2, "MAX_CHECKS : %d", MAX_CHECKS);
 	}
 }
 
@@ -96,9 +95,7 @@ void put_car(t_cor *cor, int pos, unsigned char comm, int color)
 	{
 		color = (color * (-1))-1;
 		wattron(cor->vizu->win1, COLOR_PAIR(color+5));
-
 		mvwprintw(cor->vizu->win1, (pos / 64) + 1, (pos % 64) * 3 + 2, "%02x", comm);
-
 		wattroff(cor->vizu->win1, COLOR_PAIR(color+5));
 	}
 }
@@ -122,6 +119,8 @@ void init_window(t_cor *cor)
 		cor->vizu->win1 = newwin(66, 195, 0, 0);
 		cor->vizu->win2 = newwin(66, 56, 0, 196);
 		itit_color_pairs();
+
+		init_map(cor);
 		initital_draw(cor);
 	}
 
