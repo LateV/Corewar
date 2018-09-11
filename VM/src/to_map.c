@@ -23,7 +23,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->winner = (player + k);
-		// draw_palyer_info(cor, cor->process , k);
+		draw_palyer_info(cor, cor->process , k);
 		return ;
 	}
 	new = ft_memalloc(sizeof(t_process));
@@ -42,7 +42,7 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->count_num = cor->proc_num;
 	cor->proc_num++;
 	cor->winner = &player[k];
-//	draw_palyer_info(cor, new , k);
+	draw_palyer_info(cor, new , k);
 }
 
 void add_players(t_cor *cor)
@@ -96,10 +96,10 @@ void data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 	while(i < size)
 	{
 		cor->arena[pos + i] = proc->player->code[i];
-//		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
+		put_com(cor, pos + i, proc->player->code[i], proc->player->num);
 		i++;
 	}
-//	put_car(cor, pos, proc->player->code[0], proc->player->num);
+	put_car(cor, pos, proc->player->code[0], proc->player->num);
 }
 
 void game_init(t_cor *cor)
@@ -181,7 +181,6 @@ void live_cheker(t_cor *cor)
 					cor->process = tmp;
 					if(!tmp) // Если это был единственный процесс 
 					{
-						ft_printf("last proc is dead \n");
 						ft_printf("winner is %s\n", cor->winner->prog_name);
 						exit(0);
 					}
@@ -203,7 +202,6 @@ void live_cheker(t_cor *cor)
 		if(!cor->process)
 		{
 			ft_printf("winner is %s\n", cor->winner->prog_name);
-			ft_printf("last proc is dead (2) \n");
 			exit(0);
 		}
 		// }}
@@ -216,13 +214,9 @@ void live_cheker(t_cor *cor)
 			cor->curr_chechs = 0;
 		}
 		cor->live_check = 1;
-		// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
-		// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
 	}
 	else
 		cor->live_check++;
-	// ft_printf("cor->live_check = %d\n", cor->live_check);
-	// ft_printf("cor->curr_chechs = %d\n", cor->curr_chechs);
 	if(cor->curr_cycle_t_d < 0)
 	{
 		ft_putstr("Cycle to die is now ");
@@ -273,17 +267,17 @@ void game(t_cor *cor)
 
 void to_map(t_cor *cor)
 {
-//	init_window(cor);
+	init_window(cor);
 	add_players(cor);
-//	draw_info(cor);
+	draw_info(cor);
 	game_init(cor);
-//	if(cor->visu == 1)
-//	{
-//		wrefresh(cor->vizu->win1);
-//		wrefresh(cor->vizu->win2);
-//		while (1)
-//			;
-//	}
+	if(cor->visu == 1)
+	{
+		wrefresh(cor->vizu->win1);
+		wrefresh(cor->vizu->win2);
+		while (1)
+			;
+	}
 	// print_map(cor);
 	init_comand_function(cor);
 	game(cor);

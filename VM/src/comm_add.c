@@ -11,12 +11,21 @@ static int arg_read(t_cor *cor, t_process *process)
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
-}	
+}
+
+static void	reg_reg_reg(t_process *process)
+{
+	int tmp;
+
+	tmp = get_reg(process, process->arg1 - 1) - get_reg(process, process->arg2 - 1);
+			process->registr[process->arg3 - 1] = tmp;
+	ft_printf("P    %d | add r%d r%d r%d\n", process->count_num, 
+	process->arg1, process->arg2, process->arg3);
+}
 
 void comm_add(t_cor *cor, t_process *process)
 {
 	int sk;
-	int tmp;
 
 	if (process->delay < 0)
 		process->delay = 9;
@@ -28,18 +37,10 @@ void comm_add(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if(process->codage == 1)
+		if (process->codage == 1)
 		{
-			ft_putstr("->add: r");
-			ft_putnbr(process->arg1);
-			ft_putstr(" + r");
-			ft_putnbr(process->arg2);
-			ft_putstr(" to ");
-			ft_putnbr(process->arg3);
-			ft_putstr("\n");
-			tmp = get_reg(process, process->arg1 - 1) + get_reg(process, process->arg2 - 1);
-			process->registr[process->arg3 - 1] = tmp;
-			if (tmp == 0)
+			reg_reg_reg(process);
+			if (process->registr[process->arg3 - 1] == 0)
 				process->carry = 1;
 			else
 				process->carry = 0;
