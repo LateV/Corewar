@@ -34,19 +34,17 @@ void comm_and(t_cor *cor, t_process *process)
 		{
 			res = process->arg1 & process->arg2;
 			if(res == 0)
-				process->carry = 0;
-			else
 				process->carry = 1;
-			ft_putstr("->and: ");
-			ft_putnbr(get_reg(process, process->arg1 - 1));
-			ft_putstr(" ");
-			ft_putnbr(process->arg2);
-			ft_putstr(" r");
-			ft_putnbr(process->arg3);
-			ft_putstr("\n");
+			else
+				process->carry = 0;
+			if(cor->visu == 0)
+			{
+				ft_printf("P    %d | and %d %d r%d\n",
+				process->count_num, get_reg(process, process->arg1 - 1), process->arg2, process->arg3);
+			}
 			load_data_to_reg(cor, process, 4, process->arg3 - 1);
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;

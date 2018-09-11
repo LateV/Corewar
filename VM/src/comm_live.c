@@ -14,9 +14,12 @@ void comm_live(t_cor *cor, t_process *process)
 	{
 		process->label = 4;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		ft_printf("P    %d | live ", process->player->num * (-1));
-		ft_putnbr(process->arg1);
-		ft_putstr("\n");
+		if (cor->visu == 0)
+		{
+			ft_printf("P    %d | live ", process->player->num * (-1));
+			ft_putnbr(process->arg1);
+			ft_putstr("\n");
+		}
 		process->live = 1;
 		process->player->live_curr++;
 		while(i < cor->p_num)
@@ -29,7 +32,7 @@ void comm_live(t_cor *cor, t_process *process)
 			}
 			i++;
 		}
-		set_proc_pos(process, sk + 1);
+		set_proc_pos(cor, process, sk + 1);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;

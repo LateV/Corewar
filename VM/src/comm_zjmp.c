@@ -13,20 +13,18 @@ void comm_zjmp(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		ft_putstr("pc = ");
-		ft_putnbr(process->pc + process->arg1);
-		ft_putstr("\n");
-		ft_putstr("->zjmp: ");
-		ft_putnbr(process->arg1);
-		if(process->carry == 1)
+		if (process->carry == 1)
 		{
-			set_proc_pos(process, process->arg1);
-			ft_putstr(" OK\n");
+			set_proc_pos(cor, process, process->arg1);
+			if(cor->visu == 0)
+				ft_printf("P    %d | zjmp %d OK\n", process->count_num, process->arg1);
+
 		}
 		else
 		{
-			set_proc_pos(process, sk + 1);
-			ft_putstr(" FAIL\n");
+			set_proc_pos(cor, process, sk + 1);
+			if(cor->visu == 0)
+				ft_printf("P    %d | zjmp %d FAILED\n", process->count_num, process->arg1) ;
 		}
 		process->delay = -1;
 		process->codage = 1;

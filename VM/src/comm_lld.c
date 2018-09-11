@@ -42,19 +42,25 @@ void comm_lld(t_cor *cor, t_process *process)
 			if (name == 2)
 			{
 				process->registr[process->arg2 - 1] = process->arg1;
-				ft_putstr("-> ld ");
-				ft_putnbr(get_reg(process, process->arg2 - 1));
-				ft_putstr(" r");
-				ft_putnbr(process->arg2);
-				ft_putstr("\n");
+				if(cor->visu == 0)
+				{
+					ft_putstr("-> ld ");
+					ft_putnbr(get_reg(process, process->arg2 - 1));
+					ft_putstr(" r");
+					ft_putnbr(process->arg2);
+					ft_putstr("\n");
+				}
 			}
 			else if (name == 3)
 			{
-				ft_putstr("-> ld");
-				ft_putnbr(process->pc + process->arg1);
-				ft_putstr("r");
-				ft_putnbr(process->arg2);
-				ft_putstr("\n");
+				if(cor->visu == 0)
+				{
+					ft_putstr("-> ld");
+					ft_putnbr(process->pc + process->arg1);
+					ft_putstr("r");
+					ft_putnbr(process->arg2);
+					ft_putstr("\n");
+				}
 				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
 			}
 			if (process->registr[process->arg2 - 1] == 0)
@@ -62,7 +68,7 @@ void comm_lld(t_cor *cor, t_process *process)
 				else
 					process->carry = 0;
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;
