@@ -19,7 +19,8 @@ static void	reg_reg_reg(t_process *process)
 
 	tmp = get_reg(process, process->arg1 - 1) - get_reg(process, process->arg2 - 1);
 			process->registr[process->arg3 - 1] = tmp;
-	ft_printf("P    %d | add r%d r%d r%d\n", process->count_num, 
+			if(cor->visu == 1)
+				ft_printf("P    %d | add r%d r%d r%d\n", process->count_num, 
 	process->arg1, process->arg2, process->arg3);
 }
 

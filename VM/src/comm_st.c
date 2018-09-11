@@ -13,7 +13,7 @@ static int arg_read(t_cor *cor, t_process *process, int *ind)
 		*ind = 0;
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
-	s = arg_handler(cor, process, &process->arg3, s);
+	// s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
 }	
 

@@ -43,21 +43,17 @@ void comm_ld(t_cor *cor, t_process *process)
 				process->registr[process->arg2 - 1] = process->arg1;
 				ft_printf("P    %d | ld %d r%d\n",
 					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
+				if (process->registr[process->arg2 - 1] == 0)
+					process->carry = 1;
+				else
+					process->carry = 0;
 			}
 			else
 			{
 				process->arg1 = process->arg1 % IDX_MOD;
 				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
 			}
-			if (process->registr[process->arg2 - 1] == 0)
-				process->carry = 1;
-			else
-				process->carry = 0;
 		}
-		if (process->registr[process->arg2 - 1] == 0)
-			process->carry = 1;
-		else
-			process->carry = 0;
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;

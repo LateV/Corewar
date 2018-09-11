@@ -40,7 +40,7 @@ void comm_sti(t_cor *cor, t_process *process)
 		sk = arg_read(cor, process);
 		if(process->codage == 1)
 		{
-			if((process->arg_type[1] == 3 || process->arg_type[1] == 2 ) && process->arg_type[2] == 2)
+			// if((process->arg_type[1] == 3 || process->arg_type[1] == 2 ) && process->arg_type[2] == 2)
 				sti_reg_dir_dir(cor, process);
 		}
 		set_proc_pos(cor, process, sk);
