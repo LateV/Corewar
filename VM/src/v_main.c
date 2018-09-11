@@ -26,9 +26,10 @@ static void itit_color_pairs(void)
 		init_pair(8, COLOR_BLACK, COLOR_CYAN);
 
 		init_pair(22, 243, COLOR_BLACK);
+		init_pair(23, COLOR_BLACK, 243);
 }
 
-static void initital_draw(t_cor *cor)
+void initital_draw(t_cor *cor)
 {
 	if(cor->visu == 1)
 	{

@@ -54,7 +54,7 @@ void comm_st(t_cor *cor, t_process *process)
 				process->registr[process->arg2 - 1] = process->registr[process->arg1 - 1];
 			}
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->command = -1;
 	}

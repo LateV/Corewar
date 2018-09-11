@@ -51,7 +51,6 @@ HEAD_PRINTF	=	$(PRINTF_DIR)$(INC_DIR)ft_printf.h
 HEAD_LIBFT	=	$(LIBFT_DIR)$(INC_DIR)libft.h
 
 HEAD_VM 	=	$(INC_DIR)vm.h
-HEAD_VIZU	=	$(INC_DIR)vizu.h
 
 HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
 

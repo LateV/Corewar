@@ -18,9 +18,16 @@ void refresh_map(t_cor *cor)
 
 	i = -1;
 	
-	while (i++ < 4096)
+	while (++i < 4096)
 	{
-		if (cor->vizu->map[i].player == -1)
+		
+		if (cor->vizu->map[i].player == -1 && cor->vizu->map[i].type == 1)
+		{
+			wattron(cor->vizu->win1, COLOR_PAIR(23));
+			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
+			wattroff(cor->vizu->win1, COLOR_PAIR(23));
+		}
+		else if (cor->vizu->map[i].player == -1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(22));
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
@@ -39,8 +46,38 @@ void refresh_map(t_cor *cor)
 			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player));
 		}
 	}
+	
+}
+
+void refresh_info(t_cor *cor)
+{
+	mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
+}
+
+void refresh_player(t_cor *cor)
+{
+	int i;
+
+	i = 0;
+	while(i < cor->p_num)
+	{
+		mvwprintw(cor->vizu->win2, 12 + (i * 4), 16, "%20d", cor->player[i].last_live);
+		mvwprintw(cor->vizu->win2, 13 + (i * 4), 30, "%6d", cor->player[i].live_summ);
+		i++;
+	}
+}
+
+void refresh_vizu(t_cor *cor)
+{
+	initital_draw(cor);
+
+	refresh_info(cor);
+	refresh_map(cor);
+	refresh_player(cor);
+
 	wrefresh(cor->vizu->win1);
 	wrefresh(cor->vizu->win2);
+	usleep(10000);
 }
 
 void					init_map(t_cor *cor)
