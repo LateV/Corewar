@@ -96,6 +96,7 @@ typedef struct			s_map
 	int 				type;
 	int	 				player;
 	int 				life_time;
+	int 				life_scream;
 }						t_map;
 
 typedef struct			s_vizu
@@ -130,6 +131,7 @@ typedef struct			s_cor
 	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
+	int 				start_from;
 }						t_cor;
 
 

@@ -253,6 +253,7 @@ void game(t_cor *cor)
 	char t;
 
 	cor->cycles = 1;
+	cor->start_from = 10010;
 	while(69)
 	{
 		t = getch();
@@ -262,10 +263,12 @@ void game(t_cor *cor)
 			cor->pause = 1;
 		if(cor->visu == 1)
 		{
-			mvwprintw(cor->vizu->win2, 50, 4, "%02d", cor->pause);
-			refresh_vizu(cor);
-			if (cor->pause)
-				continue;
+			if (cor->cycles > cor->start_from)
+			{
+				refresh_vizu(cor);
+				if (cor->pause)
+					continue;
+			}
 		}
 		else
 		{

@@ -20,7 +20,11 @@ void refresh_map(t_cor *cor)
 	
 	while (++i < 4096)
 	{
-		
+		if (cor->vizu->map[i].life_time > 0 && cor->pause == 0)
+			cor->vizu->map[i].life_time--;
+		if (cor->vizu->map[i].life_scream > 0 && cor->pause == 0)
+			cor->vizu->map[i].life_scream--;
+
 		if (cor->vizu->map[i].player == -1 && cor->vizu->map[i].type == 1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(23));
@@ -33,11 +37,23 @@ void refresh_map(t_cor *cor)
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
 			wattroff(cor->vizu->win1, COLOR_PAIR(22));
 		}
+		else if (cor->vizu->map[i].life_scream > 0)
+		{
+			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
+			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+		}
 		else if (cor->vizu->map[i].type == 1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 4));
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
 			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 4));
+		}
+		else if (cor->vizu->map[i].life_time > 0)
+		{
+			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 8));
+			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
+			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 8));
 		}
 		else
 		{
@@ -49,10 +65,10 @@ void refresh_map(t_cor *cor)
 	
 }
 
-void refresh_info(t_cor *cor)
-{
-	mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
-}
+// void refresh_info(t_cor *cor)
+// {
+// 	mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
+// }
 
 void refresh_player(t_cor *cor)
 {
@@ -70,11 +86,10 @@ void refresh_player(t_cor *cor)
 void refresh_vizu(t_cor *cor)
 {
 	initital_draw(cor);
-
-	refresh_info(cor);
+	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %d", cor->curr_cycle_t_d);
+	// refresh_info(cor);
 	refresh_map(cor);
 	refresh_player(cor);
-
 	wrefresh(cor->vizu->win1);
 	wrefresh(cor->vizu->win2);
 	usleep(10000);
@@ -91,7 +106,8 @@ void					init_map(t_cor *cor)
 		cor->vizu->map[i].comm = 0;
 		cor->vizu->map[i].type = 0;
 		cor->vizu->map[i].player = -1;
-		cor->vizu->map[i].life_time = -1;
+		cor->vizu->map[i].life_time = 0;
+		cor->vizu->map[i].life_scream = 0;
 
 	}
 }
