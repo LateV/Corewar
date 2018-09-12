@@ -28,6 +28,8 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 		new->ind_loc = -1;
 		new->player = process->player;
 		new->live = 0;
+		new->count_num = cor->proc_num;
+		cor->proc_num++;
 		cor->process = new;
 	}
 }
@@ -47,7 +49,7 @@ void comm_fork(t_cor *cor, t_process *process)
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
 		if(cor->visu == 0)
 		{
-			ft_printf("P    %d | fork %d (%d)\n",
+			ft_printf("P%5d | fork %d (%d)\n",
 				process->count_num, process->arg1, process->pc + (process->arg1 % IDX_MOD));
 		}
 		add_proc(cor, process, process->pc + (process->arg1 % IDX_MOD));
