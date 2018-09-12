@@ -39,7 +39,7 @@ void comm_sub(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if (process->codage == 1)
+		if (process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 && process->arg3 > 0 && process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
 		{
 			reg_reg_reg(cor, process);
 			if (process->registr[process->arg3 - 1] == 0)

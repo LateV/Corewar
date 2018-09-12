@@ -48,6 +48,7 @@ void comm_add(t_cor *cor, t_process *process)
 		}
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;
+		process->codage = 1;
 		process->command = -1;
 	}
 }
