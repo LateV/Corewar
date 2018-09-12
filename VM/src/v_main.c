@@ -123,6 +123,7 @@ void init_window(t_cor *cor)
 		vizu = malloc(sizeof(t_vizu));
 		cor->vizu = vizu;
 		cor->vizu->end_of_prs = 0;
+		cor->vizu->speed = 10000;
 		initscr();
 		start_color();
 		noecho();

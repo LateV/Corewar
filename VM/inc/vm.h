@@ -105,6 +105,8 @@ typedef struct			s_vizu
 	WINDOW				*win2;
 	int 				end_of_prs;
 	t_map 				*map;
+	int 				speed;
+	char 				key;
 }						t_vizu;
 
 typedef struct			s_cor
@@ -179,4 +181,5 @@ void					init_map(t_cor *cor);
 void					refresh_map(t_cor *cor);
 void					refresh_vizu(t_cor *cor);
 void					initital_draw(t_cor *cor);
+void					v_speed_test(t_cor *cor, char t);
 #endif

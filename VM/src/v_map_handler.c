@@ -65,10 +65,49 @@ void refresh_map(t_cor *cor)
 	
 }
 
-// void refresh_info(t_cor *cor)
-// {
-// 	mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
-// }
+void v_speed_test(t_cor *cor, char t)
+{
+	// speed 0 = 500 000
+	// speed 1 = 100 000
+	// speed 2 = 50 000
+	// speed 3 = 10 000
+	// speed 4 = 1 000
+
+	if (t == '=' && cor->vizu->speed == 500000)
+		cor->vizu->speed = 100000;
+	else if (t == '=' && cor->vizu->speed == 100000)
+		cor->vizu->speed = 50000;
+	else if (t == '=' && cor->vizu->speed == 50000)
+		cor->vizu->speed = 10000;
+	else if (t == '=' && cor->vizu->speed == 10000)
+		cor->vizu->speed = 1000;
+
+	if (t == '-' && cor->vizu->speed == 1000)
+		cor->vizu->speed = 10000;
+	else if (t == '-' && cor->vizu->speed == 10000)
+		cor->vizu->speed = 50000;
+	else if (t == '-' && cor->vizu->speed == 50000)
+		cor->vizu->speed = 100000;
+	else if (t == '-' && cor->vizu->speed == 100000)
+		cor->vizu->speed = 500000;
+
+	if (cor->vizu->speed == 100000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >      ", cor->vizu->speed);
+	else if (cor->vizu->speed == 50000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >>     ", cor->vizu->speed);
+	else if (cor->vizu->speed == 10000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >>>    ", cor->vizu->speed);
+	else if (cor->vizu->speed == 1000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : max   ", cor->vizu->speed);
+	else if (cor->vizu->speed == 500000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : min     ", cor->vizu->speed);
+}
+
+void refresh_info(t_cor *cor)
+{
+	// mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
+	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %d", cor->curr_cycle_t_d);
+}
 
 void refresh_player(t_cor *cor)
 {
@@ -86,13 +125,19 @@ void refresh_player(t_cor *cor)
 void refresh_vizu(t_cor *cor)
 {
 	initital_draw(cor);
-	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %d", cor->curr_cycle_t_d);
-	// refresh_info(cor);
+	
+	refresh_info(cor);
 	refresh_map(cor);
 	refresh_player(cor);
+
 	wrefresh(cor->vizu->win1);
 	wrefresh(cor->vizu->win2);
-	usleep(10000);
+
+	if (cor->pause == 0)
+		usleep(cor->vizu->speed);
+	else
+		usleep(1000);
+
 }
 
 void					init_map(t_cor *cor)
