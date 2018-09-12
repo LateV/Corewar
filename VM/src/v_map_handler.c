@@ -20,7 +20,11 @@ void refresh_map(t_cor *cor)
 	
 	while (++i < 4096)
 	{
-		
+		if (cor->vizu->map[i].life_time > 0 && cor->pause == 0)
+			cor->vizu->map[i].life_time--;
+		if (cor->vizu->map[i].life_scream > 0 && cor->pause == 0)
+			cor->vizu->map[i].life_scream--;
+
 		if (cor->vizu->map[i].player == -1 && cor->vizu->map[i].type == 1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(23));
@@ -33,11 +37,23 @@ void refresh_map(t_cor *cor)
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
 			wattroff(cor->vizu->win1, COLOR_PAIR(22));
 		}
+		else if (cor->vizu->map[i].life_scream > 0)
+		{
+			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
+			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+		}
 		else if (cor->vizu->map[i].type == 1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 4));
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
 			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 4));
+		}
+		else if (cor->vizu->map[i].life_time > 0)
+		{
+			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 8));
+			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
+			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 8));
 		}
 		else
 		{
@@ -49,9 +65,48 @@ void refresh_map(t_cor *cor)
 	
 }
 
+void v_speed_test(t_cor *cor, char t)
+{
+	// speed 0 = 500 000
+	// speed 1 = 100 000
+	// speed 2 = 50 000
+	// speed 3 = 10 000
+	// speed 4 = 1 000
+
+	if (t == '=' && cor->vizu->speed == 500000)
+		cor->vizu->speed = 100000;
+	else if (t == '=' && cor->vizu->speed == 100000)
+		cor->vizu->speed = 50000;
+	else if (t == '=' && cor->vizu->speed == 50000)
+		cor->vizu->speed = 10000;
+	else if (t == '=' && cor->vizu->speed == 10000)
+		cor->vizu->speed = 1000;
+
+	if (t == '-' && cor->vizu->speed == 1000)
+		cor->vizu->speed = 10000;
+	else if (t == '-' && cor->vizu->speed == 10000)
+		cor->vizu->speed = 50000;
+	else if (t == '-' && cor->vizu->speed == 50000)
+		cor->vizu->speed = 100000;
+	else if (t == '-' && cor->vizu->speed == 100000)
+		cor->vizu->speed = 500000;
+
+	if (cor->vizu->speed == 100000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >      ", cor->vizu->speed);
+	else if (cor->vizu->speed == 50000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >>     ", cor->vizu->speed);
+	else if (cor->vizu->speed == 10000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : >>>    ", cor->vizu->speed);
+	else if (cor->vizu->speed == 1000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : max   ", cor->vizu->speed);
+	else if (cor->vizu->speed == 500000)
+		mvwprintw(cor->vizu->win2, 30 + ((cor->vizu->end_of_prs-1) * 4), 2, "speed : min     ", cor->vizu->speed);
+}
+
 void refresh_info(t_cor *cor)
 {
-	mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
+	// mvwprintw(cor->vizu->win2, 7, 10, "%d", cor->cycles);
+	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %d", cor->curr_cycle_t_d);
 }
 
 void refresh_player(t_cor *cor)
@@ -70,14 +125,19 @@ void refresh_player(t_cor *cor)
 void refresh_vizu(t_cor *cor)
 {
 	initital_draw(cor);
-
+	
 	refresh_info(cor);
 	refresh_map(cor);
 	refresh_player(cor);
 
 	wrefresh(cor->vizu->win1);
 	wrefresh(cor->vizu->win2);
-	usleep(10000);
+
+	if (cor->pause == 0)
+		usleep(cor->vizu->speed);
+	else
+		usleep(1000);
+
 }
 
 void					init_map(t_cor *cor)
@@ -91,7 +151,8 @@ void					init_map(t_cor *cor)
 		cor->vizu->map[i].comm = 0;
 		cor->vizu->map[i].type = 0;
 		cor->vizu->map[i].player = -1;
-		cor->vizu->map[i].life_time = -1;
+		cor->vizu->map[i].life_time = 0;
+		cor->vizu->map[i].life_scream = 0;
 
 	}
 }

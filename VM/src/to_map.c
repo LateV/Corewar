@@ -192,7 +192,7 @@ void live_cheker(t_cor *cor)
 					if(!tmp) // Если это был единственный процесс 
 					{
 						if(cor->visu == 0)
-							ft_printf("winner is %s\n", cor->winner->prog_name);
+							ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 						endwin();
 						system("leaks -quiet corewar");
 						exit(0);
@@ -215,7 +215,7 @@ void live_cheker(t_cor *cor)
 		if(!cor->process)
 		{
 			if(cor->visu == 0)
-				ft_printf("winner is %s\n", cor->winner->prog_name);
+				ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 			endwin();
 			system("leaks -quiet corewar");
 			exit(0);
@@ -238,8 +238,8 @@ void live_cheker(t_cor *cor)
 	{
 		if(cor->visu == 0)
 		{
-			ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
-			ft_printf("winner is %s\n", cor->winner->prog_name);
+			// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 		}
 		endwin();
 		system("leaks -quiet corewar");
@@ -250,22 +250,26 @@ void live_cheker(t_cor *cor)
 void game(t_cor *cor)
 {
 	t_process *tmp;
-	char t;
 
 	cor->cycles = 1;
+	cor->start_from = 0;
 	while(69)
 	{
-		t = getch();
-		if (t == 32 && cor->pause == 1)
-			cor->pause = 0;
-		else if (t == 32 && cor->pause == 0)
-			cor->pause = 1;
 		if(cor->visu == 1)
 		{
-			mvwprintw(cor->vizu->win2, 50, 4, "%02d", cor->pause);
-			refresh_vizu(cor);
-			if (cor->pause)
-				continue;
+			cor->vizu->key = getch();
+			v_speed_test(cor, cor->vizu->key);
+
+			if (cor->vizu->key == 32 && cor->pause == 1)
+				cor->pause = 0;
+			else if (cor->vizu->key == 32 && cor->pause == 0)
+				cor->pause = 1;
+			if (cor->cycles > cor->start_from)
+			{
+				refresh_vizu(cor);
+				if (cor->pause == 1 && cor->vizu->key != 10)
+					continue;
+			}
 		}
 		else
 		{
@@ -298,7 +302,6 @@ void to_map(t_cor *cor)
 {
 	init_window(cor);
 	add_players(cor);
-
 	draw_info(cor);
 	game_init(cor);
 	if(cor->visu == 1)

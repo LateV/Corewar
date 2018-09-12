@@ -16,7 +16,7 @@ void comm_live(t_cor *cor, t_process *process)
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
 		if (cor->visu == 0)
 		{
-			ft_printf("P    %d | live ", process->player->num * (-1));
+			ft_printf("P%5d | live ", process->player->num * (-1));
 			ft_putnbr(process->arg1);
 			ft_putstr("\n");
 		}
@@ -32,6 +32,8 @@ void comm_live(t_cor *cor, t_process *process)
 			}
 			i++;
 		}
+		if(cor->visu == 1)
+			cor->vizu->map[process->pc].life_scream = 100;
 		set_proc_pos(cor, process, sk + 1);
 		process->delay = -1;
 		process->codage = 1;

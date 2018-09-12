@@ -170,7 +170,7 @@ void bot_size(t_cor *cor, int fd, int i)
 		ft_putstr(cor->player[i].file_path);
 		ft_putstr(" has too large a code (");
 		ft_putnbr(cor->player[i].prog_size);
-		ft_putstr(" bytes > 682 bytes)");
+		ft_printf(" bytes > %d bytes)", CHAMP_MAX_SIZE);
 		ft_error(cor, "");
 	}
 	cor->code_summ += cor->player[i].prog_size;
@@ -266,6 +266,7 @@ void def_num(t_cor *cor)
 		i++;
 	}
 }
+
 void usadge(void)
 {
 	ft_printf("here was supposed to be {[~~usadge~~~]}\n");
@@ -312,6 +313,8 @@ int main(int argc, char **argv)
 	cor.live_check = 1;
 	cor.curr_cycle_t_d = CYCLE_TO_DIE;
 	cor.curr_chechs = 0;
+	if(cor.p_num == 0)
+		usadge();
 	to_map(&cor);
 	system("leaks -quiet corewar");
 	return(0);

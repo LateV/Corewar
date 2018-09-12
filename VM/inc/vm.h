@@ -96,6 +96,7 @@ typedef struct			s_map
 	int 				type;
 	int	 				player;
 	int 				life_time;
+	int 				life_scream;
 }						t_map;
 
 typedef struct			s_vizu
@@ -104,6 +105,8 @@ typedef struct			s_vizu
 	WINDOW				*win2;
 	int 				end_of_prs;
 	t_map 				*map;
+	int 				speed;
+	char 				key;
 }						t_vizu;
 
 typedef struct			s_cor
@@ -130,10 +133,12 @@ typedef struct			s_cor
 	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
+	int 				start_from;
 }						t_cor;
 
 
 char 					get_char(t_cor *cor, int loc);
+void 					usadge(void);
 void 					print_map(t_cor *cor);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
@@ -177,4 +182,5 @@ void					init_map(t_cor *cor);
 void					refresh_map(t_cor *cor);
 void					refresh_vizu(t_cor *cor);
 void					initital_draw(t_cor *cor);
+void					v_speed_test(t_cor *cor, char t);
 #endif

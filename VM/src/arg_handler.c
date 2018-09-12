@@ -2,28 +2,40 @@
 
 int t_dir(t_cor *cor, t_process *process, int *arg, int loc)
 {
+	while(loc  >= MEM_SIZE)
+		loc = loc  - MEM_SIZE;
+	while(loc  < 0)
+		loc = loc + MEM_SIZE;
 	if(process->label == 2)
 	{
 		*arg = get_short(cor, loc);
-		return(2);
+		return (2);
 	}
 	else
 	{
 		*arg = get_int(cor, loc);
-		return(4);
+		return (4);
 	}
 }
 
 int t_reg(t_cor *cor, int *arg, int loc)
 {
+	while(loc  >= MEM_SIZE)
+		loc = loc  - MEM_SIZE;
+	while(loc  < 0)
+		loc = loc + MEM_SIZE;
 	*arg = get_int(cor, loc);
 	return(4);
 }
 
 int t_ind(t_cor *cor, int *arg, int loc)
 {
+	while (loc  >= MEM_SIZE)
+		loc = loc  - MEM_SIZE;
+	while (loc  < 0)
+		loc = loc + MEM_SIZE;
 	*arg = get_int(cor, loc);
-	return(4);
+	return (4);
 }
 
 int arg_handler(t_cor *cor, t_process *process, int *arg, int s)

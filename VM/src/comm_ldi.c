@@ -44,7 +44,7 @@ void comm_ldi(t_cor *cor, t_process *process)
 			load_to_reg(cor, process, (((first + process->arg2) % IDX_MOD) + process->pc), process->arg3 - 1);
 			if(cor->visu == 0)
 			{
-				ft_printf("P    %d | ldi: load from %d + %d r%d\n",
+				ft_printf("P%5d | ldi: load from %d + %d r%d\n",
 					process->count_num, process->arg1, process->arg2, process->arg3);
 			}
 		}

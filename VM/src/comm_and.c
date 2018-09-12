@@ -39,7 +39,7 @@ void comm_and(t_cor *cor, t_process *process)
 				process->carry = 0;
 			if(cor->visu == 0)
 			{
-				ft_printf("P    %d | and %d %d r%d\n",
+				ft_printf("P%5d | and %d %d r%d\n",
 				process->count_num, get_reg(process, process->arg1 - 1), process->arg2, process->arg3);
 			}
 			load_data_to_reg(cor, process, 4, process->arg3 - 1);

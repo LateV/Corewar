@@ -16,7 +16,6 @@ static int arg_read(t_cor *cor, t_process *process)
 	process->arg_type[2] = process->arg3;
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
-	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
 }		
 
@@ -36,14 +35,14 @@ void comm_ld(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if(process->codage == 1)
+		if(process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
 		{
 			if(process->arg_type[0] == 2)
 			{
 				process->registr[process->arg2 - 1] = process->arg1;
 				if(cor->visu == 0)
 				{
-					ft_printf("P    %d | ld %d r%d\n",
+					ft_printf("P%5d | ld %d r%d\n",
 						process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
 				}
 				if (process->registr[process->arg2 - 1] == 0)
