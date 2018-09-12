@@ -252,17 +252,18 @@ void game(t_cor *cor)
 	t_process *tmp;
 
 	cor->cycles = 1;
-	cor->start_from = 10000;
+	cor->start_from = 0;
 	while(69)
 	{
-		cor->vizu->key = getch();
-		v_speed_test(cor, cor->vizu->key);
-		if (cor->vizu->key == 32 && cor->pause == 1)
-			cor->pause = 0;
-		else if (cor->vizu->key == 32 && cor->pause == 0)
-			cor->pause = 1;
 		if(cor->visu == 1)
 		{
+			cor->vizu->key = getch();
+			v_speed_test(cor, cor->vizu->key);
+
+			if (cor->vizu->key == 32 && cor->pause == 1)
+				cor->pause = 0;
+			else if (cor->vizu->key == 32 && cor->pause == 0)
+				cor->pause = 1;
 			if (cor->cycles > cor->start_from)
 			{
 				refresh_vizu(cor);
@@ -301,7 +302,6 @@ void to_map(t_cor *cor)
 {
 	init_window(cor);
 	add_players(cor);
-
 	draw_info(cor);
 	game_init(cor);
 	if(cor->visu == 1)
