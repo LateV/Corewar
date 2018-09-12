@@ -35,7 +35,7 @@ void comm_ld(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if(process->codage == 1)
+		if(process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
 		{
 			if(process->arg_type[0] == 2)
 			{
