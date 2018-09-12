@@ -13,7 +13,14 @@ static int arg_read(t_cor *cor, t_process *process)
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
-}		
+}
+
+static void arg_val_hendler(int *val1, int *val2, int *val3)
+{
+	get_arg_value(cor, process, &process->arg1);
+	get_arg_value(cor, process, &process->arg2);
+	get_arg_value(cor, process, &process->arg3);
+}
 
 void comm_and(t_cor *cor, t_process *process)
 {
@@ -30,7 +37,8 @@ void comm_and(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if(process->codage == 1)
+		if(process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 && process->arg3 > 0 &&
+			process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
 		{
 			res = process->arg1 & process->arg2;
 			if(res == 0)
