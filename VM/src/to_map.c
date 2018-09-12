@@ -250,23 +250,23 @@ void live_cheker(t_cor *cor)
 void game(t_cor *cor)
 {
 	t_process *tmp;
-	char t;
 
 	cor->cycles = 1;
-	cor->start_from = 10010;
+	cor->start_from = 10000;
 	while(69)
 	{
-		t = getch();
-		if (t == 32 && cor->pause == 1)
+		cor->vizu->key = getch();
+		v_speed_test(cor, cor->vizu->key);
+		if (cor->vizu->key == 32 && cor->pause == 1)
 			cor->pause = 0;
-		else if (t == 32 && cor->pause == 0)
+		else if (cor->vizu->key == 32 && cor->pause == 0)
 			cor->pause = 1;
 		if(cor->visu == 1)
 		{
 			if (cor->cycles > cor->start_from)
 			{
 				refresh_vizu(cor);
-				if (cor->pause)
+				if (cor->pause == 1 && cor->vizu->key != 10)
 					continue;
 			}
 		}
