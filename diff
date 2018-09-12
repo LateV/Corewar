@@ -1,6 +1,6 @@
-3094,3096c3094
+3093,3095c3093
 < winner is test_bot1
-< Process 23423: 155 nodes malloced for 13 KB
-< Process 23423: 0 leaks for 0 total leaked bytes.
+< Process 28380: 155 nodes malloced for 13 KB
+< Process 28380: 0 leaks for 0 total leaked bytes.
 ---
 > Contestant 1, "test_bot1", has won !

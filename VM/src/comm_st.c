@@ -36,7 +36,7 @@ void comm_st(t_cor *cor, t_process *process)
 			{
 				if(cor->visu == 0)
 					ft_printf("P%5d | st r%d %d\n", process->count_num, process->arg1, process->ind_loc);
-				load_from_reg(cor, process, process->pc + (process->arg2 % IDX_MOD), process->arg1 - 1);
+				load_from_reg(cor, process, process->pc + process->ind_loc, process->arg1 - 1);
 			}
 			else
 			{
