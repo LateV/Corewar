@@ -16,12 +16,15 @@ void comm_zjmp(t_cor *cor, t_process *process)
 		if (process->carry == 1)
 		{
 			set_proc_pos(cor, process, process->arg1);
-			ft_printf("P    %d | zjmp %d OK\n", process->count_num, process->arg1);
+			if(cor->visu == 0)
+				ft_printf("P    %d | zjmp %d OK\n", process->count_num, process->arg1);
+
 		}
 		else
 		{
 			set_proc_pos(cor, process, sk + 1);
-			ft_printf("P    %d | zjmp %d FAILED\n", process->count_num, process->arg1) ;
+			if(cor->visu == 0)
+				ft_printf("P    %d | zjmp %d FAILED\n", process->count_num, process->arg1) ;
 		}
 		process->delay = -1;
 		process->codage = 1;

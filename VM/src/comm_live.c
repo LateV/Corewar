@@ -16,7 +16,7 @@ void comm_live(t_cor *cor, t_process *process)
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
 		if (cor->visu == 0)
 		{
-			ft_printf("P    %d | live ", process->player->num * (-1));
+			ft_printf("P%5d | live ", process->player->num * (-1));
 			ft_putnbr(process->arg1);
 			ft_putstr("\n");
 		}
