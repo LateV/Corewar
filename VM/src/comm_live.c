@@ -32,7 +32,8 @@ void comm_live(t_cor *cor, t_process *process)
 			}
 			i++;
 		}
-		cor->vizu->map[process->pc].life_scream = 100;
+		if(cor->visu == 1)
+			cor->vizu->map[process->pc].life_scream = 100;
 		set_proc_pos(cor, process, sk + 1);
 		process->delay = -1;
 		process->codage = 1;

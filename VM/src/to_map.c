@@ -192,7 +192,7 @@ void live_cheker(t_cor *cor)
 					if(!tmp) // Если это был единственный процесс 
 					{
 						if(cor->visu == 0)
-							ft_printf("winner is %s\n", cor->winner->prog_name);
+							ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 						endwin();
 						system("leaks -quiet corewar");
 						exit(0);
@@ -215,7 +215,7 @@ void live_cheker(t_cor *cor)
 		if(!cor->process)
 		{
 			if(cor->visu == 0)
-				ft_printf("winner is %s\n", cor->winner->prog_name);
+				ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 			endwin();
 			system("leaks -quiet corewar");
 			exit(0);
@@ -238,8 +238,8 @@ void live_cheker(t_cor *cor)
 	{
 		if(cor->visu == 0)
 		{
-			ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
-			ft_printf("winner is %s\n", cor->winner->prog_name);
+			// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 		}
 		endwin();
 		system("leaks -quiet corewar");
