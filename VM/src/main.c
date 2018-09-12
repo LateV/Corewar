@@ -170,7 +170,7 @@ void bot_size(t_cor *cor, int fd, int i)
 		ft_putstr(cor->player[i].file_path);
 		ft_putstr(" has too large a code (");
 		ft_putnbr(cor->player[i].prog_size);
-		ft_putstr(" bytes > 682 bytes)");
+		ft_printf(" bytes > %d bytes)", CHAMP_MAX_SIZE);
 		ft_error(cor, "");
 	}
 	cor->code_summ += cor->player[i].prog_size;
