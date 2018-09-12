@@ -1,6 +1,4 @@
 #include "asm.h"
-#include "libft/libft.h"
-
 
 void ft_count_opcode(t_command *node)
 {
@@ -82,9 +80,7 @@ void ft_count_pointer(t_header *node)
                         if (copy->num == tmp->num)
                             break;
                         else
-                        {
                             tmp->num_arg[i] += copy->size;
-                        }
                         copy = copy->next;
                     }
                     tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
@@ -94,7 +90,16 @@ void ft_count_pointer(t_header *node)
         }
         tmp = tmp->next;
     }
-
+    t_command *new;
+    new = node->com_list;
+    while(new != NULL)
+    {
+        ft_printf("size %d\n",new->size);
+        node->prog_size += new->size;
+        new = new->next;
+    }
 }
+
+
 
 

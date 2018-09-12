@@ -1,7 +1,13 @@
-.name     "ydor"
+.name  "G"
+
 .comment "j"
 
-sti:sti r1,%:live,%1
+live:
+sti r1,:live,%1 ###gfgfgfg
 	and	r1,r0,r1
-live: live r1
+#gfgfgfg
+gfg:live%1
 	zjmp%:live
+
+fggfg:
+

@@ -1,6 +1,6 @@
 NAME = my_asm
 
-SRCS = main.c read.c live.c g.c count_params.c writing.c
+SRCS = main.c read.c live.c count_params.c writing.c check_error.c free_params.c asm_library.c init.c
 
 LIBFT = libft/
 

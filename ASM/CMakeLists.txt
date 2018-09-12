@@ -84,6 +84,9 @@ add_executable(ASM
         main.c
         read.c
         live.c
-        g.c
         count_params.c
-        writing.c)
+        check_error.c
+        free_params.c
+        writing.c
+        asm_library.c
+        init.c)

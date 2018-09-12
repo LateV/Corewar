@@ -76,9 +76,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/ASM.dir/main.c.o"
   "CMakeFiles/ASM.dir/read.c.o"
   "CMakeFiles/ASM.dir/live.c.o"
-  "CMakeFiles/ASM.dir/g.c.o"
   "CMakeFiles/ASM.dir/count_params.c.o"
+  "CMakeFiles/ASM.dir/check_error.c.o"
+  "CMakeFiles/ASM.dir/free_params.c.o"
   "CMakeFiles/ASM.dir/writing.c.o"
+  "CMakeFiles/ASM.dir/asm_library.c.o"
+  "CMakeFiles/ASM.dir/init.c.o"
   "ASM.pdb"
   "ASM"
 )

@@ -83,10 +83,19 @@
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/asm.h">
 			<Option target="ASM"/>
 		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/asm_library.c">
+			<Option target="ASM"/>
+		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/check_error.c">
+			<Option target="ASM"/>
+		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/count_params.c">
 			<Option target="ASM"/>
 		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/g.c">
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/free_params.c">
+			<Option target="ASM"/>
+		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/init.c">
 			<Option target="ASM"/>
 		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/corewar/ASM/libft/ft_atoi.c">
