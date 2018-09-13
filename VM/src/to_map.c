@@ -281,67 +281,20 @@ void game(t_cor *cor)
 		{
 			if(tmp->command == -1)
 			{
-				if(cor->cycles == 18896)
-				{
-					
-					ft_printf("tmp->pc = %d\n", tmp->pc);
-				}
 				if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
 				{
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????4\n");
 					tmp->command = cor->arena[tmp->pc] - 1;
 					cor->instruct[tmp->command](cor, tmp);
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????5\n");
-
 				}
 				else
-				{
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????6\n");
 					set_proc_pos(cor, tmp, 1);
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????7\n");
-
-				}
 			}
 			else
-			{
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????8\n");
-
 				cor->instruct[tmp->command](cor, tmp);
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????9\n");
-
-			}
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????10\n");
-
 			tmp = tmp->next;
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????11\n");
-
 		}
 		cor->cycles++;
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????12\n");
-
 		live_cheker(cor);
-
-					if(cor->cycles == 18896)
-						ft_printf("wtf?????13\n");
-
 	}
 }
 
