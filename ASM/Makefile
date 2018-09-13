@@ -1,6 +1,6 @@
 NAME = my_asm
 
-SRCS = main.c read_file.c  count_params.c writing_to_file.c check_error.c free_params.c asm_library.c init.c check_arg.c validate_label.c
+SRCS = asm_library_pt1.c asm_library_pt2.c check_arg.c count_size.c error_and_free.c init_struct.c main.c read_file.c validate_label.c validate_arg.c validate_name.c writing_to_file.c
 
 LIBFT = libft/
 

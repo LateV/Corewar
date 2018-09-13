@@ -83,22 +83,22 @@
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/asm.h">
 			<Option target="ASM"/>
 		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/asm_library.c">
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/asm_library_pt1.c">
+			<Option target="ASM"/>
+		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/asm_library_pt2.c">
 			<Option target="ASM"/>
 		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/check_arg.c">
 			<Option target="ASM"/>
 		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/check_error.c">
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/count_size.c">
 			<Option target="ASM"/>
 		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/count_params.c">
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/error_and_free.c">
 			<Option target="ASM"/>
 		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/free_params.c">
-			<Option target="ASM"/>
-		</Unit>
-		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/init.c">
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/init_struct.c">
 			<Option target="ASM"/>
 		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/libft/ft_atoi.c">
@@ -335,7 +335,13 @@
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/read_file.c">
 			<Option target="ASM"/>
 		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/validate_arg.c">
+			<Option target="ASM"/>
+		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/validate_label.c">
+			<Option target="ASM"/>
+		</Unit>
+		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/validate_name.c">
 			<Option target="ASM"/>
 		</Unit>
 		<Unit filename="/Users/oskulska/Desktop/Corewar/ASM/writing_to_file.c">

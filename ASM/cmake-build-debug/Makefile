@@ -123,32 +123,59 @@ ASM/fast:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/build
 .PHONY : ASM/fast
 
-asm_library.o: asm_library.c.o
+asm_library_pt1.o: asm_library_pt1.c.o
 
-.PHONY : asm_library.o
+.PHONY : asm_library_pt1.o
 
 # target to build an object file
-asm_library.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library.c.o
-.PHONY : asm_library.c.o
+asm_library_pt1.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt1.c.o
+.PHONY : asm_library_pt1.c.o
 
-asm_library.i: asm_library.c.i
+asm_library_pt1.i: asm_library_pt1.c.i
 
-.PHONY : asm_library.i
+.PHONY : asm_library_pt1.i
 
 # target to preprocess a source file
-asm_library.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library.c.i
-.PHONY : asm_library.c.i
+asm_library_pt1.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt1.c.i
+.PHONY : asm_library_pt1.c.i
 
-asm_library.s: asm_library.c.s
+asm_library_pt1.s: asm_library_pt1.c.s
 
-.PHONY : asm_library.s
+.PHONY : asm_library_pt1.s
 
 # target to generate assembly for a file
-asm_library.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library.c.s
-.PHONY : asm_library.c.s
+asm_library_pt1.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt1.c.s
+.PHONY : asm_library_pt1.c.s
+
+asm_library_pt2.o: asm_library_pt2.c.o
+
+.PHONY : asm_library_pt2.o
+
+# target to build an object file
+asm_library_pt2.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt2.c.o
+.PHONY : asm_library_pt2.c.o
+
+asm_library_pt2.i: asm_library_pt2.c.i
+
+.PHONY : asm_library_pt2.i
+
+# target to preprocess a source file
+asm_library_pt2.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt2.c.i
+.PHONY : asm_library_pt2.c.i
+
+asm_library_pt2.s: asm_library_pt2.c.s
+
+.PHONY : asm_library_pt2.s
+
+# target to generate assembly for a file
+asm_library_pt2.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library_pt2.c.s
+.PHONY : asm_library_pt2.c.s
 
 check_arg.o: check_arg.c.o
 
@@ -177,113 +204,86 @@ check_arg.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_arg.c.s
 .PHONY : check_arg.c.s
 
-check_error.o: check_error.c.o
+count_size.o: count_size.c.o
 
-.PHONY : check_error.o
-
-# target to build an object file
-check_error.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_error.c.o
-.PHONY : check_error.c.o
-
-check_error.i: check_error.c.i
-
-.PHONY : check_error.i
-
-# target to preprocess a source file
-check_error.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_error.c.i
-.PHONY : check_error.c.i
-
-check_error.s: check_error.c.s
-
-.PHONY : check_error.s
-
-# target to generate assembly for a file
-check_error.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_error.c.s
-.PHONY : check_error.c.s
-
-count_params.o: count_params.c.o
-
-.PHONY : count_params.o
+.PHONY : count_size.o
 
 # target to build an object file
-count_params.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.o
-.PHONY : count_params.c.o
+count_size.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_size.c.o
+.PHONY : count_size.c.o
 
-count_params.i: count_params.c.i
+count_size.i: count_size.c.i
 
-.PHONY : count_params.i
+.PHONY : count_size.i
 
 # target to preprocess a source file
-count_params.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.i
-.PHONY : count_params.c.i
+count_size.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_size.c.i
+.PHONY : count_size.c.i
 
-count_params.s: count_params.c.s
+count_size.s: count_size.c.s
 
-.PHONY : count_params.s
+.PHONY : count_size.s
 
 # target to generate assembly for a file
-count_params.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_params.c.s
-.PHONY : count_params.c.s
+count_size.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/count_size.c.s
+.PHONY : count_size.c.s
 
-free_params.o: free_params.c.o
+error_and_free.o: error_and_free.c.o
 
-.PHONY : free_params.o
+.PHONY : error_and_free.o
 
 # target to build an object file
-free_params.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/free_params.c.o
-.PHONY : free_params.c.o
+error_and_free.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/error_and_free.c.o
+.PHONY : error_and_free.c.o
 
-free_params.i: free_params.c.i
+error_and_free.i: error_and_free.c.i
 
-.PHONY : free_params.i
+.PHONY : error_and_free.i
 
 # target to preprocess a source file
-free_params.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/free_params.c.i
-.PHONY : free_params.c.i
+error_and_free.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/error_and_free.c.i
+.PHONY : error_and_free.c.i
 
-free_params.s: free_params.c.s
+error_and_free.s: error_and_free.c.s
 
-.PHONY : free_params.s
+.PHONY : error_and_free.s
 
 # target to generate assembly for a file
-free_params.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/free_params.c.s
-.PHONY : free_params.c.s
+error_and_free.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/error_and_free.c.s
+.PHONY : error_and_free.c.s
 
-init.o: init.c.o
+init_struct.o: init_struct.c.o
 
-.PHONY : init.o
+.PHONY : init_struct.o
 
 # target to build an object file
-init.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init.c.o
-.PHONY : init.c.o
+init_struct.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init_struct.c.o
+.PHONY : init_struct.c.o
 
-init.i: init.c.i
+init_struct.i: init_struct.c.i
 
-.PHONY : init.i
+.PHONY : init_struct.i
 
 # target to preprocess a source file
-init.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init.c.i
-.PHONY : init.c.i
+init_struct.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init_struct.c.i
+.PHONY : init_struct.c.i
 
-init.s: init.c.s
+init_struct.s: init_struct.c.s
 
-.PHONY : init.s
+.PHONY : init_struct.s
 
 # target to generate assembly for a file
-init.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init.c.s
-.PHONY : init.c.s
+init_struct.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/init_struct.c.s
+.PHONY : init_struct.c.s
 
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
@@ -2337,6 +2337,33 @@ read_file.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read_file.c.s
 .PHONY : read_file.c.s
 
+validate_arg.o: validate_arg.c.o
+
+.PHONY : validate_arg.o
+
+# target to build an object file
+validate_arg.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_arg.c.o
+.PHONY : validate_arg.c.o
+
+validate_arg.i: validate_arg.c.i
+
+.PHONY : validate_arg.i
+
+# target to preprocess a source file
+validate_arg.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_arg.c.i
+.PHONY : validate_arg.c.i
+
+validate_arg.s: validate_arg.c.s
+
+.PHONY : validate_arg.s
+
+# target to generate assembly for a file
+validate_arg.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_arg.c.s
+.PHONY : validate_arg.c.s
+
 validate_label.o: validate_label.c.o
 
 .PHONY : validate_label.o
@@ -2363,6 +2390,33 @@ validate_label.s: validate_label.c.s
 validate_label.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_label.c.s
 .PHONY : validate_label.c.s
+
+validate_name.o: validate_name.c.o
+
+.PHONY : validate_name.o
+
+# target to build an object file
+validate_name.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_name.c.o
+.PHONY : validate_name.c.o
+
+validate_name.i: validate_name.c.i
+
+.PHONY : validate_name.i
+
+# target to preprocess a source file
+validate_name.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_name.c.i
+.PHONY : validate_name.c.i
+
+validate_name.s: validate_name.c.s
+
+.PHONY : validate_name.s
+
+# target to generate assembly for a file
+validate_name.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_name.c.s
+.PHONY : validate_name.c.s
 
 writing_to_file.o: writing_to_file.c.o
 
@@ -2400,24 +2454,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ASM"
-	@echo "... asm_library.o"
-	@echo "... asm_library.i"
-	@echo "... asm_library.s"
+	@echo "... asm_library_pt1.o"
+	@echo "... asm_library_pt1.i"
+	@echo "... asm_library_pt1.s"
+	@echo "... asm_library_pt2.o"
+	@echo "... asm_library_pt2.i"
+	@echo "... asm_library_pt2.s"
 	@echo "... check_arg.o"
 	@echo "... check_arg.i"
 	@echo "... check_arg.s"
-	@echo "... check_error.o"
-	@echo "... check_error.i"
-	@echo "... check_error.s"
-	@echo "... count_params.o"
-	@echo "... count_params.i"
-	@echo "... count_params.s"
-	@echo "... free_params.o"
-	@echo "... free_params.i"
-	@echo "... free_params.s"
-	@echo "... init.o"
-	@echo "... init.i"
-	@echo "... init.s"
+	@echo "... count_size.o"
+	@echo "... count_size.i"
+	@echo "... count_size.s"
+	@echo "... error_and_free.o"
+	@echo "... error_and_free.i"
+	@echo "... error_and_free.s"
+	@echo "... init_struct.o"
+	@echo "... init_struct.i"
+	@echo "... init_struct.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2646,9 +2700,15 @@ help:
 	@echo "... read_file.o"
 	@echo "... read_file.i"
 	@echo "... read_file.s"
+	@echo "... validate_arg.o"
+	@echo "... validate_arg.i"
+	@echo "... validate_arg.s"
 	@echo "... validate_label.o"
 	@echo "... validate_label.i"
 	@echo "... validate_label.s"
+	@echo "... validate_name.o"
+	@echo "... validate_name.i"
+	@echo "... validate_name.s"
 	@echo "... writing_to_file.o"
 	@echo "... writing_to_file.i"
 	@echo "... writing_to_file.s"

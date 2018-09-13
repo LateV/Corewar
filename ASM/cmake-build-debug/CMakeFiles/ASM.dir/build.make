@@ -1045,48 +1045,35 @@ CMakeFiles/ASM.dir/read_file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/read_file.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/read_file.c -o CMakeFiles/ASM.dir/read_file.c.s
 
-CMakeFiles/ASM.dir/count_params.c.o: CMakeFiles/ASM.dir/flags.make
-CMakeFiles/ASM.dir/count_params.c.o: ../count_params.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/ASM.dir/count_params.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/count_params.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/count_params.c
+CMakeFiles/ASM.dir/count_size.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/count_size.c.o: ../count_size.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/ASM.dir/count_size.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/count_size.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/count_size.c
 
-CMakeFiles/ASM.dir/count_params.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/count_params.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/count_params.c > CMakeFiles/ASM.dir/count_params.c.i
+CMakeFiles/ASM.dir/count_size.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/count_size.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/count_size.c > CMakeFiles/ASM.dir/count_size.c.i
 
-CMakeFiles/ASM.dir/count_params.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/count_params.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/count_params.c -o CMakeFiles/ASM.dir/count_params.c.s
+CMakeFiles/ASM.dir/count_size.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/count_size.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/count_size.c -o CMakeFiles/ASM.dir/count_size.c.s
 
-CMakeFiles/ASM.dir/check_error.c.o: CMakeFiles/ASM.dir/flags.make
-CMakeFiles/ASM.dir/check_error.c.o: ../check_error.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/ASM.dir/check_error.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/check_error.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/check_error.c
+CMakeFiles/ASM.dir/error_and_free.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/error_and_free.c.o: ../error_and_free.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/ASM.dir/error_and_free.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/error_and_free.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/error_and_free.c
 
-CMakeFiles/ASM.dir/check_error.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/check_error.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/check_error.c > CMakeFiles/ASM.dir/check_error.c.i
+CMakeFiles/ASM.dir/error_and_free.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/error_and_free.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/error_and_free.c > CMakeFiles/ASM.dir/error_and_free.c.i
 
-CMakeFiles/ASM.dir/check_error.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/check_error.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/check_error.c -o CMakeFiles/ASM.dir/check_error.c.s
-
-CMakeFiles/ASM.dir/free_params.c.o: CMakeFiles/ASM.dir/flags.make
-CMakeFiles/ASM.dir/free_params.c.o: ../free_params.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/ASM.dir/free_params.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/free_params.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/free_params.c
-
-CMakeFiles/ASM.dir/free_params.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/free_params.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/free_params.c > CMakeFiles/ASM.dir/free_params.c.i
-
-CMakeFiles/ASM.dir/free_params.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/free_params.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/free_params.c -o CMakeFiles/ASM.dir/free_params.c.s
+CMakeFiles/ASM.dir/error_and_free.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/error_and_free.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/error_and_free.c -o CMakeFiles/ASM.dir/error_and_free.c.s
 
 CMakeFiles/ASM.dir/writing_to_file.c.o: CMakeFiles/ASM.dir/flags.make
 CMakeFiles/ASM.dir/writing_to_file.c.o: ../writing_to_file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/ASM.dir/writing_to_file.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/ASM.dir/writing_to_file.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/writing_to_file.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/writing_to_file.c
 
 CMakeFiles/ASM.dir/writing_to_file.c.i: cmake_force
@@ -1097,35 +1084,35 @@ CMakeFiles/ASM.dir/writing_to_file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/writing_to_file.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/writing_to_file.c -o CMakeFiles/ASM.dir/writing_to_file.c.s
 
-CMakeFiles/ASM.dir/asm_library.c.o: CMakeFiles/ASM.dir/flags.make
-CMakeFiles/ASM.dir/asm_library.c.o: ../asm_library.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/ASM.dir/asm_library.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/asm_library.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/asm_library.c
+CMakeFiles/ASM.dir/asm_library_pt1.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/asm_library_pt1.c.o: ../asm_library_pt1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/ASM.dir/asm_library_pt1.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/asm_library_pt1.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt1.c
 
-CMakeFiles/ASM.dir/asm_library.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/asm_library.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/asm_library.c > CMakeFiles/ASM.dir/asm_library.c.i
+CMakeFiles/ASM.dir/asm_library_pt1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/asm_library_pt1.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt1.c > CMakeFiles/ASM.dir/asm_library_pt1.c.i
 
-CMakeFiles/ASM.dir/asm_library.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/asm_library.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/asm_library.c -o CMakeFiles/ASM.dir/asm_library.c.s
+CMakeFiles/ASM.dir/asm_library_pt1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/asm_library_pt1.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt1.c -o CMakeFiles/ASM.dir/asm_library_pt1.c.s
 
-CMakeFiles/ASM.dir/init.c.o: CMakeFiles/ASM.dir/flags.make
-CMakeFiles/ASM.dir/init.c.o: ../init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/ASM.dir/init.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/init.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/init.c
+CMakeFiles/ASM.dir/init_struct.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/init_struct.c.o: ../init_struct.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/ASM.dir/init_struct.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/init_struct.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/init_struct.c
 
-CMakeFiles/ASM.dir/init.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/init.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/init.c > CMakeFiles/ASM.dir/init.c.i
+CMakeFiles/ASM.dir/init_struct.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/init_struct.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/init_struct.c > CMakeFiles/ASM.dir/init_struct.c.i
 
-CMakeFiles/ASM.dir/init.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/init.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/init.c -o CMakeFiles/ASM.dir/init.c.s
+CMakeFiles/ASM.dir/init_struct.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/init_struct.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/init_struct.c -o CMakeFiles/ASM.dir/init_struct.c.s
 
 CMakeFiles/ASM.dir/validate_label.c.o: CMakeFiles/ASM.dir/flags.make
 CMakeFiles/ASM.dir/validate_label.c.o: ../validate_label.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/ASM.dir/validate_label.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/ASM.dir/validate_label.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/validate_label.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/validate_label.c
 
 CMakeFiles/ASM.dir/validate_label.c.i: cmake_force
@@ -1138,7 +1125,7 @@ CMakeFiles/ASM.dir/validate_label.c.s: cmake_force
 
 CMakeFiles/ASM.dir/check_arg.c.o: CMakeFiles/ASM.dir/flags.make
 CMakeFiles/ASM.dir/check_arg.c.o: ../check_arg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/ASM.dir/check_arg.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/ASM.dir/check_arg.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/check_arg.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/check_arg.c
 
 CMakeFiles/ASM.dir/check_arg.c.i: cmake_force
@@ -1148,6 +1135,45 @@ CMakeFiles/ASM.dir/check_arg.c.i: cmake_force
 CMakeFiles/ASM.dir/check_arg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/check_arg.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/check_arg.c -o CMakeFiles/ASM.dir/check_arg.c.s
+
+CMakeFiles/ASM.dir/validate_arg.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/validate_arg.c.o: ../validate_arg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/ASM.dir/validate_arg.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/validate_arg.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/validate_arg.c
+
+CMakeFiles/ASM.dir/validate_arg.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/validate_arg.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/validate_arg.c > CMakeFiles/ASM.dir/validate_arg.c.i
+
+CMakeFiles/ASM.dir/validate_arg.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/validate_arg.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/validate_arg.c -o CMakeFiles/ASM.dir/validate_arg.c.s
+
+CMakeFiles/ASM.dir/validate_name.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/validate_name.c.o: ../validate_name.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/ASM.dir/validate_name.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/validate_name.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/validate_name.c
+
+CMakeFiles/ASM.dir/validate_name.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/validate_name.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/validate_name.c > CMakeFiles/ASM.dir/validate_name.c.i
+
+CMakeFiles/ASM.dir/validate_name.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/validate_name.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/validate_name.c -o CMakeFiles/ASM.dir/validate_name.c.s
+
+CMakeFiles/ASM.dir/asm_library_pt2.c.o: CMakeFiles/ASM.dir/flags.make
+CMakeFiles/ASM.dir/asm_library_pt2.c.o: ../asm_library_pt2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/ASM.dir/asm_library_pt2.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ASM.dir/asm_library_pt2.c.o   -c /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt2.c
+
+CMakeFiles/ASM.dir/asm_library_pt2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ASM.dir/asm_library_pt2.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt2.c > CMakeFiles/ASM.dir/asm_library_pt2.c.i
+
+CMakeFiles/ASM.dir/asm_library_pt2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ASM.dir/asm_library_pt2.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oskulska/Desktop/Corewar/ASM/asm_library_pt2.c -o CMakeFiles/ASM.dir/asm_library_pt2.c.s
 
 # Object files for target ASM
 ASM_OBJECTS = \
@@ -1227,14 +1253,16 @@ ASM_OBJECTS = \
 "CMakeFiles/ASM.dir/libft/pf_handleformat.c.o" \
 "CMakeFiles/ASM.dir/main.c.o" \
 "CMakeFiles/ASM.dir/read_file.c.o" \
-"CMakeFiles/ASM.dir/count_params.c.o" \
-"CMakeFiles/ASM.dir/check_error.c.o" \
-"CMakeFiles/ASM.dir/free_params.c.o" \
+"CMakeFiles/ASM.dir/count_size.c.o" \
+"CMakeFiles/ASM.dir/error_and_free.c.o" \
 "CMakeFiles/ASM.dir/writing_to_file.c.o" \
-"CMakeFiles/ASM.dir/asm_library.c.o" \
-"CMakeFiles/ASM.dir/init.c.o" \
+"CMakeFiles/ASM.dir/asm_library_pt1.c.o" \
+"CMakeFiles/ASM.dir/init_struct.c.o" \
 "CMakeFiles/ASM.dir/validate_label.c.o" \
-"CMakeFiles/ASM.dir/check_arg.c.o"
+"CMakeFiles/ASM.dir/check_arg.c.o" \
+"CMakeFiles/ASM.dir/validate_arg.c.o" \
+"CMakeFiles/ASM.dir/validate_name.c.o" \
+"CMakeFiles/ASM.dir/asm_library_pt2.c.o"
 
 # External object files for target ASM
 ASM_EXTERNAL_OBJECTS =
@@ -1315,17 +1343,19 @@ ASM: CMakeFiles/ASM.dir/libft/pf_function_second.c.o
 ASM: CMakeFiles/ASM.dir/libft/pf_handleformat.c.o
 ASM: CMakeFiles/ASM.dir/main.c.o
 ASM: CMakeFiles/ASM.dir/read_file.c.o
-ASM: CMakeFiles/ASM.dir/count_params.c.o
-ASM: CMakeFiles/ASM.dir/check_error.c.o
-ASM: CMakeFiles/ASM.dir/free_params.c.o
+ASM: CMakeFiles/ASM.dir/count_size.c.o
+ASM: CMakeFiles/ASM.dir/error_and_free.c.o
 ASM: CMakeFiles/ASM.dir/writing_to_file.c.o
-ASM: CMakeFiles/ASM.dir/asm_library.c.o
-ASM: CMakeFiles/ASM.dir/init.c.o
+ASM: CMakeFiles/ASM.dir/asm_library_pt1.c.o
+ASM: CMakeFiles/ASM.dir/init_struct.c.o
 ASM: CMakeFiles/ASM.dir/validate_label.c.o
 ASM: CMakeFiles/ASM.dir/check_arg.c.o
+ASM: CMakeFiles/ASM.dir/validate_arg.c.o
+ASM: CMakeFiles/ASM.dir/validate_name.c.o
+ASM: CMakeFiles/ASM.dir/asm_library_pt2.c.o
 ASM: CMakeFiles/ASM.dir/build.make
 ASM: CMakeFiles/ASM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Linking C executable ASM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Linking C executable ASM"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ASM.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

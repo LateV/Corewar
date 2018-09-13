@@ -83,12 +83,11 @@ add_executable(ASM
         asm.h
         main.c
         read_file.c
-        count_params.c
-        check_error.c
-        free_params.c
+        count_size.c
+        error_and_free.c
         writing_to_file.c
-        asm_library.c
-        init.c
+        asm_library_pt1.c
+        init_struct.c
         validate_label.c
-        check_arg.c)
+        check_arg.c validate_arg.c validate_name.c asm_library_pt2.c)
 

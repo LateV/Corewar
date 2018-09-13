@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/oskulska/Desktop/Corewar/ASM/asm_library.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/asm_library.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/asm_library_pt1.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/asm_library_pt1.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/asm_library_pt2.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/asm_library_pt2.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/check_arg.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/check_arg.c.o"
-  "/Users/oskulska/Desktop/Corewar/ASM/check_error.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/check_error.c.o"
-  "/Users/oskulska/Desktop/Corewar/ASM/count_params.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/count_params.c.o"
-  "/Users/oskulska/Desktop/Corewar/ASM/free_params.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/free_params.c.o"
-  "/Users/oskulska/Desktop/Corewar/ASM/init.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/init.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/count_size.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/count_size.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/error_and_free.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/error_and_free.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/init_struct.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/init_struct.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/libft/ft_atoi.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_atoi.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/libft/ft_bzero.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_bzero.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/libft/ft_get_console_input.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/ft_get_console_input.c.o"
@@ -86,7 +86,9 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/oskulska/Desktop/Corewar/ASM/libft/pf_handleformat.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/libft/pf_handleformat.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/main.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/main.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/read_file.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/read_file.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/validate_arg.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/validate_arg.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/validate_label.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/validate_label.c.o"
+  "/Users/oskulska/Desktop/Corewar/ASM/validate_name.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/validate_name.c.o"
   "/Users/oskulska/Desktop/Corewar/ASM/writing_to_file.c" "/Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/ASM.dir/writing_to_file.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

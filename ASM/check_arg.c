@@ -1,6 +1,6 @@
 #include "asm.h"
 
-int ft_find_label_to_pointer(t_command *list,char *pointer)
+static int is_correct_pointer(t_command *list, char *pointer)
 {
     t_command *tmp;
 
@@ -14,7 +14,7 @@ int ft_find_label_to_pointer(t_command *list,char *pointer)
     return 0;
 }
 
-int ft_check_arg_for_command(char *name, int *arg)
+static int check_arg_for_cmd(char *name, int *arg)
 {
     int i;
     int k;
@@ -40,7 +40,7 @@ int ft_check_arg_for_command(char *name, int *arg)
     return 0;
 }
 
-void ft_check_params(t_header *header)
+void check_all_param(t_header *header)
 {
     t_command *tmp;
     int i;
@@ -54,12 +54,12 @@ void ft_check_params(t_header *header)
     {
         if(tmp->opcode > 0)
         {
-            if (!ft_check_arg_for_command(tmp->command_name, tmp->type_arg))
+            if (!check_arg_for_cmd(tmp->command_name, tmp->type_arg))
                 error_cases(9,&header);
             i = -1;
             while (++i < 3)
                 if (tmp->pointer_arg[i] != NULL)
-                    if (!ft_find_label_to_pointer(header->com_list, tmp->pointer_arg[i]))
+                    if (!is_correct_pointer(header->com_list, tmp->pointer_arg[i]))
                         error_cases(10,&header);
         }
         tmp = tmp->next;

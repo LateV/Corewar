@@ -11,20 +11,15 @@ CMakeFiles/ASM.dir/check_arg.c.o: ../check_arg.c
 CMakeFiles/ASM.dir/check_arg.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/check_arg.c.o: ../libft/libft.h
 
-CMakeFiles/ASM.dir/check_error.c.o: ../asm.h
-CMakeFiles/ASM.dir/check_error.c.o: ../check_error.c
-CMakeFiles/ASM.dir/check_error.c.o: ../libft/ft_printf.h
-CMakeFiles/ASM.dir/check_error.c.o: ../libft/libft.h
-
 CMakeFiles/ASM.dir/count_params.c.o: ../asm.h
 CMakeFiles/ASM.dir/count_params.c.o: ../count_params.c
 CMakeFiles/ASM.dir/count_params.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/count_params.c.o: ../libft/libft.h
 
-CMakeFiles/ASM.dir/free_params.c.o: ../asm.h
-CMakeFiles/ASM.dir/free_params.c.o: ../free_params.c
-CMakeFiles/ASM.dir/free_params.c.o: ../libft/ft_printf.h
-CMakeFiles/ASM.dir/free_params.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/error_free.c.o: ../asm.h
+CMakeFiles/ASM.dir/error_free.c.o: ../error_free.c
+CMakeFiles/ASM.dir/error_free.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/error_free.c.o: ../libft/libft.h
 
 CMakeFiles/ASM.dir/init.c.o: ../asm.h
 CMakeFiles/ASM.dir/init.c.o: ../init.c
@@ -321,10 +316,20 @@ CMakeFiles/ASM.dir/read_file.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/read_file.c.o: ../libft/libft.h
 CMakeFiles/ASM.dir/read_file.c.o: ../read_file.c
 
+CMakeFiles/ASM.dir/validate_arg.c.o: ../asm.h
+CMakeFiles/ASM.dir/validate_arg.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/validate_arg.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/validate_arg.c.o: ../validate_arg.c
+
 CMakeFiles/ASM.dir/validate_label.c.o: ../asm.h
 CMakeFiles/ASM.dir/validate_label.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/validate_label.c.o: ../libft/libft.h
 CMakeFiles/ASM.dir/validate_label.c.o: ../validate_label.c
+
+CMakeFiles/ASM.dir/validate_name.c.o: ../asm.h
+CMakeFiles/ASM.dir/validate_name.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/validate_name.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/validate_name.c.o: ../validate_name.c
 
 CMakeFiles/ASM.dir/writing_to_file.c.o: ../asm.h
 CMakeFiles/ASM.dir/writing_to_file.c.o: ../libft/ft_printf.h

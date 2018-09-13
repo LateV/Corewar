@@ -13,6 +13,12 @@ fcntl.h
 -
 stddef.h
 -
+fcntl.h
+-
+
+/Users/oskulska/Desktop/Corewar/ASM/error_free.c
+asm.h
+/Users/oskulska/Desktop/Corewar/ASM/asm.h
 
 /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
 libft.h
@@ -31,8 +37,4 @@ string.h
 -
 ft_printf.h
 /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
-
-/Users/oskulska/Desktop/Corewar/ASM/read_file.c
-asm.h
-/Users/oskulska/Desktop/Corewar/ASM/asm.h
 

@@ -54,6 +54,7 @@ typedef char	t_arg_type;
 
 
 #include <stddef.h>
+#include <fcntl.h>
 typedef struct		s_def_com
 {
     int opcode;
@@ -74,7 +75,12 @@ typedef struct		s_def_error
     char *str;
 }					t_def_error;
 
-
+union						u_byterange
+{
+    int						num;
+    char					ch2[2];
+    char					ch[4];
+}							t_byterange;
 
 typedef struct		s_command
 {
@@ -121,32 +127,33 @@ void error_exit( const char *str);
 int check_flag(const char **argv, int argc);
 t_command *create_new_node(int num, char *str);
 void push_back(t_header **header, t_command *new_node);
-int ft_find_command(t_command **node);
+int find_command(t_command **node);
 size_t	ft_arr_len(char **arr);
 void init_struct(t_header **header);
-ssize_t	ft_atoi_long(const char *str);
-void ft_count_opcode(t_command *node);
+ssize_t	ft_atol(const char *str);
+void count_opcode(t_command *node);
 void count_pointer(t_header *node);
 void ft_label(t_header *node);
 void write_to_file(t_header *header);
-void print_to_file(int fd, int byte, int param);
 void error_cases(int k, t_header **header);
 int ft_skip_comment(char *str);
 int ft_find_pointer(char *s, t_command **node);
-void ft_check_params(t_header *header);
-int ft_check_quotes(char *str);
+void check_all_param(t_header *header);
+int check_quotes(char *str);
 void validate_params(t_header **header);
-//void ft_fill_arg_param(char *str,int k, t_command **node);
+//void find_arg_type(char *str,int k, t_command **node);
 void ft_find_arg_type(char *str, t_command **node);
-int ft_find_char_num(char *str, char c);
-int ft_check_quotes(char *str);
-void validate_name_comment(t_header **header, char *type);
+int char_pos(char *str, char c);
+int check_quotes(char *str);
+void validate_name_and_cmt(t_header **header, char *type);
 int ft_isspace(char c);
-int ft_find_char_num(char *str, char c);
-int label_char(char *str);
+int char_pos(char *str, char c);
+int is_label_char(char *str);
 int check_for_digit(char *str);
-void find_arg(t_command **node, t_header **header);
-void skip_com(t_command *node);
+void split_line_for_arg(t_command **node, t_header **header);
+void skip_comments(t_command *node);
 void find_curr_label(t_header **header, t_command *node);
-int validte_label_2(t_command *node);
+int check_label_chars(t_command *node);
 void validate_label(t_header **header);
+void get_prog_name(t_header *header);
+void fill_name_and_cmt(t_header **header);

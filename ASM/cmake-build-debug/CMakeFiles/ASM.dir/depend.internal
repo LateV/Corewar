@@ -11,19 +11,14 @@ CMakeFiles/ASM.dir/check_arg.c.o
  /Users/oskulska/Desktop/Corewar/ASM/check_arg.c
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
-CMakeFiles/ASM.dir/check_error.c.o
- /Users/oskulska/Desktop/Corewar/ASM/asm.h
- /Users/oskulska/Desktop/Corewar/ASM/check_error.c
- /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
- /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
 CMakeFiles/ASM.dir/count_params.c.o
  /Users/oskulska/Desktop/Corewar/ASM/asm.h
  /Users/oskulska/Desktop/Corewar/ASM/count_params.c
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
-CMakeFiles/ASM.dir/free_params.c.o
+CMakeFiles/ASM.dir/error_free.c.o
  /Users/oskulska/Desktop/Corewar/ASM/asm.h
- /Users/oskulska/Desktop/Corewar/ASM/free_params.c
+ /Users/oskulska/Desktop/Corewar/ASM/error_free.c
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
 CMakeFiles/ASM.dir/init.c.o
@@ -321,11 +316,21 @@ CMakeFiles/ASM.dir/read_file.c.o
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
  /Users/oskulska/Desktop/Corewar/ASM/read_file.c
+CMakeFiles/ASM.dir/validate_arg.c.o
+ /Users/oskulska/Desktop/Corewar/ASM/asm.h
+ /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
+ /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
+ /Users/oskulska/Desktop/Corewar/ASM/validate_arg.c
 CMakeFiles/ASM.dir/validate_label.c.o
  /Users/oskulska/Desktop/Corewar/ASM/asm.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
  /Users/oskulska/Desktop/Corewar/ASM/validate_label.c
+CMakeFiles/ASM.dir/validate_name.c.o
+ /Users/oskulska/Desktop/Corewar/ASM/asm.h
+ /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
+ /Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
+ /Users/oskulska/Desktop/Corewar/ASM/validate_name.c
 CMakeFiles/ASM.dir/writing_to_file.c.o
  /Users/oskulska/Desktop/Corewar/ASM/asm.h
  /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
