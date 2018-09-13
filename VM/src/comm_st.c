@@ -5,7 +5,7 @@ static int arg_read(t_cor *cor, t_process *process)
 	int s;
 
 	s = 2;
-	if(process->arg1 != 1 || process->arg3 != 0 || process->arg2 == 2)
+	if(process->arg1 != 1 || process->arg2 == 2)
 		process->codage = 0;
 	process->arg_type[0] = process->arg1;
 	process->arg_type[1] = process->arg2;

@@ -66,7 +66,10 @@ int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 	{
 
 		ind = get_short(cor , process->pc + s);
-		*arg = get_int(cor, ind % IDX_MOD);
+		if(process->command == 12)
+			*arg = get_int(cor, ind);
+		else
+			*arg = get_int(cor, ind % IDX_MOD);
 		process->ind_loc = ind;
 		s += 2;
 	}

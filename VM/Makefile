@@ -3,7 +3,6 @@ NAME		=	 ../corewar
 SRC	=	main.c 					\
 		to_map.c				\
 		init_comm_f.c			\
-		load_data_to_reg.c		\
 		codage_identify.c		\
 		load_from_reg.c			\
 		comm_live.c				\
