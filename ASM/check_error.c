@@ -1,6 +1,5 @@
 #include "asm.h"
 
-
 t_def_com g_def[17] = {
         {1, "live",1,{2,0,0},{0,0,0},{0,0},4,0},
         {2, "ld", 2, {2,3,0},{1,0,0},{0,0},4,1},
@@ -39,9 +38,8 @@ int ft_check_quotes(char *str)
 {
     int i;
 
-    i = 0;
-    while(str[i])
-    {
+    i = -1;
+    while(str[++i])
         if(str[i] == '"')
         {
             while (str[++i])
@@ -58,8 +56,6 @@ int ft_check_quotes(char *str)
             else
                 return 1;
         }
-        i++;
-    }
     return 1;
 }
 
@@ -88,48 +84,24 @@ void validate_name_comment(t_header **header, char *type)
         error_cases(3,header);
 }
 
-void validate_label(t_header **header)
-{
-    t_command *tmp;
 
-    tmp = (*header)->com_list;
-//    int j;
-    while(tmp)
-    {
-        skip_com(tmp);
-        if(validte_label_2(tmp) < 0)
-            error_cases(5,header);
-        else if(validte_label_2(tmp) == 1)
-        {
-            find_curr_label(header,tmp);
-            ft_find_command(&tmp);
-        }
-       // ft_printf("%s\n",(*header)->curr_label);
-        if(tmp->label == NULL && (*header)->curr_label)
-            tmp->label = ft_strdup((*header)->curr_label);
-        find_arg(&tmp, header);
-        ft_count_opcode(tmp);
-//        j = 0;
-//        ft_printf("line %s, num %d label '%s', command '%s'\n",tmp->line,tmp->num, tmp->label, tmp->command_name);
-//        while(j < 3)
-//        {
-//            ft_printf("type arg%d num%d pointer'%s'\n",tmp->type_arg[j], tmp->num_arg[j], tmp->pointer_arg[j]);
-//            j++;
-//        }
-        tmp = tmp->next;
-    }
-}
 
 void fill_name_cmt(t_header **header)
 {
     char **arr;
 
     arr = ft_strsplit((*header)->bot_name, '"');
-    (*header)->bot_name = ft_strdup(arr[1]);
+    if(arr[1])
+        (*header)->bot_name = ft_strdup(arr[1]);
+    else
+        (*header)->bot_name = ft_strdup("");
     ft_clear(arr);
     (*header)->name__len = (int)ft_strlen((*header)->bot_name);
     arr = ft_strsplit((*header)->comment, '"');
-    (*header)->comment = ft_strdup(arr[1]);
+    if(arr[1])
+        (*header)->comment = ft_strdup(arr[1]);
+    else
+        (*header)->comment = ft_strdup("");
     (*header)->comment_len = (int)ft_strlen((*header)->comment);
     ft_clear(arr);
 }
@@ -137,12 +109,16 @@ void fill_name_cmt(t_header **header)
 
 
 
-void ft_validate_all_params(t_header **header)
+void validate_params(t_header **header)
 {
     validate_name_comment(header,NAME_CMD_STRING);
     validate_name_comment(header,COMMENT_CMD_STRING);
+    ft_printf("2\n");
     fill_name_cmt(header);
+    ft_printf("3\n");
     validate_label(header);
+    ft_printf("4\n");
+    ft_check_params(*header);
 }
 
 void error_cases(int k, t_header **header)

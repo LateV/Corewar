@@ -82,11 +82,13 @@ add_executable(ASM
         libft/pf_handleformat.c
         asm.h
         main.c
-        read.c
-        live.c
+        read_file.c
         count_params.c
         check_error.c
         free_params.c
-        writing.c
+        writing_to_file.c
         asm_library.c
-        init.c)
+        init.c
+        validate_label.c
+        check_arg.c)
+

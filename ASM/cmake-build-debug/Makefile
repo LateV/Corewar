@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/oskulska/Desktop/corewar/ASM
+CMAKE_SOURCE_DIR = /Users/oskulska/Desktop/Corewar/ASM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/oskulska/Desktop/corewar/ASM/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles /Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles /Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oskulska/Desktop/corewar/ASM/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/oskulska/Desktop/Corewar/ASM/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,33 @@ asm_library.s: asm_library.c.s
 asm_library.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/asm_library.c.s
 .PHONY : asm_library.c.s
+
+check_arg.o: check_arg.c.o
+
+.PHONY : check_arg.o
+
+# target to build an object file
+check_arg.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_arg.c.o
+.PHONY : check_arg.c.o
+
+check_arg.i: check_arg.c.i
+
+.PHONY : check_arg.i
+
+# target to preprocess a source file
+check_arg.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_arg.c.i
+.PHONY : check_arg.c.i
+
+check_arg.s: check_arg.c.s
+
+.PHONY : check_arg.s
+
+# target to generate assembly for a file
+check_arg.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/check_arg.c.s
+.PHONY : check_arg.c.s
 
 check_error.o: check_error.c.o
 
@@ -2256,33 +2283,6 @@ libft/pf_handleformat.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/libft/pf_handleformat.c.s
 .PHONY : libft/pf_handleformat.c.s
 
-live.o: live.c.o
-
-.PHONY : live.o
-
-# target to build an object file
-live.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.o
-.PHONY : live.c.o
-
-live.i: live.c.i
-
-.PHONY : live.i
-
-# target to preprocess a source file
-live.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.i
-.PHONY : live.c.i
-
-live.s: live.c.s
-
-.PHONY : live.s
-
-# target to generate assembly for a file
-live.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/live.c.s
-.PHONY : live.c.s
-
 main.o: main.c.o
 
 .PHONY : main.o
@@ -2310,59 +2310,86 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/main.c.s
 .PHONY : main.c.s
 
-read.o: read.c.o
+read_file.o: read_file.c.o
 
-.PHONY : read.o
-
-# target to build an object file
-read.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.o
-.PHONY : read.c.o
-
-read.i: read.c.i
-
-.PHONY : read.i
-
-# target to preprocess a source file
-read.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.i
-.PHONY : read.c.i
-
-read.s: read.c.s
-
-.PHONY : read.s
-
-# target to generate assembly for a file
-read.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read.c.s
-.PHONY : read.c.s
-
-writing.o: writing.c.o
-
-.PHONY : writing.o
+.PHONY : read_file.o
 
 # target to build an object file
-writing.c.o:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.o
-.PHONY : writing.c.o
+read_file.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read_file.c.o
+.PHONY : read_file.c.o
 
-writing.i: writing.c.i
+read_file.i: read_file.c.i
 
-.PHONY : writing.i
+.PHONY : read_file.i
 
 # target to preprocess a source file
-writing.c.i:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.i
-.PHONY : writing.c.i
+read_file.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read_file.c.i
+.PHONY : read_file.c.i
 
-writing.s: writing.c.s
+read_file.s: read_file.c.s
 
-.PHONY : writing.s
+.PHONY : read_file.s
 
 # target to generate assembly for a file
-writing.c.s:
-	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing.c.s
-.PHONY : writing.c.s
+read_file.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/read_file.c.s
+.PHONY : read_file.c.s
+
+validate_label.o: validate_label.c.o
+
+.PHONY : validate_label.o
+
+# target to build an object file
+validate_label.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_label.c.o
+.PHONY : validate_label.c.o
+
+validate_label.i: validate_label.c.i
+
+.PHONY : validate_label.i
+
+# target to preprocess a source file
+validate_label.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_label.c.i
+.PHONY : validate_label.c.i
+
+validate_label.s: validate_label.c.s
+
+.PHONY : validate_label.s
+
+# target to generate assembly for a file
+validate_label.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/validate_label.c.s
+.PHONY : validate_label.c.s
+
+writing_to_file.o: writing_to_file.c.o
+
+.PHONY : writing_to_file.o
+
+# target to build an object file
+writing_to_file.c.o:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing_to_file.c.o
+.PHONY : writing_to_file.c.o
+
+writing_to_file.i: writing_to_file.c.i
+
+.PHONY : writing_to_file.i
+
+# target to preprocess a source file
+writing_to_file.c.i:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing_to_file.c.i
+.PHONY : writing_to_file.c.i
+
+writing_to_file.s: writing_to_file.c.s
+
+.PHONY : writing_to_file.s
+
+# target to generate assembly for a file
+writing_to_file.c.s:
+	$(MAKE) -f CMakeFiles/ASM.dir/build.make CMakeFiles/ASM.dir/writing_to_file.c.s
+.PHONY : writing_to_file.c.s
 
 # Help Target
 help:
@@ -2376,6 +2403,9 @@ help:
 	@echo "... asm_library.o"
 	@echo "... asm_library.i"
 	@echo "... asm_library.s"
+	@echo "... check_arg.o"
+	@echo "... check_arg.i"
+	@echo "... check_arg.s"
 	@echo "... check_error.o"
 	@echo "... check_error.i"
 	@echo "... check_error.s"
@@ -2610,18 +2640,18 @@ help:
 	@echo "... libft/pf_handleformat.o"
 	@echo "... libft/pf_handleformat.i"
 	@echo "... libft/pf_handleformat.s"
-	@echo "... live.o"
-	@echo "... live.i"
-	@echo "... live.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... read.o"
-	@echo "... read.i"
-	@echo "... read.s"
-	@echo "... writing.o"
-	@echo "... writing.i"
-	@echo "... writing.s"
+	@echo "... read_file.o"
+	@echo "... read_file.i"
+	@echo "... read_file.s"
+	@echo "... validate_label.o"
+	@echo "... validate_label.i"
+	@echo "... validate_label.s"
+	@echo "... writing_to_file.o"
+	@echo "... writing_to_file.i"
+	@echo "... writing_to_file.s"
 .PHONY : help
 
 

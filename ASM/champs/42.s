@@ -1,6 +1,6 @@
 .name         "Lkjectetur adipiscing elit. Vivamus hendrerit at lorem eu gravida. Vestibulum varius semper nullam."
 .comment      "gfg"
-54:
+
 entree:
 	ld 54,r5
 	ld	%0,r5

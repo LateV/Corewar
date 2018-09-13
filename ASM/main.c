@@ -1,6 +1,6 @@
 #include "asm.h"
 
-int ft_check_flag(const char **argv, int argc)
+int check_flag(const char **argv, int argc)
 {
     int i;
 
@@ -25,12 +25,12 @@ int main(int argc, char const *argv[])
     init_struct(&header);
     if (argc > 1)
     {
-        if (ft_check_flag(argv, argc) && ft_check_extension(argv, argc - 1))
+        if (check_flag(argv, argc) && check_extension(argv, argc - 1))
         {
            // -a : Instead of creating a .cor file, outputs a stripped and annotated version of the code to the standard output% ;
             ft_printf("flag + format");
         }
-        else if((y = ft_check_extension(argv, argc - 1)) > 0)
+        else if((y = check_extension(argv, argc - 1)) > 0)
         {
             read_file(argv[y], &header);
         }

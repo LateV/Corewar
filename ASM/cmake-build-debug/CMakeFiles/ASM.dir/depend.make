@@ -6,6 +6,11 @@ CMakeFiles/ASM.dir/asm_library.c.o: ../asm_library.c
 CMakeFiles/ASM.dir/asm_library.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/asm_library.c.o: ../libft/libft.h
 
+CMakeFiles/ASM.dir/check_arg.c.o: ../asm.h
+CMakeFiles/ASM.dir/check_arg.c.o: ../check_arg.c
+CMakeFiles/ASM.dir/check_arg.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/check_arg.c.o: ../libft/libft.h
+
 CMakeFiles/ASM.dir/check_error.c.o: ../asm.h
 CMakeFiles/ASM.dir/check_error.c.o: ../check_error.c
 CMakeFiles/ASM.dir/check_error.c.o: ../libft/ft_printf.h
@@ -306,23 +311,23 @@ CMakeFiles/ASM.dir/libft/pf_handleformat.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/libft/pf_handleformat.c.o: ../libft/libft.h
 CMakeFiles/ASM.dir/libft/pf_handleformat.c.o: ../libft/pf_handleformat.c
 
-CMakeFiles/ASM.dir/live.c.o: ../asm.h
-CMakeFiles/ASM.dir/live.c.o: ../libft/ft_printf.h
-CMakeFiles/ASM.dir/live.c.o: ../libft/libft.h
-CMakeFiles/ASM.dir/live.c.o: ../live.c
-
 CMakeFiles/ASM.dir/main.c.o: ../asm.h
 CMakeFiles/ASM.dir/main.c.o: ../libft/ft_printf.h
 CMakeFiles/ASM.dir/main.c.o: ../libft/libft.h
 CMakeFiles/ASM.dir/main.c.o: ../main.c
 
-CMakeFiles/ASM.dir/read.c.o: ../asm.h
-CMakeFiles/ASM.dir/read.c.o: ../libft/ft_printf.h
-CMakeFiles/ASM.dir/read.c.o: ../libft/libft.h
-CMakeFiles/ASM.dir/read.c.o: ../read.c
+CMakeFiles/ASM.dir/read_file.c.o: ../asm.h
+CMakeFiles/ASM.dir/read_file.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/read_file.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/read_file.c.o: ../read_file.c
 
-CMakeFiles/ASM.dir/writing.c.o: ../asm.h
-CMakeFiles/ASM.dir/writing.c.o: ../libft/ft_printf.h
-CMakeFiles/ASM.dir/writing.c.o: ../libft/libft.h
-CMakeFiles/ASM.dir/writing.c.o: ../writing.c
+CMakeFiles/ASM.dir/validate_label.c.o: ../asm.h
+CMakeFiles/ASM.dir/validate_label.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/validate_label.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/validate_label.c.o: ../validate_label.c
+
+CMakeFiles/ASM.dir/writing_to_file.c.o: ../asm.h
+CMakeFiles/ASM.dir/writing_to_file.c.o: ../libft/ft_printf.h
+CMakeFiles/ASM.dir/writing_to_file.c.o: ../libft/libft.h
+CMakeFiles/ASM.dir/writing_to_file.c.o: ../writing_to_file.c
 

@@ -7,8 +7,8 @@ void ft_count_opcode(t_command *node)
     int c;
     int i;
 
-    i = 0;
-    while(i < 3)
+    i = -1;
+    while(++i < 3)
     {
         if (node->type_arg[i]  == T_REG)
             node->byte_sum[i] = 1;
@@ -17,7 +17,6 @@ void ft_count_opcode(t_command *node)
         if (node->type_arg[i]  == T_IND)
             node->byte_sum[i] = 2;
         node->size += node->byte_sum[i];
-        i++;
     }
     if(node->is_codage_octal == 1)
     {
@@ -31,72 +30,71 @@ void ft_count_opcode(t_command *node)
         node->codage_octal = -1;
 }
 
+t_command *find_list(t_command *copy, char *str)
+{
+    while(copy)
+    {
+        if (ft_strequ(copy->label,str))
+            break;
+        copy = copy->next;
+    }
+    return copy;
+}
 
-void ft_count_pointer(t_header *node)
+
+
+void count_forward(t_command *tmp, int i)
+{
+    t_command *copy;
+
+    copy = tmp;
+    while(copy)
+    {
+        if (ft_strequ(copy->label,tmp->pointer_arg[i]))
+            break;
+        else
+            tmp->num_arg[i] +=  copy->size;
+        copy = copy->next;
+    }
+}
+
+
+void count_backward(t_command *copy,t_command *tmp, int i)
+{
+
+    while(copy)
+    {
+        if (copy->num == tmp->num)
+            break;
+        else
+            tmp->num_arg[i] += copy->size;
+        copy = copy->next;
+    }
+    tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
+}
+
+
+void count_pointer(t_header *node)
 {
     int i;
-
     t_command *tmp;
     t_command *copy;
 
     tmp = node->com_list;
     while(tmp)
     {
-        i = 0;
-        while(i < 3)
-        {
+        i = -1;
+        while(++i < 3)
             if(tmp->pointer_arg[i])
             {
-                copy = node->com_list;
-                while(copy)
-                {
-                    if (ft_strequ(copy->label,tmp->pointer_arg[i]))
-                        break;
-                    copy = copy->next;
-                }
+                copy = find_list(node->com_list,tmp->pointer_arg[i]);
                 if(copy && tmp->num < copy->num)
-                {
-                    copy = tmp;
-                    while(copy)
-                    {
-                        if (ft_strequ(copy->label,tmp->pointer_arg[i]))
-                            break;
-                        else
-                            tmp->num_arg[i] +=  copy->size;
-                        copy = copy->next;
-                    }
-                }
+                    count_forward(tmp,i);
                 else
-                {
-                    copy = node->com_list;
-                    while(copy)
-                    {
-                        if (ft_strequ(copy->label,tmp->pointer_arg[i]))
-                            break;
-                        copy = copy->next;
-                    }
-                    while(copy)
-                    {
-                        if (copy->num == tmp->num)
-                            break;
-                        else
-                            tmp->num_arg[i] += copy->size;
-                        copy = copy->next;
-                    }
-                    tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
-                }
+                    count_backward(copy,tmp,i);
             }
-            i++;
-        }
+        node->prog_size += tmp->size;
         tmp = tmp->next;
-    }
-    t_command *new;
-    new = node->com_list;
-    while(new != NULL)
-    {
-        ft_printf("size %d\n",new->size);
-        node->prog_size += new->size;
-        new = new->next;
     }
 }
 

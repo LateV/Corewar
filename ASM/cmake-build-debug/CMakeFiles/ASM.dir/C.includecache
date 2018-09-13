@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/oskulska/Desktop/corewar/ASM/asm.h
+/Users/oskulska/Desktop/Corewar/ASM/asm.h
 libft/libft.h
-/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
+/Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
 fcntl.h
 -
 stddef.h
 -
 
-/Users/oskulska/Desktop/corewar/ASM/libft/ft_printf.h
+/Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
 libft.h
-/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
+/Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
 stdarg.h
 -
 wchar.h
 -
 
-/Users/oskulska/Desktop/corewar/ASM/libft/libft.h
+/Users/oskulska/Desktop/Corewar/ASM/libft/libft.h
 stdlib.h
 -
 unistd.h
@@ -30,9 +30,9 @@ unistd.h
 string.h
 -
 ft_printf.h
-/Users/oskulska/Desktop/corewar/ASM/libft/ft_printf.h
+/Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
 
-/Users/oskulska/Desktop/corewar/ASM/read.c
+/Users/oskulska/Desktop/Corewar/ASM/read_file.c
 asm.h
-/Users/oskulska/Desktop/corewar/ASM/asm.h
+/Users/oskulska/Desktop/Corewar/ASM/asm.h
 
