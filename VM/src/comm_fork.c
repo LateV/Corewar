@@ -5,29 +5,20 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 	t_process *new;
 	int i;
 
-	i = 0;
+	i = -1;
 	if (cor->process)
 	{
 		new = ft_memalloc(sizeof(t_process));
-		while(i < 17)
-		{
+		while(++i < 17)
 			new->registr[i] = process->registr[i];
-			i++;
-		}
 		new->next = cor->process;
-		new->live = 0;
 		new->pc = loc;
 		new->carry = 1;
 		new->delay = -1;
-		new->arg1 = 0;
-		new->arg2 = 0;
-		new->arg3 = 0;
-		new->label = 0;
 		new->codage = 1;
 		new->command = -1;
 		new->ind_loc = -1;
 		new->player = process->player;
-		new->live = 0;
 		new->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->process = new;

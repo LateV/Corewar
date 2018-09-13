@@ -7,9 +7,9 @@ void init_comand_function(t_cor *cor)
 	cor->instruct[2] = comm_st;
 	cor->instruct[3] = comm_add;
 	cor->instruct[4] = comm_sub;
-	cor->instruct[5] = comm_and;
-	cor->instruct[6] = comm_or;
-	cor->instruct[7] = comm_xor;
+	cor->instruct[5] = comm_and_or_xor;
+	cor->instruct[6] = comm_and_or_xor;
+	cor->instruct[7] = comm_and_or_xor;
 	cor->instruct[8] = comm_zjmp;
 	cor->instruct[9] = comm_ldi;
 	cor->instruct[10] = comm_sti;

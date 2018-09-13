@@ -156,8 +156,9 @@ void 					codage_identify(t_process *process, unsigned char args);
 void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
-void 					comm_or(t_cor *cor, t_process *process);
-void 					comm_xor(t_cor *cor, t_process *process);
+
+void 					comm_and_or_xor(t_cor *cor, t_process *process);
+
 void 					comm_zjmp(t_cor *cor, t_process *process);
 void 					comm_ldi(t_cor *cor, t_process *process);
 void 					comm_sti(t_cor *cor, t_process *process);
@@ -169,7 +170,6 @@ void 					comm_aff(t_cor *cor, t_process *process);
 void 					comm_st(t_cor *cor, t_process *process);
 void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
-void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
 void 					add_proc(t_cor *cor, t_process *process, int loc);
 // vizu
