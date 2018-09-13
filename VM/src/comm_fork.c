@@ -6,6 +6,10 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 	int i;
 
 	i = -1;
+	while(loc >= MEM_SIZE)
+		loc = loc  - MEM_SIZE;
+	while(loc < 0)
+		loc = loc + MEM_SIZE;
 	if (cor->process)
 	{
 		new = ft_memalloc(sizeof(t_process));
