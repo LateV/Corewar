@@ -38,7 +38,7 @@ void comm_ld(t_cor *cor, t_process *process)
 			if(cor->visu == 0)
 			{
 				ft_printf("P%5d | ld %d r%d\n",
-					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
+					process->count_num, process->arg1, process->arg2);
 			}
 			if (process->registr[process->arg2 - 1] == 0)
 				process->carry = 1;

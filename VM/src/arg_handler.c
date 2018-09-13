@@ -64,7 +64,6 @@ int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 	}
 	else if(*arg == 3)
 	{
-
 		ind = get_short(cor , process->pc + s);
 		if(process->command == 12)
 			*arg = get_int(cor, ind);

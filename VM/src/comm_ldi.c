@@ -59,7 +59,7 @@ void comm_ldi(t_cor *cor, t_process *process)
 					(((process->arg1 + process->arg2) % IDX_MOD) + process->pc));
 				if(cor->visu == 0)
 				{
-					ft_printf("%5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
+					ft_printf("P%5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
 						process->count_num, process->arg1, process->arg2, process->arg3, process->arg1,
 						process->arg2, process->arg1 + process->arg2, process->pc + ((process->arg1 + process->arg2) % IDX_MOD));
 				}
