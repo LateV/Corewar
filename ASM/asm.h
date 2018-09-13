@@ -1,124 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   asm.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oskulska <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/13 19:33:57 by oskulska          #+#    #+#             */
+/*   Updated: 2018/09/13 19:33:59 by oskulska         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include <fcntl.h>
+#include <stddef.h>
 
-#define IND_SIZE				2
 #define REG_SIZE				4
-#define DIR_SIZE				REG_SIZE
-
-# define REG_CODE				1
-# define DIR_CODE				2
-# define IND_CODE				3
-
-
-#define MAX_ARGS_NUMBER			4
-#define MAX_PLAYERS				4
-#define MEM_SIZE				(4*1024)
-#define IDX_MOD					(MEM_SIZE / 8)
-#define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
-
 #define COMMENT_CHAR			'#'
 #define LABEL_CHAR				':'
 #define DIRECT_CHAR				'%'
 #define SEPARATOR_CHAR			','
-
 #define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
-
 #define NAME_CMD_STRING			".name"
 #define COMMENT_CMD_STRING		".comment"
-
-#define REG_NUMBER				16
-
-#define CYCLE_TO_DIE			1536
-#define CYCLE_DELTA				50
-#define NBR_LIVE				21
-#define MAX_CHECKS				10
-
-/*
-**
-*/
-
-typedef char	t_arg_type;
-
 #define T_REG					1
 #define T_DIR					2
 #define T_IND					3
-#define T_LAB					8
-
-/*
-**
-*/
-
 # define PROG_NAME_LENGTH		(128)
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
-
-#include <stddef.h>
-#include <fcntl.h>
-typedef struct		s_def_com
+typedef char	t_arg_type;
+typedef struct		s_def_cmd
 {
-    int opcode;
-    char *name;
-    int  num_of_arg;
-    int  first_arg[3];
-    int  second_arg[3];
-    int third_arg[2];
-    int label_size;
-    int codage_octal;
+	int opcode;
+	char *name;
+	int  num_of_arg;
+	int  first_arg[3];
+	int  second_arg[3];
+	int third_arg[2];
+	int label_size;
+	int codage_octal;
 
-
-}					t_def_com;
+}					t_def_cmd;
 
 typedef struct		s_def_error
 {
-    int num;
-    char *str;
+	int num;
+	char *str;
 }					t_def_error;
 
 union						u_byterange
 {
-    int						num;
-    char					ch2[2];
-    char					ch[4];
+	int						num;
+	char					ch2[2];
+	char					ch[4];
 }							t_byterange;
 
 typedef struct		s_command
 {
-    int num;
-    char *label;
-    char *line;
-    char *command_name;
-    int  type_arg[3];
-    ssize_t  num_arg[3];
-    char *pointer_arg[3];
-    int  is_codage_octal;
-    int  label_size;
-    int  size;
-    int  byte_sum[3];
-    int codage_octal;
-    int opcode;
-    struct s_command	*next;
+	int num;
+	char *label;
+	char *line;
+	char *command_name;
+	int  arg_type[3];
+	ssize_t  num_arg[3];
+	char *arg_pointer[3];
+	int  is_codage_octal;
+	int  label_size;
+	int  size;
+	int  byte_sum[3];
+	int codage_octal;
+	int opcode;
+	struct s_command	*next;
 }					t_command;
-
 
 typedef struct		s_header
 {
-    char			    *bot_name;
-    int                 name__len;
-    unsigned int		prog_size;
-    char				*comment;
-    int                 comment_len;
-    char                *curr_label;
-    char                *file_name;
-    t_command           *com_list;
+	char			    *bot_name;
+	int                 name__len;
+	unsigned int		prog_size;
+	char				*comment;
+	int                 comment_len;
+	char                *curr_label;
+	char                *file_name;
+	t_command           *cmd_list;
 }					t_header;
 
-t_def_com g_def[17];
+t_def_cmd cmd_def[17];
 t_def_error error_def[13];
-
-
-
-
 void  read_file(const char *str, t_header **header);
 void		ft_clear(char **arr);
 void ft_free(t_header **header);

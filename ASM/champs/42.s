@@ -6,7 +6,7 @@ entree:
 	ld	%0,r5
 	zjmp	%:bite
 #fdgfgfg
-    tir: sti	r1,%:tirf,%1
+tir: sti	r1,%:tirf,%1
 	ld	%2304,r10 #gfgfhghg
 	ld	%1,r5
 	ld	%0,r11
