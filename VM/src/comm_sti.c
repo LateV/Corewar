@@ -14,13 +14,30 @@ static int arg_read(t_cor *cor, t_process *process)
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
-}		
+}
+
+static int arg_val_hendler(t_process *process)
+{
+	if(process->arg_type[1] == 1)
+	{
+		if(process->arg2 < 0 || process->arg2 > 16)
+			return(0);
+		process->arg2 = get_reg(process, process->arg2 - 1);
+	}
+	if(process->arg_type[2] == 1)
+	{
+		if(process->arg3 < 0 || process->arg3 > 16)
+			return(0);
+		process->arg3 = get_reg(process, process->arg3 - 1);
+	}
+	return(1);
+}
 
 void sti_reg_dir_dir(t_cor *cor, t_process *process)
 {
 	if(cor->visu == 0)
 	{
-		ft_printf("%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
+		ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
 			process->count_num, process->arg1, process->arg2, process->arg3, process->arg2,
 			process->arg3, process->arg2 + process->arg3, process->pc + ((process->arg2 + process->arg3) % IDX_MOD));
 	}
@@ -41,9 +58,9 @@ void comm_sti(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if(process->codage == 1)
+		if(process->codage == 1 && process->arg1 > 0 && process->arg1 < 17)
 		{
-			// if((process->arg_type[1] == 3 || process->arg_type[1] == 2 ) && process->arg_type[2] == 2)
+			if(arg_val_hendler(process))
 				sti_reg_dir_dir(cor, process);
 		}
 		set_proc_pos(cor, process, sk);

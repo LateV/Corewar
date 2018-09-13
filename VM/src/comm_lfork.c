@@ -16,7 +16,7 @@ void comm_lfork(t_cor *cor, t_process *process)
 		if(cor->visu == 0)
 		{
 			ft_printf("P%5d | lfork %d (%d)\n",
-				process->count_num, process->arg1, process->pc + process->arg1 );
+				process->count_num, process->arg1, process->pc + process->arg1);
 		}
 		add_proc(cor, process, process->pc + process->arg1);
 		set_proc_pos(cor, process, sk + 1);

@@ -17,6 +17,8 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 			new->registr[i] = process->registr[i];
 		new->next = cor->process;
 		new->pc = loc;
+		if(cor->visu == 1)
+			cor->vizu->map[loc].type = 1;
 		new->carry = 1;
 		new->delay = -1;
 		new->codage = 1;

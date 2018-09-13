@@ -24,7 +24,6 @@ void comm_ld(t_cor *cor, t_process *process)
 {
 	int sk;
 
-	sk = 0;
 	if (process->delay < 0)
 		process->delay = 4;
 	else if (process->delay > 0)
