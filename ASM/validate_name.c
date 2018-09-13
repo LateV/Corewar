@@ -10,6 +10,10 @@ void validate_name_and_cmt(t_header **header, char *type)
     int len;
 
     len = ft_strlen(type);
+    if((*header)->bot_name == NULL)
+        error_cases(11,header);
+    if((*header)->comment == NULL)
+        error_cases(12,header);
     if(len == 5)
         str = (*header)->bot_name;
     else
@@ -34,6 +38,7 @@ void fill_name_and_cmt(t_header **header)
     char **arr;
 
     arr = ft_strsplit((*header)->bot_name, '"');
+    free((*header)->bot_name);
     if(arr[1])
         (*header)->bot_name = ft_strdup(arr[1]);
     else
@@ -41,6 +46,7 @@ void fill_name_and_cmt(t_header **header)
     ft_clear(arr);
     (*header)->name__len = (int)ft_strlen((*header)->bot_name);
     arr = ft_strsplit((*header)->comment, '"');
+    free((*header)->comment);
     if(arr[1])
         (*header)->comment = ft_strdup(arr[1]);
     else

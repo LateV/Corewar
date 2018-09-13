@@ -6,6 +6,7 @@ t_command *create_new_node(int num, char *str)
 
     new_node = ft_memalloc(sizeof(t_command));
     new_node->line = ft_strdup(str);
+    free(str);
     new_node->num = num;
     new_node->label_size = 2;
     return (new_node);

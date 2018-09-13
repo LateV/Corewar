@@ -109,12 +109,12 @@ typedef struct		s_header
     char				*comment;
     int                 comment_len;
     char                *curr_label;
-    const char          *file_name;
+    char                *file_name;
     t_command           *com_list;
 }					t_header;
 
 t_def_com g_def[17];
-t_def_error error_def[10];
+t_def_error error_def[13];
 
 
 
@@ -128,21 +128,15 @@ int check_flag(const char **argv, int argc);
 t_command *create_new_node(int num, char *str);
 void push_back(t_header **header, t_command *new_node);
 int find_command(t_command **node);
-size_t	ft_arr_len(char **arr);
 void init_struct(t_header **header);
 ssize_t	ft_atol(const char *str);
 void count_opcode(t_command *node);
 void count_pointer(t_header *node);
-void ft_label(t_header *node);
 void write_to_file(t_header *header);
 void error_cases(int k, t_header **header);
-int ft_skip_comment(char *str);
-int ft_find_pointer(char *s, t_command **node);
 void check_all_param(t_header *header);
 int check_quotes(char *str);
 void validate_params(t_header **header);
-//void find_arg_type(char *str,int k, t_command **node);
-void ft_find_arg_type(char *str, t_command **node);
 int char_pos(char *str, char c);
 int check_quotes(char *str);
 void validate_name_and_cmt(t_header **header, char *type);

@@ -60,6 +60,22 @@ void validate_params(t_header **header)
     check_all_param(*header);
 }
 
+
+void same_label(t_header **header, char *str)
+{
+    t_command *tmp;
+
+    tmp = (*header)->com_list;
+    while(tmp)
+    {
+        ft_printf("%s\n",tmp->label);
+        if(ft_strequ(tmp->label,str))
+            error_cases(13,header);
+        tmp = tmp->next;
+    }
+}
+
+
 void find_curr_label(t_header **header, t_command *node)
 {
     int i;
@@ -68,15 +84,17 @@ void find_curr_label(t_header **header, t_command *node)
 
     if((i = char_pos(node->line, ':')) > 0)
     {
+        if((*header)->curr_label)
+            free((*header)->curr_label);
         str = ft_strdup(node->line);
         free(node->line);
-        node->label = ft_strsub(str,0,i);
         s = ft_strsub(str,i+1,ft_strlen(str)-i);
         node->line = ft_strtrim(s);
         (*header)->curr_label = ft_strsub(str,0,i);
         free(str);
         free(s);
+        same_label(header,(*header)->curr_label);
+        node->label = ft_strsub(str,0,i);
     }
-
 }
 

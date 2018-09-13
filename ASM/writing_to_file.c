@@ -1,6 +1,5 @@
 #include "asm.h"
 
-
 static void print_to_file(int fd, int byte, int param)
 {
     t_byterange.num = param;
@@ -66,7 +65,7 @@ void write_to_file(t_header *header)
     int fd;
 
     get_prog_name(header);
-    fd = open( (char *)header->file_name, O_CREAT | O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
+    fd = open(header->file_name, O_CREAT | O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
     if(fd == -1)
         error_exit("Error creating a file\n");
     print_to_file(fd,4, COREWAR_EXEC_MAGIC);
@@ -86,4 +85,5 @@ void write_to_file(t_header *header)
     }
     add_zero(COMMENT_LENGTH - header->comment_len + 4, fd);
     write_command_to_file(header, fd);
+    ft_free(&header);
 }
