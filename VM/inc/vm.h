@@ -107,6 +107,8 @@ typedef struct			s_vizu
 	t_map 				*map;
 	int 				speed;
 	char 				key;
+	int         		brakedown[4];
+	int         		last_brakedown[4];
 }						t_vizu;
 
 typedef struct			s_cor

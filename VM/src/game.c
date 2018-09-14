@@ -5,7 +5,7 @@ void game(t_cor *cor)
 	t_process *tmp;
 
 	cor->cycles = 1;
-	cor->start_from = 8920;
+	cor->start_from = 0;
 	// cor->start_from = 0;
 	while(69)
 	{
