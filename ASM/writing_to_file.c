@@ -77,7 +77,10 @@ void	write_to_file(t_header *header)
 	get_prog_name(header);
 	fd = open(header->file_name, O_CREAT | O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
 	if (fd == -1)
+	{
+		ft_free(&header);
 		error_exit("Error creating a .cor file\n");
+	}
 	print_to_file(fd, 4, COREWAR_EXEC_MAGIC);
 	i = 0;
 	while (header->bot_name[i])

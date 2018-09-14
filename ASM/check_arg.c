@@ -59,20 +59,20 @@ void	check_all_param(t_header *header)
 
 	tmp = header->cmd_list;
 	if (ft_strlen(header->file_name) > 128)
-		error_cases(7, &header);
+		error_cases(7, &header, header->name_line);
 	if (header->comment_len > 2048)
-		error_cases(8, &header);
+		error_cases(8, &header,header->cmt_line);
 	while (tmp)
 	{
 		if (tmp->opcode > 0)
 		{
 			if (!check_arg_for_cmd(tmp->command_name, tmp->arg_type))
-				error_cases(9, &header);
+				error_cases(9, &header, tmp->num);
 			i = -1;
 			while (++i < 3)
 				if (tmp->arg_pointer[i] != NULL)
 					if (!is_correct_pointer(header->cmd_list, tmp->arg_pointer[i]))
-						error_cases(10, &header);
+						error_cases(10, &header,tmp->num);
 		}
 		tmp = tmp->next;
 	}

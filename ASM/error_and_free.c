@@ -12,33 +12,35 @@
 
 #include "asm.h"
 
-t_def_error	error_def[13] =
+t_def_error	error_def[15] =
 {
-	{1, "not correct quotes"},
-	{2, "syntax error at token .name"},
-	{3, "syntax error at token .comment"},
+	{1, "Not correct quotes."},
+	{2, "Syntax error."},
+	{3, "Error command."},
 	{4, "invalid command param"},
-	{5, "5"},
-	{6, "to many arg"},
-	{7, "not correct name len"},
-	{8, "not correct comment len"},
-	{9, "not correct arg for cmd"},
-	{10, "not correct label"},
-	{11, "no name"},
-	{12, "no comment"},
-	{13, "label exist"}
+	{5, "Label name should consist only LABEL_CHARS"},
+	{6, "Not correct argument for command."},
+	{7, "Champion name should not be longer than PROG_NAME_LENGTH."},
+	{8, "Comment should not be longer than COMMENT_LENGTH."},
+	{9, "Not correct arguments type for instruction."},
+	{10, "Label for pointer does not exist."},
+	{11, "No Champion name."},
+	{12, "No comment."},
+	{13, "Label with this name already exist."},
+	{14, "Field .name already exist."},
+	{15, "Field .comment already exist."}
 };
 
-void	error_cases(int k, t_header **header, t_command *node)
+void	error_cases(int k, t_header **header, int line)
 {
 	int i;
 
 	i = 0;
-	while (i < 13)
+	while (i < 15)
 	{
 		if (error_def[i].num == k)
 		{
-			ft_printf("%s on line %d\n", error_def[i].str, node->line);
+			ft_printf("%s On line %d.\n", error_def[i].str, line);
 			ft_free(header);
 			system("leaks my_asm > test.txt");
 			exit(0);

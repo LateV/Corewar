@@ -40,25 +40,6 @@ ssize_t	ft_atol(const char *str)
 	return (nb * n);
 }
 
-void	check_coma(t_command **node, t_header **header)
-{
-	int		i;
-	int		j;
-	char	*s;
-
-	i = 0;
-	j = 0;
-	s = (*node)->line;
-	while (s[i])
-	{
-		if (s[i] == ',')
-			j++;
-		i++;
-	}
-	if (j > 2)
-		error_cases(6, header);
-}
-
 void	skip_comments(t_command *node)
 {
 	char	*str;

@@ -78,6 +78,8 @@ typedef struct		s_header
 {
 	char			*bot_name;
 	int				name__len;
+	int 			name_line;
+	int 			cmt_line;
 	unsigned int	prog_size;
 	char			*comment;
 	int				comment_len;
@@ -87,7 +89,7 @@ typedef struct		s_header
 }					t_header;
 
 t_def_cmd	cmd_def[17];
-t_def_error	error_def[13];
+t_def_error	error_def[15];
 void		read_file(const char *str, t_header **header);
 void		ft_clear(char **arr);
 void		ft_free(t_header **header);
@@ -102,13 +104,13 @@ ssize_t		ft_atol(const char *str);
 void		count_opcode(t_command *node);
 void		count_pointer(t_header *node);
 void		write_to_file(t_header *header);
-void		error_cases(int k, t_header **header, t_command *node);
+void		error_cases(int k, t_header **header, int line);
 void		check_all_param(t_header *header);
 int			check_quotes(char *str);
 void		validate_params(t_header **header);
 int			char_pos(char *str, char c);
 int			check_quotes(char *str);
-void		validate_name_and_cmt(t_header **header, char *type);
+void		validate_name_and_cmt(t_header **header, char *type, int num);
 int			ft_isspace(char c);
 int			char_pos(char *str, char c);
 int			is_label_char(char *str);

@@ -78,7 +78,10 @@ static	void	count_backward(t_command *copy, t_command *tmp, int i)
 			tmp->num_arg[i] += copy->size;
 		copy = copy->next;
 	}
-	tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
+    if (tmp->label_size == 2)
+        tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
+    else
+        tmp->num_arg[i] = 0xffffffff - tmp->num_arg[i] + 1;
 }
 
 void	count_pointer(t_header *node)

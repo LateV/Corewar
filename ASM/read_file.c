@@ -19,14 +19,16 @@ void	add_to_list(int num, char *line, t_header **header)
 	if (ft_strstr(line, NAME_CMD_STRING))
 	{
 		if ((*header)->bot_name != NULL)
-			error_exit("double name\n");
+			error_cases(14,header,num);
 		(*header)->bot_name = ft_strtrim(line);
+		(*header)->name_line = num;
 	}
 	else if (ft_strstr(line, COMMENT_CMD_STRING))
 	{
 		if ((*header)->comment != NULL)
-			error_exit("double comment\n");
+			error_cases(15,header,num);
 		(*header)->comment = ft_strtrim(line);
+		(*header)->cmt_line = num;
 	}
 	else
 	{
@@ -46,9 +48,7 @@ void	push_back(t_header **header, t_command *new_node)
 		return ;
 	}
 	while (tmp->next != NULL)
-	{
 		tmp = tmp->next;
-	}
 	tmp->next = new_node;
 }
 
@@ -77,9 +77,9 @@ void	read_file(const char *str, t_header **header)
 	int		fd;
 	char	*line;
 	int		num;
+
 	line = NULL;
 	num = 0;
-	(*header)->file_name = ft_strdup(str);
 	if ((fd = open(str, O_RDONLY)) < 0)
 		error_exit(str);
 	while (get_next_line(fd, &line) > 0)
@@ -92,8 +92,23 @@ void	read_file(const char *str, t_header **header)
 		free(line);
 	}
 	if (line == NULL)
-		error_exit("empty file\n");
+	    error_exit("empty file\n");
+    (*header)->file_name = ft_strdup(str);
 	validate_params(header);
 	count_pointer(*header);
+	t_command *tmp;
+
+	tmp = (*header)->cmd_list;
+	int k;
+	while(tmp)
+	{
+		k = -1;
+		ft_printf("Label %s %s\n",tmp->label, tmp->command_name);
+		while(++k < 3)
+		{
+			ft_printf("pointer %s num%d\n",tmp->arg_pointer[k], tmp->num_arg[k]);
+		}
+		tmp = tmp->next;
+	}
 	write_to_file(*header);
 }

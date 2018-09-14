@@ -21,11 +21,12 @@ void	validate_label(t_header **header)
 	{
 		skip_comments(tmp);
 		if (check_label_chars(tmp) == -1)
-			error_cases(5, header);
+			error_cases(5, header, tmp->num);
 		else if (check_label_chars(tmp) == 1)
 		{
 			find_curr_label(header, tmp);
-			find_command(&tmp);
+			if (find_command(&tmp) == -1)
+			    error_cases(3,header,tmp->num);
 		}
 		if (tmp->label == NULL && (*header)->curr_label)
 			tmp->label = ft_strdup((*header)->curr_label);
@@ -64,8 +65,8 @@ int	check_label_chars(t_command *node)
 
 void	validate_params(t_header **header)
 {
-	validate_name_and_cmt(header, NAME_CMD_STRING);
-	validate_name_and_cmt(header, COMMENT_CMD_STRING);
+	validate_name_and_cmt(header, NAME_CMD_STRING, (*header)->name_line);
+	validate_name_and_cmt(header, COMMENT_CMD_STRING, (*header)->cmt_line);
 	fill_name_and_cmt(header);
 	validate_label(header);
 	check_all_param(*header);
@@ -79,7 +80,7 @@ void	same_label(t_header **header, char *str)
 	while (tmp)
 	{
 		if (ft_strequ(tmp->label, str))
-			error_cases(13, header);
+			error_cases(13, header, tmp->num);
 		tmp = tmp->next;
 	}
 }

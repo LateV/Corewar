@@ -28,7 +28,7 @@ static void	check_coma(t_command **node, t_header **header)
 		i++;
 	}
 	if (j > 2)
-		error_cases(6, header);
+        error_cases(6, header, (*node)->num);
 }
 
 static int	check_t_int(char *str, int k, t_command *node, int type)
@@ -126,7 +126,7 @@ void	split_line_for_arg(t_command **node, t_header **header)
 		{
 			ft_clear(arr);
 			free(str);
-			error_cases(1, header);
+			error_cases(6, header,(*node)->num);
 		}
 		i++;
 	}

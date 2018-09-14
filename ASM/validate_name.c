@@ -12,16 +12,16 @@
 
 #include "asm.h"
 
-void		validate_name_and_cmt(t_header **header, char *type)
+void		validate_name_and_cmt(t_header **header, char *type, int num)
 {
 	char	*str;
 	int		len;
 
 	len = ft_strlen(type);
 	if ((*header)->bot_name == NULL)
-		error_cases(11, header);
+		error_cases(11, header, 0);
 	if ((*header)->comment == NULL)
-		error_cases(12, header);
+		error_cases(12, header, 0);
 	if (len == 5)
 		str = (*header)->bot_name;
 	else
@@ -29,16 +29,16 @@ void		validate_name_and_cmt(t_header **header, char *type)
 	if (ft_strnstr(str, type, len))
 	{
 		if (check_quotes(str) == 1)
-			error_cases(1, header);
+			error_cases(1, header, num);
 		while (str[len] && str[len] != '"')
 		{
 			if (str[len] && str[len] != ' ' && str[len] != '\t')
-				error_cases(2, header);
+				error_cases(2, header, num);
 			len++;
 		}
 	}
 	else
-		error_cases(3, header);
+		error_cases(3, header, num);
 }
 
 void	fill_name_and_cmt(t_header **header)
@@ -112,7 +112,7 @@ int			find_command(t_command **node)
 
 	len = (int)ft_strlen((*node)->line);
 	pos = special_char_pos((*node)->line);
-	if (find_cmd(node) == -1)
+	if (len > 0 && find_cmd(node) == -1)
 		return (-1);
 	else
 	{

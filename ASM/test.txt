@@ -1,13 +1,13 @@
-Process:         my_asm [84772]
+Process:         my_asm [6332]
 Path:            /Users/oskulska/Desktop/Corewar/ASM/my_asm
-Load Address:    0x10876d000
+Load Address:    0x105e34000
 Identifier:      my_asm
 Version:         ???
 Code Type:       X86-64
-Parent Process:  zsh [48911]
+Parent Process:  zsh [25099]
 
-Date/Time:       2018-09-13 18:09:54.012 +0300
-Launch Time:     2018-09-13 18:09:53.790 +0300
+Date/Time:       2018-09-14 17:20:08.436 +0300
+Launch Time:     2018-09-14 17:20:08.218 +0300
 OS Version:      Mac OS X 10.13.3 (17D47)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,5 +15,5 @@ Analysis Tool Version:  Xcode 9.2 (9C40b)
 ----
 
 leaks Report Version:  2.0
-Process 84772: 156 nodes malloced for 13 KB
-Process 84772: 0 leaks for 0 total leaked bytes.
+Process 6332: 156 nodes malloced for 13 KB
+Process 6332: 0 leaks for 0 total leaked bytes.
