@@ -41,7 +41,7 @@ void comm_lldi(t_cor *cor, t_process *process)
 			first = process->arg1;
 			if (name == 3)
 				first = get_int(cor, (process->arg1 % IDX_MOD) + process->pc);
-			load_to_reg(cor, process, ((first + process->arg2) + process->pc), process->arg3 - 1);
+			// load_to_reg(cor, process, ((first + process->arg2) + process->pc), process->arg3 - 1);
 			if(cor->visu == 0)
 			{
 				ft_putstr("->ldi: load from ");

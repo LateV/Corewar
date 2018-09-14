@@ -5,7 +5,7 @@ static int arg_read(t_cor *cor, t_process *process)
 	int s;
 
 	s = 2;
-	if(process->arg1 != 1 || process->arg3 != 0 || process->arg2 == 2)
+	if(process->arg1 != 1 || process->arg2 == 2)
 		process->codage = 0;
 	process->arg_type[0] = process->arg1;
 	process->arg_type[1] = process->arg2;
@@ -34,18 +34,24 @@ void comm_st(t_cor *cor, t_process *process)
 		{
 			if(process->arg_type[1] == 3)
 			{
-				if(cor->visu == 0)
-					ft_printf("P%5d | st r%d %d\n", process->count_num, process->arg1, process->ind_loc);
-				load_from_reg(cor, process, process->pc + (process->arg2 % IDX_MOD), process->arg1 - 1);
+				if(process->arg1 > 0 && process->arg1 < 17)
+				{
+					if(cor->visu == 0)
+						ft_printf("P%5d | st r%d %d\n", process->count_num, process->arg1, process->ind_loc);
+					load_from_reg(cor, process, process->pc + process->ind_loc, process->arg1 - 1);
+				}
 			}
 			else
 			{
-				if(cor->visu == 0)
+				if(process->arg1 > 0 && process->arg2 > 0 && process->arg1 < 17 && process->arg2 < 16)
 				{
-					ft_printf("P%5d | st r%d %d\n",
-						process->count_num, process->arg1, process->arg2);
+					if(cor->visu == 0)
+					{
+						ft_printf("P%5d | st r%d %d\n",
+							process->count_num, process->arg1, process->arg2);
+					}
+					process->registr[process->arg2 - 1] = process->registr[process->arg1 - 1];
 				}
-				process->registr[process->arg2 - 1] = process->registr[process->arg1 - 1];
 			}
 		}
 		set_proc_pos(cor, process, sk);

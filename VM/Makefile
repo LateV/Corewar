@@ -3,13 +3,11 @@ NAME		=	 ../corewar
 SRC	=	main.c 					\
 		to_map.c				\
 		init_comm_f.c			\
-		load_data_to_reg.c		\
 		codage_identify.c		\
 		load_from_reg.c			\
 		comm_live.c				\
 		comm_ld.c				\
-		comm_or.c				\
-		comm_xor.c				\
+		comm_and_or_xor.c 		\
 		comm_zjmp.c				\
 		comm_ldi.c				\
 		comm_sti.c				\
@@ -21,13 +19,15 @@ SRC	=	main.c 					\
 		comm_st.c				\
 		comm_add.c				\
 		comm_sub.c				\
-		comm_and.c				\
 		comm_next.c				\
 		get_data.c 				\
 		set_proc_pos.c 			\
 		arg_handler.c			\
 		v_main.c 				\
 		v_map_handler.c 		\
+		live_cheker.c 			\
+		game_init.c 			\
+		game.c 					\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
