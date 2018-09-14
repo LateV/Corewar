@@ -52,10 +52,17 @@ void			get_prog_name(t_header *header)
 {
 	char		*str;
 	char		*s;
+	int         len;
 
-	str = ft_strrchr(header->file_name, '/');
-	char_pos(str, '.');
-	s = ft_strsub(str, 1, char_pos(str, '.') - 1);
+    str = ft_strrchr(header->file_name, '/');
+	len = ft_strlen(str);
+	while (len > 0)
+    {
+	    if (str[len] == '.')
+	        break;
+	    len--;
+    }
+	s = ft_strsub(str, 1, len - 1);
 	header->file_name = ft_strjoin(s, ".cor");
 	free(s);
 }

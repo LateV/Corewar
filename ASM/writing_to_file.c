@@ -12,12 +12,13 @@
 
 #include "asm.h"
 
+
 static	void	print_to_file(int fd, int byte, int param)
 {
+    t_byterange.num = param;
 	int i;
 
 	i = 3;
-	t_byterange = param;
 	if (byte == 1)
 		ft_putchar_fd(t_byterange.num, fd);
 	if (byte == 2)
@@ -76,7 +77,7 @@ void	write_to_file(t_header *header)
 	get_prog_name(header);
 	fd = open(header->file_name, O_CREAT | O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
 	if (fd == -1)
-		error_exit("Error creating a file\n");
+		error_exit("Error creating a .cor file\n");
 	print_to_file(fd, 4, COREWAR_EXEC_MAGIC);
 	i = 0;
 	while (header->bot_name[i])

@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-void count_opcode(t_command *node)
+void	count_opcode(t_command *node)
 {
 	int a;
 	int b;
@@ -20,17 +20,17 @@ void count_opcode(t_command *node)
 	int i;
 
 	i = -1;
-	while(++i < 3)
+	while (++i < 3)
 	{
-		if (node->arg_type[i]  == T_REG)
+		if (node->arg_type[i] == T_REG)
 			node->byte_sum[i] = 1;
-		if (node->arg_type[i]  == T_DIR)
+		if (node->arg_type[i] == T_DIR)
 			node->byte_sum[i] = node->label_size;
-		if (node->arg_type[i]  == T_IND)
+		if (node->arg_type[i] == T_IND)
 			node->byte_sum[i] = 2;
 		node->size += node->byte_sum[i];
 	}
-	if(node->is_codage_octal == 1)
+	if (node->is_codage_octal == 1)
 	{
 		a = node->arg_type[0] << 6;
 		b = node->arg_type[1] << 4;
@@ -42,42 +42,38 @@ void count_opcode(t_command *node)
 		node->codage_octal = -1;
 }
 
-static t_command *find_curr_list(t_command *copy, char *str)
+static	t_command	*find_curr_list(t_command *copy, char *str)
 {
-	while(copy)
+	while (copy)
 	{
-		if (ft_strequ(copy->label,str))
-			break;
+		if (ft_strequ(copy->label, str))
+			break ;
 		copy = copy->next;
 	}
-	return copy;
+	return (copy);
 }
 
-
-
-static void count_forward(t_command *tmp, int i)
+static	void	count_forward(t_command *tmp, int i)
 {
 	t_command *copy;
 
 	copy = tmp;
-	while(copy)
+	while (copy)
 	{
-		if (ft_strequ(copy->label,tmp->arg_pointer[i]))
-			break;
+		if (ft_strequ(copy->label, tmp->arg_pointer[i]))
+			break ;
 		else
-			tmp->num_arg[i] +=  copy->size;
+			tmp->num_arg[i] += copy->size;
 		copy = copy->next;
 	}
 }
 
-
-static void count_backward(t_command *copy,t_command *tmp, int i)
+static	void	count_backward(t_command *copy, t_command *tmp, int i)
 {
-
-	while(copy)
+	while (copy)
 	{
 		if (copy->num == tmp->num)
-			break;
+			break ;
 		else
 			tmp->num_arg[i] += copy->size;
 		copy = copy->next;
@@ -85,31 +81,26 @@ static void count_backward(t_command *copy,t_command *tmp, int i)
 	tmp->num_arg[i] = 0xffff - tmp->num_arg[i] + 1;
 }
 
-
-void count_pointer(t_header *node)
+void	count_pointer(t_header *node)
 {
-	int i;
-	t_command *tmp;
-	t_command *copy;
+	int			i;
+	t_command	*tmp;
+	t_command	*copy;
 
 	tmp = node->cmd_list;
-	while(tmp)
+	while (tmp)
 	{
 		i = -1;
-		while(++i < 3)
-			if(tmp->arg_pointer[i])
+		while (++i < 3)
+			if (tmp->arg_pointer[i])
 			{
 				copy = find_curr_list(node->cmd_list, tmp->arg_pointer[i]);
-				if(copy && tmp->num < copy->num)
-					count_forward(tmp,i);
+				if (copy && tmp->num < copy->num)
+					count_forward(tmp, i);
 				else
-					count_backward(copy,tmp,i);
+					count_backward(copy, tmp, i);
 			}
 		node->prog_size += tmp->size;
 		tmp = tmp->next;
 	}
 }
-
-
-
-

@@ -77,7 +77,6 @@ void	read_file(const char *str, t_header **header)
 	int		fd;
 	char	*line;
 	int		num;
-
 	line = NULL;
 	num = 0;
 	(*header)->file_name = ft_strdup(str);

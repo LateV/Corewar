@@ -1,13 +1,8 @@
-.name  "ghghgh"
-.comment "j"
+l2:	sti	r1,%:live,%0
+	and	r1,%0,r1
+lifdf:
+live:	live%1
+	zjmp	%:live
 
-sti r1,:live ,%1 ###gfgfgfg
-    sti:sti r1,%:live,%1
-#gfgfgfg
-live:
-sti r1,:live ,%1 ###gfgfgfg
-	and	r1,r0,r1
-gfg:live%1
-	zjmp%:live
-	and	r1,r0,r1
-fggfg:
+.name "zork"
+.comment "just a basic living prog"

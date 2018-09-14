@@ -29,7 +29,7 @@ t_def_error	error_def[13] =
 	{13, "label exist"}
 };
 
-void	error_cases(int k, t_header **header)
+void	error_cases(int k, t_header **header, t_command *node)
 {
 	int i;
 
@@ -38,7 +38,7 @@ void	error_cases(int k, t_header **header)
 	{
 		if (error_def[i].num == k)
 		{
-			ft_printf("%s\n", error_def[i].str);
+			ft_printf("%s on line %d\n", error_def[i].str, node->line);
 			ft_free(header);
 			system("leaks my_asm > test.txt");
 			exit(0);
