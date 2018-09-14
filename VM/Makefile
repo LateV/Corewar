@@ -25,6 +25,9 @@ SRC	=	main.c 					\
 		arg_handler.c			\
 		v_main.c 				\
 		v_map_handler.c 		\
+		live_cheker.c 			\
+		game_init.c 			\
+		game.c 					\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

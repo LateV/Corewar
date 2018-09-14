@@ -154,9 +154,7 @@ void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
 void 					codage_identify(t_process *process, unsigned char args);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
-
 void 					comm_and_or_xor(t_cor *cor, t_process *process);
-
 void 					comm_zjmp(t_cor *cor, t_process *process);
 void 					comm_ldi(t_cor *cor, t_process *process);
 void 					comm_sti(t_cor *cor, t_process *process);
@@ -170,6 +168,10 @@ void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
 void 					add_proc(t_cor *cor, t_process *process, int loc);
+void 					live_cheker(t_cor *cor);
+void 					game_init(t_cor *cor);
+void 					add_players(t_cor *cor);
+void 					game(t_cor *cor);
 // vizu
 void					init_window(t_cor *cor);
 void					draw_palyer_info(t_cor *cor, t_process *proc, int k);
