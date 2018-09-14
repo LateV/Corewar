@@ -50,6 +50,8 @@ void live_cheker(t_cor *cor)
 				if(prev == NULL) // Для случая , когда это первый елемент списка
 				{
 					tmp = cor->process->next;
+					if(cor->visu == 1)
+						cor->vizu->map[cor->process->pc].type = 0;
 					free(cor->process);
 					cor->process = tmp;
 					if(!tmp) // Если это был единственный процесс 
@@ -64,6 +66,8 @@ void live_cheker(t_cor *cor)
 				else
 				{
 					prev->next = tmp->next;
+					if(cor->visu == 1)
+						cor->vizu->map[tmp->pc].type = 0;
 					free(tmp);
 					tmp = prev->next;
 					continue;
