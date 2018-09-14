@@ -1,5 +1,10 @@
 #include "vm.h"
 
+// int val_int(t_cor *cor, char *str, int *err)
+// {
+
+// }
+
 void	ft_error(t_cor *cor, char *error)
 {
 	cor->p_num = cor->p_num;
@@ -22,18 +27,64 @@ int flag_n(t_cor *cor, char **argv, int i)
 	while(j < 4)
 	{
 		if(cor->player[j].num == num)
-			return(i);
+			return(i + 1);
 		j++;
 	}
 	cor->flag_p_num = num;
 	return(i + 1);
 }
 
+// int flag_force(t_cor *cor, int i)
+// {
+// 	int err;
+// 	int num;
+// 	int j;
+
+// 	j = 0;
+// 	if(argv[i + 1] == NULL)
+// 		return(-1);
+// 	num = ft_atoi(argv[i + 1]);
+// 	if(num > 4 || num < 1)
+// 		return(i);
+// 	while(j < 4)
+// 	{
+// 		if(cor->player[j].num == num)
+// 			return(i);
+// 		j++;
+// 	}
+// 	cor->flag_p_num = num;
+// 	return(i + 1);
+// }
+
 int flag_v(t_cor *cor, int i)
 {
 	cor->visu = 1;
 	return(i);
 }
+
+// int flag_a(t_cor *cor, int i)
+// {
+// 	cor->
+// 	return(i);
+// }
+
+// int flag_log(t_cor *cor, int i)
+// {
+// 	return(i);
+// }
+
+// int flag_stealth(t_cor *cor, int i)
+// {
+// 	return(i);
+// }
+// int flag_dump(t_cor *cor, int i)
+// {
+// 	return(i);
+// }
+// int flag_s(t_cor *cor, int i)
+// {
+// 	return(i);
+// }
 
 int		manage_flags(t_cor *cor, char **argv, int i)
 {
@@ -42,6 +93,18 @@ int		manage_flags(t_cor *cor, char **argv, int i)
 		return(flag_n(cor, argv, i));
 	if(ft_strcmp(argv[i], "-v") == 0)
 		return(flag_v(cor, i));
+	// if(ft_strcmp(argv[i], "-a") == 0)
+	// 	return(flag_a(cor, i));
+	// if(ft_strcmp(argv[i], "-log") == 0)
+	// 	return(flag_log(cor, i));
+	// if(ft_strcmp(argv[i], "--stealth") == 0)
+	// 	return(flag_stealth(cor, i));
+	// if(ft_strcmp(argv[i], "-dump") == 0)
+	// 	return(flag_dump(cor, i));
+	// if(ft_strcmp(argv[i], "-s") == 0)
+	// 	return(flag_s(cor, i));
+	// if(ft_strcmp(argv[i], "-force") == 0)
+	// 	return(flag_force(cor, i));
 	return(-1);
 }
 
@@ -288,6 +351,7 @@ int main(int argc, char **argv)
 	cor.visu = 0;
 	cor.pause = 1;
 	cor.proc_num = 1;
+	cor.stealth = 0;
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);
