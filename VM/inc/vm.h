@@ -119,6 +119,10 @@ typedef struct			s_cor
 	int 				visu;
 	int 				dump;
 	int 				pause;
+	int 				stealth;
+	int 				a;
+	int 				s;
+	int 				log;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
