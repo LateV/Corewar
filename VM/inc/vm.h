@@ -125,6 +125,7 @@ typedef struct			s_cor
 	int 				a;
 	int 				s;
 	int 				log;
+	int 				start_from;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
@@ -139,7 +140,6 @@ typedef struct			s_cor
 	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
-	int 				start_from;
 }						t_cor;
 
 
