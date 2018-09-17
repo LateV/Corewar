@@ -127,7 +127,7 @@ void v_speed_test(t_cor *cor, char t)
 
 void refresh_info(t_cor *cor)
 {
-	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %d", cor->curr_cycle_t_d);
+	mvwprintw(cor->vizu->win2, 21 + ((cor->vizu->end_of_prs-1) * 4), 2, "CYCLE_TO_DIE : %-6d", cor->curr_cycle_t_d);
 }
 
 void refresh_player(t_cor *cor)
@@ -315,7 +315,10 @@ void gg_wp(t_cor *cor)
 	mvwprintw(cor->vizu->win1, 22, 86, "%s","Press Space to exit");
 	wrefresh(cor->vizu->win1);
 	while (1)
-		;
+	{
+		if (getchar() == 32)
+			return;
+	}
 
 }
 
