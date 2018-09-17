@@ -12,6 +12,20 @@
 
 #include "vm.h"
 
+void 			refresher(t_cor *cor)
+{
+	int i;
+
+	i = -1;
+	while (++i < 4096)
+	{
+		if (cor->vizu->map[i].life_time > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
+			cor->vizu->map[i].life_time--;
+		if (cor->vizu->map[i].life_scream > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
+			cor->vizu->map[i].life_scream--;
+	}
+}
+
 void refresh_map(t_cor *cor)
 {
 	int i;
@@ -22,11 +36,6 @@ void refresh_map(t_cor *cor)
 
 	while (++i < 4096)
 	{
-		if (cor->vizu->map[i].life_time > 0 && cor->pause == 0)
-			cor->vizu->map[i].life_time--;
-		if (cor->vizu->map[i].life_scream > 0 && cor->pause == 0)
-			cor->vizu->map[i].life_scream--;
-
 		if (cor->vizu->map[i].player == -1 && cor->vizu->map[i].type == 1)
 		{
 			wattron(cor->vizu->win1, COLOR_PAIR(23));

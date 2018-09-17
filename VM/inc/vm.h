@@ -191,4 +191,5 @@ void					initital_draw(t_cor *cor);
 void					v_speed_test(t_cor *cor, char t);
 void					breakdown(t_cor *cor);
 void					gg_wp(t_cor *cor);
+void 					refresher(t_cor *cor);
 #endif
