@@ -65,6 +65,8 @@ void game(t_cor *cor)
 		{
 			cor->vizu->key = getch();
 			v_speed_test(cor, cor->vizu->key);
+			breakdown(cor);
+			refresher(cor);
 
 			if (cor->vizu->key == 32 && cor->pause == 1)
 				cor->pause = 0;
