@@ -80,6 +80,12 @@ SRC	=	ft_bzero.c      			\
 		ft_lstadd_back.c 			\
 		ft_strtoupper.c 			\
 		ft_reverse_bits.c 			\
+		ft_loweret.c 				\
+		ft_strndup.c 				\
+		ft_itoa_ubase.c 			\
+		ft_uppercase.c 				\
+		ft_wstrlen.c 				\
+		ft_len_num.c 				\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

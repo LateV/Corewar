@@ -4,13 +4,18 @@ void load_from_reg(t_cor *cor, t_process *process, int loc, int r_num)
 {
 	int j;
 	int i;
+	short mb;
 	char *tmp;
 
 	i = 0;
 	j = 3;
 	if(r_num < 0 || r_num > 15)
 		return ;
-	tmp = (char*)&process->registr[r_num];
+	mb = (short)process->registr[r_num];
+	if(process->command == 12)
+		tmp = (char*)&mb;
+	else
+		tmp = (char*)&process->registr[r_num];
 	while(i < 4)
 	{
 		while((loc + i) >= MEM_SIZE)

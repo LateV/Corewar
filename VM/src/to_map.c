@@ -1,25 +1,5 @@
 #include "vm.h"
 
-void print_map(t_cor *cor)
-{
-	int row;
-	int i;
-
-	row = 0;
-	i = 0;
-	while(i < MEM_SIZE)
-	{
-		while(row < 64)
-		{
-			ft_printf("%02x ", cor->arena[i]);
-			row++;
-			i++;
-		}
-		ft_printf("\n");
-		row = 0;
-	}
-}
-
 void to_map(t_cor *cor)
 {
 	init_window(cor);

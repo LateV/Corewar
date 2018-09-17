@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_manage_chars.c                                  :+:      :+:    :+:   */
+/*   ft_manage_nonvalid.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpopovyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 17:59:13 by mpopovyc          #+#    #+#             */
-/*   Updated: 2018/03/27 17:24:33 by mpopovyc         ###   ########.fr       */
+/*   Created: 2018/03/25 14:05:38 by mpopovyc          #+#    #+#             */
+/*   Updated: 2018/03/27 20:04:57 by mpopovyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_manage_nonvalid(t_format *p, char str)
 {
-	int		ret;
-	va_list	argptr;
-	char	*str;
-	char	*p;
+	int	ret;
 
 	ret = 0;
-	va_start(argptr, format);
-	str = ft_strdup(format);
-	p = str;
-	while (*str)
-	{
-		if (*str == '%')
-			str += ft_notion(&argptr, &str, &ret);
-		else
+	ft_parse_width(p, 1);
+	if (p->flag_minus == 0 && p->flag_zero == 0 && p->width > 0)
+		while (p->width-- > 0)
 		{
-			write(1, str, 1);
-			ret++;
+			ft_putchar(' ');
+			ret += 1;
 		}
-		(*str) ? str += 1 : 0;
+	if (p->flag_minus > 0 || p->flag_zero > 0)
+	{
+		if (p->flag_minus > 0)
+			ft_putwchar(str);
+		ft_print_space_zero(p, &ret);
 	}
-	free(p);
-	va_end(argptr);
-	return (ret);
+	if (p->flag_minus < 1)
+		ft_putwchar(str);
+	return (ret + 1);
 }

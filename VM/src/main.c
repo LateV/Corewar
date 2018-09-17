@@ -1,9 +1,5 @@
 #include "vm.h"
 
-// int val_int(t_cor *cor, char *str, int *err)
-// {
-
-// }
 
 void	ft_error(t_cor *cor, char *error)
 {
@@ -13,6 +9,66 @@ void	ft_error(t_cor *cor, char *error)
 	exit(0);
 }
 
+inline static void	ft_while_and_if(t_cor *cor, char *flag, char *value)
+{
+	int					i;
+
+	i = 0;
+	while (value[i] != '\0')
+	{
+		if (!ft_isdigit(value[i]))
+		{
+			ft_printf("Invalid format in flag ");
+			ft_error(cor, flag);
+		}
+		i++;
+	}
+	if (i > 11)
+	{
+		ft_printf("Invalid format (over int) in flag ");
+		ft_error(cor, flag);
+	}
+}
+
+int val_int(t_cor *cor, char *flag, char *value)
+{
+	unsigned long int	b;
+	int					i;
+
+	b = 0;
+	i = 0;
+	ft_while_and_if(cor, flag, value);
+	if (value[i] == '-')
+	{
+		ft_printf("Value can not be negative in flag ");
+		ft_error(cor, flag);
+	}
+	if (value[i] == '+' || value[i] == '-')
+		i++;
+	while (value[i] != '\0')
+	{
+		b = (b * 10) + (value[i] - '0');
+		i++;
+	}
+	if (b > 2147483647)
+	{
+		ft_printf("Invalid format (over int value) in flag ");
+		ft_error(cor, flag);
+	}
+	return ((int)b);
+}
+
+int flag_force(t_cor *cor, char **argv, int i)
+{
+	int num;
+
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -force");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->start_from = num;
+	return(i + 1);
+}
+
 int flag_n(t_cor *cor, char **argv, int i)
 {
 	int num;
@@ -20,10 +76,10 @@ int flag_n(t_cor *cor, char **argv, int i)
 
 	j = 0;
 	if(argv[i + 1] == NULL)
-		return(-1);
-	num = ft_atoi(argv[i + 1]);
+		ft_error(cor, "Invalid format in flag -n");
+	num = val_int(cor, argv[i], argv[i + 1]);
 	if(num > 4 || num < 1)
-		return(i);
+		ft_error(cor, "Number of the player must be [1-4]");
 	while(j < 4)
 	{
 		if(cor->player[j].num == num)
@@ -34,77 +90,52 @@ int flag_n(t_cor *cor, char **argv, int i)
 	return(i + 1);
 }
 
-// int flag_force(t_cor *cor, int i)
-// {
-// 	int err;
-// 	int num;
-// 	int j;
-
-// 	j = 0;
-// 	if(argv[i + 1] == NULL)
-// 		return(-1);
-// 	num = ft_atoi(argv[i + 1]);
-// 	if(num > 4 || num < 1)
-// 		return(i);
-// 	while(j < 4)
-// 	{
-// 		if(cor->player[j].num == num)
-// 			return(i);
-// 		j++;
-// 	}
-// 	cor->flag_p_num = num;
-// 	return(i + 1);
-// }
-
-int flag_v(t_cor *cor, int i)
+int flag_dump(t_cor *cor, char **argv, int i)
 {
-	cor->visu = 1;
-	return(i);
+	int num;
+
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -dump");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->dump = num;
+	return(i + 1);
 }
 
-// int flag_a(t_cor *cor, int i)
-// {
-// 	cor->
-// 	return(i);
-// }
+int flag_mon(t_cor *cor, char **argv, int i)
+{
+	int num;
 
-// int flag_log(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -mon");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->mon = num;
+	return(i + 1);
+}
 
-// int flag_stealth(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
-// int flag_dump(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
-// int flag_s(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
 
 int		manage_flags(t_cor *cor, char **argv, int i)
 {
-
 	if(ft_strcmp(argv[i], "-n") == 0)
 		return(flag_n(cor, argv, i));
 	if(ft_strcmp(argv[i], "-v") == 0)
-		return(flag_v(cor, i));
+	{
+		cor->visu = 1;
+		return(i);
+	}
 	// if(ft_strcmp(argv[i], "-a") == 0)
-	// 	return(flag_a(cor, i));
+	// 	return(flag_a(cor, argv, i));
 	// if(ft_strcmp(argv[i], "-log") == 0)
-	// 	return(flag_log(cor, i));
+	// 	return(flag_log(cor, argv, i));
 	// if(ft_strcmp(argv[i], "--stealth") == 0)
-	// 	return(flag_stealth(cor, i));
-	// if(ft_strcmp(argv[i], "-dump") == 0)
-	// 	return(flag_dump(cor, i));
+	// 	return(flag_stealth(cor, argv, i));
+	if(ft_strcmp(argv[i], "-dump") == 0)
+		return(flag_dump(cor, argv, i));
+	if(ft_strcmp(argv[i], "-mon") == 0)
+		return(flag_mon(cor, argv, i));
 	// if(ft_strcmp(argv[i], "-s") == 0)
-	// 	return(flag_s(cor, i));
-	// if(ft_strcmp(argv[i], "-force") == 0)
-	// 	return(flag_force(cor, i));
+	// 	return(flag_s(cor, argv, i));
+	if(ft_strcmp(argv[i], "-force") == 0)
+		return(flag_force(cor, argv, i));
 	return(-1);
 }
 
@@ -346,12 +377,16 @@ int main(int argc, char **argv)
 		usadge();
 	i = 1;
 	cor.p_num = 0;
+	cor.start_from = 0;
 	cor.flag_p_num = -1;
 	cor.code_summ = 0;
 	cor.visu = 0;
 	cor.pause = 1;
 	cor.proc_num = 1;
 	cor.stealth = 0;
+	cor.cycles = 1;
+	cor.dump = 0;
+	cor.mon = 0;
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);

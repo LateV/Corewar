@@ -10,9 +10,9 @@ static int pair_arg(t_cor *cor, t_process *process, char *s1)
 		res = process->arg1 | process->arg2;
 	if(process->command == 7)
 		res = process->arg1 ^ process->arg2;
-	if(cor->visu == 0)
+	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
 	{
-		ft_printf("P%5d | %s %d %d r%d\n",
+		ft_printf("P% 5d | %s %d %d r%d\n",
 		process->count_num, s1, process->arg1, process->arg2, process->arg3);
 	}
 	return(res);

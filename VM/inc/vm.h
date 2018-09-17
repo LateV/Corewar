@@ -120,11 +120,13 @@ typedef struct			s_cor
 	int 				start;
 	int 				visu;
 	int 				dump;
+	int 				mon;
 	int 				pause;
 	int 				stealth;
 	int 				a;
 	int 				s;
 	int 				log;
+	int 				start_from;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
@@ -139,13 +141,13 @@ typedef struct			s_cor
 	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
-	int 				start_from;
 }						t_cor;
 
 
 char 					get_char(t_cor *cor, int loc);
 void 					usadge(void);
 void 					print_map(t_cor *cor);
+void 					print_map_mark(t_cor *cor, int pos);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
 int 					t_dir(t_cor *cor, t_process *process, int *arg, int loc);
