@@ -230,6 +230,83 @@ void refresh_vizu(t_cor *cor)
 		usleep(cor->vizu->speed);
 	else
 		usleep(1000);
+}
+
+void win_art_sword(t_cor *cor, int y)
+{
+	int x = 10;
+
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "-----------------------------------------");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                   ^                   |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                  / \\                  |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                 / ^ \\                 |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                / / \\ \\                |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|               / / ^ \\ \\               |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|              / / / \\ \\ \\              |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|             | |  \\ /  | |             |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|             | |  |V|  | |             |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|             / /  |||  \\ \\             |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|            | |   |||   | |            |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|            | |   |||   | |            |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|            / |   |||   | \\            |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|    ___    |  /   |||   \\  |    ___    |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|    \\  \\__ | |    |||    | | __/  /    |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|\\    \\  _ `' |    |||    | `' _  /    /|");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "| \\    \\ \\`_  |    |||    |  _'/ /    / |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|  \\    \\ \\ `.'    |||    `.' / /    /  |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|   \\    \\ \\       |||       / /    /   |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|    \\    \\ \\      |||      / /    /    |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|     \\    \\ \\     |||     / /    /     |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|      \\    \\ \\    |||    / /    /      |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|       \\    \\ \\   |||   / /    /       |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|        \\    \\ \\  |||  / /    /        |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|         \\    \\ \\ ||| / /    /         |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|          \\    \\ \\|||/ /    /          |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|           \\  (========)   /           |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|            \\     |\\|     /            |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|             \\    |\\|    /             |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|              \\   |\\|   /              |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|               \\  (I)  /               |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                \\  U  /                |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                 \\   /                 |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                  \\ /                  |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                   V                   |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                                       |");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "-----------------------------------------");
+}
+
+void win_art_winner(t_cor *cor)
+{
+	int x = 10;
+	int y = 70;
+
+
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "              (           )        )             (     ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "  (  (        )\\ )     ( /(     ( /(             )\\ )  ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "  )\\))(   '  (()/(     )\\())    )\\())    (      (()/(  ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", " ((_)()\\ )    /(_))   ((_)\\    ((_)\\     )\\      /(_)) ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", " _(())\\_)()  (_))      _((_)    _((_)   ((_)    (_))   ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", " \\ \\((_)/ /  |_ _|    | \\| |   | \\| |   | __|   | _ \\  ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "  \\ \\/\\/ /    | |     | .` |   | .` |   | _|    |   /  ");
+	mvwprintw(cor->vizu->win1, x++, y, "%s", "   \\_/\\_/    |___|    |_|\\_|   |_|\\_|   |___|   |_|_\\  ");
+}
+          
+
+
+void gg_wp(t_cor *cor)
+{
+	
+	// mvwprintw(cor->vizu->win1, 40, 20, "%.*s", cor->winner->prog_name);
+	// wrefresh(cor->vizu->win1);
+	werase(cor->vizu->win1);
+	win_art_sword(cor, 10);
+	win_art_sword(cor, 144);
+	win_art_winner(cor);
+	mvwprintw(cor->vizu->win1, 20, 86, "--> %s <--",cor->winner->prog_name);
+	mvwprintw(cor->vizu->win1, 22, 86, "%s","Press Space to exit");
+	wrefresh(cor->vizu->win1);
+	while (1)
+		;
 
 }
 
