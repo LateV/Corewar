@@ -90,54 +90,50 @@ int flag_n(t_cor *cor, char **argv, int i)
 	return(i + 1);
 }
 
-
-int flag_v(t_cor *cor, int i)
+int flag_dump(t_cor *cor, char **argv, int i)
 {
-	cor->visu = 1;
-	return(i);
+	int num;
+
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -dump");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->dump = num;
+	return(i + 1);
 }
 
-// int flag_a(t_cor *cor, int i)
-// {
-// 	cor->
-// 	return(i);
-// }
+int flag_mon(t_cor *cor, char **argv, int i)
+{
+	int num;
 
-// int flag_log(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -mon");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->mon = num;
+	return(i + 1);
+}
 
-// int flag_stealth(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
-// int flag_dump(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
-// int flag_s(t_cor *cor, int i)
-// {
-// 	return(i);
-// }
 
 int		manage_flags(t_cor *cor, char **argv, int i)
 {
-
 	if(ft_strcmp(argv[i], "-n") == 0)
 		return(flag_n(cor, argv, i));
 	if(ft_strcmp(argv[i], "-v") == 0)
-		return(flag_v(cor, i));
+	{
+		cor->visu = 1;
+		return(i);
+	}
 	// if(ft_strcmp(argv[i], "-a") == 0)
-	// 	return(flag_a(cor, i));
+	// 	return(flag_a(cor, argv, i));
 	// if(ft_strcmp(argv[i], "-log") == 0)
-	// 	return(flag_log(cor, i));
+	// 	return(flag_log(cor, argv, i));
 	// if(ft_strcmp(argv[i], "--stealth") == 0)
-	// 	return(flag_stealth(cor, i));
-	// if(ft_strcmp(argv[i], "-dump") == 0)
-	// 	return(flag_dump(cor, i));
+	// 	return(flag_stealth(cor, argv, i));
+	if(ft_strcmp(argv[i], "-dump") == 0)
+		return(flag_dump(cor, argv, i));
+	if(ft_strcmp(argv[i], "-mon") == 0)
+		return(flag_mon(cor, argv, i));
 	// if(ft_strcmp(argv[i], "-s") == 0)
-	// 	return(flag_s(cor, i));
+	// 	return(flag_s(cor, argv, i));
 	if(ft_strcmp(argv[i], "-force") == 0)
 		return(flag_force(cor, argv, i));
 	return(-1);
@@ -388,6 +384,9 @@ int main(int argc, char **argv)
 	cor.pause = 1;
 	cor.proc_num = 1;
 	cor.stealth = 0;
+	cor.cycles = 1;
+	cor.dump = 0;
+	cor.mon = 0;
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);

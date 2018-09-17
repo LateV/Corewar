@@ -35,7 +35,7 @@ static int arg_val_hendler(t_process *process)
 
 void sti_reg_dir_dir(t_cor *cor, t_process *process)
 {
-	if(cor->visu == 0)
+	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
 	{
 		ft_printf("P%5d | sti r%d %d %d\n       | -> store to %d + %d = %d (with pc and mod %d)\n",
 			process->count_num, process->arg1, process->arg2, process->arg3, process->arg2,

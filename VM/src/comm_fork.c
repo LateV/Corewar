@@ -44,7 +44,7 @@ void comm_fork(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		if(cor->visu == 0)
+		if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
 		{
 			ft_printf("P%5d | fork %d (%d)\n",
 				process->count_num, process->arg1, process->pc + (process->arg1 % IDX_MOD));
