@@ -52,6 +52,7 @@ int				ft_isalnum(int c);
 int				ft_isprint(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
+int				ft_bytelen(wchar_t c);
 int				ft_dig_count(int a);
 int				ft_arr_len(char **arr);
 int				ft_put_wchar(wchar_t c);
@@ -72,6 +73,7 @@ void			ft_putchar(char c);
 void			ft_memdel(void **ap);
 void			ft_strdel(char **as);
 void			ft_arr_free(char **arr);
+void			ft_uppercase(char **str);
 void			ft_putstr(char const *s);
 void			ft_strtoupper(char *str);
 void			ft_putendl(char const *s);
@@ -89,6 +91,8 @@ void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 
+char			ft_loweret(char a);
+
 char			*ft_itoa(int n);
 char			*ft_pitoa(intmax_t n);
 char			*ft_strnew(size_t size);
@@ -98,11 +102,13 @@ char			*ft_strtrim(char const *s);
 char			*ft_genchar_s(char c, int n);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
+char			*ft_strndup(const char *s1, int n);
 char			*ft_strcat(char *s1, const char *s2);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_strjoin_free_12(char *s1, char *s2);
 char			*ft_strjoin_free_10(char *s1, char *s2);
 char			*ft_strjoin_free_02(char *s1, char *s2);
+char			*ft_itoa_ubase(uintmax_t number, int base);
 char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strjoin(char const *s1, char const *s2);
@@ -123,6 +129,8 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 size_t			ft_strlen(const char *str);
+size_t			ft_len_num(intmax_t n);
+size_t			ft_wstrlen(wchar_t *str);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));

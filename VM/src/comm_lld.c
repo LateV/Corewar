@@ -37,7 +37,7 @@ void comm_lld(t_cor *cor, t_process *process)
 			process->registr[process->arg2 - 1] = process->arg1;
 			if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
 			{
-				ft_printf("P%5d | lld %d r%d\n",
+				ft_printf("P% 5d | lld %d r%d\n",
 					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
 			}
 			if (process->registr[process->arg2 - 1] == 0)

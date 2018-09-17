@@ -38,8 +38,7 @@ void comm_ld(t_cor *cor, t_process *process)
 
 			if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
 			{
-				ft_printf("pc = %d\n", process->pc);
-				ft_printf("P%5d | ld %d r%d\n",
+				ft_printf("P% 5d | ld %d r%d\n",
 					process->count_num, process->arg1, process->arg2);
 			}
 			if (process->registr[process->arg2 - 1] == 0)

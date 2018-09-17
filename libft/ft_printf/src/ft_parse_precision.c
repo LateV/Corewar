@@ -6,35 +6,18 @@
 /*   By: mpopovyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 17:59:13 by mpopovyc          #+#    #+#             */
-/*   Updated: 2018/03/27 17:24:33 by mpopovyc         ###   ########.fr       */
+/*   Updated: 2018/03/27 19:08:46 by mpopovyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_parse_precision(t_format *p, int len_arg, int *ret)
 {
-	int		ret;
-	va_list	argptr;
-	char	*str;
-	char	*p;
-
-	ret = 0;
-	va_start(argptr, format);
-	str = ft_strdup(format);
-	p = str;
-	while (*str)
-	{
-		if (*str == '%')
-			str += ft_notion(&argptr, &str, &ret);
-		else
+	if (p->precision > 0)
+		while (p->precision-- - len_arg > 0)
 		{
-			write(1, str, 1);
-			ret++;
+			ft_putchar('0');
+			*ret += 1;
 		}
-		(*str) ? str += 1 : 0;
-	}
-	free(p);
-	va_end(argptr);
-	return (ret);
 }
