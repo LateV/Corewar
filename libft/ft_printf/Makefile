@@ -1,22 +1,21 @@
 
 NAME		=	libftprintf.a
 
-SRC	=	ft_w.c  						\
-		ft_l.c 							\
-		ft_sort_params.c 				\
-		ft_memory.c 					\
-		ft_get_console_input.c 			\
-	  	pf_format_char.c 				\
-	  	pf_format_int.c 				\
-	   	pf_format_str.c 				\
-	   	pf_format_u_o_x.c 				\
-	   	pf_format_wchar.c 				\
-	   	pf_function.c 					\
-	   	pf_handleformat.c 				\
-	   	ft_printf.c 					\
-	   	pf_function_second.c 			\
-	   	ft_memory.c
-	  
+SRC	=	ft_printf.c 						\
+	  	ft_notion.c 						\
+	  	ft_creatstrctr.c 					\
+		ft_parse_conversions.c 				\
+		ft_parse_length.c 					\
+		ft_parse_precision.c 				\
+		ft_parse_width.c 					\
+		ft_manage_chars.c 					\
+		ft_manage_signed_numbers.c 			\
+		ft_manage_unsigned_numbers.c 		\
+		ft_manage_strings.c 				\
+		ft_manage_pointers.c 				\
+		unicode.c 							\
+		ft_manage_nonvalid.c 				\
+
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 SRC_DIR		=	./src/

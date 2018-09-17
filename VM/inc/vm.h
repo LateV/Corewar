@@ -107,6 +107,8 @@ typedef struct			s_vizu
 	t_map 				*map;
 	int 				speed;
 	char 				key;
+	int         		brakedown[4];
+	int         		last_brakedown[4];
 }						t_vizu;
 
 typedef struct			s_cor
@@ -118,7 +120,13 @@ typedef struct			s_cor
 	int 				start;
 	int 				visu;
 	int 				dump;
+	int 				mon;
 	int 				pause;
+	int 				stealth;
+	int 				a;
+	int 				s;
+	int 				log;
+	int 				start_from;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
@@ -133,13 +141,13 @@ typedef struct			s_cor
 	t_player 			*winner;
 	void (*instruct[17]) (struct s_cor *cor, t_process *process);
 	t_vizu 				*vizu;
-	int 				start_from;
 }						t_cor;
 
 
 char 					get_char(t_cor *cor, int loc);
 void 					usadge(void);
 void 					print_map(t_cor *cor);
+void 					print_map_mark(t_cor *cor, int pos);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
 int 					t_dir(t_cor *cor, t_process *process, int *arg, int loc);
@@ -151,13 +159,10 @@ int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
 void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
-void 					load_to_reg(t_cor *cor, t_process *process, int loc, int r_num);
 void 					codage_identify(t_process *process, unsigned char args);
-void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
-void 					comm_or(t_cor *cor, t_process *process);
-void 					comm_xor(t_cor *cor, t_process *process);
+void 					comm_and_or_xor(t_cor *cor, t_process *process);
 void 					comm_zjmp(t_cor *cor, t_process *process);
 void 					comm_ldi(t_cor *cor, t_process *process);
 void 					comm_sti(t_cor *cor, t_process *process);
@@ -169,9 +174,12 @@ void 					comm_aff(t_cor *cor, t_process *process);
 void 					comm_st(t_cor *cor, t_process *process);
 void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
-void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
 void 					add_proc(t_cor *cor, t_process *process, int loc);
+void 					live_cheker(t_cor *cor);
+void 					game_init(t_cor *cor);
+void 					add_players(t_cor *cor);
+void 					game(t_cor *cor);
 // vizu
 void					init_window(t_cor *cor);
 void					draw_palyer_info(t_cor *cor, t_process *proc, int k);

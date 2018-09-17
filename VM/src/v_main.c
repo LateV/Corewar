@@ -49,7 +49,7 @@ void initital_draw(t_cor *cor)
 			mvwprintw(cor->vizu->win2, 2, 2, "%-20s", "** PAUSED **");
 		else
 			mvwprintw(cor->vizu->win2, 2, 2, "%-20s", "** PLAY **");
-		mvwprintw(cor->vizu->win2, 4, 2, "Cycles/second limit : %d", 50);
+		mvwprintw(cor->vizu->win2, 4, 2, "Cycles/second limit : %-9d", 1000000 / cor->vizu->speed);
 		mvwprintw(cor->vizu->win2, 7, 2, "Cycle : %-20d", (cor->cycles) - 1);
 		mvwprintw(cor->vizu->win2, 9, 2, "Processes : %2d", (cor->proc_num) - 1);
 		
@@ -123,7 +123,7 @@ void init_window(t_cor *cor)
 		vizu = malloc(sizeof(t_vizu));
 		cor->vizu = vizu;
 		cor->vizu->end_of_prs = 0;
-		cor->vizu->speed = 10000;
+		cor->vizu->speed = 20000;
 		initscr();
 		start_color();
 		noecho();

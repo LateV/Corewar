@@ -30,6 +30,7 @@ int t_reg(t_cor *cor, int *arg, int loc)
 
 int t_ind(t_cor *cor, int *arg, int loc)
 {
+
 	while (loc  >= MEM_SIZE)
 		loc = loc  - MEM_SIZE;
 	while (loc  < 0)
@@ -37,6 +38,7 @@ int t_ind(t_cor *cor, int *arg, int loc)
 	*arg = get_int(cor, loc);
 	return (4);
 }
+
 
 int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 {
@@ -62,9 +64,11 @@ int arg_handler(t_cor *cor, t_process *process, int *arg, int s)
 	}
 	else if(*arg == 3)
 	{
-
 		ind = get_short(cor , process->pc + s);
-		*arg = get_int(cor, ind);
+		if(process->command == 12)
+			*arg = get_int(cor, ind);
+		else
+			*arg = get_int(cor, ind % IDX_MOD);
 		process->ind_loc = ind;
 		s += 2;
 	}

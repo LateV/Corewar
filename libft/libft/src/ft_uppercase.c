@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_manage_chars.c                                  :+:      :+:    :+:   */
+/*   ft_uppercase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpopovyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 17:59:13 by mpopovyc          #+#    #+#             */
-/*   Updated: 2018/03/27 17:24:33 by mpopovyc         ###   ########.fr       */
+/*   Created: 2018/03/27 16:50:38 by mpopovyc          #+#    #+#             */
+/*   Updated: 2018/03/27 16:50:40 by mpopovyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_uppercase(char **str)
 {
-	int		ret;
-	va_list	argptr;
-	char	*str;
-	char	*p;
+	int i;
 
-	ret = 0;
-	va_start(argptr, format);
-	str = ft_strdup(format);
-	p = str;
-	while (*str)
+	i = 0;
+	while ((*str)[i] != '\0')
 	{
-		if (*str == '%')
-			str += ft_notion(&argptr, &str, &ret);
-		else
-		{
-			write(1, str, 1);
-			ret++;
-		}
-		(*str) ? str += 1 : 0;
+		(*str)[i] = ft_toupper((*str)[i]);
+		i++;
 	}
-	free(p);
-	va_end(argptr);
-	return (ret);
 }

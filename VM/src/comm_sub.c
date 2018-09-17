@@ -20,8 +20,8 @@ static void	reg_reg_reg(t_cor *cor, t_process *process)
 
 	tmp = get_reg(process, process->arg1 - 1) - get_reg(process, process->arg2 - 1);
 			process->registr[process->arg3 - 1] = tmp;
-	if(cor->visu == 0)
-		ft_printf("P    %d | sub r%d r%d r%d\n", process->count_num, 
+	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+		ft_printf("P% 5d | sub r%d r%d r%d\n", process->count_num, 
 	process->arg1, process->arg2, process->arg3);
 }
 
@@ -39,7 +39,8 @@ void comm_sub(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if (process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 && process->arg3 > 0 && process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
+		if (process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 && process->arg3 > 0 &&
+			process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
 		{
 			reg_reg_reg(cor, process);
 			if (process->registr[process->arg3 - 1] == 0)

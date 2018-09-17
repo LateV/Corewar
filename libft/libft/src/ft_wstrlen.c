@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_manage_chars.c                                  :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpopovyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 17:59:13 by mpopovyc          #+#    #+#             */
-/*   Updated: 2018/03/27 17:24:33 by mpopovyc         ###   ########.fr       */
+/*   Created: 2018/03/23 17:47:21 by mpopovyc          #+#    #+#             */
+/*   Updated: 2018/03/27 16:50:18 by mpopovyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_bytelen(wchar_t c)
 {
-	int		ret;
-	va_list	argptr;
-	char	*str;
-	char	*p;
+	if (c <= 0x7F)
+		return (1);
+	else if (c <= 0x7FF)
+		return (2);
+	else if (c <= 0x7FFF)
+		return (3);
+	else if (c <= 0x1FFFFF)
+		return (4);
+	return (-1);
+}
 
-	ret = 0;
-	va_start(argptr, format);
-	str = ft_strdup(format);
-	p = str;
-	while (*str)
+size_t	ft_wstrlen(wchar_t *str)
+{
+	size_t	len;
+	int		i;
+
+	len = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (*str == '%')
-			str += ft_notion(&argptr, &str, &ret);
-		else
-		{
-			write(1, str, 1);
-			ret++;
-		}
-		(*str) ? str += 1 : 0;
+		len += ft_bytelen(str[i]);
+		i++;
 	}
-	free(p);
-	va_end(argptr);
-	return (ret);
+	return (len);
 }

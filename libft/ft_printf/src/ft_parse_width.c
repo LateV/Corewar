@@ -6,35 +6,28 @@
 /*   By: mpopovyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 17:59:13 by mpopovyc          #+#    #+#             */
-/*   Updated: 2018/03/27 17:24:33 by mpopovyc         ###   ########.fr       */
+/*   Updated: 2018/03/27 19:50:53 by mpopovyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_print_space_zero(t_format *p, int *ret)
 {
-	int		ret;
-	va_list	argptr;
-	char	*str;
-	char	*p;
-
-	ret = 0;
-	va_start(argptr, format);
-	str = ft_strdup(format);
-	p = str;
-	while (*str)
+	while (p->width-- > 0)
 	{
-		if (*str == '%')
-			str += ft_notion(&argptr, &str, &ret);
-		else
-		{
-			write(1, str, 1);
-			ret++;
-		}
-		(*str) ? str += 1 : 0;
+		(p->flag_minus > 0) ? ft_putchar(' ') : ft_putchar('0');
+		*ret += 1;
 	}
-	free(p);
-	va_end(argptr);
-	return (ret);
+}
+
+void	ft_parse_width(t_format *p, int len_arg)
+{
+	if (p->precision - len_arg > 0)
+		p->width = p->width - len_arg - (p->precision - len_arg);
+	else if (p->precision - len_arg <= 0)
+		p->width = p->width - len_arg;
+	if ((p->flag_plus > 0 || p->flag_space > 0) &&
+		(p->type == 'd' || p->type == 'i'))
+		p->width--;
 }

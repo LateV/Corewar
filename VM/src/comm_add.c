@@ -17,10 +17,10 @@ static void	reg_reg_reg(t_cor *cor, t_process *process)
 {
 	int tmp;
 
-	tmp = get_reg(process, process->arg1 - 1) - get_reg(process, process->arg2 - 1);
+	tmp = get_reg(process, process->arg1 - 1) + get_reg(process, process->arg2 - 1);
 	process->registr[process->arg3 - 1] = tmp;
-	if(cor->visu == 0)
-		ft_printf("P%5d | add r%d r%d r%d\n", process->count_num, 
+	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+		ft_printf("P% 5d | add r%d r%d r%d\n", process->count_num, 
 	process->arg1, process->arg2, process->arg3);
 }
 
