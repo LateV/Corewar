@@ -147,7 +147,6 @@ typedef struct			s_cor
 char 					get_char(t_cor *cor, int loc);
 void 					usadge(void);
 void 					print_map(t_cor *cor);
-void 					print_map_mark(t_cor *cor, int pos);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
 int 					t_dir(t_cor *cor, t_process *process, int *arg, int loc);

@@ -1,13 +1,12 @@
 #include "vm.h"
 
-void print_map_mark(t_cor *cor, int pos)
+void print_map(t_cor *cor)
 {
 	int row;
 	int i;
 
 	row = 0;
 	i = 0;
-	pos = pos + 0;
 	ft_printf("0x0000 : ");
 	while(i < MEM_SIZE)
 	{
@@ -15,8 +14,6 @@ void print_map_mark(t_cor *cor, int pos)
 			ft_printf("%#06x : ", i);
 		while(row < 64)
 		{
-			// if(i == pos)
-			// 	ft_printf("-->");
 			ft_printf("%02x ", cor->arena[i]);
 			row++;
 			i++;
@@ -25,32 +22,6 @@ void print_map_mark(t_cor *cor, int pos)
 		row = 0;
 	}
 	ft_printf("\n");
-}
-
-void print_map(t_cor *cor)
-{
-	int row;
-	int i;
-
-	row = 0;
-	i = 0;
-	printf("0x0000 : ");
-	while(i < MEM_SIZE)
-	{
-		if(i != 0)
-			printf("%#06x : ", i);
-		while(row < 64)
-		{
-			// if(i == 3234)
-			// 	printf("-->");
-			printf("%02x ", cor->arena[i]);
-			row++;
-			i++;
-		}
-		printf("\n");
-		row = 0;
-	}
-	printf("\n");
 }
 
 
