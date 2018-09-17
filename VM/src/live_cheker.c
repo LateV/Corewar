@@ -62,7 +62,7 @@ void live_cheker(t_cor *cor)
 						if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
 							ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 						if(cor->visu)
-				gg_wp(cor);
+							gg_wp(cor);
 						endwin();
 						system("leaks -quiet corewar");
 						exit(0);

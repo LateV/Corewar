@@ -14,6 +14,8 @@ void print_map(t_cor *cor)
 			ft_printf("%#06x : ", i);
 		while(row < 64)
 		{
+			// if(i == 977)
+			// 	ft_printf("--->");
 			ft_printf("%02x ", cor->arena[i]);
 			row++;
 			i++;
@@ -33,7 +35,7 @@ void flag_output(t_cor *cor)
 		print_map(cor);
 		exit(0);
 	}
-	while(cor->s <= cor->cycles)
+	while(cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
 	{
 		print_map(cor);
 		read(0, &buff, 1);
@@ -98,7 +100,7 @@ void game(t_cor *cor)
 		process_activity(cor);
 		if(cor->cycles == cor->mon && cor->log == 0)
 			exit(0);
-		cor->cycles++;
 		live_cheker(cor);
+		cor->cycles++;
 	}
 }
