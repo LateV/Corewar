@@ -36,7 +36,7 @@ void comm_st(t_cor *cor, t_process *process)
 			{
 				if(process->arg1 > 0 && process->arg1 < 17)
 				{
-					if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+					if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
 						ft_printf("P% 5d | st r%d %d\n", process->count_num, process->arg1, process->ind_loc);
 					load_from_reg(cor, process, process->pc + process->ind_loc, process->arg1 - 1);
 				}
@@ -45,7 +45,7 @@ void comm_st(t_cor *cor, t_process *process)
 			{
 				if(process->arg1 > 0 && process->arg2 > 0 && process->arg1 < 17 && process->arg2 < 16)
 				{
-					if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+					if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
 					{
 						ft_printf("P% 5d | st r%d %d\n",
 							process->count_num, process->arg1, process->arg2);

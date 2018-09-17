@@ -32,8 +32,6 @@ void refresh_map(t_cor *cor)
 	
 
 	i = -1;
-	cor->stealth = 0;
-
 	while (++i < 4096)
 	{
 		if (cor->vizu->map[i].player == -1 && cor->vizu->map[i].type == 1)

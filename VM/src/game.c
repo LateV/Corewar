@@ -21,16 +21,26 @@ void print_map(t_cor *cor)
 		ft_printf("\n");
 		row = 0;
 	}
-	ft_printf("\n");
 }
 
 
 void flag_output(t_cor *cor)
 {
+	char buff;
+
 	if(cor->visu == 0 && cor->dump != 0 && cor->cycles == cor->dump)
 	{
 		print_map(cor);
 		exit(0);
+	}
+	while(cor->s <= cor->cycles)
+	{
+		print_map(cor);
+		read(0, &buff, 1);
+		if(buff == '\n')
+			break ;
+		else
+			exit(0);
 	}
 }
 
@@ -81,11 +91,13 @@ void game(t_cor *cor)
 		}
 		else
 		{
-			if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);
 		process_activity(cor);
+		if(cor->cycles == cor->mon && cor->log == 0)
+			exit(0);
 		cor->cycles++;
 		live_cheker(cor);
 	}
