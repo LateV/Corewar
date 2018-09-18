@@ -1,5 +1,17 @@
 #include "vm.h"
 
+void print_proc(t_cor *cor)
+{
+	t_process *tmp;
+
+	tmp = cor->process;
+	while(tmp)
+	{
+		ft_printf("P % 5d is here and live == %d \n", tmp->count_num, tmp->live);
+		tmp = tmp->next;
+	}
+}
+
 void live_cheker(t_cor *cor)
 {
 	t_process *prev;
@@ -7,7 +19,6 @@ void live_cheker(t_cor *cor)
 	int i;
 
 	i = 0;
-
 	if(cor->live_check == cor->curr_cycle_t_d)
 	{
 		tmp = cor->process;
@@ -22,9 +33,10 @@ void live_cheker(t_cor *cor)
 			system("leaks -quiet corewar");
 			exit(0);
 		}
+		i = 0;
 		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
 		{
-			if(cor->player[i].live_curr >= 21)
+			if(cor->player[i].live_curr >= NBR_LIVE)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
 				if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
@@ -42,10 +54,9 @@ void live_cheker(t_cor *cor)
 			}
 			i++;
 		}
-
-
 		// Проверка всех процессов на "жизнь"
 		// {{
+		prev = NULL;
 		while(tmp)
 		{
 			if(tmp->live == 0) // Если процесс не жив удаляем его из списка
@@ -59,7 +70,7 @@ void live_cheker(t_cor *cor)
 					cor->process = tmp;
 					if(!tmp) // Если это был единственный процесс 
 					{
-						if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+						if(cor->visu == 0)
 							ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 						if(cor->visu)
 							gg_wp(cor);
@@ -67,9 +78,12 @@ void live_cheker(t_cor *cor)
 						system("leaks -quiet corewar");
 						exit(0);
 					}
+					continue;
 				}
 				else
 				{
+					if(cor->cycles == 18576)
+						ft_printf("live 5 %d\n", cor->process->live);
 					prev->next = tmp->next;
 					if(cor->visu == 1)
 						cor->vizu->map[tmp->pc].type = 0;
@@ -84,9 +98,12 @@ void live_cheker(t_cor *cor)
 			if(tmp)
 				tmp = tmp->next;
 		}
+
+		if(cor->cycles == 18576)
+				print_proc(cor);
 		if(!cor->process)
 		{
-			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+			if(cor->visu == 0)
 				ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
 			if(cor->visu)
 				gg_wp(cor);
@@ -95,7 +112,6 @@ void live_cheker(t_cor *cor)
 			exit(0);
 		}
 		// }}
-
 		cor->curr_chechs++;
 		if(cor->curr_chechs == MAX_CHECKS)
 		{
@@ -110,11 +126,8 @@ void live_cheker(t_cor *cor)
 		cor->live_check++;
 	if(cor->curr_cycle_t_d < 0)
 	{
-		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-		{
-			// ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+		if(cor->visu == 0)
 			ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
-		}
 		if(cor->visu)
 				gg_wp(cor);
 		endwin();

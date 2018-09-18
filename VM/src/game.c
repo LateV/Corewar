@@ -14,7 +14,7 @@ void print_map(t_cor *cor)
 			ft_printf("%#06x : ", i);
 		while(row < 64)
 		{
-			// if(i == 977)
+			// if(i == 3068)
 			// 	ft_printf("--->");
 			ft_printf("%02x ", cor->arena[i]);
 			row++;
