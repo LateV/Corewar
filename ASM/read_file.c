@@ -16,14 +16,14 @@ void	add_to_list(int num, char *line, t_header **header)
 {
 	t_command *node;
 
-	if (ft_strstr(line, NAME_CMD_STRING))
+	if (ft_strnstr(line, NAME_CMD_STRING,5))
 	{
 		if ((*header)->bot_name != NULL)
 			error_cases(14,header,num);
 		(*header)->bot_name = ft_strtrim(line);
 		(*header)->name_line = num;
 	}
-	else if (ft_strstr(line, COMMENT_CMD_STRING))
+	else if (ft_strnstr(line, COMMENT_CMD_STRING,8))
 	{
 		if ((*header)->comment != NULL)
 			error_cases(15,header,num);
@@ -81,7 +81,7 @@ void	read_file(const char *str, t_header **header)
 	line = NULL;
 	num = 0;
 	if ((fd = open(str, O_RDONLY)) < 0)
-		error_exit(str);
+		error_exit("Can't open a file", str);
 	while (get_next_line(fd, &line) > 0)
 	{
 		num++;
@@ -92,7 +92,7 @@ void	read_file(const char *str, t_header **header)
 		free(line);
 	}
 	if (line == NULL)
-	    error_exit("empty file\n");
+	    error_exit("Error,","empty file");
     (*header)->file_name = ft_strdup(str);
 	validate_params(header);
 	count_pointer(*header);

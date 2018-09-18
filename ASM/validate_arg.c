@@ -21,13 +21,15 @@ static void	check_coma(t_command **node, t_header **header)
 	i = 0;
 	j = 0;
 	s = (*node)->line;
+    if (s[i] == ',')
+        error_cases(6, header, (*node)->num);
 	while (s[i])
 	{
 		if (s[i] == ',')
 			j++;
 		i++;
 	}
-	if (j > 2)
+	if (j > 2 || s[i-1] == ',')
         error_cases(6, header, (*node)->num);
 }
 

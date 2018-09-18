@@ -85,6 +85,8 @@ int			find_cmd(t_command **node)
 
 	i = 0;
 	c = special_char_pos((*node)->line);
+    if (c == 0)
+        return (1);
 	str = ft_strsub((*node)->line, 0, c);
 	while (i < 17)
 	{

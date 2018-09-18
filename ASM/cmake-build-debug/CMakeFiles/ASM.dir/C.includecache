@@ -32,7 +32,15 @@ string.h
 ft_printf.h
 /Users/oskulska/Desktop/Corewar/ASM/libft/ft_printf.h
 
-/Users/oskulska/Desktop/Corewar/ASM/validate_name.c
+/Users/oskulska/Desktop/Corewar/ASM/main.c
+asm.h
+/Users/oskulska/Desktop/Corewar/ASM/asm.h
+
+/Users/oskulska/Desktop/Corewar/ASM/read_file.c
+asm.h
+/Users/oskulska/Desktop/Corewar/ASM/asm.h
+
+/Users/oskulska/Desktop/Corewar/ASM/writing_to_file.c
 asm.h
 /Users/oskulska/Desktop/Corewar/ASM/asm.h
 

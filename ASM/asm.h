@@ -94,7 +94,7 @@ void		read_file(const char *str, t_header **header);
 void		ft_clear(char **arr);
 void		ft_free(t_header **header);
 int			check_extension(const char **str, int y);
-void		error_exit(const char *str);
+void	    error_exit(char *str, const char *arg);
 int			check_flag(const char **argv, int argc);
 t_command	*create_new_node(int num, char *str);
 void		push_back(t_header **header, t_command *new_node);

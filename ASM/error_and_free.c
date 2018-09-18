@@ -94,8 +94,9 @@ void	ft_free(t_header **header)
 	free(*header);
 }
 
-void	error_exit(const char *str)
+void	error_exit(char *str, const char *arg)
 {
-	ft_printf("%s\n", str);
+	ft_printf("%s %s.\n",str, arg);
+    system("leaks my_asm > test.txt");
 	exit(0);
 }

@@ -60,13 +60,3 @@ int	is_label_char(char *str)
 	}
 	return (0);
 }
-
-size_t	ft_arr_len(char **arr)
-{
-	size_t	count;
-
-	count = 0;
-	while (arr[count])
-		count++;
-	return (count);
-}

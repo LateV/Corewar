@@ -52,6 +52,32 @@ static int	check_arg_for_cmd(char *name, int *arg)
 	return (0);
 }
 
+
+static int	check_arg_num(char *name, int *arg)
+{
+    int i;
+    int k;
+    int sum;
+
+    i = -1;
+    k = 0;
+    sum = 0;
+    while (++i < 17)
+        if (ft_strequ(name, cmd_def[i].name))
+            break ;
+    while (k < 3)
+    {
+        if (arg[k] != 0)
+            sum++;
+        k++;
+    }
+    if (sum < cmd_def[i].num_of_arg)
+        return (0);
+    return (1);
+}
+
+
+
 void	check_all_param(t_header *header)
 {
 	t_command	*tmp;
@@ -66,7 +92,7 @@ void	check_all_param(t_header *header)
 	{
 		if (tmp->opcode > 0)
 		{
-			if (!check_arg_for_cmd(tmp->command_name, tmp->arg_type))
+			if (!check_arg_for_cmd(tmp->command_name, tmp->arg_type) || !check_arg_num(tmp->command_name,tmp->arg_type))
 				error_cases(9, &header, tmp->num);
 			i = -1;
 			while (++i < 3)

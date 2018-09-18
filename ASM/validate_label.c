@@ -52,13 +52,15 @@ int	check_label_chars(t_command *node)
 					return (-1);
 				return (0);
 			}
-			else
+			else if(ft_strchr(LABEL_CHARS,str[i-1]))
 			{
 				while (--i > 0)
 					if (!ft_strchr(LABEL_CHARS, str[i]))
 						return (-1);
 				return (1);
 			}
+			else
+                return (-1);
 		}
 	return (1);
 }
