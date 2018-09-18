@@ -43,7 +43,7 @@ void		error_cases(int k, t_header **header, int line)
 			ft_printf("%s On line %d.\n", g_error_def[i].str, line);
 			ft_free(header);
 			free(*header);
-			system("leaks my_asm > test.txt");
+		//	system("leaks asm > test.txt");
 			exit(0);
 		}
 		i++;
@@ -97,6 +97,6 @@ void		ft_free(t_header **header)
 void		error_exit(char *str, const char *arg)
 {
 	ft_printf("%s %s.\n", str, arg);
-	system("leaks my_asm > test.txt");
+	//system("leaks asm > test.txt");
 	exit(0);
 }

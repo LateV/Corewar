@@ -6,7 +6,7 @@
 /*   By: oskulska <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 19:35:11 by oskulska          #+#    #+#             */
-/*   Updated: 2018/09/13 19:35:12 by oskulska         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:18:06 by oskulska         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 void	add_to_list(int num, char *line, t_header **header)
 {
 	t_command *node;
+	char	*str;
 
-	if (ft_strnstr(line, NAME_CMD_STRING, 5))
+	str = ft_strtrim(line);
+	if (ft_strnstr(str, NAME_CMD_STRING, 5))
 	{
 		if ((*header)->bot_name != NULL)
 			error_cases(14, header, num);
-		(*header)->bot_name = ft_strtrim(line);
+		(*header)->bot_name = str;
 		(*header)->name_line = num;
 	}
-	else if (ft_strnstr(line, COMMENT_CMD_STRING, 8))
+	else if (ft_strnstr(str, COMMENT_CMD_STRING, 8))
 	{
 		if ((*header)->comment != NULL)
 			error_cases(15, header, num);
-		(*header)->comment = ft_strtrim(line);
+		(*header)->comment = str;
 		(*header)->cmt_line = num;
 	}
 	else
 	{
-		node = create_new_node(num, ft_strtrim(line));
+		node = create_new_node(num, str);
 		push_back(header, node);
 	}
 }

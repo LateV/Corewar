@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <stddef.h>
 # define REG_SIZE				4
+# define REG_NUM				16
 # define COMMENT_CHAR			'#'
 # define LABEL_CHAR				':'
 # define DIRECT_CHAR				'%'
