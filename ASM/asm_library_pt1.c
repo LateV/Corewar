@@ -12,14 +12,14 @@
 
 #include "asm.h"
 
-int	ft_isspace(char c)
+int			ft_isspace(char c)
 {
 	if (c == ' ' || c == '\t')
 		return (1);
 	return (0);
 }
 
-int	char_pos(char *str, char c)
+int			char_pos(char *str, char c)
 {
 	int i;
 
@@ -33,7 +33,7 @@ int	char_pos(char *str, char c)
 	return (-1);
 }
 
-int	check_for_digit(char *str)
+int			check_for_digit(char *str)
 {
 	int k;
 
@@ -47,7 +47,7 @@ int	check_for_digit(char *str)
 	return (1);
 }
 
-int	is_label_char(char *str)
+int			is_label_char(char *str)
 {
 	int i;
 
@@ -59,4 +59,15 @@ int	is_label_char(char *str)
 		i++;
 	}
 	return (0);
+}
+
+t_command	*find_curr_list(t_command *copy, char *str)
+{
+	while (copy)
+	{
+		if (ft_strequ(copy->label, str))
+			break ;
+		copy = copy->next;
+	}
+	return (copy);
 }

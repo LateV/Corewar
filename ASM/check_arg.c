@@ -34,51 +34,48 @@ static int	check_arg_for_cmd(char *name, int *arg)
 	i = -1;
 	k = -1;
 	while (++i < 17)
-		if (ft_strequ(name, cmd_def[i].name))
+		if (ft_strequ(name, g_cmd_def[i].name))
 			break ;
 	while (++k < 3)
-		if (arg[0] == cmd_def[i].first_arg[k])
+		if (arg[0] == g_cmd_def[i].first_arg[k])
 		{
 			k = -1;
 			while (++k < 3)
-				if (arg[1] == cmd_def[i].second_arg[k])
+				if (arg[1] == g_cmd_def[i].second_arg[k])
 				{
 					k = -1;
 					while (++k < 2)
-						if (arg[2] == cmd_def[i].third_arg[k])
+						if (arg[2] == g_cmd_def[i].third_arg[k])
 							return (1);
 				}
 		}
 	return (0);
 }
 
-
 static int	check_arg_num(char *name, int *arg)
 {
-    int i;
-    int k;
-    int sum;
+	int i;
+	int k;
+	int sum;
 
-    i = -1;
-    k = 0;
-    sum = 0;
-    while (++i < 17)
-        if (ft_strequ(name, cmd_def[i].name))
-            break ;
-    while (k < 3)
-    {
-        if (arg[k] != 0)
-            sum++;
-        k++;
-    }
-    if (sum < cmd_def[i].num_of_arg)
-        return (0);
-    return (1);
+	i = -1;
+	k = 0;
+	sum = 0;
+	while (++i < 17)
+		if (ft_strequ(name, g_cmd_def[i].name))
+			break ;
+	while (k < 3)
+	{
+		if (arg[k] != 0)
+			sum++;
+		k++;
+	}
+	if (sum < g_cmd_def[i].num_of_arg)
+		return (0);
+	return (1);
 }
 
-
-
-void	check_all_param(t_header *header)
+void		check_all_param(t_header *header)
 {
 	t_command	*tmp;
 	int			i;
@@ -87,18 +84,20 @@ void	check_all_param(t_header *header)
 	if (ft_strlen(header->file_name) > 128)
 		error_cases(7, &header, header->name_line);
 	if (header->comment_len > 2048)
-		error_cases(8, &header,header->cmt_line);
+		error_cases(8, &header, header->cmt_line);
 	while (tmp)
 	{
 		if (tmp->opcode > 0)
 		{
-			if (!check_arg_for_cmd(tmp->command_name, tmp->arg_type) || !check_arg_num(tmp->command_name,tmp->arg_type))
+			if (!check_arg_for_cmd(tmp->command_name, tmp->arg_type)
+				|| !check_arg_num(tmp->command_name, tmp->arg_type))
 				error_cases(9, &header, tmp->num);
 			i = -1;
 			while (++i < 3)
 				if (tmp->arg_pointer[i] != NULL)
-					if (!is_correct_pointer(header->cmd_list, tmp->arg_pointer[i]))
-						error_cases(10, &header,tmp->num);
+					if (!is_correct_pointer(header->cmd_list,
+						tmp->arg_pointer[i]))
+						error_cases(10, &header, tmp->num);
 		}
 		tmp = tmp->next;
 	}

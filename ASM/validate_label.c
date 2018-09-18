@@ -26,7 +26,7 @@ void	validate_label(t_header **header)
 		{
 			find_curr_label(header, tmp);
 			if (find_command(&tmp) == -1)
-			    error_cases(3,header,tmp->num);
+				error_cases(3, header, tmp->num);
 		}
 		if (tmp->label == NULL && (*header)->curr_label)
 			tmp->label = ft_strdup((*header)->curr_label);
@@ -36,7 +36,7 @@ void	validate_label(t_header **header)
 	}
 }
 
-int	check_label_chars(t_command *node)
+int		check_label_chars(t_command *node)
 {
 	int		i;
 	char	*str;
@@ -46,21 +46,20 @@ int	check_label_chars(t_command *node)
 	while (str[++i])
 		if (str[i] == LABEL_CHAR)
 		{
-			if (str[i - 1] && (ft_isspace(str[i - 1]) || str[i - 1] == DIRECT_CHAR || str[i - 1] == SEPARATOR_CHAR))
+			if (str[i - 1] && (ft_isspace(str[i - 1]) ||
+				str[i - 1] == DIRECT_CHAR || str[i - 1] == SEPARATOR_CHAR))
 			{
 				if (find_command(&node) == -1)
 					return (-1);
 				return (0);
 			}
-			else if(ft_strchr(LABEL_CHARS,str[i-1]))
+			else
 			{
 				while (--i > 0)
 					if (!ft_strchr(LABEL_CHARS, str[i]))
 						return (-1);
 				return (1);
 			}
-			else
-                return (-1);
 		}
 	return (1);
 }

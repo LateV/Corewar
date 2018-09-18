@@ -12,13 +12,41 @@
 
 #include "asm.h"
 
+static	int		get_prog_name(t_header *header)
+{
+	char		*str;
+	char		*s;
+	int			len;
+	int			fd;
+
+	str = ft_strrchr(header->file_name, '/');
+	len = ft_strlen(str);
+	while (len > 0)
+	{
+		if (str[len] == '.')
+			break ;
+		len--;
+	}
+	s = ft_strsub(str, 1, len - 1);
+	free(header->file_name);
+	header->file_name = ft_strjoin(s, ".cor");
+	free(s);
+	fd = open(header->file_name, O_CREAT |
+		O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
+	if (fd == -1)
+	{
+		ft_free(&header);
+		error_exit("Error creating ", "a .cor file");
+	}
+	return (fd);
+}
 
 static	void	print_to_file(int fd, int byte, int param)
 {
-    t_byterange.num = param;
 	int i;
 
 	i = 3;
+	t_byterange.num = param;
 	if (byte == 1)
 		ft_putchar_fd(t_byterange.num, fd);
 	if (byte == 2)
@@ -46,7 +74,7 @@ static	void	add_zero(int num, int fd)
 static	void	write_command_to_file(t_header *header, int fd)
 {
 	t_command	*tmp;
-	int	i;
+	int			i;
 
 	tmp = header->cmd_list;
 	while (tmp)
@@ -69,18 +97,12 @@ static	void	write_command_to_file(t_header *header, int fd)
 	}
 }
 
-void	write_to_file(t_header *header)
+void			write_to_file(t_header *header)
 {
 	int i;
 	int fd;
 
-	get_prog_name(header);
-	fd = open(header->file_name, O_CREAT | O_TRUNC | O_WRONLY, S_IRWXU | S_IRWXG | S_IROTH);
-	if (fd == -1)
-	{
-		ft_free(&header);
-		error_exit("Error creating a .cor file\n");
-	}
+	fd = get_prog_name(header);
 	print_to_file(fd, 4, COREWAR_EXEC_MAGIC);
 	i = 0;
 	while (header->bot_name[i])

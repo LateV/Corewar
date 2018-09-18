@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-t_def_error	error_def[15] =
+t_def_error	g_error_def[15] =
 {
 	{1, "Not correct quotes."},
 	{2, "Syntax error."},
@@ -31,17 +31,18 @@ t_def_error	error_def[15] =
 	{15, "Field .comment already exist."}
 };
 
-void	error_cases(int k, t_header **header, int line)
+void		error_cases(int k, t_header **header, int line)
 {
 	int i;
 
 	i = 0;
 	while (i < 15)
 	{
-		if (error_def[i].num == k)
+		if (g_error_def[i].num == k)
 		{
-			ft_printf("%s On line %d.\n", error_def[i].str, line);
+			ft_printf("%s On line %d.\n", g_error_def[i].str, line);
 			ft_free(header);
+			free(*header);
 			system("leaks my_asm > test.txt");
 			exit(0);
 		}
@@ -64,7 +65,7 @@ void		ft_clear(char **arr)
 	arr = NULL;
 }
 
-void	ft_free(t_header **header)
+void		ft_free(t_header **header)
 {
 	t_command	*tmp;
 	int			i;
@@ -91,12 +92,11 @@ void	ft_free(t_header **header)
 		free(tmp);
 		tmp = tmp->next;
 	}
-	free(*header);
 }
 
-void	error_exit(char *str, const char *arg)
+void		error_exit(char *str, const char *arg)
 {
-	ft_printf("%s %s.\n",str, arg);
-    system("leaks my_asm > test.txt");
+	ft_printf("%s %s.\n", str, arg);
+	system("leaks my_asm > test.txt");
 	exit(0);
 }

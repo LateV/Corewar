@@ -24,7 +24,7 @@ t_command	*create_new_node(int num, char *str)
 	return (new_node);
 }
 
-void	init_struct(t_header **header)
+void		init_struct(t_header **header)
 {
 	*header = ft_memalloc(sizeof(t_header));
 }

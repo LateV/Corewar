@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-ssize_t	ft_atol(const char *str)
+ssize_t		ft_atol(const char *str)
 {
 	int			i;
 	ssize_t		n;
@@ -40,7 +40,7 @@ ssize_t	ft_atol(const char *str)
 	return (nb * n);
 }
 
-void	skip_comments(t_command *node)
+void		skip_comments(t_command *node)
 {
 	char	*str;
 	char	*s;
@@ -56,7 +56,7 @@ void	skip_comments(t_command *node)
 	}
 }
 
-int	check_quotes(char *str)
+int			check_quotes(char *str)
 {
 	int i;
 

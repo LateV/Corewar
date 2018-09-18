@@ -41,7 +41,7 @@ void		validate_name_and_cmt(t_header **header, char *type, int num)
 		error_cases(3, header, num);
 }
 
-void	fill_name_and_cmt(t_header **header)
+void		fill_name_and_cmt(t_header **header)
 {
 	char **arr;
 
@@ -63,7 +63,7 @@ void	fill_name_and_cmt(t_header **header)
 	ft_clear(arr);
 }
 
-int		special_char_pos(char *s)
+int			special_char_pos(char *s)
 {
 	int i;
 
@@ -85,18 +85,18 @@ int			find_cmd(t_command **node)
 
 	i = 0;
 	c = special_char_pos((*node)->line);
-    if (c == 0)
-        return (1);
+	if (c == 0)
+		return (1);
 	str = ft_strsub((*node)->line, 0, c);
 	while (i < 17)
 	{
-		if (ft_strequ(str, cmd_def[i].name))
+		if (ft_strequ(str, g_cmd_def[i].name))
 		{
-			(*node)->command_name = cmd_def[i].name;
+			(*node)->command_name = g_cmd_def[i].name;
 			(*node)->size = 1;
-			(*node)->label_size = cmd_def[i].label_size;
-			(*node)->is_codage_octal = cmd_def[i].codage_octal;
-			(*node)->opcode = cmd_def[i].opcode;
+			(*node)->label_size = g_cmd_def[i].label_size;
+			(*node)->is_codage_octal = g_cmd_def[i].codage_octal;
+			(*node)->opcode = g_cmd_def[i].opcode;
 			free(str);
 			return (1);
 		}

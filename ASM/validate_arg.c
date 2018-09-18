@@ -21,16 +21,16 @@ static void	check_coma(t_command **node, t_header **header)
 	i = 0;
 	j = 0;
 	s = (*node)->line;
-    if (s[i] == ',')
-        error_cases(6, header, (*node)->num);
+	if (s[i] == ',')
+		error_cases(6, header, (*node)->num);
 	while (s[i])
 	{
 		if (s[i] == ',')
 			j++;
 		i++;
 	}
-	if (j > 2 || s[i-1] == ',')
-        error_cases(6, header, (*node)->num);
+	if (j > 2 || s[i - 1] == ',')
+		error_cases(6, header, (*node)->num);
 }
 
 static int	check_t_int(char *str, int k, t_command *node, int type)
@@ -38,7 +38,8 @@ static int	check_t_int(char *str, int k, t_command *node, int type)
 	int i;
 
 	i = 0;
-	if (check_for_digit(str) != -1 || (str[i] == '-' && check_for_digit(str + 1) != -1))
+	if (check_for_digit(str) != -1 ||
+		(str[i] == '-' && check_for_digit(str + 1) != -1))
 	{
 		node->num_arg[k] = ft_atol(str);
 		node->arg_type[k] = type;
@@ -55,7 +56,7 @@ static int	check_t_int(char *str, int k, t_command *node, int type)
 	return (-1);
 }
 
-static int	check_t_dir(char *str, int k, t_command *node, int type)
+static	int	check_t_dir(char *str, int k, t_command *node, int type)
 {
 	int i;
 
@@ -81,7 +82,7 @@ static int	check_t_dir(char *str, int k, t_command *node, int type)
 	return (-1);
 }
 
-int	find_arg_type(char *str, t_command *tmp, int k)
+int			find_arg_type(char *str, t_command *tmp, int k)
 {
 	int i;
 
@@ -100,7 +101,8 @@ int	find_arg_type(char *str, t_command *tmp, int k)
 			return (-1);
 		return (1);
 	}
-	if (check_for_digit(str) != -1 || (str[i] == ':') || (str[i] == '-' && check_for_digit(str + 1) != -1))
+	if (check_for_digit(str) != -1 || (str[i] == ':')
+		|| (str[i] == '-' && check_for_digit(str + 1) != -1))
 	{
 		if (check_t_int(str, k, tmp, 3) == -1)
 			return (-1);
@@ -109,7 +111,7 @@ int	find_arg_type(char *str, t_command *tmp, int k)
 	return (-1);
 }
 
-void	split_line_for_arg(t_command **node, t_header **header)
+void		split_line_for_arg(t_command **node, t_header **header)
 {
 	char	**arr;
 	char	*str;
@@ -128,7 +130,7 @@ void	split_line_for_arg(t_command **node, t_header **header)
 		{
 			ft_clear(arr);
 			free(str);
-			error_cases(6, header,(*node)->num);
+			error_cases(6, header, (*node)->num);
 		}
 		i++;
 	}
