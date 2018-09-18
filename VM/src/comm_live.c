@@ -14,7 +14,7 @@ void comm_live(t_cor *cor, t_process *process)
 	{
 		process->label = 4;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
+		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 			ft_printf("P% 5d | live %d\n", process->count_num, process->arg1);
 		process->live = 1;
 		process->player->live_curr++;

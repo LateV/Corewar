@@ -79,7 +79,6 @@ void game(t_cor *cor)
 			v_speed_test(cor, cor->vizu->key);
 			breakdown(cor);
 			refresher(cor);
-
 			if (cor->vizu->key == 32 && cor->pause == 1)
 				cor->pause = 0;
 			else if (cor->vizu->key == 32 && cor->pause == 0)
@@ -93,7 +92,7 @@ void game(t_cor *cor)
 		}
 		else
 		{
-			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->mon == 0 || cor->log == 1))
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);
