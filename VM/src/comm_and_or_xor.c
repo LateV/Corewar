@@ -58,13 +58,13 @@ static int arg_val_hendler(t_process *process)
 {
 	if(process->arg_type[0] == 1)
 	{
-		if(process->arg1 < 0 || process->arg1 > 16)
+		if(process->arg1 <= 0 || process->arg1 > 16)
 			return(0);
 		process->arg1 = get_reg(process, process->arg1 - 1);
 	}
 	if(process->arg_type[1] == 1)
 	{
-		if(process->arg2 < 0 || process->arg2 > 16)
+		if(process->arg2 <= 0 || process->arg2 > 16)
 			return(0);
 		process->arg2 = get_reg(process, process->arg2 - 1);
 	}

@@ -82,8 +82,6 @@ void live_cheker(t_cor *cor)
 				}
 				else
 				{
-					if(cor->cycles == 18576)
-						ft_printf("live 5 %d\n", cor->process->live);
 					prev->next = tmp->next;
 					if(cor->visu == 1)
 						cor->vizu->map[tmp->pc].type = 0;
@@ -98,9 +96,6 @@ void live_cheker(t_cor *cor)
 			if(tmp)
 				tmp = tmp->next;
 		}
-
-		if(cor->cycles == 18576)
-				print_proc(cor);
 		if(!cor->process)
 		{
 			if(cor->visu == 0)

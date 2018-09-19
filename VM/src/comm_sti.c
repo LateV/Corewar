@@ -10,6 +10,7 @@ static int arg_read(t_cor *cor, t_process *process)
 	process->arg_type[0] = process->arg1;
 	process->arg_type[1] = process->arg2;
 	process->arg_type[2] = process->arg3;
+
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
@@ -20,13 +21,13 @@ static int arg_val_hendler(t_process *process)
 {
 	if(process->arg_type[1] == 1)
 	{
-		if(process->arg2 < 0 || process->arg2 > 16)
+		if(process->arg2 <= 0 || process->arg2 > 16)
 			return(0);
 		process->arg2 = get_reg(process, process->arg2 - 1);
 	}
 	if(process->arg_type[2] == 1)
 	{
-		if(process->arg3 < 0 || process->arg3 > 16)
+		if(process->arg3 <= 0 || process->arg3 > 16)
 			return(0);
 		process->arg3 = get_reg(process, process->arg3 - 1);
 	}
@@ -61,7 +62,9 @@ void comm_sti(t_cor *cor, t_process *process)
 		if(process->codage == 1 && process->arg1 > 0 && process->arg1 < 17)
 		{
 			if(arg_val_hendler(process))
+			{
 				sti_reg_dir_dir(cor, process);
+			}
 		}
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;

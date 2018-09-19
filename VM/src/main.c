@@ -25,7 +25,7 @@ inline static void	ft_while_and_if(t_cor *cor, char *flag, char *value)
 	}
 	if (i > 11)
 	{
-		ft_printf("Invalid format (over int) in flag ");
+		ft_printf("Invalid format (overflow int) in flag ");
 		ft_error(cor, flag);
 	}
 }
