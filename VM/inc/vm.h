@@ -58,6 +58,7 @@ struct s_cor;
 
 typedef struct			s_player
 {
+	int 				all_cur;
 	int 				live_curr;	// сумма криков "жизнь" процессами, породженными данным играком
 	int 				last_live;	// цикл последнего крика "жизнь"					
 	int 				live_summ; 	// Количество криков "жизнь" для даннаого играока за период (0 - curr_cycle_t_d) циклов
@@ -114,6 +115,7 @@ typedef struct			s_vizu
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
+	int 				alive_cur;
 	int 				proc_num;
 	int 				cycles;
 	int 				code_summ;

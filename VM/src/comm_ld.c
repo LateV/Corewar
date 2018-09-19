@@ -35,7 +35,6 @@ void comm_ld(t_cor *cor, t_process *process)
 		if(process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
 		{
 			process->registr[process->arg2 - 1] = process->arg1;
-
 			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 			{
 				ft_printf("P% 5d | ld %d r%d\n",

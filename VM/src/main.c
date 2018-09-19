@@ -104,19 +104,19 @@ int flag_dump(t_cor *cor, char **argv, int i)
 int flag_stealth(t_cor *cor, int i)
 {
 	cor->stealth = 1;
-	return(i + 1);
+	return(i);
 }
 
 int flag_log(t_cor *cor, int i)
 {
 	cor->log = 1;
-	return(i + 1);
+	return(i);
 }
 
 int flag_a(t_cor *cor, int i)
 {
 	cor->a = 1;
-	return(i + 1);
+	return(i);
 }
 
 int flag_s(t_cor *cor, char **argv, int i)
@@ -424,6 +424,7 @@ int main(int argc, char **argv)
 	cor.log = 0;
 	cor.a = 0;
 	cor.s = 0;
+	cor.alive_cur = 0;
 	ft_bzero(cor.arena, sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cor.player, sizeof(t_player) * 4);
 	init_players(&cor);

@@ -29,6 +29,7 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 		new->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->process = new;
+		cor->alive_cur++;
 	}
 }
 

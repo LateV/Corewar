@@ -17,7 +17,7 @@ void comm_live(t_cor *cor, t_process *process)
 		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 			ft_printf("P% 5d | live %d\n", process->count_num, process->arg1);
 		process->live = 1;
-		// process->player->live_curr++;
+		process->player->all_cur++;
 		while(i < cor->p_num)
 		{
 			if(process->arg1 == cor->player[i].num)
@@ -25,8 +25,9 @@ void comm_live(t_cor *cor, t_process *process)
 				cor->winner = &cor->player[i];
 				cor->player[i].last_live = cor->cycles;
 				cor->player[i].live_summ++;
-				cor->player[i].live_curr++;
 			}
+			if(cor->player[i].num == process->player->num)
+				cor->player[i].live_curr++;
 			i++;
 		}
 		if(cor->visu == 1)

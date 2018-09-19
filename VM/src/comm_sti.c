@@ -10,7 +10,6 @@ static int arg_read(t_cor *cor, t_process *process)
 	process->arg_type[0] = process->arg1;
 	process->arg_type[1] = process->arg2;
 	process->arg_type[2] = process->arg3;
-
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
 	s = arg_handler(cor, process, &process->arg3, s);
@@ -54,7 +53,7 @@ void comm_sti(t_cor *cor, t_process *process)
 	else if (process->delay > 0)
 		process->delay--;
 	if (process->delay == 0)
-	{
+	{		
 		process->label = 2;
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;

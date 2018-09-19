@@ -36,22 +36,30 @@ void live_cheker(t_cor *cor)
 		i = 0;
 		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
 		{
-			if(cor->player[i].live_curr >= NBR_LIVE)
+			// ft_printf("cor->player[i].all_cur = %d\n cor->player[i].live_curr %d\n", cor->player[i].all_cur, cor->player[i].live_curr);
+			if(cor->player[i].all_cur >= NBR_LIVE)
 			{
 				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
 				if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 					ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
-				cor->curr_chechs = -1;
-				cor->player[i].live_curr = 0;
+				cor->curr_chechs = cor->curr_chechs - 1;
 				i = 0;
 				while(i < 4)// обнуление всех крииков жизнь
 				{
 					cor->player[i].live_curr = 0;
 					cor->player[i].live_summ = 0;
+					cor->player[i].all_cur = 0;
 					i++;
 				}
 				break;
 			}
+			i++;
+		}
+		while(i < 4)// обнуление всех крииков жизнь
+		{
+			cor->player[i].live_curr = 0;
+			cor->player[i].live_summ = 0;
+			cor->player[i].all_cur = 0;
 			i++;
 		}
 		// Проверка всех процессов на "жизнь"
@@ -68,6 +76,7 @@ void live_cheker(t_cor *cor)
 						cor->vizu->map[cor->process->pc].type = 0;
 					free(cor->process);
 					cor->process = tmp;
+					cor->alive_cur--;
 					if(!tmp) // Если это был единственный процесс 
 					{
 						if(cor->visu == 0)
@@ -86,6 +95,7 @@ void live_cheker(t_cor *cor)
 					if(cor->visu == 1)
 						cor->vizu->map[tmp->pc].type = 0;
 					free(tmp);
+					cor->alive_cur--;
 					tmp = prev->next;
 					continue;
 				}
