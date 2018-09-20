@@ -93,8 +93,8 @@ int			find_arg_type(char *str, t_command *tmp, int k)
 			return (-1);
 		tmp->arg_type[k] = 1;
 		tmp->num_arg[k] = ft_atol(str + 1);
-		if (tmp->num_arg[k] <= 0 || tmp->num_arg[k] > REG_NUM)
-			return (-1);
+		// if (tmp->num_arg[k] <= 0 || tmp->num_arg[k] > REG_NUM)
+		// 	return (-1);
 		return (1);
 	}
 	if (str[i] == '%')

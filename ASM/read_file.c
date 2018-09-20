@@ -14,8 +14,8 @@
 
 void	add_to_list(int num, char *line, t_header **header)
 {
-	t_command *node;
-	char	*str;
+	t_command	*node;
+	char		*str;
 
 	str = ft_strtrim(line);
 	if (ft_strnstr(str, NAME_CMD_STRING, 5))
