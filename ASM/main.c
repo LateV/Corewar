@@ -32,32 +32,15 @@ t_def_cmd		g_cmd_def[17] = {
 	{0, "NULL", 1, {0, 0, 0}, {0, 0, 0}, {0, 0}, 0, 0}
 };
 
-int				check_flag(const char **argv, int argc)
-{
-	int			i;
-
-	i = argc - 1;
-	if (ft_strequ(argv[i], "-a") && argc == 2)
-		error_exit("Not correct argument,", "read usage");
-	while (i > 0)
-	{
-		if (ft_strequ(argv[i], "-a"))
-			return (1);
-		i--;
-	}
-	return (0);
-}
 
 int				check_extension(const char **str, int y)
 {
 	size_t		len;
 
-	if (ft_strequ(str[y], "-a"))
-		y--;
 	len = ft_strlen(str[y]);
 	if (str[y][len - 1] == 's' && str[y][len - 2] == '.')
 		return (y);
-	return (-1);
+	return (0);
 }
 
 int				main(int argc, char const *argv[])
@@ -68,17 +51,12 @@ int				main(int argc, char const *argv[])
 	init_struct(&header);
 	if (argc > 1)
 	{
-		if (check_flag(argv, argc) && check_extension(argv, argc - 1))
-		{
-			;
-		}
-		else if ((y = check_extension(argv, argc - 1)) > 0)
+		if ((y = check_extension(argv, argc - 1)) > 0)
 			read_file(argv[y], &header);
 		else
 			error_exit("Can't open a file", argv[argc - 1]);
 	}
 	else
-		ft_printf("Usage: ./asm [-a] <sourcefile.s>");
-	system("leaks asm > test.txt");
+		ft_printf("Usage: ./asm <sourcefile.s>");
 	return (0);
 }

@@ -18,6 +18,7 @@
 # define REG_SIZE				4
 # define REG_NUM				16
 # define COMMENT_CHAR			'#'
+# define COMMENT_CHAR_2			';'
 # define LABEL_CHAR				':'
 # define DIRECT_CHAR				'%'
 # define SEPARATOR_CHAR			','
@@ -51,7 +52,7 @@ typedef struct			s_def_error
 	char				*str;
 }						t_def_error;
 
-t_def_error				g_error_def[15];
+t_def_error				g_error_def[18];
 
 union					u_byterange
 {

@@ -47,7 +47,14 @@ void		skip_comments(t_command *node)
 	int		i;
 
 	str = node->line;
-	if ((i = char_pos(str, '#')) > 0)
+	if ((i = char_pos(str, COMMENT_CHAR)) > 0)
+	{
+		s = ft_strsub(str, 0, i);
+		free(node->line);
+		node->line = ft_strdup(s);
+		free(s);
+	}
+	if ((i = char_pos(str, COMMENT_CHAR_2)) > 0)
 	{
 		s = ft_strsub(str, 0, i);
 		free(node->line);
@@ -73,7 +80,7 @@ int			check_quotes(char *str)
 				}
 			while (str[i] == ' ')
 				i++;
-			if (str[i] && (str[i] == ' ' || str[i] == '#'))
+			if (str[i] && (str[i] == ' ' || str[i] == COMMENT_CHAR))
 				return (0);
 			else
 				return (1);

@@ -66,6 +66,8 @@ int		check_label_chars(t_command *node)
 
 void	validate_params(t_header **header)
 {
+	if ((*header)->cmd_list == NULL)
+		error_cases(18, header, 0);
 	validate_name_and_cmt(header, NAME_CMD_STRING, (*header)->name_line);
 	validate_name_and_cmt(header, COMMENT_CMD_STRING, (*header)->cmt_line);
 	fill_name_and_cmt(header);
@@ -92,7 +94,7 @@ void	find_curr_label(t_header **header, t_command *node)
 	char	*str;
 	char	*s;
 
-	if ((i = char_pos(node->line, ':')) > 0)
+	if ((i = char_pos(node->line, LABEL_CHAR)) > 0)
 	{
 		if ((*header)->curr_label)
 			free((*header)->curr_label);
