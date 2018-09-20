@@ -12,23 +12,25 @@
 
 #include "asm.h"
 
-void	add_to_list(int num, char *line, t_header **header)
+void	add_to_list(int num, char *str, t_header **header)
 {
 	t_command	*node;
-	char		*str;
 
-	str = ft_strtrim(line);
-	if (ft_strnstr(str, NAME_CMD_STRING, 5))
+	if (ft_strnstr(str, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)))
 	{
 		if ((*header)->bot_name != NULL)
 			error_cases(14, header, num);
+		if ((*header)->cmd_list != NULL)
+			error_cases(17, header, num);
 		(*header)->bot_name = str;
 		(*header)->name_line = num;
 	}
-	else if (ft_strnstr(str, COMMENT_CMD_STRING, 8))
+	else if (ft_strnstr(str, COMMENT_CMD_STRING, ft_strlen(COMMENT_CMD_STRING)))
 	{
 		if ((*header)->comment != NULL)
 			error_cases(15, header, num);
+		if ((*header)->cmd_list != NULL)
+			error_cases(16, header, num);
 		(*header)->comment = str;
 		(*header)->cmt_line = num;
 	}
@@ -66,7 +68,7 @@ int		skip_comment(char *str)
 	}
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		i++;
-	if (str[i] == '#' || str[i] == '\0')
+	if (str[i] == COMMENT_CHAR || str[i] == '\0' || str[i] == COMMENT_CHAR_2)
 	{
 		free(str);
 		return (1);
@@ -90,7 +92,7 @@ void	read_file(const char *str, t_header **header)
 		if (skip_comment(line))
 			continue;
 		else
-			add_to_list(num, line, header);
+			add_to_list(num, ft_strtrim(line), header);
 		free(line);
 	}
 	if (line == NULL)

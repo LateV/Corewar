@@ -70,7 +70,8 @@ int			special_char_pos(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == ' ' || s[i] == '%' || s[i] == ':' || s[i] == '\t')
+		if (s[i] == ' ' || s[i] == DIRECT_CHAR ||
+			s[i] == LABEL_CHAR || s[i] == '\t')
 			return (i);
 		i++;
 	}

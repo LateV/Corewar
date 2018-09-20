@@ -21,15 +21,15 @@ static void	check_coma(t_command **node, t_header **header)
 	i = 0;
 	j = 0;
 	s = (*node)->line;
-	if (s[i] == ',')
+	if (s[i] == SEPARATOR_CHAR)
 		error_cases(6, header, (*node)->num);
 	while (s[i])
 	{
-		if (s[i] == ',')
+		if (s[i] == SEPARATOR_CHAR)
 			j++;
 		i++;
 	}
-	if (j > 2 || s[i - 1] == ',')
+	if (j > 2 || s[i - 1] == SEPARATOR_CHAR)
 		error_cases(6, header, (*node)->num);
 }
 
@@ -45,7 +45,7 @@ static int	check_t_int(char *str, int k, t_command *node, int type)
 		node->arg_type[k] = type;
 		return (1);
 	}
-	else if (str[i] && str[i] == ':')
+	else if (str[i] && str[i] == LABEL_CHAR)
 	{
 		if (is_label_char(str + 1) == -1)
 			return (-1);
@@ -71,7 +71,7 @@ static	int	check_t_dir(char *str, int k, t_command *node, int type)
 			return (-1);
 		return (1);
 	}
-	else if (str[i] && str[i] == ':')
+	else if (str[i] && str[i] == LABEL_CHAR)
 	{
 		if (is_label_char(str + 1) == -1)
 			return (-1);
@@ -93,23 +93,15 @@ int			find_arg_type(char *str, t_command *tmp, int k)
 			return (-1);
 		tmp->arg_type[k] = 1;
 		tmp->num_arg[k] = ft_atol(str + 1);
-		// if (tmp->num_arg[k] <= 0 || tmp->num_arg[k] > REG_NUM)
-		// 	return (-1);
-		return (1);
-	}
-	if (str[i] == '%')
-	{
-		if (check_t_dir(str + 1, k, tmp, 2) == -1)
+		if (tmp->num_arg[k] <= 0 || tmp->num_arg[k] > REG_NUM)
 			return (-1);
 		return (1);
 	}
-	if (check_for_digit(str) != -1 || (str[i] == ':')
+	if (str[i] == DIRECT_CHAR)
+		return (check_t_dir(str + 1, k, tmp, 2));
+	if (check_for_digit(str) != -1 || (str[i] == LABEL_CHAR)
 		|| (str[i] == '-' && check_for_digit(str + 1) != -1))
-	{
-		if (check_t_int(str, k, tmp, 3) == -1)
-			return (-1);
-		return (1);
-	}
+		return (check_t_int(str, k, tmp, 3));
 	return (-1);
 }
 
@@ -122,7 +114,7 @@ void		split_line_for_arg(t_command **node, t_header **header)
 	str = NULL;
 	i = 0;
 	check_coma(node, header);
-	arr = ft_strsplit((*node)->line, ',');
+	arr = ft_strsplit((*node)->line, SEPARATOR_CHAR);
 	while (arr[i])
 	{
 		if (str)
