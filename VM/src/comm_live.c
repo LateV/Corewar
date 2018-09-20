@@ -25,13 +25,16 @@ void comm_live(t_cor *cor, t_process *process)
 				cor->winner = &cor->player[i];
 				cor->player[i].last_live = cor->cycles;
 				cor->player[i].live_summ++;
+				if(cor->visu == 1)
+				{
+					cor->vizu->map[process->pc].car_player = cor->player[i].num * (-1);
+					cor->vizu->map[process->pc].life_scream = 100;
+				}
 			}
 			if(cor->player[i].num == process->player->num)
 				cor->player[i].live_curr++;
 			i++;
 		}
-		if(cor->visu == 1)
-			cor->vizu->map[process->pc].life_scream = 100;
 		set_proc_pos(cor, process, sk + 1);
 		process->delay = -1;
 		process->codage = 1;
