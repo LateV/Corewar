@@ -22,7 +22,11 @@ void 			refresher(t_cor *cor)
 		if (cor->vizu->map[i].life_time > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
 			cor->vizu->map[i].life_time--;
 		if (cor->vizu->map[i].life_scream > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
+		{
 			cor->vizu->map[i].life_scream--;
+			// if (cor->vizu->map[i].life_scream <= 0)
+			// 	cor->vizu->map[i].player = cor->vizu->map[i].prev_player;
+		}
 	}
 }
 
@@ -50,9 +54,9 @@ void refresh_map(t_cor *cor)
 		}
 		else if (cor->vizu->map[i].life_scream > 0)
 		{
-			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+			wattron(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].car_player + 12));
 			mvwprintw(cor->vizu->win1, (i / 64) + 1, (i % 64) * 3 + 2, "%02x", cor->vizu->map[i].comm);
-			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].player + 12));
+			wattroff(cor->vizu->win1, COLOR_PAIR(cor->vizu->map[i].car_player + 12));
 		}
 		else if (cor->vizu->map[i].type == 1)
 		{
@@ -167,7 +171,6 @@ void break_printer(t_cor *cor, int array[4], int line)
 	int i = -1;
 
 	mvwprintw(cor->vizu->win2, line + ((cor->p_num-1) * 4), 2, "[--------------------------------------------------]");
-
 	while (++i < cor->p_num)
 	{
 		if (array[i] > 0)
@@ -200,7 +203,10 @@ void breakdown(t_cor *cor)
 		summ += cor->player[i].live_summ;
 	i = -1;
 	if (cor->live_check == cor->curr_cycle_t_d)
+	{
 		breakdown_cpy(cor);
+		system("afplay ./sound.mp3&");
+	}
 	if (summ != 0)
 	{
 		while (++i < cor->p_num)
@@ -223,6 +229,7 @@ void breakdown(t_cor *cor)
 void refresh_vizu(t_cor *cor)
 {
 	initital_draw(cor);
+
 	
 	refresh_info(cor);
 	refresh_map(cor);
@@ -245,6 +252,7 @@ void win_art_sword(t_cor *cor, int y)
 {
 	int x = 10;
 
+	wattron(cor->vizu->win1, COLOR_PAIR((cor->winner->num) * (-1) + 8));
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "-----------------------------------------");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                   ^                   |");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                  / \\                  |");
@@ -282,6 +290,7 @@ void win_art_sword(t_cor *cor, int y)
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                   V                   |");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "|                                       |");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "-----------------------------------------");
+	wattroff(cor->vizu->win1, COLOR_PAIR((cor->winner->num) * (-1) + 8));
 }
 
 void win_art_winner(t_cor *cor)
@@ -289,7 +298,7 @@ void win_art_winner(t_cor *cor)
 	int x = 10;
 	int y = 70;
 
-
+	wattron(cor->vizu->win1, COLOR_PAIR((cor->winner->num) * (-1)));
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "              (           )        )             (     ");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "  (  (        )\\ )     ( /(     ( /(             )\\ )  ");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "  )\\))(   '  (()/(     )\\())    )\\())    (      (()/(  ");
@@ -298,6 +307,7 @@ void win_art_winner(t_cor *cor)
 	mvwprintw(cor->vizu->win1, x++, y, "%s", " \\ \\((_)/ /  |_ _|    | \\| |   | \\| |   | __|   | _ \\  ");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "  \\ \\/\\/ /    | |     | .` |   | .` |   | _|    |   /  ");
 	mvwprintw(cor->vizu->win1, x++, y, "%s", "   \\_/\\_/    |___|    |_|\\_|   |_|\\_|   |___|   |_|_\\  ");
+	wattroff(cor->vizu->win1, COLOR_PAIR((cor->winner->num) * (-1)));
 }
           
 
@@ -307,13 +317,16 @@ void gg_wp(t_cor *cor)
 	
 	// mvwprintw(cor->vizu->win1, 40, 20, "%.*s", cor->winner->prog_name);
 	// wrefresh(cor->vizu->win1);
+	refresh_vizu(cor);
 	werase(cor->vizu->win1);
+	// wrefresh(cor->vizu->win2);
 	win_art_sword(cor, 10);
 	win_art_sword(cor, 144);
 	win_art_winner(cor);
-	mvwprintw(cor->vizu->win1, 20, 86, "--> %s <--",cor->winner->prog_name);
-	mvwprintw(cor->vizu->win1, 22, 86, "%s","Press Space to exit");
+	mvwprintw(cor->vizu->win1, 20, 80, "--> %s <--",cor->winner->prog_name);
+	mvwprintw(cor->vizu->win1, 22, 80, "%s","Press Space to exit");
 	wrefresh(cor->vizu->win1);
+	// wrefresh(cor->vizu->win2);
 	while (1)
 	{
 		if (getchar() == 32)
@@ -333,6 +346,7 @@ void					init_map(t_cor *cor)
 		cor->vizu->map[i].comm = 0;
 		cor->vizu->map[i].type = 0;
 		cor->vizu->map[i].player = -1;
+		cor->vizu->map[i].car_player = -1;
 		cor->vizu->map[i].life_time = 0;
 		cor->vizu->map[i].life_scream = 0;
 	}

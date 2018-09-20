@@ -94,6 +94,7 @@ typedef struct			s_map
 {
 	unsigned char		comm;
 	int 				type;
+	int	 				car_player;
 	int	 				player;
 	int 				life_time;
 	int 				life_scream;
