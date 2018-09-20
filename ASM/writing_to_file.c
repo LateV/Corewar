@@ -6,7 +6,7 @@
 /*   By: oskulska <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 19:13:13 by oskulska          #+#    #+#             */
-/*   Updated: 2018/09/13 19:13:15 by oskulska         ###   ########.fr       */
+/*   Updated: 2018/09/20 12:39:49 by oskulska         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ static	int		get_prog_name(t_header *header)
 	int			fd;
 
 	str = ft_strrchr(header->file_name, '/');
-	len = ft_strlen(str);
-	while (len > 0)
-	{
-		if (str[len] == '.')
-			break ;
-		len--;
-	}
-	s = ft_strsub(str, 1, len - 1);
+	if (str == NULL)
+		str = header->file_name;
+	else
+		str++;
+	len = ft_strlen(str) - 2;
+	s = ft_strsub(str, 0, len);
 	free(header->file_name);
 	header->file_name = ft_strjoin(s, ".cor");
 	free(s);

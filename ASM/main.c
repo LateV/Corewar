@@ -79,6 +79,6 @@ int				main(int argc, char const *argv[])
 	}
 	else
 		ft_printf("Usage: ./asm [-a] <sourcefile.s>");
-	//system("leaks asm > test.txt");
+	system("leaks asm > test.txt");
 	return (0);
 }
