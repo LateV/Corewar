@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comm_next.c                                        :+:      :+:    :+:   */
+/*   usadge.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 20:41:57 by vibondar          #+#    #+#             */
-/*   Updated: 2018/09/20 20:41:58 by vibondar         ###   ########.fr       */
+/*   Created: 2018/09/20 20:46:21 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:46:22 by vibondar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void comm_next(t_cor *cor, t_process *process)
+void usadge(void)
 {
-	set_proc_pos(cor, process, 1);
-	process->delay = -1;
-	process->codage = 1;
-	process->command = -1;
+	ft_printf("here was supposed to be {[~~usadge~~~]}\n");
+	exit(0);
 }

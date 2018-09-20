@@ -1,10 +1,10 @@
 #!/bin/bash
-X=26000
+X=1
 while [ $X -le 27001 ]
 do
-./test_fol/corewar test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor -d $X > std_d
+./test_fol/corewar test_fol/test_maps/GagnantT.cor test_fol/test_maps/2014/Machine-gun.cor -d $X > std_d
 X=$((X+1))
-./corewar test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor test_fol/test_maps/std/Gagnant.cor -dump $X > my_d
+./corewar test_fol/test_maps/GagnantT.cor test_fol/test_maps/2014/Machine-gun.cor -dump $X > my_d
 LA="$(diff my_d std_d)"
 if [ $LA="" ] ; then
 		echo "$X ok"

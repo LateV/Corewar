@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comm_next.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 20:41:57 by vibondar          #+#    #+#             */
-/*   Updated: 2018/09/20 20:41:58 by vibondar         ###   ########.fr       */
+/*   Created: 2018/09/20 20:43:02 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:43:04 by vibondar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void comm_next(t_cor *cor, t_process *process)
+
+void	ft_error(t_cor *cor, char *error)
 {
-	set_proc_pos(cor, process, 1);
-	process->delay = -1;
-	process->codage = 1;
-	process->command = -1;
+	cor->p_num = cor->p_num;
+	ft_putstr(error);
+	ft_putstr("\n");
+	exit(0);
 }

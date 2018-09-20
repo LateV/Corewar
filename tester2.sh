@@ -1,5 +1,5 @@
 #!/bin/bash
-X=20000
+X=1
 while [ $X -le 50000 ]
 do
 ./test_fol/corewar test_fol/test_maps/std/fluttershy.cor test_fol/test_maps/std/toto.cor test_fol/test_maps/std/Car.cor test_fol/test_maps/std/bigzork.cor -d $X > std_d

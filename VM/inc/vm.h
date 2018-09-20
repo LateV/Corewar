@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vm.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:47:39 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:47:41 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef VM_H
 # define VM_H
 # define IND_SIZE				2
@@ -147,8 +159,18 @@ typedef struct			s_cor
 }						t_cor;
 
 
+void					ft_error(t_cor *cor, char *error);
+void 					usadge(void);
+int 					flag_force(t_cor *cor, char **argv, int i);
+void					manage_files(t_cor *cor, char *argv);
+void					validate_players(t_cor *cor);
+void 					bot_comment(t_cor *cor, int fd, int i);
+void 					bot_code(t_cor *cor, int fd, int i);
+int 					simple_flag(int i, int *flag);
+int						manage_flags(t_cor *cor, char **argv, int i);
 char 					get_char(t_cor *cor, int loc);
 void 					usadge(void);
+int 					val_int(t_cor *cor, char *flag, char *value);
 void 					print_map(t_cor *cor);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);

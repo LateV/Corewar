@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comm_next.c                                        :+:      :+:    :+:   */
+/*   manage_flags2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 20:41:57 by vibondar          #+#    #+#             */
-/*   Updated: 2018/09/20 20:41:58 by vibondar         ###   ########.fr       */
+/*   Created: 2018/09/20 20:45:44 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:45:45 by vibondar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void comm_next(t_cor *cor, t_process *process)
+int simple_flag(int i, int *flag)
 {
-	set_proc_pos(cor, process, 1);
-	process->delay = -1;
-	process->codage = 1;
-	process->command = -1;
+	*flag = 1;
+	return(i);
+}
+
+int flag_force(t_cor *cor, char **argv, int i)
+{
+	int num;
+
+	if(argv[i + 1] == NULL)
+		ft_error(cor, "Invalid format in flag -force");
+	num = val_int(cor, argv[i], argv[i + 1]);
+	cor->start_from = num;
+	return(i + 1);
 }
