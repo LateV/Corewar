@@ -28,6 +28,10 @@ SRC	=	main.c 					\
 		live_cheker.c 			\
 		game_init.c 			\
 		game.c 					\
+		v_map_handler2.c 		\
+		v_map_handler3.c 		\
+		v_map_handler4.c 		\
+		v_map_handler5.c 		\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
