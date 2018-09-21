@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_add.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:40:28 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:40:30 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 static int arg_read(t_cor *cor, t_process *process)
@@ -19,7 +31,7 @@ static void	reg_reg_reg(t_cor *cor, t_process *process)
 
 	tmp = get_reg(process, process->arg1 - 1) + get_reg(process, process->arg2 - 1);
 	process->registr[process->arg3 - 1] = tmp;
-	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+	if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 		ft_printf("P% 5d | add r%d r%d r%d\n", process->count_num, 
 	process->arg1, process->arg2, process->arg3);
 }

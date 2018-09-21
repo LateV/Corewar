@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_and_or_xor.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:40:47 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:40:49 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 static int pair_arg(t_cor *cor, t_process *process, char *s1)
@@ -10,7 +22,7 @@ static int pair_arg(t_cor *cor, t_process *process, char *s1)
 		res = process->arg1 | process->arg2;
 	if(process->command == 7)
 		res = process->arg1 ^ process->arg2;
-	if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+	if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 	{
 		ft_printf("P% 5d | %s %d %d r%d\n",
 		process->count_num, s1, process->arg1, process->arg2, process->arg3);
@@ -58,13 +70,13 @@ static int arg_val_hendler(t_process *process)
 {
 	if(process->arg_type[0] == 1)
 	{
-		if(process->arg1 < 0 || process->arg1 > 16)
+		if(process->arg1 <= 0 || process->arg1 > 16)
 			return(0);
 		process->arg1 = get_reg(process, process->arg1 - 1);
 	}
 	if(process->arg_type[1] == 1)
 	{
-		if(process->arg2 < 0 || process->arg2 > 16)
+		if(process->arg2 <= 0 || process->arg2 > 16)
 			return(0);
 		process->arg2 = get_reg(process, process->arg2 - 1);
 	}

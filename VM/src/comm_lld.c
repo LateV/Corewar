@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_lld.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:41:39 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:41:40 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 static int arg_read(t_cor *cor, t_process *process)
@@ -35,7 +47,7 @@ void comm_lld(t_cor *cor, t_process *process)
 		if(process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
 		{
 			process->registr[process->arg2 - 1] = process->arg1;
-			if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 			{
 				ft_printf("P% 5d | lld %d r%d\n",
 					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
