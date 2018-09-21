@@ -208,8 +208,6 @@ void 					game(t_cor *cor);
 void					init_window(t_cor *cor);
 void					draw_palyer_info(t_cor *cor, t_process *proc, int k);
 void					draw_info(t_cor *cor);
-void					put_com(t_cor *cor, int pos, unsigned char comm, int color);
-void					put_car(t_cor *cor, int pos, unsigned char comm, int color);
 void					init_map(t_cor *cor);
 void					refresh_map(t_cor *cor);
 void					refresh_vizu(t_cor *cor);
@@ -218,4 +216,9 @@ void					v_speed_test(t_cor *cor, char t);
 void					breakdown(t_cor *cor);
 void					gg_wp(t_cor *cor);
 void 					refresher(t_cor *cor);
+void					win_art_winner(t_cor *cor);
+void					win_art_sword(t_cor *cor, int y);
+void					break_printer(t_cor *cor, int array[4], int line);
+void					refresh_map2(t_cor *cor, int i);
+void					refresh_map(t_cor *cor);
 #endif
