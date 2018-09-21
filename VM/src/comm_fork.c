@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_fork.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:40:54 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:40:55 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 void add_proc(t_cor *cor, t_process *process, int loc)
@@ -19,7 +31,7 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 		new->pc = loc;
 		if(cor->visu == 1)
 			cor->vizu->map[loc].type = 1;
-		new->carry = 1;
+		new->carry = process->carry;
 		new->live = process->live;
 		new->delay = -1;
 		new->codage = 1;
@@ -29,6 +41,7 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 		new->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->process = new;
+		cor->alive_cur++;
 	}
 }
 
@@ -45,7 +58,7 @@ void comm_fork(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 		{
 			ft_printf("P% 5d | fork %d (%d)\n",
 				process->count_num, process->arg1, process->pc + (process->arg1 % IDX_MOD));

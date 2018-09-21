@@ -32,6 +32,14 @@ SRC	=	main.c 					\
 		v_map_handler3.c 		\
 		v_map_handler4.c 		\
 		v_map_handler5.c 		\
+		flag_validation.c 		\
+		ft_error.c 				\
+		manage_flags.c 			\
+		manage_flags2.c 		\
+		manage_files.c 			\
+		validate_players.c 		\
+		validate_players2.c 	\
+		usadge.c 				\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

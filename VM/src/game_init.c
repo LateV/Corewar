@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_init.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:44:23 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:44:25 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 void add_player(t_cor *cor, t_player *player, int k)
@@ -17,9 +29,11 @@ void add_player(t_cor *cor, t_player *player, int k)
 		cor->process->player->live_summ = 0;
 		cor->process->player->live_curr = 0;
 		cor->process->player->last_live = 0;
+		cor->process->player->all_cur = 0;
 		cor->process->command = -1;
 		cor->process->carry = 0;
 		cor->process->live = 0;
+		cor->alive_cur++;
 		cor->process->count_num = cor->proc_num;
 		cor->proc_num++;
 		cor->winner = (player + k);
@@ -35,10 +49,12 @@ void add_player(t_cor *cor, t_player *player, int k)
 	new->player->live_summ = 0;
 	new->player->live_curr = 0;
 	new->player->last_live = 0;
+	new->player->all_cur = 0;
 	new->live = 0;
 	new->command = -1;
 	new->carry = 0;
 	cor->process = new;
+	cor->alive_cur++;
 	new->count_num = cor->proc_num;
 	cor->proc_num++;
 	cor->winner = &player[k];

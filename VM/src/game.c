@@ -1,31 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:43:11 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:43:12 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
-
-void print_map_mark(t_cor *cor, int pos)
-{
-	int row;
-	int i;
-
-	row = 0;
-	i = 0;
-	pos = pos + 0;
-	ft_printf("0x0000 : ");
-	while(i < MEM_SIZE)
-	{
-		if(i != 0)
-			ft_printf("%#06x : ", i);
-		while(row < 64)
-		{
-			// if(i == pos)
-			// 	ft_printf("-->");
-			ft_printf("%02x ", cor->arena[i]);
-			row++;
-			i++;
-		}
-		ft_printf("\n");
-		row = 0;
-	}
-	ft_printf("\n");
-}
 
 void print_map(t_cor *cor)
 {
@@ -34,32 +19,42 @@ void print_map(t_cor *cor)
 
 	row = 0;
 	i = 0;
-	printf("0x0000 : ");
+	ft_printf("0x0000 : ");
 	while(i < MEM_SIZE)
 	{
 		if(i != 0)
-			printf("%#06x : ", i);
+			ft_printf("%#06x : ", i);
 		while(row < 64)
 		{
-			// if(i == 3234)
-			// 	printf("-->");
-			printf("%02x ", cor->arena[i]);
+			// if(i == 3437)
+			// 	ft_printf("--->");
+			ft_printf("%02x ", cor->arena[i]);
 			row++;
 			i++;
 		}
-		printf("\n");
+		ft_printf("\n");
 		row = 0;
 	}
-	printf("\n");
 }
 
 
 void flag_output(t_cor *cor)
 {
+	char buff;
+
 	if(cor->visu == 0 && cor->dump != 0 && cor->cycles == cor->dump)
 	{
 		print_map(cor);
 		exit(0);
+	}
+	while(cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
+	{
+		print_map(cor);
+		read(0, &buff, 1);
+		if(buff == '\n')
+			break ;
+		else
+			exit(0);
 	}
 }
 
@@ -96,7 +91,6 @@ void game(t_cor *cor)
 			v_speed_test(cor, cor->vizu->key);
 			breakdown(cor);
 			refresher(cor);
-
 			if (cor->vizu->key == 32 && cor->pause == 1)
 				cor->pause = 0;
 			else if (cor->vizu->key == 32 && cor->pause == 0)
@@ -110,12 +104,14 @@ void game(t_cor *cor)
 		}
 		else
 		{
-			if(cor->visu == 0 && cor->dump == 0 && (cor->mon == cor->cycles || cor->mon == 0))
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);
 		process_activity(cor);
-		cor->cycles++;
 		live_cheker(cor);
+		if(cor->cycles == cor->mon && cor->log == 0)
+			exit(0);
+		cor->cycles++;
 	}
 }

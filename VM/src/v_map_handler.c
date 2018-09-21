@@ -6,13 +6,13 @@
 /*   By: rkhilenk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:50:31 by rkhilenk          #+#    #+#             */
-/*   Updated: 2018/09/10 15:50:33 by rkhilenk         ###   ########.fr       */
+/*   Updated: 2018/09/20 20:46:48 by vibondar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	refresh_player(t_cor *cor)
+void refresh_player(t_cor *cor)
 {
 	int i;
 
