@@ -48,7 +48,7 @@ void		initital_draw(t_cor *cor)
 		1000000 / cor->vizu->speed);
 		mvwprintw(cor->vizu->win2, 7, 2, "Cycle : %-20d", (cor->cycles) - 1);
 		mvwprintw(cor->vizu->win2, 9, 2, "Processes : %-20d",
-		(cor->proc_num) - 1);
+		cor->alive_cur);
 	}
 }
 
