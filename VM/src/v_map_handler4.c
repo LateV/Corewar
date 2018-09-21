@@ -94,7 +94,8 @@ void		breakdown(t_cor *cor)
 	if (cor->live_check == cor->curr_cycle_t_d)
 	{
 		breakdown_cpy(cor);
-		system("afplay ./sound.mp3&");
+		if (cor->cycles > cor->start_from)
+			system("afplay ./sound.mp3&");
 	}
 	res_summ = brakedown2(cor, i, res_summ, summ);
 	if (res_summ != 0 && res_summ != 50)
