@@ -1,5 +1,5 @@
-VM_DIR		=	./VM/
-ASM_DIR		=	./ASM_SRC/
+VM_DIR		=	./vm/
+ASM_DIR		=	./asm_src/
 
 BG			=	"\033[32;1m"
 BR			=	"\033[31;1m"

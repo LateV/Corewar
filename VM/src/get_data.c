@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_data.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:44:32 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:44:35 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
 int 			get_reg(t_process *process, unsigned char reg)
@@ -9,8 +21,10 @@ int 			get_reg(t_process *process, unsigned char reg)
 
 char			get_char(t_cor *cor, int loc)
 {
-	while(loc >= MEM_SIZE)
-		loc = loc - MEM_SIZE;
+	while(loc  >= MEM_SIZE)
+		loc = loc  - MEM_SIZE;
+	while(loc  < 0)
+		loc = loc + MEM_SIZE;
 	return(cor->arena[loc]);
 }
 
@@ -25,8 +39,10 @@ short			get_short(t_cor *cor, int loc)
 	tmp = (unsigned char*)&val;
 	while(i >= 0)
 	{
-		while(loc >= MEM_SIZE)
-			loc = loc - MEM_SIZE;
+		while(loc  >= MEM_SIZE)
+			loc = loc  - MEM_SIZE;
+		while(loc  < 0)
+			loc = loc + MEM_SIZE;
 		tmp[i] = cor->arena[loc];
 		i--;
 		loc++;
@@ -45,8 +61,10 @@ int				get_int(t_cor *cor, int loc)
 	tmp = (unsigned char*)&val;
 	while(i >= 0)
 	{
-		while(loc >= MEM_SIZE)
-			loc = loc - MEM_SIZE;
+		while(loc  >= MEM_SIZE)
+			loc = loc  - MEM_SIZE;
+		while(loc  < 0)
+			loc = loc + MEM_SIZE;
 		tmp[i] = cor->arena[loc];
 		i--;
 		loc++;

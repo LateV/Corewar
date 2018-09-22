@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vm.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:47:39 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:47:41 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef VM_H
 # define VM_H
 # define IND_SIZE				2
@@ -51,13 +63,14 @@ typedef char	t_arg_type;
 # include <sys/stat.h>
 # include "libft.h"
 # include "ft_printf.h"
-# include "vizu.h"
+
 
 struct s_process;
 struct s_cor;
 
 typedef struct			s_player
 {
+	int 				all_cur;
 	int 				live_curr;	// сумма криков "жизнь" процессами, породженными данным играком
 	int 				last_live;	// цикл последнего крика "жизнь"					
 	int 				live_summ; 	// Количество криков "жизнь" для даннаого играока за период (0 - curr_cycle_t_d) циклов
@@ -90,16 +103,45 @@ typedef struct			s_process
 	struct s_process  	*next;			// указатель на следующий процесс
 }						t_process;
 
+typedef struct			s_map
+{
+	unsigned char		comm;
+	int 				type;
+	int	 				car_player;
+	int	 				player;
+	int 				life_time;
+	int 				life_scream;
+}						t_map;
+
+typedef struct			s_vizu
+{
+	WINDOW 				*win1;
+	WINDOW				*win2;
+	int 				end_of_prs;
+	t_map 				*map;
+	int 				speed;
+	char 				key;
+	int         		brakedown[4];
+	int         		last_brakedown[4];
+}						t_vizu;
+
 typedef struct			s_cor
 {
 	unsigned char 		arena[MEM_SIZE + 1];
+	int 				alive_cur;
 	int 				proc_num;
 	int 				cycles;
 	int 				code_summ;
 	int 				start;
 	int 				visu;
 	int 				dump;
+	int 				mon;
 	int 				pause;
+	int 				stealth;
+	int 				a;
+	int 				s;
+	int 				log;
+	int 				start_from;
 	int 				curr_pl;
 	int					p_num;
 	int 				flag_p_num;
@@ -116,25 +158,35 @@ typedef struct			s_cor
 	t_vizu 				*vizu;
 }						t_cor;
 
+
+void					ft_error(t_cor *cor, char *error);
+void 					usadge(void);
+int 					flag_force(t_cor *cor, char **argv, int i);
+void					manage_files(t_cor *cor, char *argv);
+void					validate_players(t_cor *cor);
+void 					bot_comment(t_cor *cor, int fd, int i);
+void 					bot_code(t_cor *cor, int fd, int i);
+int 					simple_flag(int i, int *flag);
+int						manage_flags(t_cor *cor, char **argv, int i);
 char 					get_char(t_cor *cor, int loc);
+void 					usadge(void);
+int 					val_int(t_cor *cor, char *flag, char *value);
+void 					print_map(t_cor *cor);
 short 					get_short(t_cor *cor, int loc);
 int 					get_int(t_cor *cor, int loc);
 int 					t_dir(t_cor *cor, t_process *process, int *arg, int loc);
 int 					t_reg(t_cor *cor, int *arg, int loc);
 int 					t_ind(t_cor *cor, int *arg, int loc);
 int 					get_reg(t_process *process, unsigned char reg);
-void 					set_proc_pos(t_process *process, int shift);
+void					set_proc_pos(t_cor *cor, t_process *process, int shift);
 int 					arg_handler(t_cor *cor, t_process *process, int *arg, int s);
 void 					to_map(t_cor *cor);
 void 					init_comand_function(t_cor *cor);
 void 					load_from_reg(t_cor *cor, t_process *process, int loc, int r_num);
-void 					load_to_reg(t_cor *cor, t_process *process, int loc, int r_num);
 void 					codage_identify(t_process *process, unsigned char args);
-void 					load_data_to_reg(t_cor *cor, t_process *process, int size, int r_num);
 void 					comm_live(t_cor *cor, t_process *process);
 void 					comm_ld(t_cor *cor, t_process *process);
-void 					comm_or(t_cor *cor, t_process *process);
-void 					comm_xor(t_cor *cor, t_process *process);
+void 					comm_and_or_xor(t_cor *cor, t_process *process);
 void 					comm_zjmp(t_cor *cor, t_process *process);
 void 					comm_ldi(t_cor *cor, t_process *process);
 void 					comm_sti(t_cor *cor, t_process *process);
@@ -146,13 +198,27 @@ void 					comm_aff(t_cor *cor, t_process *process);
 void 					comm_st(t_cor *cor, t_process *process);
 void 					comm_add(t_cor *cor, t_process *process);
 void 					comm_sub(t_cor *cor, t_process *process);
-void 					comm_and(t_cor *cor, t_process *process);
 void 					comm_next(t_cor *cor, t_process *process);
 void 					add_proc(t_cor *cor, t_process *process, int loc);
+void 					live_cheker(t_cor *cor);
+void 					game_init(t_cor *cor);
+void 					add_players(t_cor *cor);
+void 					game(t_cor *cor);
 // vizu
 void					init_window(t_cor *cor);
 void					draw_palyer_info(t_cor *cor, t_process *proc, int k);
 void					draw_info(t_cor *cor);
-void					put_com(t_cor *cor, int pos, unsigned char comm, int color);
-void					put_car(t_cor *cor, int pos, unsigned char comm, int color);
+void					init_map(t_cor *cor);
+void					refresh_map(t_cor *cor);
+void					refresh_vizu(t_cor *cor);
+void					initital_draw(t_cor *cor);
+void					v_speed_test(t_cor *cor, char t);
+void					breakdown(t_cor *cor);
+void					gg_wp(t_cor *cor);
+void 					refresher(t_cor *cor);
+void					win_art_winner(t_cor *cor);
+void					win_art_sword(t_cor *cor, int y);
+void					break_printer(t_cor *cor, int array[4], int line);
+void					refresh_map2(t_cor *cor, int i);
+void					refresh_map(t_cor *cor);
 #endif

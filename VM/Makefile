@@ -3,13 +3,11 @@ NAME		=	 ../corewar
 SRC	=	main.c 					\
 		to_map.c				\
 		init_comm_f.c			\
-		load_data_to_reg.c		\
 		codage_identify.c		\
 		load_from_reg.c			\
 		comm_live.c				\
 		comm_ld.c				\
-		comm_or.c				\
-		comm_xor.c				\
+		comm_and_or_xor.c 		\
 		comm_zjmp.c				\
 		comm_ldi.c				\
 		comm_sti.c				\
@@ -21,12 +19,27 @@ SRC	=	main.c 					\
 		comm_st.c				\
 		comm_add.c				\
 		comm_sub.c				\
-		comm_and.c				\
 		comm_next.c				\
 		get_data.c 				\
 		set_proc_pos.c 			\
 		arg_handler.c			\
 		v_main.c 				\
+		v_map_handler.c 		\
+		live_cheker.c 			\
+		game_init.c 			\
+		game.c 					\
+		v_map_handler2.c 		\
+		v_map_handler3.c 		\
+		v_map_handler4.c 		\
+		v_map_handler5.c 		\
+		flag_validation.c 		\
+		ft_error.c 				\
+		manage_flags.c 			\
+		manage_flags2.c 		\
+		manage_files.c 			\
+		validate_players.c 		\
+		validate_players2.c 	\
+		usadge.c 				\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
@@ -50,7 +63,6 @@ HEAD_PRINTF	=	$(PRINTF_DIR)$(INC_DIR)ft_printf.h
 HEAD_LIBFT	=	$(LIBFT_DIR)$(INC_DIR)libft.h
 
 HEAD_VM 	=	$(INC_DIR)vm.h
-HEAD_VIZU	=	$(INC_DIR)vizu.h
 
 HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
 

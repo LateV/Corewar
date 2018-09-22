@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_lld.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vibondar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/20 20:41:39 by vibondar          #+#    #+#             */
+/*   Updated: 2018/09/20 20:41:40 by vibondar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vm.h"
 
-static int arg_read(t_cor *cor, t_process *process, int *name)
+static int arg_read(t_cor *cor, t_process *process)
 {
 	int s;
 
@@ -9,24 +21,19 @@ static int arg_read(t_cor *cor, t_process *process, int *name)
 		process->codage = 0;
 	if (process->arg2 != 1)
 		process->codage = 0;
-	if (process->arg3 != 0)
-		process->codage = 0;
-	if (process->arg1 == 2)
-		*name = 2;
-	else if (process->arg1 == 3)
-		*name = 3;
+	process->arg_type[0] = process->arg1;
+	process->arg_type[1] = process->arg2;
+	process->arg_type[2] = process->arg3;
 	s = arg_handler(cor, process, &process->arg1, s);
 	s = arg_handler(cor, process, &process->arg2, s);
-	s = arg_handler(cor, process, &process->arg3, s);
 	return(s);
 }		
+
 
 void comm_lld(t_cor *cor, t_process *process)
 {
 	int sk;
-	int name;
 
-	name = 0;
 	if (process->delay < 0)
 		process->delay = 9;
 	else if (process->delay > 0)
@@ -36,33 +43,21 @@ void comm_lld(t_cor *cor, t_process *process)
 		process->label = 4;
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
-		sk = arg_read(cor, process, &name);
-		if(process->codage == 1)
+		sk = arg_read(cor, process);
+		if(process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
 		{
-			if (name == 2)
+			process->registr[process->arg2 - 1] = process->arg1;
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 			{
-				process->registr[process->arg2 - 1] = process->arg1;
-				ft_putstr("-> ld ");
-				ft_putnbr(get_reg(process, process->arg2 - 1));
-				ft_putstr(" r");
-				ft_putnbr(process->arg2);
-				ft_putstr("\n");
-			}
-			else if (name == 3)
-			{
-				ft_putstr("-> ld");
-				ft_putnbr(process->pc + process->arg1);
-				ft_putstr("r");
-				ft_putnbr(process->arg2);
-				ft_putstr("\n");
-				load_data_to_reg(cor, process, process->pc + process->arg1, process->arg2 - 1);
+				ft_printf("P% 5d | lld %d r%d\n",
+					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
 			}
 			if (process->registr[process->arg2 - 1] == 0)
-					process->carry = 1;
-				else
-					process->carry = 0;
+				process->carry = 1;
+			else
+				process->carry = 0;
 		}
-		set_proc_pos(process, sk);
+		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;
 		process->command = -1;
