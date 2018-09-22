@@ -40,6 +40,7 @@ SRC	=	main.c 					\
 		validate_players.c 		\
 		validate_players2.c 	\
 		usadge.c 				\
+		arg_hendler2.c 			\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

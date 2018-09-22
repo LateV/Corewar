@@ -80,32 +80,14 @@ void max_live(t_cor *cor)
 	}
 }
 
-void del_first(t_cor *cor)
+void wasted_live(t_cor *cor)
 {
 	t_process *tmp;
-
-	tmp = cor->process->next;
-	free(cor->process);
-	cor->process = tmp;
-	if(!tmp)
-		end_game(cor);
-}
-
-void del_inner(t_cor *cor, t_process *prev)
-{
-	t_process *tmp;
-	t_process *tmp1;
 
 	tmp = cor->process;
 	while(tmp)
 	{
-		if(tmp->next == prev)
-		{
-			tmp1 = tmp->next->next;
-			free(tmp->next);
-			tmp->next = tmp1;
-			break;
-		}
+		tmp->live = 0;
 		tmp = tmp->next;
 	}
 }
@@ -124,18 +106,28 @@ void search_and_delete(t_cor *cor)
 			if(cor->visu == 1)
 				cor->vizu->map[tmp->pc].type = 0;
 			if(tmp == cor->process)
-				del_first(cor);
+			{
+				tmp = cor->process->next;
+				if(cor->visu == 1)
+					cor->vizu->map[cor->process->pc].type = 0;
+				free(cor->process);
+				cor->process = tmp;
+			}
 			else
-				del_inner(cor, prev);
+			{
+				prev->next = tmp->next;
+				if(cor->visu == 1)
+					cor->vizu->map[tmp->pc].type = 0;
+				free(tmp);
+				tmp = prev->next;
+			}
 			cor->alive_cur--;
-			tmp = cor->process;
 			continue;
 		}
-		else
-			tmp->live = 0;
 		prev = tmp;
 		tmp = tmp->next;
 	}
+	wasted_live(cor);
 }
 
 void live_cheker(t_cor *cor)
