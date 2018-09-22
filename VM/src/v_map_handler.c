@@ -12,9 +12,9 @@
 
 #include "vm.h"
 
-void refresh_player(t_cor *cor)
+void	refresh_player(t_cor *cor)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < cor->p_num)
@@ -46,7 +46,7 @@ void	refresh_vizu(t_cor *cor)
 
 void	init_map(t_cor *cor)
 {
-	int i;
+	int	i;
 
 	cor->vizu->map = (t_map *)malloc(sizeof(t_map) * 4096);
 	i = -1;

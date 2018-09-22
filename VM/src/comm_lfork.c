@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void comm_lfork(t_cor *cor, t_process *process)
+void	comm_lfork(t_cor *cor, t_process *process)
 {
 	int sk;
 
@@ -25,7 +25,8 @@ void comm_lfork(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+		if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+			(cor->mon == cor->cycles || cor->log == 1))
 		{
 			ft_printf("P% 5d | lfork %d (%d)\n",
 				process->count_num, process->arg1, process->pc + process->arg1);

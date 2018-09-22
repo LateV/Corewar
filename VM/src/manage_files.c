@@ -12,15 +12,14 @@
 
 #include "vm.h"
 
-inline static void cor_format(t_cor *cor, char *path)
+inline	static	void	cor_format(t_cor *cor, char *path)
 {
-	int i;
-
+	int					i;
 
 	i = ft_strlen(path);
-	if(i - 5 > 0)
+	if (i - 5 > 0)
 	{
-		if(ft_strcmp(path + i - 4, ".cor") != 0)
+		if (ft_strcmp(path + i - 4, ".cor") != 0)
 		{
 			ft_putstr("Can't read source file (missing .cor) ");
 			ft_error(cor, path);
@@ -31,16 +30,16 @@ inline static void cor_format(t_cor *cor, char *path)
 	{
 		ft_putstr("Can't read source file ");
 		ft_error(cor, path);
-	}	
-	if(cor->p_num > 3)
+	}
+	if (cor->p_num > 3)
 		ft_error(cor, "Error: max 4 players");
 }
 
-inline static void	calculate_p_num(t_cor *cor)
+inline static	void	calculate_p_num(t_cor *cor)
 {
-	if(cor->p_num > 3)
+	if (cor->p_num > 3)
 		ft_error(cor, "Error: max 4 players");
-	if(cor->flag_p_num != -1)
+	if (cor->flag_p_num != -1)
 	{
 		cor->player[cor->p_num].num = cor->flag_p_num;
 		cor->curr_pl = cor->player[cor->p_num].num;
@@ -54,9 +53,7 @@ inline static void	calculate_p_num(t_cor *cor)
 	}
 }
 
-
-
-void	manage_files(t_cor *cor, char *argv)
+void					manage_files(t_cor *cor, char *argv)
 {
 	cor_format(cor, argv);
 	calculate_p_num(cor);

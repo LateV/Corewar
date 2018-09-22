@@ -83,9 +83,11 @@ void		refresher(t_cor *cor)
 	i = -1;
 	while (++i < 4096)
 	{
-		if (cor->vizu->map[i].life_time > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
+		if (cor->vizu->map[i].life_time > 0 && (cor->pause == 0 ||
+			cor->cycles < cor->start_from))
 			cor->vizu->map[i].life_time--;
-		if (cor->vizu->map[i].life_scream > 0 && (cor->pause == 0 || cor->cycles < cor->start_from))
+		if (cor->vizu->map[i].life_scream > 0 && (cor->pause == 0 ||
+			cor->cycles < cor->start_from))
 		{
 			cor->vizu->map[i].life_scream--;
 		}
