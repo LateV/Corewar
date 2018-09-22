@@ -12,16 +12,14 @@
 
 #include "vm.h"
 
-void print_proc(t_cor *cor)
+void end_game(t_cor *cor)
 {
-	t_process *tmp;
-
-	tmp = cor->process;
-	while(tmp)
-	{
-		ft_printf("P % 5d is here and live == %d \n", tmp->count_num, tmp->live);
-		tmp = tmp->next;
-	}
+	if(cor->visu == 0)
+		ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
+	else
+		gg_wp(cor);
+	endwin();
+	exit(0);
 }
 
 void max_ch(t_cor *cor)
@@ -52,13 +50,7 @@ void cycle_end(t_cor *cor)
 		if (cor->cycles > cor->start_from)
 			refresh_vizu(cor);
 	}
-	if(cor->visu == 0)
-		ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
-	if(cor->visu)
-			gg_wp(cor);
-	endwin();
-	system("leaks -quiet corewar");
-	exit(0);
+	end_game(cor);
 }
 
 void max_live(t_cor *cor)
@@ -88,70 +80,72 @@ void max_live(t_cor *cor)
 	}
 }
 
-void live_cheker(t_cor *cor)
+void del_first(t_cor *cor)
+{
+	t_process *tmp;
+
+	tmp = cor->process->next;
+	free(cor->process);
+	cor->process = tmp;
+	if(!tmp)
+		end_game(cor);
+}
+
+void del_inner(t_cor *cor, t_process *prev)
+{
+	t_process *tmp;
+	t_process *tmp1;
+
+	tmp = cor->process;
+	while(tmp)
+	{
+		if(tmp->next == prev)
+		{
+			tmp1 = tmp->next->next;
+			free(tmp->next);
+			tmp->next = tmp1;
+			break;
+		}
+		tmp = tmp->next;
+	}
+}
+
+void search_and_delete(t_cor *cor)
 {
 	t_process *prev;
 	t_process *tmp;
 
+	tmp = cor->process;
+	prev = NULL;
+	while(tmp)
+	{
+		if(tmp->live == 0)
+		{
+			if(cor->visu == 1)
+				cor->vizu->map[tmp->pc].type = 0;
+			if(tmp == cor->process)
+				del_first(cor);
+			else
+				del_inner(cor, prev);
+			cor->alive_cur--;
+			tmp = cor->process;
+			continue;
+		}
+		else
+			tmp->live = 0;
+		prev = tmp;
+		tmp = tmp->next;
+	}
+}
+
+void live_cheker(t_cor *cor)
+{
 	if(cor->live_check == cor->curr_cycle_t_d)
 	{
-		tmp = cor->process;
-		prev = NULL;
-		// Проверка всех процессов на "жизнь"
-		// {{
-		prev = NULL;
-		while(tmp)
-		{
-			if(tmp->live == 0) // Если процесс не жив удаляем его из списка
-			{
-				if(prev == NULL) // Для случая , когда это первый елемент списка
-				{
-					tmp = cor->process->next;
-					if(cor->visu == 1)
-						cor->vizu->map[cor->process->pc].type = 0;
-					free(cor->process);
-					cor->process = tmp;
-					cor->alive_cur--;
-					if(!tmp) // Если это был единственный процесс 
-					{
-						if(cor->visu == 0)
-							ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
-						if(cor->visu)
-							gg_wp(cor);
-						endwin();
-						system("leaks -quiet corewar");
-						exit(0);
-					}
-					continue;
-				}
-				else
-				{
-					prev->next = tmp->next;
-					if(cor->visu == 1)
-						cor->vizu->map[tmp->pc].type = 0;
-					free(tmp);
-					cor->alive_cur--;
-					tmp = prev->next;
-					continue;
-				}
-			}
-			else
-				tmp->live = 0;// Если процесс жив то жизнь тратится
-			prev = tmp;
-			if(tmp)
-				tmp = tmp->next;
-		}
+		max_live(cor);
+		search_and_delete(cor);
 		if(!cor->process)
-		{
-			if(cor->visu == 0)
-				ft_printf("Contestant %d, \"%s\", has won !\n", cor->winner->num * (-1), cor->winner->prog_name);
-			if(cor->visu)
-				gg_wp(cor);
-			endwin();
-			system("leaks -quiet corewar");
-			exit(0);
-		}
-		// }}
+			end_game(cor);
 		max_ch(cor);
 		cor->live_check = 1;
 	}
