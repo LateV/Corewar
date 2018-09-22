@@ -80,6 +80,17 @@ void max_live(t_cor *cor)
 	}
 }
 
+void del_first(t_cor *cor)
+{
+	t_process *tmp;
+
+	tmp = cor->process->next;
+	free(cor->process);
+	cor->process = tmp;
+	if(!tmp)
+		end_game(cor);
+}
+
 void wasted_live(t_cor *cor)
 {
 	t_process *tmp;
@@ -107,11 +118,8 @@ void search_and_delete(t_cor *cor)
 				cor->vizu->map[tmp->pc].type = 0;
 			if(tmp == cor->process)
 			{
-				tmp = cor->process->next;
-				if(cor->visu == 1)
-					cor->vizu->map[cor->process->pc].type = 0;
-				free(cor->process);
-				cor->process = tmp;
+				del_first(cor);
+				tmp = cor->process;
 			}
 			else
 			{
