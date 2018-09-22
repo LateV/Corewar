@@ -124,8 +124,6 @@ void search_and_delete(t_cor *cor)
 			else
 			{
 				prev->next = tmp->next;
-				if(cor->visu == 1)
-					cor->vizu->map[tmp->pc].type = 0;
 				free(tmp);
 				tmp = prev->next;
 			}
