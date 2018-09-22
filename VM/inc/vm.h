@@ -161,6 +161,8 @@ typedef struct			s_cor
 
 void					ft_error(t_cor *cor, char *error);
 void 					usadge(void);
+void 					flag_output(t_cor *cor);
+void 					process_activity(t_cor *cor);
 int 					flag_force(t_cor *cor, char **argv, int i);
 void					manage_files(t_cor *cor, char *argv);
 void					validate_players(t_cor *cor);
