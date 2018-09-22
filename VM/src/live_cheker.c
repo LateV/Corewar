@@ -61,38 +61,42 @@ void cycle_end(t_cor *cor)
 	exit(0);
 }
 
+void max_live(t_cor *cor)
+{
+	int i;
+
+	i = 0;
+	while(i < 4)
+	{
+		if(cor->player[i].all_cur >= NBR_LIVE)
+		{
+			cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+				ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
+			cor->curr_chechs = cor->curr_chechs - 1;
+			break;
+		}
+		i++;
+	}
+	i = 0;
+	while(i < 4)
+	{
+		cor->player[i].live_curr = 0;
+		cor->player[i].live_summ = 0;
+		cor->player[i].all_cur = 0;
+		i++;
+	}
+}
+
 void live_cheker(t_cor *cor)
 {
 	t_process *prev;
 	t_process *tmp;
-	int i;
 
-	i = 0;
 	if(cor->live_check == cor->curr_cycle_t_d)
 	{
 		tmp = cor->process;
 		prev = NULL;
-		i = 0;
-		while(i < 4)// проверка на сумму криков жизнь процессов , порожденных 1 играком;
-		{
-			if(cor->player[i].all_cur >= NBR_LIVE)
-			{
-				cor->curr_cycle_t_d = cor->curr_cycle_t_d - CYCLE_DELTA;
-				if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-					ft_printf("Cycle to die is now %d\n", cor->curr_cycle_t_d);
-				cor->curr_chechs = cor->curr_chechs - 1;
-				break;
-			}
-			i++;
-		}
-		i = 0;
-		while(i < 4)// обнуление всех крииков жизнь
-		{
-			cor->player[i].live_curr = 0;
-			cor->player[i].live_summ = 0;
-			cor->player[i].all_cur = 0;
-			i++;
-		}
 		// Проверка всех процессов на "жизнь"
 		// {{
 		prev = NULL;
