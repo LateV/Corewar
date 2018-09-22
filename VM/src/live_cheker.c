@@ -105,11 +105,10 @@ void wasted_live(t_cor *cor)
 
 void search_and_delete(t_cor *cor)
 {
-	t_process *prev;
+	static t_process *prev = NULL;
 	t_process *tmp;
 
 	tmp = cor->process;
-	prev = NULL;
 	while(tmp)
 	{
 		if(tmp->live == 0)
@@ -117,23 +116,20 @@ void search_and_delete(t_cor *cor)
 			if(cor->visu == 1)
 				cor->vizu->map[tmp->pc].type = 0;
 			if(tmp == cor->process)
-			{
 				del_first(cor);
-				tmp = cor->process;
-			}
 			else
 			{
 				prev->next = tmp->next;
 				free(tmp);
 				tmp = prev->next;
 			}
+			tmp = cor->process;
 			cor->alive_cur--;
 			continue;
 		}
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	wasted_live(cor);
 }
 
 void live_cheker(t_cor *cor)
@@ -142,6 +138,7 @@ void live_cheker(t_cor *cor)
 	{
 		max_live(cor);
 		search_and_delete(cor);
+		wasted_live(cor);
 		if(!cor->process)
 			end_game(cor);
 		max_ch(cor);
