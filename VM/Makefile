@@ -68,7 +68,7 @@ HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
 
 LIBS_FLAGS	=	-L $(PRINTF_DIR) -lft -L $(LIBFT_DIR) -lftprintf -lncurses
 
-CC_FLAGS	=	-Wall -Werror -Wextra -std=c11
+CC_FLAGS	=	-Wall -Werror -Wextra -std=c11 -g
 
 CC			=	gcc
 
