@@ -48,25 +48,6 @@ void max_ch(t_cor *cor)
 	}
 }
 
-void cycle_end(t_cor *cor)
-{
-
-	if(cor->visu == 1)
-	{
-		cor->vizu->key = getch();
-		v_speed_test(cor, cor->vizu->key);
-		breakdown(cor);
-		refresher(cor);
-		if (cor->vizu->key == 32 && cor->pause == 1)
-			cor->pause = 0;
-		else if (cor->vizu->key == 32 && cor->pause == 0)
-			cor->pause = 1;
-		if (cor->cycles > cor->start_from)
-			refresh_vizu(cor);
-	}
-	wasted_live1(cor);
-	end_game(cor);
-}
 
 void max_live(t_cor *cor)
 {
@@ -99,9 +80,12 @@ void del_first(t_cor *cor)
 {
 	t_process *tmp;
 
+	if(cor->visu == 1)
+		cor->vizu->map[cor->process->pc].type = 0;
 	tmp = cor->process->next;
 	free(cor->process);
 	cor->process = tmp;
+	cor->alive_cur--;
 	if(!tmp)
 		end_game(cor);
 }
@@ -130,15 +114,9 @@ void search_and_delete(t_cor *cor)
 		{
 			if(cor->visu == 1)
 				cor->vizu->map[tmp->pc].type = 0;
-			if(tmp == cor->process)
-				del_first(cor);
-			else
-			{
-				prev->next = tmp->next;
-				free(tmp);
-				tmp = prev->next;
-			}
-			tmp = cor->process;
+			prev->next = tmp->next;
+			free(tmp);
+			tmp = prev->next;
 			cor->alive_cur--;
 			continue;
 		}
@@ -147,11 +125,48 @@ void search_and_delete(t_cor *cor)
 	}
 }
 
+void del_in_start(t_cor *cor)
+{
+	t_process *tmp;
+
+	tmp = cor->process;
+	while (tmp)
+	{
+		tmp = cor->process;
+		if (tmp->live == 1)
+			break ;
+		del_first(cor);
+	}
+}
+
+void cycle_end(t_cor *cor)
+{
+	if(cor->visu == 1)
+	{
+		cor->vizu->key = getch();
+		v_speed_test(cor, cor->vizu->key);
+		breakdown(cor);
+		refresher(cor);
+		if (cor->vizu->key == 32 && cor->pause == 1)
+			cor->pause = 0;
+		else if (cor->vizu->key == 32 && cor->pause == 0)
+			cor->pause = 1;
+		if (cor->cycles > cor->start_from)
+			refresh_vizu(cor);
+	}
+	del_in_start(cor);
+	search_and_delete(cor);
+	del_in_start(cor);
+	wasted_live1(cor);
+	end_game(cor);
+}
+
 void live_cheker(t_cor *cor)
 {
 	if(cor->live_check == cor->curr_cycle_t_d)
 	{
 		max_live(cor);
+		del_in_start(cor);
 		search_and_delete(cor);
 		wasted_live(cor);
 		if(!cor->process)
