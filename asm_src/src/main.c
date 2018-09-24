@@ -57,6 +57,6 @@ int				main(int argc, char const *argv[])
 			error_exit("Can't open a file", argv[argc - 1]);
 	}
 	else
-		ft_printf("Usage: ./asm <sourcefile.s>");
+		ft_printf("Usage: ./asm <sourcefile.s>\n");
 	return (0);
 }

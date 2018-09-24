@@ -143,18 +143,18 @@ void live_cheker(t_cor *cor)
 			end_game(cor);
 		max_ch(cor);
 		cor->live_check = 1;
+		if(cor->curr_cycle_t_d < 0)
+		{
+			cor->cycles++;
+			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+					ft_printf("It is now cycle %d\n", cor->cycles);
+			process_activity(cor);
+			flag_output(cor);
+			if(cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
+				exit(0);
+			cycle_end(cor);
+		}
 	}
 	else
 		cor->live_check++;
-	if(cor->curr_cycle_t_d < 0)
-	{
-		cor->cycles++;
-		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-				ft_printf("It is now cycle %d\n", cor->cycles);
-		process_activity(cor);
-		flag_output(cor);
-		if(cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
-			exit(0);
-		cycle_end(cor);
-	}
 }
