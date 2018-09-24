@@ -33,7 +33,7 @@ inline static void	ft_while_and_if(t_cor *cor, char *flag, char *value)
 	}
 }
 
-int val_int(t_cor *cor, char *flag, char *value)
+int					val_int(t_cor *cor, char *flag, char *value)
 {
 	unsigned long int	b;
 	int					i;

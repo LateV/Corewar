@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void init_comand_function(t_cor *cor)
+void	init_comand_function(t_cor *cor)
 {
 	cor->instruct[0] = comm_live;
 	cor->instruct[1] = comm_ld;

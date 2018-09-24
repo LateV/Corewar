@@ -12,24 +12,24 @@
 
 #include "vm.h"
 
-void add_proc(t_cor *cor, t_process *process, int loc)
+void	add_proc(t_cor *cor, t_process *process, int loc)
 {
-	t_process *new;
-	int i;
+	t_process	*new;
+	int			i;
 
 	i = -1;
-	while(loc >= MEM_SIZE)
-		loc = loc  - MEM_SIZE;
-	while(loc < 0)
+	while (loc >= MEM_SIZE)
+		loc = loc - MEM_SIZE;
+	while (loc < 0)
 		loc = loc + MEM_SIZE;
 	if (cor->process)
 	{
 		new = ft_memalloc(sizeof(t_process));
-		while(++i < 17)
+		while (++i < 17)
 			new->registr[i] = process->registr[i];
 		new->next = cor->process;
 		new->pc = loc;
-		if(cor->visu == 1)
+		if (cor->visu == 1)
 			cor->vizu->map[loc].type = 1;
 		new->carry = process->carry;
 		new->live = process->live;
@@ -45,7 +45,7 @@ void add_proc(t_cor *cor, t_process *process, int loc)
 	}
 }
 
-void comm_fork(t_cor *cor, t_process *process)
+void	comm_fork(t_cor *cor, t_process *process)
 {
 	int sk;
 
@@ -58,10 +58,12 @@ void comm_fork(t_cor *cor, t_process *process)
 		process->label = 2;
 		process->codage = 1;
 		sk = t_dir(cor, process, &process->arg1, process->pc + 1);
-		if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+		if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+		(cor->mon == cor->cycles || cor->log == 1))
 		{
 			ft_printf("P% 5d | fork %d (%d)\n",
-				process->count_num, process->arg1, process->pc + (process->arg1 % IDX_MOD));
+				process->count_num, process->arg1,
+				process->pc + (process->arg1 % IDX_MOD));
 		}
 		add_proc(cor, process, process->pc + (process->arg1 % IDX_MOD));
 		set_proc_pos(cor, process, sk + 1);
