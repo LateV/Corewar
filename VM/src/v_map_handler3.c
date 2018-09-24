@@ -12,19 +12,34 @@
 
 #include "vm.h"
 
+int kostyl_len(t_cor *cor)
+{
+	int i;
+
+	i = 0;
+	while (cor->winner->prog_name[i] != '\0' && i < 120)
+		i++;
+	return(i);
+}
+
 void		gg_wp(t_cor *cor)
 {
+	int inp;
+
+	breakdown(cor);
 	refresh_vizu(cor);
 	werase(cor->vizu->win1);
 	win_art_sword(cor, 10);
 	win_art_sword(cor, 144);
 	win_art_winner(cor);
-	mvwprintw(cor->vizu->win1, 20, 80, "--> %s <--", cor->winner->prog_name);
-	mvwprintw(cor->vizu->win1, 22, 80, "%s", "Press Space to exit");
+	mvwprintw(cor->vizu->win1, 20, 70 + ((48 - kostyl_len(cor)) / 2), "--> %s <--", cor->winner->prog_name);
+	mvwprintw(cor->vizu->win1, 22, 88, "%s", "Press Space to exit");
 	wrefresh(cor->vizu->win1);
+	wrefresh(cor->vizu->win2);
 	while (1)
 	{
-		if (getchar() == 32)
+		inp = getchar();
+		if (inp == 32 || inp == 27)
 			return ;
 	}
 }
