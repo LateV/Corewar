@@ -108,7 +108,7 @@ void game(t_cor *cor)
 		flag_output(cor);
 		process_activity(cor);
 		live_cheker(cor);
-		if(cor->cycles == cor->mon && cor->log == 0)
+		if(cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
 			exit(0);
 		cor->cycles++;
 	}

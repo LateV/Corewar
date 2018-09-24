@@ -1,6 +1,17 @@
 NAME		=	 ../asm
 
-SRC	=	main.c 					\
+SRC	= 	asm_library_pt1.c 				\
+		asm_library_pt2.c 				\
+		check_arg.c 					\
+		count_size.c 					\
+		error_and_free.c 				\
+		init_struct.c 					\
+		main.c 							\
+		read_file.c 					\
+		validate_label.c 				\
+		validate_arg.c 					\
+		validate_name.c 				\
+		writing_to_file.c 				\
 
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
@@ -15,6 +26,8 @@ LIB_DIR		=	./../libft/
 
 LIBFT_DIR	=	$(LIB_DIR)libft/
 
+INC_VM		=	../vm/inc/
+
 LIBFT		=	$(LIBFT_DIR)libft.a
 
 PRINTF_DIR	=	$(LIB_DIR)ft_printf/
@@ -26,7 +39,7 @@ HEAD_LIBFT	=	$(LIBFT_DIR)$(INC_DIR)libft.h
 
 HEAD_ASM =	$(INC_DIR)asm.h
 
-HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
+HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR) -I $(INC_VM)
 
 LIBS_FLAGS	=	-L $(PRINTF_DIR) -lft -L $(LIBFT_DIR) -lftprintf -lncurses
 
