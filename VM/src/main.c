@@ -12,9 +12,9 @@
 
 #include "vm.h"
 
-void init_players(t_cor *cor)
+void	init_players(t_cor *cor)
 {
-	int  i;
+	int	i;
 
 	i = 0;
 	cor->def_num = 1;
@@ -25,32 +25,32 @@ void init_players(t_cor *cor)
 	}
 }
 
-void def_num(t_cor *cor)
+void	def_num(t_cor *cor)
 {
-	int k;
-	int i;
+	int	k;
+	int	i;
 
 	k = 0;
 	i = 0;
 	cor->def_num = 1;
-	while(i < cor->p_num)
+	while (i < cor->p_num)
 	{
-		if(cor->player[i].num == -2)
+		if (cor->player[i].num == -2)
 		{
 			cor->def_num = 1;
-			while(cor->def_num < 5)
+			while (cor->def_num < 5)
 			{
-				while(k < 4)
+				while (k < 4)
 				{
-					if(cor->def_num == cor->player[k].num)
-						break;
-					k++; 
+					if (cor->def_num == cor->player[k].num)
+						break ;
+					k++;
 				}
-				if(k == 4)
+				if (k == 4)
 				{
 					cor->player[i].num = cor->def_num;
 					k = 0;
-					break;
+					break ;
 				}
 				k = 0;
 				cor->def_num++;
@@ -60,7 +60,7 @@ void def_num(t_cor *cor)
 	}
 }
 
-void reader(t_cor *cor, int argc, char **argv)
+void	reader(t_cor *cor, int argc, char **argv)
 {
 	int i;
 	int j;
@@ -83,11 +83,11 @@ void reader(t_cor *cor, int argc, char **argv)
 	}
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_cor cor;
 
-	if(argc == 1)
+	if (argc == 1)
 		usadge();
 	ft_bzero(&cor, sizeof(t_cor));
 	cor.pause = 1;
@@ -101,9 +101,9 @@ int main(int argc, char **argv)
 	def_num(&cor);
 	cor.def_num = 1;
 	cor.curr_cycle_t_d = CYCLE_TO_DIE;
-	if(cor.p_num == 0)
+	if (cor.p_num == 0)
 		usadge();
 	to_map(&cor);
 	system("leaks -quiet corewar");
-	return(0);
+	return (0);
 }

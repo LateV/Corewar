@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void refresh_player(t_cor *cor)
+void	refresh_player(t_cor *cor)
 {
 	int i;
 

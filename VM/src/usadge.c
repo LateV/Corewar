@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void usadge(void)
+void	usadge(void)
 {
 	ft_printf("here was supposed to be {[~~usadge~~~]}\n");
 	exit(0);
