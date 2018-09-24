@@ -14,6 +14,7 @@
 
 void		gg_wp(t_cor *cor)
 {
+	breakdown(cor);
 	refresh_vizu(cor);
 	werase(cor->vizu->win1);
 	win_art_sword(cor, 10);
@@ -22,6 +23,7 @@ void		gg_wp(t_cor *cor)
 	mvwprintw(cor->vizu->win1, 20, 80, "--> %s <--", cor->winner->prog_name);
 	mvwprintw(cor->vizu->win1, 22, 80, "%s", "Press Space to exit");
 	wrefresh(cor->vizu->win1);
+	wrefresh(cor->vizu->win2);
 	while (1)
 	{
 		if (getchar() == 32)

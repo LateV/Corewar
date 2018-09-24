@@ -86,6 +86,11 @@ void game(t_cor *cor)
 		if(cor->visu == 1)
 		{
 			cor->vizu->key = getch();
+			if (cor->vizu->key == 27)
+			{
+				endwin();
+				exit(1);
+			}
 			v_speed_test(cor, cor->vizu->key);
 			breakdown(cor);
 			refresher(cor);
