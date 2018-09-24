@@ -32,13 +32,13 @@ init:		ld   %393216,r4		 	#7
 		ld   %917504,r12		#7	
 		ld   %1,r11			#7
 		ld   %6,r10			#7
-debut:		live %42			#5
-		sti  r4,%:label , %1		#7
-		add  r4,r12,r4			#5	
-		sub  r10,r11,r10		#5
-		zjmp %:init			#3
-		fork %:debut			
-		live %3
+# debut:		live %42			#5
+# 		sti  r4,%:label , %1		#7
+# 		add  r4,r12,r4			#5	
+# 		sub  r10,r11,r10		#5
+# 		zjmp %:init			#3
+# 		fork %:debut			
+# 		live %3
 level0:		fork %:level10
 level11:	live %4
 		fork %:level111

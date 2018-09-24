@@ -26,8 +26,6 @@ void print_map(t_cor *cor)
 			ft_printf("%#06x : ", i);
 		while(row < 64)
 		{
-			// if(i == 3437)
-			// 	ft_printf("--->");
 			ft_printf("%02x ", cor->arena[i]);
 			row++;
 			i++;
@@ -110,7 +108,7 @@ void game(t_cor *cor)
 		flag_output(cor);
 		process_activity(cor);
 		live_cheker(cor);
-		if(cor->cycles == cor->mon && cor->log == 0)
+		if(cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
 			exit(0);
 		cor->cycles++;
 	}

@@ -14,18 +14,10 @@
 
 static	int		get_prog_name(t_header *header)
 {
-	char		*str;
 	char		*s;
-	int			len;
 	int			fd;
 
-	str = ft_strrchr(header->file_name, '/');
-	if (str == NULL)
-		str = header->file_name;
-	else
-		str++;
-	len = ft_strlen(str) - 2;
-	s = ft_strsub(str, 0, len);
+	s = ft_strsub(header->file_name, 0, ft_strlen(header->file_name) - 2);
 	free(header->file_name);
 	header->file_name = ft_strjoin(s, ".cor");
 	free(s);

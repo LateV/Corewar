@@ -1,5 +1,5 @@
 #!/bin/bash
-X=24000
+X=23555
 while [ $X -le 50000 ]
 do
 ./test_fol/corewar test_fol/test_maps/2014/youforkmytralala.cor test_fol/test_maps/2014/Wall.cor test_fol/test_maps/2014/Varimathras.cor test_fol/test_maps/2014/ultimate-surrender.cor -d $X > std_d

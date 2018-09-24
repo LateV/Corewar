@@ -40,6 +40,7 @@ SRC	=	main.c 					\
 		validate_players.c 		\
 		validate_players2.c 	\
 		usadge.c 				\
+		arg_hendler2.c 			\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
@@ -68,7 +69,7 @@ HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
 
 LIBS_FLAGS	=	-L $(PRINTF_DIR) -lft -L $(LIBFT_DIR) -lftprintf -lncurses
 
-CC_FLAGS	=	-Wall -Werror -Wextra -std=c11
+CC_FLAGS	=	-Wall -Werror -Wextra -std=c11 -g
 
 CC			=	gcc
 
