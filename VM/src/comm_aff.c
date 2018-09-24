@@ -19,6 +19,7 @@ static int		arg_read(t_cor *cor, t_process *process)
 	s = 2;
 	if (process->arg1 != 1)
 		process->codage = 0;
+	codage_identify(process, get_char(cor, process->pc + 1));
 	process->arg_type[0] = process->arg1;
 	process->arg_type[1] = process->arg2;
 	process->arg_type[2] = process->arg3;
@@ -48,7 +49,6 @@ void			comm_aff(t_cor *cor, t_process *process)
 	if (process->delay == 0)
 	{
 		process->label = 4;
-		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
 		if (process->codage == 1 && process->arg1 > 0 && process->arg1 < 17)

@@ -50,7 +50,8 @@ int					t_ind(t_cor *cor, int *arg, int loc)
 	return (4);
 }
 
-inline static int	ind_hendler(t_cor *cor, t_process *process, int *arg, int s)
+inline static int	ind_hendler(t_cor *cor,
+	t_process *process, int *arg, int s)
 {
 	int ind;
 
@@ -68,7 +69,8 @@ inline static int	ind_hendler(t_cor *cor, t_process *process, int *arg, int s)
 	return (2);
 }
 
-int					arg_handler(t_cor *cor, t_process *process, int *arg, int s)
+int					arg_handler(t_cor *cor,
+	t_process *process, int *arg, int s)
 {
 	if (*arg == 1)
 	{
