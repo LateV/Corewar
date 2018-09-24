@@ -142,6 +142,7 @@ void del_in_start(t_cor *cor)
 void cycle_end(t_cor *cor)
 {
 	cor->cycles++;
+	cor->alive_cur = 0;
 	if(cor->visu == 1)
 	{
 		cor->vizu->key = getch();
