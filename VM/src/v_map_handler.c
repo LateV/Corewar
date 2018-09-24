@@ -22,7 +22,7 @@ void	refresh_player(t_cor *cor)
 		mvwprintw(cor->vizu->win2, 12 + (i * 4),
 		16, "%20d", cor->player[i].last_live);
 		mvwprintw(cor->vizu->win2, 13 + (i * 4),
-		30, "%6d", cor->player[i].live_summ);
+		30, "%6.6d", cor->player[i].live_summ);
 		i++;
 	}
 }
