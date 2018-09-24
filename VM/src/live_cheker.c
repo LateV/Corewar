@@ -141,6 +141,7 @@ void del_in_start(t_cor *cor)
 
 void cycle_end(t_cor *cor)
 {
+	cor->cycles++;
 	if(cor->visu == 1)
 	{
 		cor->vizu->key = getch();
@@ -154,9 +155,6 @@ void cycle_end(t_cor *cor)
 		if (cor->cycles > cor->start_from)
 			refresh_vizu(cor);
 	}
-	del_in_start(cor);
-	search_and_delete(cor);
-	del_in_start(cor);
 	wasted_live1(cor);
 	end_game(cor);
 }
