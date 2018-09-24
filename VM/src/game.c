@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void print_map(t_cor *cor)
+void	print_map(t_cor *cor)
 {
 	int row;
 	int i;
@@ -20,11 +20,11 @@ void print_map(t_cor *cor)
 	row = 0;
 	i = 0;
 	ft_printf("0x0000 : ");
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
-		if(i != 0)
+		if (i != 0)
 			ft_printf("%#06x : ", i);
-		while(row < 64)
+		while (row < 64)
 		{
 			ft_printf("%02x ", cor->arena[i]);
 			row++;
@@ -35,37 +35,36 @@ void print_map(t_cor *cor)
 	}
 }
 
-
-void flag_output(t_cor *cor)
+void	flag_output(t_cor *cor)
 {
 	char buff;
 
-	if(cor->visu == 0 && cor->dump != 0 && cor->cycles == cor->dump)
+	if (cor->visu == 0 && cor->dump != 0 && cor->cycles == cor->dump)
 	{
 		print_map(cor);
 		exit(0);
 	}
-	while(cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
+	while (cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
 	{
 		print_map(cor);
 		read(0, &buff, 1);
-		if(buff == '\n')
+		if (buff == '\n')
 			break ;
 		else
 			exit(0);
 	}
 }
 
-void process_activity(t_cor *cor)
+void	process_activity(t_cor *cor)
 {
 	t_process *tmp;
 
 	tmp = cor->process;
-	while(tmp)
+	while (tmp)
 	{
-		if(tmp->command == -1)
+		if (tmp->command == -1)
 		{
-			if(cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
+			if (cor->arena[tmp->pc] > 0 && cor->arena[tmp->pc] < 17)
 			{
 				tmp->command = cor->arena[tmp->pc] - 1;
 				cor->instruct[tmp->command](cor, tmp);
@@ -79,13 +78,18 @@ void process_activity(t_cor *cor)
 	}
 }
 
-void game(t_cor *cor)
+void	game(t_cor *cor)
 {
-	while(69)
+	while (69)
 	{
-		if(cor->visu == 1)
+		if (cor->visu == 1)
 		{
 			cor->vizu->key = getch();
+			if (cor->vizu->key == 27)
+			{
+				endwin();
+				exit(1);
+			}
 			v_speed_test(cor, cor->vizu->key);
 			breakdown(cor);
 			refresher(cor);
@@ -102,13 +106,13 @@ void game(t_cor *cor)
 		}
 		else
 		{
-			if(cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);
 		process_activity(cor);
 		live_cheker(cor);
-		if(cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
+		if (cor->cycles == cor->mon && cor->log == 0 && cor->visu == 0)
 			exit(0);
 		cor->cycles++;
 	}

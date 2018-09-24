@@ -12,7 +12,6 @@
 
 #include "vm.h"
 
-
 void	ft_error(t_cor *cor, char *error)
 {
 	cor->p_num = cor->p_num;

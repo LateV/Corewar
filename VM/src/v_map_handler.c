@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void refresh_player(t_cor *cor)
+void	refresh_player(t_cor *cor)
 {
 	int i;
 
@@ -20,9 +20,9 @@ void refresh_player(t_cor *cor)
 	while (i < cor->p_num)
 	{
 		mvwprintw(cor->vizu->win2, 12 + (i * 4),
-		16, "%20d", cor->player[i].last_live);
+		16, "%23d", cor->player[i].last_live);
 		mvwprintw(cor->vizu->win2, 13 + (i * 4),
-		30, "%6d", cor->player[i].live_summ);
+		30, "%9d", cor->player[i].live_summ);
 		i++;
 	}
 }
