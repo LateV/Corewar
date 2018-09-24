@@ -8,14 +8,21 @@ l2:		sti r1, %:live, %1
 live:	live %1
 		zjmp %:live
 		live %1
-init:		ld   %393216,r4		 	#7	
-		ld   %917504,r12		#7	
-		ld   %1,r11			#7
-		ld   %6,r10	 		
-debut:		live %42			#5
-		sti  r4,%:l2 , %1		#7
-		add  r4,r12,r4			#5	
-		sub  r10,r11,r10		#5
-		fork %:init	
-		zjmp %:init			#3		
+init:		ld   %393216,r4		 	
+		ld   %917504,r12		
+		ld   %1,r11			
+		ld   %6,r10
+		ld   %500, r5	
+
+label:  zjmp %:q
+q:		sti   r1,%:l2,%1  
+		sti   r1,%:l2,%15 				
+debut:		live %42			
+		sti  r4,r5 , %1		
+		add  r4,r1,r4
+		add  r4,r5,r5			
+		sub  r10,r11,r10
+		sti  r4,r5 , %1	
+		fork %:l2
+		zjmp %:init				
 		live %3

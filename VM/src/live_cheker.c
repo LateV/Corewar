@@ -12,6 +12,20 @@
 
 #include "vm.h"
 
+void wasted_live1(t_cor *cor)
+{
+	int i;
+
+	i = 0;
+	while(i < 4)
+	{
+		cor->player[i].live_curr = 0;
+		cor->player[i].live_summ = 0;
+		cor->player[i].all_cur = 0;
+		i++;
+	}
+}
+
 void end_game(t_cor *cor)
 {
 	if(cor->visu == 0)
@@ -50,6 +64,7 @@ void cycle_end(t_cor *cor)
 		if (cor->cycles > cor->start_from)
 			refresh_vizu(cor);
 	}
+	wasted_live1(cor);
 	end_game(cor);
 }
 
