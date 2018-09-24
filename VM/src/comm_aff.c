@@ -55,10 +55,10 @@ void			comm_aff(t_cor *cor, t_process *process)
 		{
 			if (arg_val_hendler(process))
 			{
-				if (cor->a == 1 && cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-				{
-					ft_printf("P% 5d | Aff : %c \n", process->count_num, (process->arg1 % 256));
-				}
+				if (cor->a == 1 && cor->visu == 0 && cor->dump == 0 &&
+					cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+					ft_printf("P% 5d | Aff : %c \n",
+						process->count_num, (process->arg1 % 256));
 			}
 		}
 		set_proc_pos(cor, process, sk);
