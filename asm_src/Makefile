@@ -26,6 +26,8 @@ LIB_DIR		=	./../libft/
 
 LIBFT_DIR	=	$(LIB_DIR)libft/
 
+INC_VM		=	../vm/inc/
+
 LIBFT		=	$(LIBFT_DIR)libft.a
 
 PRINTF_DIR	=	$(LIB_DIR)ft_printf/
@@ -37,7 +39,7 @@ HEAD_LIBFT	=	$(LIBFT_DIR)$(INC_DIR)libft.h
 
 HEAD_ASM =	$(INC_DIR)asm.h
 
-HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR)
+HEAD_FLAGS	=	-I $(INC_DIR) -I $(PRINTF_DIR)$(INC_DIR) -I $(LIBFT_DIR)$(INC_DIR) -I $(INC_VM)
 
 LIBS_FLAGS	=	-L $(PRINTF_DIR) -lft -L $(LIBFT_DIR) -lftprintf -lncurses
 

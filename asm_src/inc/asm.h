@@ -14,24 +14,7 @@
 # define ASM_H
 # include "libft.h"
 # include "ft_printf.h"
-# include <fcntl.h>
-# include <stddef.h>
-# define REG_SIZE				4
-# define REG_NUM				16
-# define COMMENT_CHAR			'#'
-# define COMMENT_CHAR_2			';'
-# define LABEL_CHAR				':'
-# define DIRECT_CHAR				'%'
-# define SEPARATOR_CHAR			','
-# define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
-# define NAME_CMD_STRING			".name"
-# define COMMENT_CMD_STRING		".comment"
-# define T_REG					1
-# define T_DIR					2
-# define T_IND					3
-# define PROG_NAME_LENGTH		(128)
-# define COMMENT_LENGTH			(2048)
-# define COREWAR_EXEC_MAGIC		0xea83f3
+# include "vm.h"
 
 typedef struct			s_def_cmd
 {
