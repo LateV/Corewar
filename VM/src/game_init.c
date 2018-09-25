@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void	add_player(t_cor *cor, t_player *player, int k)
+void					add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process	*tmp;
 	t_process	*new;
@@ -20,48 +20,17 @@ void	add_player(t_cor *cor, t_player *player, int k)
 	tmp = cor->process;
 	if (!tmp)
 	{
-		cor->process = ft_memalloc(sizeof(t_process));
-		cor->process->next = NULL;
-		cor->process->player = (player + k);
-		cor->process->delay = -1;
-		cor->process->player->num = cor->process->player->num * (-1);
-		cor->process->registr[0] = cor->process->player->num;
-		cor->process->player->live_summ = 0;
-		cor->process->player->live_curr = 0;
-		cor->process->player->last_live = 0;
-		cor->process->player->all_cur = 0;
-		cor->process->command = -1;
-		cor->process->carry = 0;
-		cor->process->live = 0;
-		cor->alive_cur++;
-		cor->process->count_num = cor->proc_num;
-		cor->proc_num++;
-		cor->winner = (player + k);
+		cor->process = player_b(cor, player, k);
 		draw_palyer_info(cor, cor->process, k);
 		return ;
 	}
-	new = ft_memalloc(sizeof(t_process));
+	new = player_b(cor, player, k);
 	new->next = cor->process;
-	new->player = &player[k];
-	new->delay = -1;
-	new->player->num = new->player->num * (-1);
-	new->registr[0] = new->player->num;
-	new->player->live_summ = 0;
-	new->player->live_curr = 0;
-	new->player->last_live = 0;
-	new->player->all_cur = 0;
-	new->live = 0;
-	new->command = -1;
-	new->carry = 0;
 	cor->process = new;
-	cor->alive_cur++;
-	new->count_num = cor->proc_num;
-	cor->proc_num++;
-	cor->winner = &player[k];
 	draw_palyer_info(cor, new, k);
 }
 
-void	add_players(t_cor *cor)
+void					add_players(t_cor *cor)
 {
 	int k;
 
@@ -83,7 +52,8 @@ void	add_players(t_cor *cor)
 	}
 }
 
-void	data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
+void					data_to_arena(t_cor *cor, int pos,
+	t_process *proc, unsigned int size)
 {
 	unsigned int i;
 
@@ -102,7 +72,7 @@ void	data_to_arena(t_cor *cor, int pos, t_process *proc, unsigned int size)
 		cor->vizu->map[pos].type = 1;
 }
 
-void	game_init(t_cor *cor)
+void					game_init(t_cor *cor)
 {
 	int			pos;
 	int			num_pl;
@@ -122,7 +92,10 @@ void	game_init(t_cor *cor)
 			{
 				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
 				if (cor->visu == 0)
-					ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", tmp->player->num * (-1), tmp->player->prog_size, tmp->player->prog_name, tmp->player->comment);
+					ft_printf("* Player %d, weighing %d bytes, \"%s\" \
+(\"%s\") !\n", tmp->player->num * (-1),
+						tmp->player->prog_size, tmp->player->prog_name,
+						tmp->player->comment);
 				tmp->pc = pos;
 				pos += MEM_SIZE / cor->p_num;
 			}
