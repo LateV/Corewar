@@ -22,7 +22,7 @@ void		validate_name_and_cmt(t_header **header, char *type, int num)
 		error_cases(11, header, 0);
 	if ((*header)->comment == NULL)
 		error_cases(12, header, 0);
-	if (len == 5)
+	if (len == (int)ft_strlen(NAME_CMD_STRING))
 		str = (*header)->bot_name;
 	else
 		str = (*header)->comment;

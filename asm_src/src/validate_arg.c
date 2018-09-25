@@ -29,7 +29,7 @@ static void	check_coma(t_command **node, t_header **header)
 			j++;
 		i++;
 	}
-	if (j > 2 || s[i - 1] == SEPARATOR_CHAR)
+	if (j > 2 || (i > 0 && s[i - 1] == SEPARATOR_CHAR))
 		error_cases(6, header, (*node)->num);
 }
 

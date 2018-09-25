@@ -71,9 +71,17 @@ inline static void		magic_header(t_cor *cor, int fd, int i)
 inline static void		check_name(t_cor *cor, int fd, int i)
 {
 	int	ret;
+	int j;
 
+	j = 0;
 	ret = read(fd, &cor->player[i].prog_name, PROG_NAME_LENGTH);
-	if (ret < PROG_NAME_LENGTH)
+	while(j < ret)
+	{
+		if(cor->player[i].prog_name[j] != 0)
+			break ;
+		j++;
+	}
+	if (ret < PROG_NAME_LENGTH || j == ret)
 	{
 		ft_putstr("Bad programm name length in file: ");
 		ft_error(cor, cor->player[i].file_path);
