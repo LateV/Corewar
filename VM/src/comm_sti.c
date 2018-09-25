@@ -50,9 +50,9 @@ void		sti_reg_dir_dir(t_cor *cor, t_process *process)
 	if (cor->visu == 0 && cor->dump == 0 && cor->s ==
 	0 && (cor->mon == cor->cycles || cor->log == 1))
 	{
-		ft_printf("P% 5d | sti r%d %d %d\n       | -> store to \
-			%d + %d = %d (with pc and mod %d)\n",
-			process->count_num, process->arg1, process->arg2, process->arg3,
+		ft_printf("P% 5d | sti r%d %d %d\n       ",
+			process->count_num, process->arg1, process->arg2, process->arg3);
+		ft_printf("| -> store to %d + %d = %d (with pc and mod %d)\n",
 			process->arg2, process->arg3, process->arg2 + process->arg3,
 			process->pc + ((process->arg2 + process->arg3) % IDX_MOD));
 	}
