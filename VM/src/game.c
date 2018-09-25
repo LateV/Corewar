@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void	print_map(t_cor *cor)
+void					print_map(t_cor *cor)
 {
 	int row;
 	int i;
@@ -35,7 +35,7 @@ void	print_map(t_cor *cor)
 	}
 }
 
-void	flag_output(t_cor *cor)
+void					flag_output(t_cor *cor)
 {
 	char buff;
 
@@ -44,7 +44,8 @@ void	flag_output(t_cor *cor)
 		print_map(cor);
 		exit(0);
 	}
-	while (cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
+	while (cor->s <= cor->cycles && cor->s > 0 &&
+		cor->visu == 0 && cor->dump == 0)
 	{
 		print_map(cor);
 		read(0, &buff, 1);
@@ -55,7 +56,7 @@ void	flag_output(t_cor *cor)
 	}
 }
 
-void	process_activity(t_cor *cor)
+void					process_activity(t_cor *cor)
 {
 	t_process *tmp;
 
@@ -78,25 +79,29 @@ void	process_activity(t_cor *cor)
 	}
 }
 
-void	game(t_cor *cor)
+inline static void		for_getch(t_cor *cor)
+{
+	cor->vizu->key = getch();
+	if (cor->vizu->key == 27)
+	{
+		endwin();
+		exit(1);
+	}
+	v_speed_test(cor, cor->vizu->key);
+	breakdown(cor);
+	refresher(cor);
+	if (cor->vizu->key == 32 && cor->pause == 1)
+		cor->pause = 0;
+	else if (cor->vizu->key == 32 && cor->pause == 0)
+		cor->pause = 1;
+}
+
+void					game(t_cor *cor)
 {
 	while (69)
 	{
 		if (cor->visu == 1)
 		{
-			cor->vizu->key = getch();
-			if (cor->vizu->key == 27)
-			{
-				endwin();
-				exit(1);
-			}
-			v_speed_test(cor, cor->vizu->key);
-			breakdown(cor);
-			refresher(cor);
-			if (cor->vizu->key == 32 && cor->pause == 1)
-				cor->pause = 0;
-			else if (cor->vizu->key == 32 && cor->pause == 0)
-				cor->pause = 1;
 			if (cor->cycles > cor->start_from)
 			{
 				refresh_vizu(cor);
@@ -106,7 +111,8 @@ void	game(t_cor *cor)
 		}
 		else
 		{
-			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+				(cor->mon == cor->cycles || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);

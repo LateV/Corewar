@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-static int		arg_read(t_cor *cor, t_process *process)
+inline static int		arg_read(t_cor *cor, t_process *process)
 {
 	int s;
 
@@ -25,7 +25,7 @@ static int		arg_read(t_cor *cor, t_process *process)
 	return (s);
 }
 
-static void		reg_reg_reg(t_cor *cor, t_process *process)
+inline static void		reg_reg_reg(t_cor *cor, t_process *process)
 {
 	int tmp;
 
@@ -38,7 +38,21 @@ static void		reg_reg_reg(t_cor *cor, t_process *process)
 	process->arg1, process->arg2, process->arg3);
 }
 
-void			comm_sub(t_cor *cor, t_process *process)
+inline static void		sub_a_arg(t_cor *cor, t_process *process)
+{
+	if (process->codage == 1 && process->arg1 > 0 &&
+		process->arg2 > 0 && process->arg3 > 0 &&
+		process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
+	{
+		reg_reg_reg(cor, process);
+		if (process->registr[process->arg3 - 1] == 0)
+			process->carry = 1;
+		else
+			process->carry = 0;
+	}
+}
+
+void					comm_sub(t_cor *cor, t_process *process)
 {
 	int sk;
 
@@ -52,15 +66,7 @@ void			comm_sub(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if (process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 && process->arg3 > 0 &&
-			process->arg1 < 17 && process->arg2 < 17 && process->arg3 < 17)
-		{
-			reg_reg_reg(cor, process);
-			if (process->registr[process->arg3 - 1] == 0)
-				process->carry = 1;
-			else
-				process->carry = 0;
-		}
+		sub_a_arg(cor, process);
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;

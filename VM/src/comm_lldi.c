@@ -57,7 +57,7 @@ void		lldi_a_arg(t_cor *cor, t_process *process)
 		(cor->mon == cor->cycles || cor->log == 1))
 	{
 		ft_printf("P% 5d | lldi %d %d r%d\n       \
-			| -> load from %d + %d = %d (with pc %d)\n",
+| -> load from %d + %d = %d (with pc %d)\n",
 			process->count_num, process->arg1, process->arg2,
 			process->arg3, process->arg1,
 			process->arg2, process->arg1 + process->arg2,

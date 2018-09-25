@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-static int	arg_read(t_cor *cor, t_process *process)
+inline static int			arg_read(t_cor *cor, t_process *process)
 {
 	int	s;
 
@@ -29,7 +29,26 @@ static int	arg_read(t_cor *cor, t_process *process)
 	return (s);
 }
 
-void		comm_lld(t_cor *cor, t_process *process)
+inline static void			lld_a_arg(t_cor *cor, t_process *process)
+{
+	if (process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
+	{
+		process->registr[process->arg2 - 1] = process->arg1;
+		if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+			(cor->mon == cor->cycles || cor->log == 1))
+		{
+			ft_printf("P% 5d | lld %d r%d\n",
+				process->count_num,
+				get_reg(process, process->arg2 - 1), process->arg2);
+		}
+		if (process->registr[process->arg2 - 1] == 0)
+			process->carry = 1;
+		else
+			process->carry = 0;
+	}
+}
+
+void						comm_lld(t_cor *cor, t_process *process)
 {
 	int	sk;
 
@@ -43,19 +62,7 @@ void		comm_lld(t_cor *cor, t_process *process)
 		codage_identify(process, get_char(cor, process->pc + 1));
 		process->codage = 1;
 		sk = arg_read(cor, process);
-		if (process->codage == 1 && process->arg2 > 0 && process->arg2 < 17)
-		{
-			process->registr[process->arg2 - 1] = process->arg1;
-			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-			{
-				ft_printf("P% 5d | lld %d r%d\n",
-					process->count_num, get_reg(process, process->arg2 - 1), process->arg2);
-			}
-			if (process->registr[process->arg2 - 1] == 0)
-				process->carry = 1;
-			else
-				process->carry = 0;
-		}
+		lld_a_arg(cor, process);
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;
 		process->codage = 1;

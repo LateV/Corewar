@@ -40,6 +40,7 @@ SRC	=	main.c 					\
 		validate_players.c 		\
 		validate_players2.c 	\
 		usadge.c 				\
+		new_player.c 			\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
@@ -114,4 +115,4 @@ re: fclean all
 
 vpath %.c $(SRC_DIR)
 
-.PHONY: all fclean clean re 
+.PHONY: all fclean clean re $(LIBFT) $(LIBPRINTF)

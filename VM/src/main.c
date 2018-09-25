@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void	init_players(t_cor *cor)
+inline static void			init_players(t_cor *cor)
 {
 	int	i;
 
@@ -25,42 +25,46 @@ void	init_players(t_cor *cor)
 	}
 }
 
-void	def_num(t_cor *cor)
+inline static void			def_num2(t_cor *cor, int i)
 {
 	int	k;
-	int	i;
 
 	k = 0;
+	cor->def_num = 1;
+	while (cor->def_num < 5)
+	{
+		while (k < 4)
+		{
+			if (cor->def_num == cor->player[k].num)
+				break ;
+			k++;
+		}
+		if (k == 4)
+		{
+			cor->player[i].num = cor->def_num;
+			k = 0;
+			break ;
+		}
+		k = 0;
+		cor->def_num++;
+	}
+}
+
+inline static void			def_num(t_cor *cor)
+{
+	int	i;
+
 	i = 0;
 	cor->def_num = 1;
 	while (i < cor->p_num)
 	{
 		if (cor->player[i].num == -2)
-		{
-			cor->def_num = 1;
-			while (cor->def_num < 5)
-			{
-				while (k < 4)
-				{
-					if (cor->def_num == cor->player[k].num)
-						break ;
-					k++;
-				}
-				if (k == 4)
-				{
-					cor->player[i].num = cor->def_num;
-					k = 0;
-					break ;
-				}
-				k = 0;
-				cor->def_num++;
-			}
-		}
+			def_num2(cor, i);
 		i++;
 	}
 }
 
-void	reader(t_cor *cor, int argc, char **argv)
+inline static void			reader(t_cor *cor, int argc, char **argv)
 {
 	int i;
 	int j;
@@ -83,7 +87,7 @@ void	reader(t_cor *cor, int argc, char **argv)
 	}
 }
 
-int		main(int argc, char **argv)
+int							main(int argc, char **argv)
 {
 	t_cor cor;
 
