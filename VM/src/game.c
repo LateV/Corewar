@@ -102,6 +102,7 @@ void					game(t_cor *cor)
 	{
 		if (cor->visu == 1)
 		{
+			for_getch(cor);
 			if (cor->cycles > cor->start_from)
 			{
 				refresh_vizu(cor);
