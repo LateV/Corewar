@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-void					add_player(t_cor *cor, t_player *player, int k)
+void						add_player(t_cor *cor, t_player *player, int k)
 {
 	t_process	*tmp;
 	t_process	*new;
@@ -30,7 +30,7 @@ void					add_player(t_cor *cor, t_player *player, int k)
 	draw_palyer_info(cor, new, k);
 }
 
-void					add_players(t_cor *cor)
+void						add_players(t_cor *cor)
 {
 	int k;
 
@@ -52,7 +52,7 @@ void					add_players(t_cor *cor)
 	}
 }
 
-void					data_to_arena(t_cor *cor, int pos,
+void						data_to_arena(t_cor *cor, int pos,
 	t_process *proc, unsigned int size)
 {
 	unsigned int i;
@@ -72,7 +72,18 @@ void					data_to_arena(t_cor *cor, int pos,
 		cor->vizu->map[pos].type = 1;
 }
 
-void					game_init(t_cor *cor)
+inline static void			to_norm(t_cor *cor, t_process *tmp, int pos)
+{
+	data_to_arena(cor, pos, tmp, tmp->player->prog_size);
+	if (cor->visu == 0)
+		ft_printf("* Player %d, weighing %d bytes, \"%s\" \
+(\"%s\") !\n", tmp->player->num * (-1),
+tmp->player->prog_size, tmp->player->prog_name,
+tmp->player->comment);
+	tmp->pc = pos;
+}
+
+void						game_init(t_cor *cor)
 {
 	int			pos;
 	int			num_pl;
@@ -90,13 +101,7 @@ void					game_init(t_cor *cor)
 		{
 			if (num_pl == tmp->player->num)
 			{
-				data_to_arena(cor, pos, tmp, tmp->player->prog_size);
-				if (cor->visu == 0)
-					ft_printf("* Player %d, weighing %d bytes, \"%s\" \
-(\"%s\") !\n", tmp->player->num * (-1),
-						tmp->player->prog_size, tmp->player->prog_name,
-						tmp->player->comment);
-				tmp->pc = pos;
+				to_norm(cor, tmp, pos);
 				pos += MEM_SIZE / cor->p_num;
 			}
 			tmp = tmp->next;

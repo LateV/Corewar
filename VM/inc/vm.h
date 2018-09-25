@@ -148,6 +148,11 @@ typedef struct			s_cor
 
 char					get_char(t_cor *cor, int loc);
 short					get_short(t_cor *cor, int loc);
+void					wasted_live1(t_cor *cor);
+void					end_game(t_cor *cor);
+void					max_ch(t_cor *cor);
+void					max_live(t_cor *cor);
+void					del_first(t_cor *cor);
 t_process				*player_b(t_cor *cor, t_player *player, int k);
 int						manage_flags(t_cor *cor, char **argv, int i);
 int						val_int(t_cor *cor, char *flag, char *value);

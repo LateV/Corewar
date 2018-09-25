@@ -41,6 +41,7 @@ SRC	=	main.c 					\
 		validate_players2.c 	\
 		usadge.c 				\
 		new_player.c 			\
+		wasted_live.c 			\
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

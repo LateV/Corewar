@@ -75,9 +75,9 @@ inline static void		check_name(t_cor *cor, int fd, int i)
 
 	j = 0;
 	ret = read(fd, &cor->player[i].prog_name, PROG_NAME_LENGTH);
-	while(j < ret)
+	while (j < ret)
 	{
-		if(cor->player[i].prog_name[j] != 0)
+		if (cor->player[i].prog_name[j] != 0)
 			break ;
 		j++;
 	}
