@@ -81,9 +81,9 @@ void		check_all_param(t_header *header)
 	int			i;
 
 	tmp = header->cmd_list;
-	if (ft_strlen(header->bot_name) > 128)
+	if (ft_strlen(header->bot_name) > PROG_NAME_LENGTH)
 		error_cases(7, &header, header->name_line);
-	if (ft_strlen(header->comment) > 2048)
+	if (ft_strlen(header->comment) > COMMENT_LENGTH)
 		error_cases(8, &header, header->cmt_line);
 	while (tmp)
 	{
