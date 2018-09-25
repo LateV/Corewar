@@ -32,7 +32,6 @@ t_def_cmd		g_cmd_def[17] = {
 	{0, "NULL", 1, {0, 0, 0}, {0, 0, 0}, {0, 0}, 0, 0}
 };
 
-
 int				check_extension(const char **str, int y)
 {
 	size_t		len;
@@ -58,5 +57,6 @@ int				main(int argc, char const *argv[])
 	}
 	else
 		ft_printf("Usage: ./asm <sourcefile.s>\n");
+	system("leaks asm");
 	return (0);
 }

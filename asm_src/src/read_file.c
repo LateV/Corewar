@@ -97,6 +97,8 @@ void	read_file(const char *str, t_header **header)
 	}
 	if (line == NULL)
 		error_exit("Error,", "empty file");
+	else
+		free(line);
 	(*header)->file_name = ft_strdup(str);
 	validate_params(header);
 	count_pointer(*header);

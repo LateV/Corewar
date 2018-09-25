@@ -42,7 +42,8 @@ int		check_label_chars(t_command *node)
 	char	*str;
 
 	i = -1;
-	str = node->line;
+	if (ft_strlen((str = node->line)) == 1)
+		return (-1);
 	while (str[++i])
 		if (str[i] == LABEL_CHAR)
 		{
