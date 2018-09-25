@@ -12,16 +12,12 @@
 
 #include "vm.h"
 
-void	add_proc(t_cor *cor, t_process *process, int loc)
+t_process		*new_proc_init(t_cor *cor, t_process *process, int loc)
 {
 	t_process	*new;
 	int			i;
 
 	i = -1;
-	while (loc >= MEM_SIZE)
-		loc = loc - MEM_SIZE;
-	while (loc < 0)
-		loc = loc + MEM_SIZE;
 	if (cor->process)
 	{
 		new = ft_memalloc(sizeof(t_process));
@@ -39,13 +35,27 @@ void	add_proc(t_cor *cor, t_process *process, int loc)
 		new->ind_loc = -1;
 		new->player = process->player;
 		new->count_num = cor->proc_num;
+		return (new);
+	}
+	else
+		return (NULL);
+}
+
+void			add_proc(t_cor *cor, t_process *process, int loc)
+{
+	while (loc >= MEM_SIZE)
+		loc = loc - MEM_SIZE;
+	while (loc < 0)
+		loc = loc + MEM_SIZE;
+	if (cor->process)
+	{
+		cor->process = new_proc_init(cor, process, loc);
 		cor->proc_num++;
-		cor->process = new;
 		cor->alive_cur++;
 	}
 }
 
-void	comm_fork(t_cor *cor, t_process *process)
+void			comm_fork(t_cor *cor, t_process *process)
 {
 	int sk;
 

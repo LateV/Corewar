@@ -114,4 +114,4 @@ re: fclean all
 
 vpath %.c $(SRC_DIR)
 
-.PHONY: all fclean clean re 
+.PHONY: all fclean clean re $(LIBFT) $(LIBPRINTF)

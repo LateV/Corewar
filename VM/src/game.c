@@ -44,7 +44,8 @@ void	flag_output(t_cor *cor)
 		print_map(cor);
 		exit(0);
 	}
-	while (cor->s <= cor->cycles && cor->s > 0 && cor->visu == 0 && cor->dump == 0)
+	while (cor->s <= cor->cycles && cor->s > 0 &&
+		cor->visu == 0 && cor->dump == 0)
 	{
 		print_map(cor);
 		read(0, &buff, 1);
@@ -106,7 +107,8 @@ void	game(t_cor *cor)
 		}
 		else
 		{
-			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
+			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+				(cor->mon == cor->cycles || cor->log == 1))
 				ft_printf("It is now cycle %d\n", cor->cycles);
 		}
 		flag_output(cor);
