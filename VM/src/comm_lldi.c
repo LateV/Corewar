@@ -49,6 +49,22 @@ static int	arg_val_hendler(t_process *process)
 	return (1);
 }
 
+void		lldi_a_arg(t_cor *cor, t_process *process)
+{
+	process->registr[process->arg3 - 1] = get_int(cor,
+		(((process->arg1 + process->arg2)) + process->pc));
+	if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+		(cor->mon == cor->cycles || cor->log == 1))
+	{
+		ft_printf("P% 5d | lldi %d %d r%d\n       \
+			| -> load from %d + %d = %d (with pc %d)\n",
+			process->count_num, process->arg1, process->arg2,
+			process->arg3, process->arg1,
+			process->arg2, process->arg1 + process->arg2,
+			process->pc + (process->arg1 + process->arg2));
+	}
+}
+
 void		comm_lldi(t_cor *cor, t_process *process)
 {
 	int sk;
@@ -66,16 +82,7 @@ void		comm_lldi(t_cor *cor, t_process *process)
 		if (process->codage == 1 && process->arg3 > 0 && process->arg3 < 17)
 		{
 			if (arg_val_hendler(process))
-			{
-				process->registr[process->arg3 - 1] = get_int(cor,
-					(((process->arg1 + process->arg2)) + process->pc));
-				if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-				{
-					ft_printf("P% 5d | lldi %d %d r%d\n       | -> load from %d + %d = %d (with pc %d)\n",
-						process->count_num, process->arg1, process->arg2, process->arg3, process->arg1,
-						process->arg2, process->arg1 + process->arg2, process->pc + (process->arg1 + process->arg2));
-				}
-			}
+				lldi_a_arg(cor, process);
 			if (process->registr[process->arg3 - 1] == 0)
 				process->carry = 1;
 			else
@@ -83,7 +90,6 @@ void		comm_lldi(t_cor *cor, t_process *process)
 		}
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;
-		process->codage = 1;
 		process->command = -1;
 	}
 }

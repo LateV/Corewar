@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-static int		arg_read(t_cor *cor, t_process *process)
+static int			arg_read(t_cor *cor, t_process *process)
 {
 	int s;
 
@@ -32,7 +32,7 @@ static int		arg_read(t_cor *cor, t_process *process)
 	return (s);
 }
 
-static int		arg_val_hendler(t_process *process)
+static int			arg_val_hendler(t_process *process)
 {
 	if (process->arg_type[0] == 1)
 	{
@@ -49,7 +49,24 @@ static int		arg_val_hendler(t_process *process)
 	return (1);
 }
 
-void			comm_ldi(t_cor *cor, t_process *process)
+void				ldi_a_arg(t_cor *cor, t_process *process)
+{
+	process->registr[process->arg3 - 1] = get_int(cor,
+		(((process->arg1 + process->arg2) % IDX_MOD) + process->pc));
+	if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+		(cor->mon == cor->cycles || cor->log == 1))
+	{
+		ft_printf("P% 5d | ldi %d %d r%d\n       | -> load from \
+			%d + %d = %d (with pc and mod %d)\n",
+			process->count_num, process->arg1,
+			process->arg2, process->arg3, process->arg1,
+			process->arg2, process->arg1 + process->arg2,
+			process->pc + ((process->arg1 +
+				process->arg2) % IDX_MOD));
+	}
+}
+
+void				comm_ldi(t_cor *cor, t_process *process)
 {
 	int sk;
 
@@ -66,16 +83,7 @@ void			comm_ldi(t_cor *cor, t_process *process)
 		if (process->codage == 1 && process->arg3 > 0 && process->arg3 < 17)
 		{
 			if (arg_val_hendler(process))
-			{
-				process->registr[process->arg3 - 1] = get_int(cor,
-					(((process->arg1 + process->arg2) % IDX_MOD) + process->pc));
-				if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 && (cor->mon == cor->cycles || cor->log == 1))
-				{
-					ft_printf("P% 5d | ldi %d %d r%d\n       | -> load from %d + %d = %d (with pc and mod %d)\n",
-						process->count_num, process->arg1, process->arg2, process->arg3, process->arg1,
-						process->arg2, process->arg1 + process->arg2, process->pc + ((process->arg1 + process->arg2) % IDX_MOD));
-				}
-			}
+				ldi_a_arg(cor, process);
 		}
 		set_proc_pos(cor, process, sk);
 		process->delay = -1;

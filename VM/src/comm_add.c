@@ -17,6 +17,8 @@ static int	arg_read(t_cor *cor, t_process *process)
 	int s;
 
 	s = 2;
+	codage_identify(process, get_char(cor, process->pc + 1));
+	process->codage = 1;
 	if (process->arg1 != 1 || process->arg3 != 1 || process->arg2 != 1)
 		process->codage = 0;
 	s = arg_handler(cor, process, &process->arg1, s);
@@ -49,8 +51,6 @@ void		comm_add(t_cor *cor, t_process *process)
 	if (process->delay == 0)
 	{
 		process->label = 4;
-		codage_identify(process, get_char(cor, process->pc + 1));
-		process->codage = 1;
 		sk = arg_read(cor, process);
 		if (process->codage == 1 && process->arg1 > 0 && process->arg2 > 0 &&
 			process->arg3 > 0 &&
