@@ -92,7 +92,7 @@ int							main(int argc, char **argv)
 	t_cor cor;
 
 	if (argc == 1)
-		usadge();
+		usadge(argv[0]);
 	ft_bzero(&cor, sizeof(t_cor));
 	cor.pause = 1;
 	cor.proc_num = 1;
@@ -106,7 +106,7 @@ int							main(int argc, char **argv)
 	cor.def_num = 1;
 	cor.curr_cycle_t_d = CYCLE_TO_DIE;
 	if (cor.p_num == 0)
-		usadge();
+		usadge(argv[0]);
 	to_map(&cor);
 	system("leaks -quiet corewar");
 	return (0);

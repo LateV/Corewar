@@ -22,27 +22,27 @@
 
 # define BUFF_SIZE 200
 
-typedef struct		s_fd
+typedef struct	s_fd
 {
-	int				fd;
-	char			*remainder;
-}					t_fd;
+	int					fd;
+	char				*remainder;
+}				t_fd;
 
 typedef struct	s_list
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
+	void				*content;
+	size_t				content_size;
+	struct s_list		*next;
 }				t_list;
 
 typedef struct	s_gnl_struct
 {
-	char				*content;
-	char				*posle;
-	int					fd;
-	int					pos;
-	char				**ret;
-	struct s_gnl_struct	*next;
+	char					*content;
+	char					*posle;
+	int						fd;
+	int						pos;
+	char					**ret;
+	struct s_gnl_struct		*next;
 }				t_gnl_struct;
 
 int				ft_isalpha(int c);
@@ -137,5 +137,5 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstnew(void const *content, size_t content_size);
 
 char			*ft_strnstr(const char *haystack,
-const char *needle, size_t len);
+	const char *needle, size_t len);
 #endif

@@ -24,6 +24,10 @@ inline static void		live_a_arg(t_cor *cor, t_process *process)
 			cor->winner = &cor->player[i];
 			cor->player[i].last_live = cor->cycles;
 			cor->player[i].live_summ++;
+			if (cor->visu == 0 && cor->dump == 0 && cor->s == 0 &&
+			(cor->mon == cor->cycles || cor->log == 1))
+				ft_printf("A process shows that player %d (%s) is alive\n",
+				process->player->num * (-1), process->player->prog_name);
 			if (cor->visu == 1)
 			{
 				cor->vizu->map[process->pc].car_player =

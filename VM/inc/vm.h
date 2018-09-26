@@ -172,12 +172,11 @@ void					bot_comment(t_cor *cor, int fd, int i);
 void					bot_code(t_cor *cor, int fd, int i);
 void					print_map(t_cor *cor);
 void					ft_error(t_cor *cor, char *error);
-void					usadge(void);
 void					flag_output(t_cor *cor);
 void					process_activity(t_cor *cor);
 void					set_proc_pos(t_cor *cor, t_process *process, int shift);
 void					to_map(t_cor *cor);
-void					usadge(void);
+void					usadge(char *name);
 void					init_comand_function(t_cor *cor);
 void					load_from_reg(t_cor *cor,
 	t_process *process, int loc, int r_num);
