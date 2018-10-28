@@ -60,7 +60,7 @@ It will read the assembly’s code processed from the file .s given as argument,
 ```sh
 ./corewar -v Car.cor Anchor.cor Gagnant.cor Octobre_Rouge_V4.2.cor 
 ```
-![Alt Text](Corewar/screenshots/Screen Shot 2018-10-28 at 4.33.39 PM.png)
+![Alt Text] (Corewar/screenshots/Screen Shot 2018-10-28 at 4.33.39 PM.png)
 
 
-![Alt Text](Corewar/screenshots/Screen Shot 2018-10-28 at 4.34.17 PM.png)
+![Alt Text] (Corewar/screenshots/Screen Shot 2018-10-28 at 4.34.17 PM.png)
